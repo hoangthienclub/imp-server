@@ -8,6 +8,7 @@ import middleware from './middleware';
 import api from './api';
 import config from './config.json';
 import dotenv from 'dotenv'
+import socket from './socket/socket';
 
 dotenv.config()
 let app = express();
@@ -36,6 +37,8 @@ initializeDb( db => {
 	app.server.listen(process.env.PORT || config.port, () => {
 		console.log(`Started on port ${app.server.address().port}`);
 	});
+
+	socket(app.server);
 });
 
 export default app;
