@@ -9,6 +9,7 @@ import api from './api';
 import config from './config.json';
 import dotenv from 'dotenv'
 import socket from './socket/socket';
+
 require('./models/index');
 
 dotenv.config()

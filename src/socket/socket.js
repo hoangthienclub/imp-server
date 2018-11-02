@@ -7,7 +7,7 @@ module.exports = (server) => {
 	console.log('test connect')
 	let io = new SocketIO(server);
 	io.on('connection', (socket) => {
-		console.log('connect')
+		console.log(`${socket.id} connect`)
 		onVerifyingUser(io, socket);
 	});
 }
@@ -24,7 +24,7 @@ function onConnected(io, socket) {
 
 function onDisconnect(io, socket) {
     socket.on('disconnect', function () {
-  	    console.log('disconnect')
+  	    console.log(`${socket.id} disconnect`)
     });
 }
 
