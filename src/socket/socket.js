@@ -1,5 +1,6 @@
 import SocketIO from 'socket.io';
 import * as KEY from './key';
+import mongoose from 'mongoose';
 
 module.exports = (server) => {
 	console.log('-----------------------------------------------------------');
@@ -30,7 +31,7 @@ function onDisconnect(io, socket) {
 function onListenFunctions(io, socket) {
 	socket.on(KEY.SEND_MESSAGE,(data) => {
 		console.log('send message');
-		socketMessage(io, socket, data);
+		sendMessage(io, socket, data);
 	});
 
 
@@ -41,30 +42,27 @@ function onListenFunctions(io, socket) {
 
 }
 
-function socketMessage(io, socket, data) {
-    io.sockets.in(data._id).emit(KEY.SEND_MESSAGE, executeResponse({ message : 'data' }));
+function sendMessage(io, socket, data) {
+	const id = data.id;
+	// const newMsg = createChatMessage({
+	// 	desc: data.desc
+	// });
+	io.to(`${id}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : data.desc }));
 }
 
 function socketTypingMessage(io, socket, data) {
-    socket.broadcast.to('id room').emit(KEY.TYPING, executeResponse({message : 'typing'}));
+	const id = data.id;
+    socket.broadcast.to(`${id}`).emit(KEY.TYPING, executeResponse({ message : 'typing' }));
 }
 
-// function createChatMessage(data) {
-// 	let chatRoomId = data._id;
-// 	let msg = JSON.parse(JSON.stringify(data));
-// 	if (msg._id) delete msg._id;
-// 	let chatMessage = new ChatMessage(msg);
-// 	chatMessage.chatRoomId = chatRoomId; // exist status : announcement
-// 	if (data.message) chatMessage.desc = data.message;
-// 	if (data.file) chatMessage.file = data.file;
-// 	chatMessage.creatorId = data.userId;
-// 	if (data.status) chatMessage.status = data.status;
-// 	if (data.members) {chatMessage.members = data.members}
-// 	if (data.firstMessageDay) chatMessage.firstMessageDay = true;
-// 	chatMessage.companyId = data.companyId;
-// 	return chatMessage;
-// }
-
+function createChatMessage(data) {
+	const ChatMessage = mongoose.model('ChatMessage');
+	let chatMessage = new ChatMessage({
+		desc: data.desc,
+		creatorId: data.createrId
+	});
+	return chatMessage;
+}
 
 function executeResponse(data){
 	return {
@@ -78,5 +76,5 @@ function error(socket, err) {
 	if (err) {
 		console.log(err)
 	};
-	return socket.emit(keyChat.error, executeResponse(code.ERROR));
+	return socket.emit(KEY.ERROR, executeResponse('error'));
 } 
