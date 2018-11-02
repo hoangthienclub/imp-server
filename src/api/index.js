@@ -1,7 +1,7 @@
 import { version } from '../../package.json';
 import { Router } from 'express';
 import message from './routers/message';
-import Reponse from './../lib/buildResponse';
+import buildResponse from './../lib/buildResponse';
 
 export default ({ config, db }) => {
 	let api = Router();
@@ -15,7 +15,7 @@ export default ({ config, db }) => {
 	});
 
 	
-	Reponse(api)
+	buildResponse(api)
 	return api;
 }
 
