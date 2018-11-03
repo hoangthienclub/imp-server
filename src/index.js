@@ -1,3 +1,4 @@
+import polyfill from 'babel-polyfill';
 import http from 'http';
 import express from 'express';
 import cors from 'cors';
@@ -8,6 +9,7 @@ import middleware from './middleware';
 import api from './api';
 import config from './config.json';
 import socket from './socket/socket';
+import 'babel-polyfill'
 require('dotenv').config()
 
 let app = express();
