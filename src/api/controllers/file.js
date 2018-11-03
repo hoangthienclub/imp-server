@@ -21,7 +21,7 @@ module.exports = {
             upload(req, res, function (err) {
                 let promises = req.files.map(async file => {
                     let item = new File({
-                        namePath : file.filename,
+                        pathName : file.filename,
                         name: file.originalname, 
                         size : file.size,
                         type: path.extname(file.originalname)
@@ -40,8 +40,8 @@ module.exports = {
     getFile: async (req, res, next) => {
         try {
             const file = await File.findById(req.params.fileId)
-            const x = path.join(pathFile, file._id + file.type);
-            const y = file.name + file.type;
+            const x = path.join(pathFile, file.pathName);
+            const y = file.name;
             res.download(x, y);
         }
         catch (err) {
@@ -52,22 +52,13 @@ module.exports = {
     updateFile: async (req, res, next) => {
         try {
             var oldFile = await File.findById(req.params.fileId)
-            const x = path.join(pathFile, oldFile._id + oldFile.type);
+            const x = path.join(pathFile, oldFile.pathName);
             fs.unlinkSync(x);
-            var upload = multer({storage : multer.diskStorage(
-                {
-                    destination: function (req, file, callback) {
-                        callback(null, pathFile);
-                    },
-                    filename: function (req, file, callback) {
-                        oldFile.type = path.extname(file.originalname);
-                        callback(null, oldFile._id + path.extname(file.originalname));
-                }
-            })}).single('file');
 
             upload(req, res, async (err) => {
-                oldFile.size = req.file.size;
-                oldFile.name = path.basename(req.file.originalname, path.extname(req.file.originalname));
+                oldFile.size = req.files[0].size;
+                oldFile.pathName = req.files[0].filename;
+                oldFile.name = req.files[0].originalname;
                 const newFile = await oldFile.save();
                 res.data = newFile;
                 next();
@@ -81,7 +72,7 @@ module.exports = {
     deleteFile: async (req, res, next) => {
         try {
             const file = await File.findById(req.params.fileId);
-            const x = path.join(pathFile, file._id + file.type);
+            const x = path.join(pathFile, file.pathName);
             fs.unlinkSync(x);
             await file.remove();
             res.data = {};
