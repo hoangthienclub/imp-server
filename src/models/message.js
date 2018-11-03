@@ -34,7 +34,25 @@ const statics = {
 		.skip(data.skippingMessages || 0)
 		.limit(data.maxMessages || 0)
         .catch(err => console.log(err))
-    }
+	},
+	loadFiles: (data) => {
+		const Message = mongoose.model('Message');
+		const filter = {
+			$or: [
+				{
+					creatorId: data.creatorId, 
+					receiverId: data.receiverId,
+					fileId: { $exists: true }
+				},
+				{
+					creatorId: data.receiverId, 
+					receiverId: data.creatorId,
+					fileId: { $exists: true }
+				}
+			]
+		}
+		return Message.find(filter)
+	}
 }
 messageSchema.methods = methods;
 messageSchema.statics = statics;
