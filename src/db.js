@@ -1,9 +1,9 @@
-import databases from './databases';
+import { mongodb, redis } from './databases';
 import Session from 'express-session';
 
 export default callback => {
 	// connect to a database if needed, then pass it to `callback`:
-	databases.mongodb();
-	databases.redis(Session);
+	mongodb();
+	redis(Session);
 	callback();
 }

@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import log from '../helpers/log';
+require('dotenv').config()
 
 mongoose.Promise = Promise;
 const dbHost = process.env.MONGO_HOST;
@@ -18,7 +19,7 @@ function connect() {
   .catch(() => {});
 }
 
-module.exports = () => {
+export default () => {
   const db = mongoose.connection;
   db.on('connecting', () => {
     log.dev('Connecting to MongoDB...');
@@ -45,6 +46,5 @@ module.exports = () => {
     log.error(`MongoDB disconnected! Reconnecting in ${reconnectTimeout / 1000}s...`);
     setTimeout(() => connect(), reconnectTimeout);
   });
-
   connect();
 };
