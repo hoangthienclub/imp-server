@@ -1,7 +1,6 @@
 import path from 'path';
 import multer from 'multer';
 import fs from 'fs';
-import mongoose from 'mongoose';
 import File from './../../models/file';
 import { mapFile } from './../../utils/mapping';
 

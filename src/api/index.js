@@ -16,7 +16,6 @@ export default ({ config, db }) => {
 		res.json({ version });
 	});
 
-	
 	buildResponse(api)
 	return api;
 }

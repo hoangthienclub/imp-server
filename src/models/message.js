@@ -2,10 +2,10 @@ import mongoose, { Schema } from 'mongoose';
 
 const messageSchema = new Schema({
 	desc : {type : String},
-	file : {type : Schema.Types.ObjectId,ref : 'File'},
+	fileId : {type : Schema.Types.ObjectId,ref : 'File'},
 	status : {type : Number, default : 1}, // 1 la msg, 2 la edit, 3 la remove, 4 file
-	creatorId : {type : Schema.ObjectId },
-	receiverId : {type : Schema.ObjectId },
+	creatorId : String,
+	receiverId : String,
 	createdDate : {type : Date, default : Date.now},
 	firstMessageDay : {type : Boolean,default : false}
 });
@@ -15,10 +15,24 @@ const methods = {
 };
 
 const statics = {
-    loadMsgs: (filter) => {
-        const ChatMessage = mongoose.model('ChatMessage');
-        return ChatMessage.find(filter)
-        .sort({createdDate: -1})
+    loadMsgs: (data) => {
+		const Message = mongoose.model('Message');
+		let filter = {
+			$or: [
+				{
+					creatorId: data.creatorId, 
+					receiverId: data.receiverId
+				},
+				{
+					creatorId: data.receiverId, 
+					receiverId: data.creatorId
+				}
+			]
+		}
+        return Message.find(filter)
+		.sort({createdDate: -1})
+		.skip(data.skippingMessages || 0)
+		.limit(data.maxMessages || 0)
         .catch(err => console.log(err))
     }
 }
