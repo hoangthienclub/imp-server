@@ -3,8 +3,9 @@ import multer from 'multer';
 import fs from 'fs';
 import mongoose from 'mongoose';
 import File from './../../models/file';
-const pathFile = './src/files/';
+import { mapFile } from './../../utils/mapping';
 
+const pathFile = './src/files/';
 var upload = multer({storage : multer.diskStorage(
     {
         destination: function (req, file, callback) {
@@ -76,6 +77,17 @@ module.exports = {
             fs.unlinkSync(x);
             await file.remove();
             res.data = {};
+            next();
+        }
+        catch (err) {
+            console.log(err)
+        }
+    },
+
+    listFile: async (req, res, next) => {
+        try {
+            const files = await File.find();
+            res.data = files.map(mapFile);
             next();
         }
         catch (err) {

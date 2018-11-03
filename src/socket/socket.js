@@ -4,7 +4,6 @@ import mongoose from 'mongoose';
 
 module.exports = (server) => {
 	console.log('-----------------------------------------------------------');
-	console.log('test connect')
 	let io = new SocketIO(server);
 	io.on('connection', (socket) => {
 		console.log(`${socket.id} connect`)
