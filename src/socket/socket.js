@@ -1,6 +1,6 @@
 import SocketIO from 'socket.io';
 import * as KEY from './key';
-import mongoose from 'mongoose';
+import Message from './../models/message';
 
 module.exports = (server) => {
 	console.log('-----------------------------------------------------------');
@@ -33,34 +33,59 @@ function onListenFunctions(io, socket) {
 		sendMessage(io, socket, data);
 	});
 
-
 	socket.on(KEY.TYPING,(data) => {
-		console.log('typing');
-		socketTypingMessage(io, socket, data);
+		console.log('typing message');
+		socketTyping(io, socket, data);
+	});
+
+	socket.on(KEY.EDIT_MESSAGE,(data) => {
+		console.log('edit message');
+		editMessage(io, socket, data);
+	});
+
+	socket.on(KEY.DEL_MESSAGE,(data) => {
+		console.log('del message');
+		delMessage(io, socket, data);
 	});
 
 }
 
 function sendMessage(io, socket, data) {
 	const id = data.id;
-	// const newMsg = createChatMessage({
-	// 	desc: data.desc
-	// });
+	const newMsg = Message({
+		desc: data.desc,
+		creatorId : 1,
+		receiverId : 2,
+	});
+	
 	io.to(`${id}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : data.desc }));
 }
 
-function socketTypingMessage(io, socket, data) {
+function editMessage(io, socket, data) {
 	const id = data.id;
-    socket.broadcast.to(`${id}`).emit(KEY.TYPING, executeResponse({ message : 'typing' }));
+	const newMsg = Message({
+		desc: data.desc,
+		creatorId : 1,
+		receiverId : 2,
+	});
+	
+	io.to(`${id}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : data.desc }));
 }
 
-function createChatMessage(data) {
-	const ChatMessage = mongoose.model('ChatMessage');
-	let chatMessage = new ChatMessage({
+function delMessage(io, socket, data) {
+	const id = data.id;
+	const newMsg = Message({
 		desc: data.desc,
-		creatorId: data.createrId
+		creatorId : 1,
+		receiverId : 2,
 	});
-	return chatMessage;
+	
+	io.to(`${id}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : data.desc }));
+}
+
+function socketTyping(io, socket, data) {
+	const id = data.id;
+	io.to(`${id}`).emit(KEY.TYPING, executeResponse({ message : 'typing ' }));
 }
 
 function executeResponse(data){
