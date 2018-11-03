@@ -5,23 +5,15 @@ import mongoose from 'mongoose';
 import File from './../../models/file';
 const pathFile = './src/files/';
 
-const handleFileName = (filename) => {
-	let arrName = filename.replace(/[^A-Za-z0-9.-]/g, '_').split(' ').join('').split(".");
-	let ext = "." + arrName.pop();
-	return arrName.join('') + ext;
-}
-
 var upload = multer({storage : multer.diskStorage(
     {
         destination: function (req, file, callback) {
             callback(null, pathFile);
         },
         filename: function (req, file, callback) {
-            callback(null, handleFileName(file.originalname));
+            callback(null, Date.now().toString());
     }
 })}).array('attachment');
-
-
 
 module.exports = {
     createFile: async (req, res, next) => {
@@ -29,8 +21,10 @@ module.exports = {
             upload(req, res, function (err) {
                 let promises = req.files.map(async file => {
                     let item = new File({
-                        name : file.filename,
-                        size : file.size
+                        namePath : file.filename,
+                        name: file.originalname, 
+                        size : file.size,
+                        type: path.extname(file.originalname)
                     });
                     await item.save();
                 })
