@@ -6,5 +6,6 @@ export default ({ config, db }) => {
 
 	api.get('/', getMessages);
 	api.get('/files', getFiles);
+	
 	return api;
 }
