@@ -14,6 +14,6 @@ const productSchema = new Schema({
 	category: [{
 		type : Schema.Types.ObjectId, ref : 'Category'
 	}],
-});
+}, { timestamps: true });
 
-module.exports = mongoose.model('Coupon', couponSchema);
+module.exports = mongoose.model('Product', productSchema);``
