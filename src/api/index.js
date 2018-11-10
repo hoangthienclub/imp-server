@@ -4,6 +4,7 @@ import message from './routers/message';
 import file from './routers/file';
 import product from './routers/product';
 import category from './routers/category';
+import couponroot from './routers/couponroot';
 import buildResponse from './../lib/buildResponse';
 
 export default ({ config, db }) => {
@@ -19,6 +20,7 @@ export default ({ config, db }) => {
 	api.use('/file', file({ config, db }));
 	api.use('/product', product({ config, db }));
 	api.use('/category', category({ config, db }));
+	api.use('/couponroot', couponroot({ config, db }));
 
 	// perhaps expose some API metadata at the root
 	api.get('/', (req, res) => {
