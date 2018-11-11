@@ -23,7 +23,18 @@ module.exports = {
 
     getCouponRoot: async (req, res, next) => {
         try {
-            const newCouponRoot = await find(CouponRoot);
+            req.user = {};
+            req.user.companyId = '5be68168de375d160c9c2cd8';
+            let filter = {
+                companyId: req.user.companyId
+            };    
+            if (req.query.text) {
+                filter.$or = [ 
+                    { name: {$regex: req.query.text, $options: 'i'}}, 
+                    { desc:  {$regex: req.query.text, $options: 'i'}}
+                ] 
+            }
+            const newCouponRoot = await find(CouponRoot, filter);
             res.data = newCouponRoot;
             next();
         }
