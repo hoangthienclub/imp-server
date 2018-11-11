@@ -6,9 +6,9 @@ export default ({ config, db }) => {
 
 	api.get('/', getProduct);
 	api.post('/', createProduct);
-    api.get('/:productId', getProductDetail);
-    api.put('/:productId', updateProduct);
-    api.delete('/:productId', deleteProduct);
+    api.get('/:id', getProductDetail);
+    api.put('/:id', updateProduct);
+    api.delete('/:id', deleteProduct);
     
 	return api;
 }

@@ -30,8 +30,8 @@ module.exports = {
 
     getCategoryDetail: async (req, res, next) => {
         try {
-            const listCategory = await findById(Category, req.params.id)
-            res.data = listCategory;
+            const category = await findById(Category, req.params.id)
+            res.data = category;
             next();
         }
         catch (err) {
@@ -42,8 +42,8 @@ module.exports = {
 
     updateCategory: async (req, res, next) => {
         try {
-            const update = await update(Category, { ...req.body, _id: req.params.id });
-            res.data = update;
+            const updateCategory = await update(Category, { ...req.body, _id: req.params.id });
+            res.data = updateCategory;
             next();
         }
         catch (err) {
