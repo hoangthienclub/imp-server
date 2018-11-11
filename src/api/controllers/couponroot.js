@@ -1,5 +1,6 @@
 import fs from 'fs';
 import CouponRoot from './../../models/couponroot';
+import Coupon from './../../models/coupon';
 import { mapMessage } from './../../utils/mapping';
 import { create, find, findById, update, deleteFn } from '../../utils/handle';
 import { generate } from 'randomstring';
@@ -70,8 +71,20 @@ module.exports = {
 
     deliveryCouponRoot: async (req, res, next) => {
         try {
-            const newCouponRoot = await create(CouponRoot, req.body);
-            res.data = newCouponRoot;
+            let arr = req.body.map(key => {
+                return new Promise((resolve, reject) => {
+                    create(Coupon, {
+                        hashCode: generate(),
+                        issueedToUser: key,
+                        couponRootId: req.params.id
+                    })
+                    .then(coupon => {
+                        resolve(coupon);
+                    })
+                })
+            })
+            await Promise.all(arr);
+            res.data = {};
             next();
         }
         catch (err) {
