@@ -8,8 +8,8 @@ import { generate } from 'randomstring';
 module.exports = {
     createCouponRoot: async (req, res, next) => {
         try {
-            req.body.creatorId = '5be68168de375d160c9c2cd8';
-            req.body.companyId = '5be68168de375d160c9c2cd8';
+            req.body.creatorId = req.user._id;
+            req.body.companyId = req.user.company._id;
             req.body.hashCode = generate();
             const newCouponRoot = await create(CouponRoot, req.body);
             res.data = newCouponRoot;
@@ -23,10 +23,8 @@ module.exports = {
 
     getCouponRoot: async (req, res, next) => {
         try {
-            req.user = {};
-            req.user.companyId = '5be68168de375d160c9c2cd8';
             let filter = {
-                companyId: req.user.companyId
+                companyId: req.user.company._id;
             };    
             if (req.query.text) {
                 filter.$or = [ 

@@ -13,7 +13,13 @@ export default ({ config, db }) => {
 	let api = Router();
 	api.use(function (req, res, next) {
 		try {
-			console.log(req.user)
+			if (req.user) {
+				req.user = req.user.user;
+				next();
+			}
+			else {
+				next(`Dont't have permission!`);
+			}
 		}
 		catch (err) {
 			console.log(err)

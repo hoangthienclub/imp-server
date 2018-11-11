@@ -7,8 +7,6 @@ module.exports = {
 
     getCoupon: async (req, res, next) => {
         try {
-            req.user = {};
-            req.user._id = '5be7af9baf3c452fe1bd1288';
             const newCoupon = await find(Coupon, { issueedToUser: req.user._id });
             res.data = newCoupon;
             next();
@@ -22,7 +20,6 @@ module.exports = {
     recivedCoupon: async (req, res, next) => {
         try {
             req.user = {};
-            req.user._id = '5be7af9baf3c452fe1bd1288';
             const newCoupon = await update(Coupon, {
                 _id: req.params.id,
                 acceptedUser: req.user._id
