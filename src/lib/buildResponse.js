@@ -12,7 +12,7 @@ export default (api) => {
 		return !res.headersSent ? res.json({
 			success: false,
 			code: err.code || 500,
-			message: err.message || '',
+			message: err || '',
 		}) : null;
 	});
 }

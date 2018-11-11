@@ -1,26 +1,26 @@
 import mongoose, { Schema } from 'mongoose';
 
 const couponSchema = new Schema({
-	companyId: String,
-	name: String,
-	desc: String,
+	companyId: { type: String, required: true },
+	name: { type: String, required: true },
+	desc: { type: String, required: true },
 
 	banner: [{
 		type : Schema.Types.ObjectId,ref : 'File'
 	}],
 
-	type: Number, // 1 for Percent, 2 for Number
-	value: Number, // Value of Discount
+	type: { type: Number, required: true }, // 1 for Percent, 2 for Number
+	value: { type: Number, required: true }, // Value of Discount
 	productCategory: [{
 		type: Schema.Types.ObjectId, ref: "Product"
 	}],
 
 	createdDate : {type : Date, default : Date.now},
-	creatorId: String,
+	creatorId: { type: String, required: true },
 
-	hashCode: String, // QR Code
-	validFrom: Date,
-	validTo: Date,
+	hashCode: { type: String, required: true }, // QR Code
+	validFrom: { type: Date, required: true },
+	validTo: { type: Date, required: true }
 });
 
 module.exports = mongoose.model('CouponRoot', couponSchema);

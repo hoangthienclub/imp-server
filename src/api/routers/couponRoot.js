@@ -6,10 +6,10 @@ export default ({ config, db }) => {
 
 	api.get('/', getCouponRoot);
 	api.post('/', createCouponRoot);
-    api.get('/:couponRootId', getCouponDetailRoot);
-    api.put('/:couponRootId', updateCouponRoot);
-    api.delete('/:couponRootId', deleteCouponRoot);
-    api.post('/:couponRootId', deliveryCouponRoot);
+    api.get('/:id', getCouponDetailRoot);
+    api.put('/:id', updateCouponRoot);
+    api.delete('/:id', deleteCouponRoot);
+    api.post('/:id', deliveryCouponRoot);
     
 	return api;
 }
