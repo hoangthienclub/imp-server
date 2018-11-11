@@ -7,14 +7,18 @@ import category from './routers/category';
 import couponroot from './routers/couponroot';
 import coupon from './routers/coupon';
 import buildResponse from './../lib/buildResponse';
+import { MongoClient} from 'mongodb';
 
 export default ({ config, db }) => {
 	let api = Router();
 	api.use(function (req, res, next) {
-		req.user = {
-			companyId: 'horical'
+		try {
+			console.log(req.user)
 		}
-		next();
+		catch (err) {
+			console.log(err)
+			next(err)
+		}
 	});
 	// mount the facets resource
 	api.use('/message', message({ config, db }));
@@ -32,4 +36,3 @@ export default ({ config, db }) => {
 	buildResponse(api)
 	return api;
 }
-

@@ -10,6 +10,8 @@ import api from './api';
 import config from './config.json';
 import socket from './socket/socket';
 import 'babel-polyfill'
+import bearerToken from 'express-bearer-token';
+
 require('dotenv').config()
 var session = require('express-session');
 var redisStore = require('connect-redis')(session);
@@ -28,6 +30,7 @@ app.use(bodyParser.json({
 	limit : config.bodyLimit
 }));
 
+app.use(bearerToken());
 app.use(session({
     secret: '$2a$06$JzlsL5Ld2P8rzxhYn.aDnuXVqqzAz9.P/H.KMDKIAD7rw0ePtvpAS',
     resave: false,
