@@ -1,13 +1,15 @@
 import fs from 'fs';
 import Coupon from './../../models/coupon';
 import { mapMessage } from './../../utils/mapping';
-import { create} from '../../utils/handle';
+import { create, find, findById, update, deleteFn } from '../../utils/handle';
 
 module.exports = {
 
     getCoupon: async (req, res, next) => {
         try {
-            const newCoupon = await find(Coupon, req.body);
+            req.user = {};
+            req.user._id = '5be7af9baf3c452fe1bd1288';
+            const newCoupon = await find(Coupon, { issueedToUser: req.user._id });
             res.data = newCoupon;
             next();
         }
@@ -19,7 +21,12 @@ module.exports = {
 
     recivedCoupon: async (req, res, next) => {
         try {
-            const newCoupon = await create(Coupon, req.body);
+            req.user = {};
+            req.user._id = '5be7af9baf3c452fe1bd1288';
+            const newCoupon = await update(Coupon, {
+                _id: req.params.id,
+                acceptedUser: req.user._id
+            });
             res.data = newCoupon;
             next();
         }
@@ -30,8 +37,30 @@ module.exports = {
     },
 
     getCouponDetail: async (req, res, next) => {
+        try {
+            const coupon = await findById(Coupon, req.params.id);
+            res.data = coupon;
+            next();
+        }
+        catch (err) {
+            console.log(err)
+            next(err);
+        }
     },
 
     applyCoupon: async (req, res, next) => {
+        try {
+            const coupon = await update(Coupon, {
+                _id: req.params.id,
+                usedDate: new Date(),
+	            usedCompanyId: req.body.companyId 
+            });
+            res.data = coupon;
+            next();
+        }
+        catch (err) {
+            console.log(err)
+            next(err);
+        }
     },
 }

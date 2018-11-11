@@ -5,9 +5,9 @@ export default ({ config, db }) => {
 	let api = Router();
 
 	api.get('/', getCoupon);
-	api.post('/', recivedCoupon);
-    api.get('/:couponId', getCouponDetail);
-    api.post('/:couponId/apply', applyCoupon);
+	api.post('/:id', recivedCoupon);
+    api.get('/:id', getCouponDetail);
+    api.post('/:id/apply', applyCoupon);
     
 	return api;
 }
