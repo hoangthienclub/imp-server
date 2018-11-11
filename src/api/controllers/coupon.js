@@ -8,7 +8,7 @@ module.exports = {
     getCoupon: async (req, res, next) => {
         try {
             let filter = {
-                issueedToUser: req.user._id;
+                issueedToUser: req.user._id
             };
             if (req.query.usedDate === false) {
                 filter.usedDate = {

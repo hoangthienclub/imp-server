@@ -26,7 +26,7 @@ module.exports = {
     getCouponRoot: async (req, res, next) => {
         try {
             let filter = {
-                companyId: req.user.company._id;
+                companyId: req.user.company._id
             };    
             if (req.query.text) {
                 filter.$or = [ 
