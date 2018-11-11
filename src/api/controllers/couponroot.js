@@ -8,10 +8,12 @@ import { generate } from 'randomstring';
 module.exports = {
     createCouponRoot: async (req, res, next) => {
         try {
-            req.body.creatorId = req.user._id;
-            req.body.companyId = req.user.company._id;
             req.body.hashCode = generate();
-            const newCouponRoot = await create(CouponRoot, req.body);
+            const newCouponRoot = await create(CouponRoot, { 
+                ...req.body,
+                creatorId: req.user._id,
+                companyId: req.user.company._id
+            });
             res.data = newCouponRoot;
             next();
         }

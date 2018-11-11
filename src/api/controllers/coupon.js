@@ -7,7 +7,25 @@ module.exports = {
 
     getCoupon: async (req, res, next) => {
         try {
-            const newCoupon = await find(Coupon, { issueedToUser: req.user._id });
+            let filter = {
+                issueedToUser: req.user._id;
+            };
+            if (req.query.usedDate === false) {
+                filter.usedDate = {
+                    $exists: false
+                }
+            }
+            if (req.query.acceptedUser === false) {
+                filter.acceptedUser = {
+                    $exists: false
+                }
+            }
+            if (req.query.issueedDate) {
+                filter.issueedDate = {
+                    $gte: req.query.issueedDate
+                }
+            }
+            const newCoupon = await find(Coupon, filter);
             res.data = newCoupon;
             next();
         }
