@@ -4,9 +4,9 @@ const couponSchema = new Schema({
 	hashCode: String, // QR Code
 
 	issueedToUser: String,
-	usedDate: Date,
+	usedDate: Date, //update when use
 	
-	usedCompanyId: String,
+	usedCompanyId: String, //update when use
 
 	couponRootId: { type: Schema.Types.ObjectId, ref: "CouponRoot" }
 

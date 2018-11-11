@@ -11,6 +11,8 @@ import config from './config.json';
 import socket from './socket/socket';
 import 'babel-polyfill'
 require('dotenv').config()
+var session = require('express-session');
+var redisStore = require('connect-redis')(session);
 
 let app = express();
 app.server = http.createServer(app);
@@ -24,6 +26,18 @@ app.use(cors({
 }));
 app.use(bodyParser.json({
 	limit : config.bodyLimit
+}));
+
+app.use(session({
+    secret: '$2a$06$JzlsL5Ld2P8rzxhYn.aDnuXVqqzAz9.P/H.KMDKIAD7rw0ePtvpAS',
+    resave: false,
+    saveUninitialized: true,
+    store: new redisStore({ 
+        host: 'redis-19868.c61.us-east-1-3.ec2.cloud.redislabs.com', 
+        port: 19868,
+        pass: "nsc2XGA7mWzJePBgjZ0BDX2gqYDUthCh",
+        ttl :  260
+    }) 
 }));
 
 // connect to db

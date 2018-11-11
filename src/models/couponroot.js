@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 
 const couponSchema = new Schema({
+	companyId: String,
 	name: String,
 	desc: String,
 

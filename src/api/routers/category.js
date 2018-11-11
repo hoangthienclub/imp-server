@@ -6,9 +6,9 @@ export default ({ config, db }) => {
 
 	api.get('/', getCategory);
 	api.post('/', createCategory);
-    api.get('/:categoryId', getCategoryDetail);
-    api.put('/:categoryId', updateCategory);
-    api.delete('/:categoryId', deleteCategory);
+    api.get('/:id', getCategoryDetail);
+    api.put('/:id', updateCategory);
+    api.delete('/:id', deleteCategory);
     
 	return api;
 }

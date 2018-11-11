@@ -6,7 +6,15 @@ import { create} from '../../utils/handle';
 module.exports = {
 
     getCoupon: async (req, res, next) => {
-        
+        try {
+            const newCoupon = await find(Coupon, req.body);
+            res.data = newCoupon;
+            next();
+        }
+        catch (err) {
+            console.log(err)
+            next(err);
+        }
     },
 
     recivedCoupon: async (req, res, next) => {

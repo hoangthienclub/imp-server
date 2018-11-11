@@ -1,7 +1,7 @@
 import fs from 'fs';
 import CouponRoot from './../../models/couponroot';
 import { mapMessage } from './../../utils/mapping';
-import { create} from '../../utils/handle';
+import { create, find } from '../../utils/handle';
 
 module.exports = {
     createCouponRoot: async (req, res, next) => {
@@ -17,6 +17,15 @@ module.exports = {
     },
 
     getCouponRoot: async (req, res, next) => {
+        try {
+            const newCouponRoot = await find(CouponRoot, filter, null, null);
+            res.data = newCouponRoot;
+            next();
+        }
+        catch (err) {
+            console.log(err)
+            console.log(err)
+        }
     },
 
     getCouponDetailRoot: async (req, res, next) => {
