@@ -21,7 +21,21 @@ let popProduct = async function (schema, data) {
 	return result;
 }
 
+let popCouponRoot = async function (schema, data) {
+	let result = await schema.populate(data, [
+		{
+			path: "banner",
+			model: "File"
+        }, {
+			path: "productCategory",
+			model: "Product"
+		}
+    ])
+	return result;
+}
+
 module.exports = {
 	popCategory,
-	popProduct
+	popProduct,
+	popCouponRoot
 }

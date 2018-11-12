@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 
 const couponSchema = new Schema({
-	companyId: { type: String, required: true },
+	companyId: { type: String },
 	name: { type: String, required: true },
 	desc: { type: String, required: true },
 

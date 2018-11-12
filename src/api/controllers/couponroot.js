@@ -4,6 +4,7 @@ import Coupon from './../../models/coupon';
 import { mapMessage } from './../../utils/mapping';
 import { create, find, findById, update, deleteFn } from '../../utils/handle';
 import { generate } from 'randomstring';
+import { popCouponRoot } from '../../utils/populate'; 
 
 module.exports = {
     createCouponRoot: async (req, res, next) => {
@@ -14,7 +15,7 @@ module.exports = {
                 creatorId: req.user._id,
                 companyId: req.user.company._id
             });
-            res.data = newCouponRoot;
+            res.data = await popCouponRoot(CouponRoot, newCouponRoot);
             next();
         }
         catch (err) {
@@ -34,8 +35,8 @@ module.exports = {
                     { desc:  {$regex: req.query.text, $options: 'i'}}
                 ] 
             }
-            const newCouponRoot = await find(CouponRoot, filter);
-            res.data = newCouponRoot;
+            const list = await find(CouponRoot, filter);
+            res.data = await popCouponRoot(CouponRoot, list);
             next();
         }
         catch (err) {
@@ -47,7 +48,7 @@ module.exports = {
     getCouponDetailRoot: async (req, res, next) => {
         try {
             const couponRoot = await findById(CouponRoot, req.params.id);
-            res.data = couponRoot;
+            res.data = await popCouponRoot(CouponRoot, couponRoot);
             next();
         }
         catch (err) {
@@ -59,7 +60,7 @@ module.exports = {
     updateCouponRoot: async (req, res, next) => {
         try {
             const updateCouponRoot = await update(CouponRoot, { ...req.body, _id: req.params.id });
-            res.data = updateCouponRoot;
+            res.data = await popCouponRoot(CouponRoot, updateCouponRoot);
             next();
         }
         catch (err) {
