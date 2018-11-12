@@ -34,8 +34,19 @@ let popCouponRoot = async function (schema, data) {
 	return result;
 }
 
+let popCoupon = async function (schema, data) {
+	let result = await schema.populate(data, [
+		{
+			path: "couponRootId",
+			model: "CouponRoot"
+        }
+    ])
+	return result;
+}
+
 module.exports = {
 	popCategory,
 	popProduct,
-	popCouponRoot
+	popCouponRoot,
+	popCoupon
 }

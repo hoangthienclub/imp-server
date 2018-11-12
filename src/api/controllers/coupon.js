@@ -2,11 +2,13 @@ import fs from 'fs';
 import Coupon from './../../models/coupon';
 import { mapMessage } from './../../utils/mapping';
 import { create, find, findById, update, deleteFn } from '../../utils/handle';
+import { popCoupon } from '../../utils/populate'; 
 
 module.exports = {
 
     getCoupon: async (req, res, next) => {
         try {
+            console.log(req.body)
             let filter = {
                 issueedToUser: req.user._id
             };
@@ -25,8 +27,8 @@ module.exports = {
                     $gte: req.query.issueedDate
                 }
             }
-            const newCoupon = await find(Coupon, filter);
-            res.data = newCoupon;
+            const list = await find(Coupon, filter);
+            res.data = await popCoupon(Coupon, list);
             next();
         }
         catch (err) {
@@ -37,12 +39,11 @@ module.exports = {
 
     recivedCoupon: async (req, res, next) => {
         try {
-            req.user = {};
-            const newCoupon = await update(Coupon, {
+            const coupon = await update(Coupon, {
                 _id: req.params.id,
                 acceptedUser: req.user._id
             });
-            res.data = newCoupon;
+            res.data = await popCoupon(Coupon, coupon);
             next();
         }
         catch (err) {
@@ -54,7 +55,7 @@ module.exports = {
     getCouponDetail: async (req, res, next) => {
         try {
             const coupon = await findById(Coupon, req.params.id);
-            res.data = coupon;
+            res.data = await popCoupon(Coupon, coupon);
             next();
         }
         catch (err) {
@@ -68,9 +69,9 @@ module.exports = {
             const coupon = await update(Coupon, {
                 _id: req.params.id,
                 usedDate: new Date(),
-	            usedCompanyId: req.body.companyId 
+	            usedCompanyId: req.user.company._id
             });
-            res.data = coupon;
+            res.data = await popCoupon(Coupon, coupon);
             next();
         }
         catch (err) {

@@ -16,7 +16,7 @@ const couponSchema = new Schema({
 	}],
 
 	createdDate : {type : Date, default : Date.now},
-	creatorId: { type: String, required: true },
+	creatorId: { type: Schema.Types.ObjectId },
 
 	hashCode: { type: String, required: true }, // QR Code
 	validFrom: { type: Date, required: true },
