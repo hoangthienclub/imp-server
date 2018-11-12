@@ -1,6 +1,10 @@
 let find = async function (schema, filter, sort = "-createdAt", limit = { start: 0, end: 10 }) {
 	try {
-		let result = await schema.find(filter).sort(sort).limit(limit.end - limit.start).skip(limit.start).exec();
+		let search = { active: true }
+		if (filter) {
+			search = Object.assign({}, search, filter);
+		}
+		let result = await schema.find(search).sort(sort).limit(limit.end - limit.start).skip(limit.start).exec();
 		return result;
 	}
 	catch (err) {
@@ -10,7 +14,7 @@ let find = async function (schema, filter, sort = "-createdAt", limit = { start:
 
 let findById = async function (schema, _id, filter) {
 	try {
-		let search = { _id }
+		let search = { _id, active: true }
 		if (filter) {
 			search = Object.assign({}, search, filter);
 		}

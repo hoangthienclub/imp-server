@@ -20,7 +20,8 @@ const couponSchema = new Schema({
 
 	hashCode: { type: String, required: true }, // QR Code
 	validFrom: { type: Date, required: true },
-	validTo: { type: Date, required: true }
+	validTo: { type: Date, required: true },
+	active: {type: Boolean, default: true}
 });
 
 module.exports = mongoose.model('CouponRoot', couponSchema);

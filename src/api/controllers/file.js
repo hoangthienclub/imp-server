@@ -20,16 +20,24 @@ module.exports = {
         try {
             upload(req, res, function (err) {
                 let promises = req.files.map(async file => {
-                    let item = new File({
-                        pathName : file.filename,
-                        name: file.originalname, 
-                        size : file.size,
-                        type: path.extname(file.originalname)
-                    });
-                    await item.save();
+                    return new Promise((resolve, reject) => {
+                        let item = new File({
+                            pathName : file.filename,
+                            name: file.originalname, 
+                            size : file.size,
+                            type: path.extname(file.originalname)
+                        });
+                        item.save()
+                        .then(item => {
+                            resolve(item._id);
+                        })
+                    })
                 })
-                res.data = {};
-                next();
+                Promise.all(promises)
+                .then(result => {
+                    res.data = result;
+                    next();
+                })
             });
         }
         catch (err) {

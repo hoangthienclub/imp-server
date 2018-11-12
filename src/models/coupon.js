@@ -7,7 +7,8 @@ const couponSchema = new Schema({
 	acceptedUser: String,
 	usedDate: Date, //update when use
 	usedCompanyId: String, //update when use
-	couponRootId: { type: Schema.Types.ObjectId, ref: "CouponRoot", required: true }
+	couponRootId: { type: Schema.Types.ObjectId, ref: "CouponRoot", required: true },
+	active: {type: Boolean, default: true}
 });
 
 module.exports = mongoose.model('Coupon', couponSchema);

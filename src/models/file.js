@@ -6,7 +6,8 @@ const fileSchema = new Schema({
 	name : {type : String},
 	pathName: {type: String},
 	status : {type : Number, enum : [0, 1], default : 0},
-	type: String
+	type: String,
+	active: {type: Boolean, default: true}
 });
 
 module.exports = mongoose.model('File', fileSchema);

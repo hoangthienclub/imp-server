@@ -14,6 +14,7 @@ const productSchema = new Schema({
 	category: [{
 		type : Schema.Types.ObjectId, ref : 'Category'
 	}],
+	active: {type: Boolean, default: true}
 }, { timestamps: true });
 
 module.exports = mongoose.model('Product', productSchema);

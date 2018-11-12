@@ -12,6 +12,7 @@ const roomSchema = new Schema({
 		},
 		_id : false
 	}],
+	active: {type: Boolean, default: true}
 });
 const methods = {
 };

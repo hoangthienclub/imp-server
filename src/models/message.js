@@ -7,7 +7,8 @@ const messageSchema = new Schema({
 	creatorId : String,
 	receiverId : String,
 	createdDate : {type : Date, default : Date.now},
-	firstMessageDay : {type : Boolean,default : false}
+	firstMessageDay : {type : Boolean,default : false},
+	active: {type: Boolean, default: true}
 });
 
 const methods = {
