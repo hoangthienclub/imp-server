@@ -4,8 +4,8 @@ const messageSchema = new Schema({
 	desc : {type : String},
 	fileId : {type : Schema.Types.ObjectId,ref : 'File'},
 	status : {type : Number, default : 1}, // 1 la msg, 2 la edit, 3 la remove, 4 file
-	creatorId : String,
-	receiverId : String,
+	creatorId : { type: Schema.Types.ObjectId },
+	receiverId : { type: Schema.Types.ObjectId },
 	createdDate : {type : Date, default : Date.now},
 	firstMessageDay : {type : Boolean,default : false},
 	active: {type: Boolean, default: true}

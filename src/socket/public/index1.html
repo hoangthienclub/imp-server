@@ -16,9 +16,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script>
-        var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmU5OTJmNzg0NGY0NjE4NzBmMmY0ZDIiLCJ1c2VyIjp7Il9pZCI6IjViZTk5MmY3ODQ0ZjQ2MTg3MGYyZjRkMiIsImZ1bGxuYW1lIjoiRGVtbyAxIiwidXNlcm5hbWUiOiJkZW1vMSIsImctcmVjYXB0Y2hhLXJlc3BvbnNlIjoiIiwiaGFzaCI6IiQyYSQxMCRjL2FHU2pjcm9jRHVpbnhBazFSOW9PQzY2UEFVMW9mNWR0c3YvY042STJkamtNei9EL2pGTyIsImNyZWF0ZXRpbWUiOiIxNTQyMDM0MTY3MjgxIn0sImlhdCI6MTU0MjAzNDQ5MX0.1RlnbuFbMyBhoEbdl5gJZYB2qmdVym2oaR1mLoGvezg';
+        var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmU5OTMyNjg0NGY0NjE4NzBmMmY0ZDMiLCJ1c2VyIjp7Il9pZCI6IjViZTk5MzI2ODQ0ZjQ2MTg3MGYyZjRkMyIsImZ1bGxuYW1lIjoiRGVtbyAyIiwidXNlcm5hbWUiOiJkZW1vMiIsImctcmVjYXB0Y2hhLXJlc3BvbnNlIjoiIiwiaGFzaCI6IiQyYSQxMCRxLm1adnBEQ1AzNVJtdGMuZEprWUllcnIwanBqdDkuZzZGeU5aejNzZWI1bUxXUElIc0RsZSIsImNyZWF0ZXRpbWUiOiIxNTQyMDM0MjE0MTczIn0sImlhdCI6MTU0MjAzNDUxN30.e2iga4PMVQcgA2sbVOlT9U8fSggH3OKupC_yBlbFIDE';
         // const socket = io.connect('http://localhost:4040', { query : { 'token' : token } });
-        const socket = io.connect('http://localhost:4040', { query : { 'token' : token } });
+        const socket = io.connect('http://localhost:4040', { query : { 'token' : token} });
         socket.on('send-message', function (message) {
             console.log('The server has a message for you: ' + JSON.stringify(message));
         })

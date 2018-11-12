@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import jwt from 'jsonwebtoken';
-import { MongoClient } from 'mongodb';
 
 export default ({ config, db }) => {
 	let routes = Router();
