@@ -26,7 +26,7 @@
             var usera = document.getElementById("usera").value;
             var input = document.getElementById("input").value;
             socket.emit('send-message', {
-                id: usera,
+                receiverId: usera,
                 desc: input
             });
         })

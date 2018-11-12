@@ -2,6 +2,8 @@ import SocketIO from 'socket.io';
 import * as KEY from './key';
 import Message from './../models/message';
 import jwt from 'jsonwebtoken';
+import { create } from '../utils/handle';
+import { popMsg } from '../utils/populate';
 
 module.exports = (server) => {
 	console.log('-----------------------------------------------------------');
@@ -24,7 +26,6 @@ function onVerifyingUser(io, socket) {
 
 function onConnected(io, socket) {
 	console.log(`${socket.id} connect`)
-	console.log(`${socket.user_id} user_id connect`)
     socket.emit(KEY.CONNECTED,  executeResponse({}));
     onListenFunctions(io, socket);
     onDisconnect(io, socket); // On disconnect
@@ -59,20 +60,21 @@ function onListenFunctions(io, socket) {
 
 }
 
-function sendMessage(io, socket, data) {
+const sendMessage = async(io, socket, data) => {
 	let id;
 	Object.keys(io.sockets.connected).forEach(function(socketId) {
 		if (io.sockets.connected[socketId].user_id == data.id) {
 			id = io.sockets.connected[socketId].id;
 		}
 	})
-	const newMsg = Message({
+	const newMsg = await create(Message, {
 		desc: data.desc,
-		creatorId : 1,
-		receiverId : 2,
+		creatorId : socket.user_id,
+		receiverId : data.receiverId,
 	});
-	console.log('id:', id)
-	io.to(`${id}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : data.desc }));
+	const msg = await popMsg(Message, newMsg);
+
+	io.to(`${id}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : msg}));
 }
 
 function editMessage(io, socket, data) {
@@ -88,13 +90,8 @@ function editMessage(io, socket, data) {
 
 function delMessage(io, socket, data) {
 	const id = data.id;
-	const newMsg = Message({
-		desc: data.desc,
-		creatorId : 1,
-		receiverId : 2,
-	});
 	
-	io.to(`${id}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : data.desc }));
+	io.to(`${id}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : newMsg }));
 }
 
 function socketTyping(io, socket, data) {

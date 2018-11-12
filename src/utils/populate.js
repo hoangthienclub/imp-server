@@ -44,9 +44,20 @@ let popCoupon = async function (schema, data) {
 	return result;
 }
 
+let popMsg = async function (schema, data) {
+	let result = await schema.populate(data, [
+		{
+			path: "fileId",
+			model: "File"
+        }
+    ])
+	return result;
+}
+
 module.exports = {
 	popCategory,
 	popProduct,
 	popCouponRoot,
-	popCoupon
+	popCoupon,
+	popMsg
 }
