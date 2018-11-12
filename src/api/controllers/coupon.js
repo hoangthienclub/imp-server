@@ -8,7 +8,6 @@ module.exports = {
 
     getCoupon: async (req, res, next) => {
         try {
-            console.log(req.body)
             let filter = {
                 issueedToUser: req.user._id
             };
