@@ -5,6 +5,8 @@ import UserSocket from './../models/userSocket';
 import jwt from 'jsonwebtoken';
 import { create, update } from '../utils/handle';
 import { popMsg } from '../utils/populate';
+import { popOneMsg } from '../utils/popDbUser';
+import { connectDbUser } from './../databases';
 
 module.exports = (server) => {
 	console.log('-----------------------------------------------------------');
@@ -16,6 +18,7 @@ module.exports = (server) => {
 
 const onVerifyingUser = async (io, socket) => {
 	try {
+		const dbUser = await connectDbUser();
 		const userDecode = jwt.decode(socket.handshake.query.token, process.env.JWT_KEY);
 		const user = userDecode;
 		if (!user) {
@@ -39,7 +42,7 @@ const onVerifyingUser = async (io, socket) => {
 			})
 		}
 
-		onConnected(io, socket);
+		onConnected(io, socket, dbUser);
 	} 
 	catch (err) {
 		console.log(err)
@@ -47,10 +50,10 @@ const onVerifyingUser = async (io, socket) => {
 	}
 }
 
-function onConnected(io, socket) {
+function onConnected(io, socket, dbUser) {
 	console.log(`${socket.id} connect`)
     socket.emit(KEY.CONNECTED,  executeResponse({}));
-    onListenFunctions(io, socket);
+    onListenFunctions(io, socket, dbUser);
     onDisconnect(io, socket); // On disconnect
 }
 
@@ -60,9 +63,9 @@ function onDisconnect(io, socket) {
     });
 }
 
-function onListenFunctions(io, socket) {
+function onListenFunctions(io, socket, dbUser) {
 	socket.on(KEY.SEND_MESSAGE,(data) => {
-		sendMessage(io, socket, data);
+		sendMessage(io, socket, dbUser, data);
 	});
 
 	socket.on(KEY.TYPING,(data) => {
@@ -82,7 +85,7 @@ function onListenFunctions(io, socket) {
 
 }
 
-const sendMessage = async (io, socket, data) => {
+const sendMessage = async (io, socket, dbUser, data) => {
 	const msgData = {
 		desc: data.desc,
 		creatorId : socket.userId,
@@ -92,11 +95,12 @@ const sendMessage = async (io, socket, data) => {
 		msgData.fileId = data.fileId;
 	}
 	const newMsg = await create(Message, msgData);
-	const msg = await popMsg(Message, newMsg);
+	const msgPopAvt = await popMsg(Message, newMsg);
+	const msgPopUser = await popOneMsg(dbUser, msgPopAvt);
 	const userCurrent = await UserSocket.findOne({userId: data.receiverId});
 	if (userCurrent) {
 		console.log('Send msg: ', userCurrent.socketId)
-		io.to(`${userCurrent.socketId}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : msg}));
+		io.to(`${userCurrent.socketId}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : msgPopUser}));
 	}
 }
 
