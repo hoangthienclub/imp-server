@@ -65,10 +65,17 @@ module.exports = {
 
     applyCoupon: async (req, res, next) => {
         try {
+            const couponDetail = await Coupon.findOne({
+                hashCode: req.body.hashCode
+            });
+            console.log(typeof couponDetail)
+            if (!couponDetail || (couponDetail && couponDetail.usedCompanyId)) {
+                return next('Coupon had used!');
+            }
             const coupon = await update(Coupon, {
-                _id: req.params.id,
+                _id: couponDetail._id,
                 usedDate: new Date(),
-	            usedCompanyId: req.user.company._id
+	            usedCompanyId: req.user._id
             });
             res.data = await popCoupon(Coupon, coupon);
             next();
