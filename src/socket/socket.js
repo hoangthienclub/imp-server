@@ -82,7 +82,7 @@ function onListenFunctions(io, socket) {
 
 }
 
-const sendMessage = async(io, socket, data) => {
+const sendMessage = async (io, socket, data) => {
 	const msgData = {
 		desc: data.desc,
 		creatorId : socket.userId,
@@ -117,7 +117,7 @@ function delMessage(io, socket, data) {
 	io.to(`${id}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : newMsg }));
 }
 
-function socketTyping(io, socket, data) {
+const socketTyping = async (io, socket, data) => {
 	const newMsg = await create(Message, {
 		desc: data.desc,
 		creatorId : socket.userId,

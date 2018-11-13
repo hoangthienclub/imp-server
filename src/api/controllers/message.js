@@ -1,18 +1,22 @@
 import fs from 'fs';
 import Message from './../../models/message';
 import { mapMessage } from './../../utils/mapping';
+import { popMsg } from '../../utils/populate'; 
 
 module.exports = {
     getMessages: async (req, res, next) => {
         try {
+            let skippingMessages = req.query.total - 0 || 0;
+		    let maxMessages = 20;
             const data = {
-                creatorId: 1,
-                receiverId: 2,
-                // skippingMessages : 10,
-                // maxMessages: 10
+                creatorId: req.user._id,
+                receiverId: req.query.receiverId,
+                skippingMessages : skippingMessages,
+                maxMessages: maxMessages
             }
             const messages = await Message.loadMsgs(data)
-            res.data = messages.map(mapMessage);
+            const msgPop = await popMsg(Message, messages);
+            res.data = msgPop;
             next();
         }
         catch (err) {
