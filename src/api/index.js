@@ -9,7 +9,7 @@ import coupon from './routers/coupon';
 import buildResponse from './../lib/buildResponse';
 import { MongoClient} from 'mongodb';
 
-export default ({ config, db }) => {
+export default ({ config, dbUser }) => {
 	let api = Router();
 	api.use(function (req, res, next) {
 		try {
@@ -27,12 +27,12 @@ export default ({ config, db }) => {
 		}
 	});
 	// mount the facets resource
-	api.use('/message', message({ config, db }));
-	api.use('/file', file({ config, db }));
-	api.use('/product', product({ config, db }));
-	api.use('/category', category({ config, db }));
-	api.use('/couponroot', couponroot({ config, db }));
-	api.use('/coupon', coupon({ config, db }));
+	api.use('/message', message({ config, dbUser }));
+	api.use('/file', file({ config, dbUser }));
+	api.use('/product', product({ config, dbUser }));
+	api.use('/category', category({ config, dbUser }));
+	api.use('/couponroot', couponroot({ config, dbUser }));
+	api.use('/coupon', coupon({ config, dbUser }));
 
 	// perhaps expose some API metadata at the root
 	api.get('/', (req, res) => {
