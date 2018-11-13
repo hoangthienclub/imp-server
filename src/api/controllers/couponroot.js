@@ -5,6 +5,8 @@ import { mapMessage } from './../../utils/mapping';
 import { create, find, findById, update, deleteFn } from '../../utils/handle';
 import { generate } from 'randomstring';
 import { popCouponRoot } from '../../utils/populate'; 
+import { connectDbUser } from './../../databases';
+
 
 module.exports = {
     createCouponRoot: async (req, res, next) => {
@@ -83,6 +85,13 @@ module.exports = {
 
     deliveryCouponRoot: async (req, res, next) => {
         try {
+            const filter = req.body;
+            const dbUser = await connectDbUser()
+            // gender: 0, 1 (nam, nu)
+            // age: 82 (now - yearofbirth)
+            // position: position => _id
+            // level: level_current => udi + current
+
             let arr = req.body.map(key => {
                 return new Promise((resolve, reject) => {
                     create(Coupon, {
