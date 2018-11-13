@@ -1,8 +1,9 @@
 import SocketIO from 'socket.io';
 import * as KEY from './key';
 import Message from './../models/message';
+import UserSocket from './../models/userSocket';
 import jwt from 'jsonwebtoken';
-import { create } from '../utils/handle';
+import { create, update } from '../utils/handle';
 import { popMsg } from '../utils/populate';
 
 module.exports = (server) => {
@@ -13,15 +14,37 @@ module.exports = (server) => {
 	});
 }
 
-function onVerifyingUser(io, socket) {
-	const userDecode = jwt.decode(socket.handshake.query.token, process.env.JWT_KEY);
-	const user = userDecode;
-    if (!user) {
-		socket.disconnect();
-		return;
+const onVerifyingUser = async (io, socket) => {
+	try {
+		const userDecode = jwt.decode(socket.handshake.query.token, process.env.JWT_KEY);
+		const user = userDecode;
+		if (!user) {
+			socket.disconnect();
+			return;
+		}
+		const userId = user.user._id;
+		socket.userId = userId;
+		const userCurrent = await UserSocket.findOne({userId: userId});
+		if (userCurrent) {
+			await update(UserSocket, {
+				_id: userCurrent._id,
+				socketId: socket.id
+			})
+		}
+		else {
+			console.log('thien')
+			await create(UserSocket, {
+				userId: user.user._id,
+				socketId: socket.id
+			})
+		}
+
+		onConnected(io, socket);
+	} 
+	catch (err) {
+		console.log(err)
+		error(socket, err);
 	}
-	socket.user_id = user.user._id;
-	onConnected(io, socket);
 }
 
 function onConnected(io, socket) {
@@ -39,7 +62,6 @@ function onDisconnect(io, socket) {
 
 function onListenFunctions(io, socket) {
 	socket.on(KEY.SEND_MESSAGE,(data) => {
-		console.log('send message');
 		sendMessage(io, socket, data);
 	});
 
@@ -61,20 +83,17 @@ function onListenFunctions(io, socket) {
 }
 
 const sendMessage = async(io, socket, data) => {
-	let id;
-	Object.keys(io.sockets.connected).forEach(function(socketId) {
-		if (io.sockets.connected[socketId].user_id == data.id) {
-			id = io.sockets.connected[socketId].id;
-		}
-	})
 	const newMsg = await create(Message, {
 		desc: data.desc,
-		creatorId : socket.user_id,
+		creatorId : socket.userId,
 		receiverId : data.receiverId,
 	});
 	const msg = await popMsg(Message, newMsg);
-
-	io.to(`${id}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : msg}));
+	const userCurrent = await UserSocket.findOne({userId: data.receiverId});
+	if (userCurrent) {
+		console.log('Send msg: ', userCurrent.socketId)
+		io.to(`${userCurrent.socketId}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : msg}));
+	}
 }
 
 function editMessage(io, socket, data) {
