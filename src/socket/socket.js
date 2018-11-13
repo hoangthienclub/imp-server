@@ -83,11 +83,15 @@ function onListenFunctions(io, socket) {
 }
 
 const sendMessage = async(io, socket, data) => {
-	const newMsg = await create(Message, {
+	const msgData = {
 		desc: data.desc,
 		creatorId : socket.userId,
-		receiverId : data.receiverId,
-	});
+		receiverId : data.receiverId
+	}
+	if (data.fileId) {
+		msgData.fileId = data.fileId;
+	}
+	const newMsg = await create(Message, msgData);
 	const msg = await popMsg(Message, newMsg);
 	const userCurrent = await UserSocket.findOne({userId: data.receiverId});
 	if (userCurrent) {
