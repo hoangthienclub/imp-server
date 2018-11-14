@@ -10,25 +10,24 @@
 <body>
     <h1>Communicating with socket .io!</h1>
     <p><input type="button" value="Poke the server" id="poke" /></p>
-    <p><input type="txt" value="Poke the server" id="usera" /></p>
-    <p><input type="txt" value="Poke the server" id="input" /></p>
-
+    <p><input type="txt" value="" id="input" /></p>
+    <div id="content"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script>
         var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmU5OTJmNzg0NGY0NjE4NzBmMmY0ZDIiLCJ1c2VyIjp7Il9pZCI6IjViZTk5MmY3ODQ0ZjQ2MTg3MGYyZjRkMiIsImZ1bGxuYW1lIjoiRGVtbyAxIiwidXNlcm5hbWUiOiJkZW1vMSIsImctcmVjYXB0Y2hhLXJlc3BvbnNlIjoiIiwiaGFzaCI6IiQyYSQxMCRjL2FHU2pjcm9jRHVpbnhBazFSOW9PQzY2UEFVMW9mNWR0c3YvY042STJkamtNei9EL2pGTyIsImNyZWF0ZXRpbWUiOiIxNTQyMDM0MTY3MjgxIn0sImlhdCI6MTU0MjAzNDQ5MX0.1RlnbuFbMyBhoEbdl5gJZYB2qmdVym2oaR1mLoGvezg';
-        // const socket = io.connect('http://localhost:4040', { query : { 'token' : token } });
         const socket = io.connect('http://localhost:4040', { query : { 'token' : token } });
+        // const socket = io.connect('https://nso.gitosolutions.com', { query : { 'token' : token } });
         socket.on('send-message', function (message) {
-            console.log('The server has a message for you: ' + JSON.stringify(message));
+            console.log(JSON.stringify(message))
+            console.log(`${message.results.creatorId.fullname} send: ${message.results.desc}`);
+            $('#content').append(`<p>${message.results.creatorId.fullname} send: ${message.results.desc}</p>`)
         })
         $('#poke').click(function () {
-            var usera = document.getElementById("usera").value;
             var input = document.getElementById("input").value;
             socket.emit('send-message', {
-                receiverId: usera,
+                receiverId: '5be99326844f461870f2f4d3',
                 desc: input,
-                fileId: "5be99326844f461870f2f4d3" (optional)
             });
         })
     </script>

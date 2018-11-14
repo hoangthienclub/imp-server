@@ -30,8 +30,8 @@ let popOneMsg = async function (db, data) {
             _id: { $in : userIds }
         }).toArray()
         .then(users => {
-            msg.creatorId = users.filter(user => user._id = msg.creatorId)[0];
-            msg.receiverId = users.filter(user => user._id = msg.receiverId)[0];
+            msg.creatorId = users.filter(user => user._id == msg.creatorId)[0];
+            msg.receiverId = users.filter(user => user._id == msg.receiverId)[0];
             resolve(msg);
         })
     })
