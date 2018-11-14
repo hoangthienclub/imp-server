@@ -52,7 +52,6 @@ initializeDb(async dbUser => {
 
 	// api router
 	app.use('/api', api({ config, dbUser }));
-
 	app.server.listen(process.env.PORT || config.port, () => {
 		console.log(`Started on port ${app.server.address().port}`);
 	});

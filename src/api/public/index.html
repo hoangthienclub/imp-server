@@ -11,13 +11,13 @@
     <h1>Communicating with socket .io!</h1>
     <p><input type="button" value="Poke the server" id="poke" /></p>
     <p><input type="txt" value="" id="input" /></p>
-
+    <div id="content"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <script id="content">
-        var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmU5OTMyNjg0NGY0NjE4NzBmMmY0ZDMiLCJ1c2VyIjp7Il9pZCI6IjViZTk5MzI2ODQ0ZjQ2MTg3MGYyZjRkMyIsImZ1bGxuYW1lIjoiRGVtbyAyIiwidXNlcm5hbWUiOiJkZW1vMiIsImctcmVjYXB0Y2hhLXJlc3BvbnNlIjoiIiwiaGFzaCI6IiQyYSQxMCRxLm1adnBEQ1AzNVJtdGMuZEprWUllcnIwanBqdDkuZzZGeU5aejNzZWI1bUxXUElIc0RsZSIsImNyZWF0ZXRpbWUiOiIxNTQyMDM0MjE0MTczIn0sImlhdCI6MTU0MjAzNDUxN30.e2iga4PMVQcgA2sbVOlT9U8fSggH3OKupC_yBlbFIDE';
+    <script>
+        var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmU5OTJmNzg0NGY0NjE4NzBmMmY0ZDIiLCJ1c2VyIjp7Il9pZCI6IjViZTk5MmY3ODQ0ZjQ2MTg3MGYyZjRkMiIsImZ1bGxuYW1lIjoiRGVtbyAxIiwidXNlcm5hbWUiOiJkZW1vMSIsImctcmVjYXB0Y2hhLXJlc3BvbnNlIjoiIiwiaGFzaCI6IiQyYSQxMCRjL2FHU2pjcm9jRHVpbnhBazFSOW9PQzY2UEFVMW9mNWR0c3YvY042STJkamtNei9EL2pGTyIsImNyZWF0ZXRpbWUiOiIxNTQyMDM0MTY3MjgxIn0sImlhdCI6MTU0MjAzNDQ5MX0.1RlnbuFbMyBhoEbdl5gJZYB2qmdVym2oaR1mLoGvezg';
         const socket = io.connect('http://localhost:4040', { query : { 'token' : token } });
-        // const socket = io.connect('https://nso.gitosolutions.com', { query : { 'token' : token} });
+        // const socket = io.connect('https://nso.gitosolutions.com', { query : { 'token' : token } });
         socket.on('send-message', function (message) {
             console.log(JSON.stringify(message))
             console.log(`${message.results.creatorId.fullname} send: ${message.results.desc}`);
@@ -26,9 +26,10 @@
         $('#poke').click(function () {
             var input = document.getElementById("input").value;
             socket.emit('send-message', {
-                receiverId: '5be992f7844f461870f2f4d2',
-                desc: input
+                receiverId: '5be99326844f461870f2f4d3',
+                desc: input,
             });
+            $('#content').append(`<p>You chat: ${input}</p>`)
         })
     </script>
 </body>

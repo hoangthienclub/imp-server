@@ -8,9 +8,17 @@ import couponroot from './routers/couponRoot';
 import coupon from './routers/coupon';
 import buildResponse from './../lib/buildResponse';
 import { MongoClient} from 'mongodb';
+import path from 'path';
 
 export default ({ config, dbUser }) => {
 	let api = Router();
+	api.get('/chat/demo1', (req, res) => {
+		res.sendFile(path.resolve(__dirname)+'/public/index.html');
+	})
+
+	api.get('/chat/demo2', (req, res) => {
+		res.sendFile(path.resolve(__dirname)+'/public/index1.html');
+	})
 	api.use(function (req, res, next) {
 		try {
 			if (req.user) {
