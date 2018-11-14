@@ -16,20 +16,44 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script>
         var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmU5OTJmNzg0NGY0NjE4NzBmMmY0ZDIiLCJ1c2VyIjp7Il9pZCI6IjViZTk5MmY3ODQ0ZjQ2MTg3MGYyZjRkMiIsImZ1bGxuYW1lIjoiRGVtbyAxIiwidXNlcm5hbWUiOiJkZW1vMSIsImctcmVjYXB0Y2hhLXJlc3BvbnNlIjoiIiwiaGFzaCI6IiQyYSQxMCRjL2FHU2pjcm9jRHVpbnhBazFSOW9PQzY2UEFVMW9mNWR0c3YvY042STJkamtNei9EL2pGTyIsImNyZWF0ZXRpbWUiOiIxNTQyMDM0MTY3MjgxIn0sImlhdCI6MTU0MjAzNDQ5MX0.1RlnbuFbMyBhoEbdl5gJZYB2qmdVym2oaR1mLoGvezg';
-        const socket = io.connect('https://nso.gitosolutions.com', { query : { 'token' : token } });
+        const socket = io.connect('http://localhost:4040', { query : { 'token' : token } });
         // const socket = io.connect('https://nso.gitosolutions.com', { query : { 'token' : token } });
         socket.on('send-message', function (message) {
-            console.log(JSON.stringify(message))
-            console.log(`${message.results.creatorId.fullname} send: ${message.results.desc}`);
+            // console.log(JSON.stringify(message))
+            // console.log(`${message.results.creatorId.fullname} send: ${message.results.desc}`);
             $('#content').append(`<p>${message.results.creatorId.fullname} send: ${message.results.desc}</p>`)
         })
+        socket.on('typing', function(data) {
+            console.log(data)
+            $('#content').append(`<p>Typing</p>`)
+        });
+        socket.on('edit-message', function(data) {
+            console.log(data)
+            // $('#content').append(`<p>Typing</p>`)
+        });
+        socket.on('del-message', function(data) {
+            console.log(data)
+            // $('#content').append(`<p>Typing</p>`)
+        });
         $('#poke').click(function () {
+            // var input = document.getElementById("input").value;
+            // socket.emit('send-message', {
+            //     receiverId: '5be99326844f461870f2f4d3',
+            //     desc: input,
+            // });
+            // $('#content').append(`<p>You chat: ${input}</p>`)
+            // socket.emit('typing', {
+            //     receiverId: '5be99326844f461870f2f4d3',
+            //     type: 0,
+            // });
             var input = document.getElementById("input").value;
-            socket.emit('send-message', {
-                receiverId: '5be99326844f461870f2f4d3',
-                desc: input,
+            // socket.emit('edit-message', {
+            //     msgId: '5bec4cf216d177c373ad95f9',
+            //     desc: input,
+            // });
+            socket.emit('del-message', {
+                msgId: '5bec4cf216d177c373ad95f9'
             });
-            $('#content').append(`<p>You chat: ${input}</p>`)
         })
     </script>
 </body>
