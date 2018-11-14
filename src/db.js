@@ -5,6 +5,5 @@ export default async callback => {
 	// connect to a database if needed, then pass it to `callback`:
 	mongodb();
 	redis(Session);
-	const dbUser= await connectDbUser();
-	callback(dbUser);
+	callback();
 }

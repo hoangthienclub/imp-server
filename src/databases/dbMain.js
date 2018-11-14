@@ -1,8 +1,8 @@
 import { MongoClient } from 'mongodb';
-var connectDBUser = async () =>  {
+var connectDBMain = async () =>  {
 	try {
 		var client = await MongoClient.connect(`${process.env.MONGO_USER_URI}/${process.env.MONGO_USER_DB}`);
-		const db = client.db(process.env.MONGO_USER_DB);
+		const db = client.db(process.env.MONGO_MAIN_DB);
 		return db;
 	}
 	catch (err) {
@@ -10,4 +10,4 @@ var connectDBUser = async () =>  {
 	}
 }
 
-module.exports = connectDBUser;
+module.exports = connectDBMain;

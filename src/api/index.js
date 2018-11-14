@@ -10,7 +10,7 @@ import buildResponse from './../lib/buildResponse';
 import { MongoClient} from 'mongodb';
 import path from 'path';
 
-export default ({ config, dbUser }) => {
+export default ({ config }) => {
 	let api = Router();
 	api.get('/chat/demo1', (req, res) => {
 		res.sendFile(path.resolve(__dirname)+'/public/index.html');
@@ -35,12 +35,12 @@ export default ({ config, dbUser }) => {
 		}
 	});
 	// mount the facets resource
-	api.use('/message', message({ config, dbUser }));
-	api.use('/file', file({ config, dbUser }));
-	api.use('/product', product({ config, dbUser }));
-	api.use('/category', category({ config, dbUser }));
-	api.use('/couponroot', couponroot({ config, dbUser }));
-	api.use('/coupon', coupon({ config, dbUser }));
+	api.use('/message', message({ config }));
+	api.use('/file', file({ config }));
+	api.use('/product', product({ config }));
+	api.use('/category', category({ config }));
+	api.use('/couponroot', couponroot({ config }));
+	api.use('/coupon', coupon({ config }));
 
 	// perhaps expose some API metadata at the root
 	api.get('/', (req, res) => {
