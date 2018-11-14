@@ -3,7 +3,7 @@ import * as KEY from './key';
 import Message from './../models/message';
 import UserSocket from './../models/userSocket';
 import jwt from 'jsonwebtoken';
-import { create, update } from '../utils/handle';
+import { create, update, findById } from '../utils/handle';
 import { popMsg } from '../utils/populate';
 import { popOneMsg } from '../utils/popDbUser';
 import { connectDbUser } from './../databases';
@@ -76,7 +76,7 @@ function onListenFunctions(io, socket, dbUser) {
 
 	socket.on(KEY.EDIT_MESSAGE,(data) => {
 		console.log('edit message');
-		editMessage(io, socket, data);
+		editMessage(io, socket, dbUser, data);
 	});
 
 	socket.on(KEY.DEL_MESSAGE,(data) => {
@@ -105,7 +105,14 @@ const sendMessage = async (io, socket, dbUser, data) => {
 	}
 }
 
-const editMessage = async (io, socket, data) => {
+const editMessage = async (io, socket, dbUser, data) => {
+	const msg = await Message.findOne({
+		_id: data.msgId,
+		creatorId: socket.userId
+	});
+	if (!msg) {
+		return error(socket, 'err');
+	}
 	const updateMsgData = {
 		desc: data.desc,
 		_id: data.msgId,
@@ -114,7 +121,7 @@ const editMessage = async (io, socket, data) => {
 	const updateMsg = await update(Message, updateMsgData);
 	const msgPopAvt = await popOneMsg(dbUser, updateMsg);
 	const msgPopUser = await popOneMsg(dbUser, msgPopAvt);
-	const userCurrent = await UserSocket.findOne({userId: data.receiverId});
+	const userCurrent = await UserSocket.findOne({userId: msgPopAvt.receiverId});
 	if (userCurrent) {
 		io.to(`${userCurrent.socketId}`).emit(KEY.EDIT_MESSAGE, executeResponse({ message : msgPopUser }));
 	}
