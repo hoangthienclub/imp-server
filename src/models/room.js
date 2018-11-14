@@ -13,7 +13,7 @@ const roomSchema = new Schema({
 		_id : false
 	}],
 	active: {type: Boolean, default: true}
-});
+}, { timestamps: true });
 const methods = {
 };
 

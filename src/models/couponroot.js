@@ -22,6 +22,6 @@ const couponSchema = new Schema({
 	validFrom: { type: Date, required: true },
 	validTo: { type: Date, required: true },
 	active: {type: Boolean, default: true}
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('CouponRoot', couponSchema);

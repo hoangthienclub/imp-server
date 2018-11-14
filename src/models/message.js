@@ -9,7 +9,7 @@ const messageSchema = new Schema({
 	createdDate : {type : Date, default : Date.now},
 	firstMessageDay : {type : Boolean,default : false},
 	active: {type: Boolean, default: true}
-});
+}, { timestamps: true });
 
 const methods = {
 

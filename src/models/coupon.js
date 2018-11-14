@@ -9,6 +9,6 @@ const couponSchema = new Schema({
 	usedCompanyId: { type: Schema.Types.ObjectId }, //update when use
 	couponRootId: { type: Schema.Types.ObjectId, ref: "CouponRoot", required: true },
 	active: {type: Boolean, default: true}
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('Coupon', couponSchema);
