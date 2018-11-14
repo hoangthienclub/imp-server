@@ -36,7 +36,6 @@ const onVerifyingUser = async (io, socket) => {
 			})
 		}
 		else {
-			console.log('thien')
 			await create(UserSocket, {
 				userId: user.user._id,
 				socketId: socket.id
@@ -81,7 +80,7 @@ function onListenFunctions(io, socket, dbUser) {
 
 	socket.on(KEY.DEL_MESSAGE,(data) => {
 		console.log('del message');
-		delMessage(io, socket, data);
+		delMessage(io, socket, dbUser, data);
 	});
 
 }
@@ -116,10 +115,10 @@ const editMessage = async (io, socket, dbUser, data) => {
 	const updateMsgData = {
 		desc: data.desc,
 		_id: data.msgId,
-		status: 1
+		status: 2
 	}
 	const updateMsg = await update(Message, updateMsgData);
-	const msgPopAvt = await popOneMsg(dbUser, updateMsg);
+	const msgPopAvt = await popMsg(Message, updateMsg);
 	const msgPopUser = await popOneMsg(dbUser, msgPopAvt);
 	const userCurrent = await UserSocket.findOne({userId: msgPopAvt.receiverId});
 	if (userCurrent) {
@@ -127,10 +126,25 @@ const editMessage = async (io, socket, dbUser, data) => {
 	}
 }
 
-function delMessage(io, socket, data) {
-	const id = data.id;
-	
-	io.to(`${id}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : newMsg }));
+const delMessage = async (io, socket, dbUser, data) => {
+	const msg = await Message.findOne({
+		_id: data.msgId,
+		creatorId: socket.userId
+	});
+	if (!msg) {
+		return error(socket, 'err');
+	}
+	const updateMsgData = {
+		_id: data.msgId,
+		status: 3
+	}
+	const updateMsg = await update(Message, updateMsgData);
+	const msgPopAvt = await popMsg(Message, updateMsg);
+	const msgPopUser = await popOneMsg(dbUser, msgPopAvt);
+	const userCurrent = await UserSocket.findOne({userId: msgPopAvt.receiverId});
+	if (userCurrent) {
+		io.to(`${userCurrent.socketId}`).emit(KEY.DEL_MESSAGE, executeResponse({ message : msgPopUser }));
+	}
 }
 
 const socketTyping = async (io, socket, dbUser, data) => {
