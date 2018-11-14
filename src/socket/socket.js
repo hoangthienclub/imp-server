@@ -7,6 +7,7 @@ import { create, update } from '../utils/handle';
 import { popMsg } from '../utils/populate';
 import { popOneMsg } from '../utils/popDbUser';
 import { connectDbUser } from './../databases';
+import mongoose from 'mongoose';
 
 module.exports = (server) => {
 	console.log('-----------------------------------------------------------');
@@ -68,9 +69,9 @@ function onListenFunctions(io, socket, dbUser) {
 		sendMessage(io, socket, dbUser, data);
 	});
 
-	socket.on(KEY.TYPING,(data) => {
+	socket.on(KEY.TYPING, (data) => {
 		console.log('typing message');
-		socketTyping(io, socket, data);
+		socketTyping(io, socket, dbUser, data);
 	});
 
 	socket.on(KEY.EDIT_MESSAGE,(data) => {
@@ -104,15 +105,19 @@ const sendMessage = async (io, socket, dbUser, data) => {
 	}
 }
 
-function editMessage(io, socket, data) {
-	const id = data.id;
-	const newMsg = Message({
+const editMessage = async (io, socket, data) => {
+	const updateMsgData = {
 		desc: data.desc,
-		creatorId : 1,
-		receiverId : 2,
-	});
-	
-	io.to(`${id}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : data.desc }));
+		_id: data.msgId,
+		status: 1
+	}
+	const updateMsg = await update(Message, updateMsgData);
+	const msgPopAvt = await popOneMsg(dbUser, updateMsg);
+	const msgPopUser = await popOneMsg(dbUser, msgPopAvt);
+	const userCurrent = await UserSocket.findOne({userId: data.receiverId});
+	if (userCurrent) {
+		io.to(`${userCurrent.socketId}`).emit(KEY.EDIT_MESSAGE, executeResponse({ message : msgPopUser }));
+	}
 }
 
 function delMessage(io, socket, data) {
@@ -121,11 +126,17 @@ function delMessage(io, socket, data) {
 	io.to(`${id}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : newMsg }));
 }
 
-const socketTyping = async (io, socket, data) => {
+const socketTyping = async (io, socket, dbUser, data) => {
 	const userCurrent = await UserSocket.findOne({userId: data.receiverId});
+	const msg = {
+		creatorId: mongoose.Types.ObjectId(socket.userId),
+		receiverId: mongoose.Types.ObjectId(data.receiverId),
+		type: data.type
+	}
+	const msgPopUser = await popOneMsg(dbUser, msg);
 	if (userCurrent) {
 		console.log('Send msg: ', userCurrent.socketId)
-		io.to(`${userCurrent.socketId}`).emit(KEY.TYPING, executeResponse({ message : {type: data.type}}));
+		io.to(`${userCurrent.socketId}`).emit(KEY.TYPING, executeResponse({ message : msgPopUser}));
 	}
 }
 
