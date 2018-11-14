@@ -11,7 +11,10 @@ import { connectDbUser } from './../../databases';
 module.exports = {
     createCouponRoot: async (req, res, next) => {
         try {
-            req.body.hashCode = generate();
+            req.body.hashCode = generate({
+                length: 7,
+                capitalization: 'uppercase'
+            });
             const newCouponRoot = await create(CouponRoot, { 
                 ...req.body,
                 creatorId: req.user._id,
@@ -135,7 +138,10 @@ module.exports = {
                 let arr = userIds.map(key => {
                     return new Promise((resolve, reject) => {
                         create(Coupon, {
-                            hashCode: generate(),
+                            hashCode: generate({
+                                length: 7,
+                                capitalization: 'uppercase'
+                            }),
                             issueedToUser: key,
                             couponRootId: req.params.id
                         })
