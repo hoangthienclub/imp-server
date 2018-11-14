@@ -122,16 +122,10 @@ function delMessage(io, socket, data) {
 }
 
 const socketTyping = async (io, socket, data) => {
-	const newMsg = await create(Message, {
-		desc: data.desc,
-		creatorId : socket.userId,
-		receiverId : data.receiverId,
-	});
-	const msg = await popMsg(Message, newMsg);
 	const userCurrent = await UserSocket.findOne({userId: data.receiverId});
 	if (userCurrent) {
 		console.log('Send msg: ', userCurrent.socketId)
-		io.to(`${userCurrent.socketId}`).emit(KEY.TYPING, executeResponse({ message : true}));
+		io.to(`${userCurrent.socketId}`).emit(KEY.TYPING, executeResponse({ message : {type: data.type}}));
 	}
 }
 
