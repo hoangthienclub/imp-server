@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 
 const categorySchema = new Schema({
+	companyId: { type : Schema.Types.ObjectId },
 	name: String,
 	desc: String,
 	avatar: {type : Schema.Types.ObjectId, ref : 'File'},

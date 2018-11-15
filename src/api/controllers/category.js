@@ -7,7 +7,7 @@ import { popCategory } from '../../utils/populate';
 module.exports = {
     createCategory: async (req, res, next) => {
         try {
-            const newCategory = await create(Category, req.body);
+            const newCategory = await create(Category, {...req.body, companyId: req.user.companyId});
             res.data = await popCategory(Category, newCategory);
             next();
         }

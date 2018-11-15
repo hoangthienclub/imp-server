@@ -100,6 +100,7 @@ const sendMessage = async (io, socket, dbUser, data) => {
 	const userCurrent = await UserSocket.findOne({userId: data.receiverId});
 	if (userCurrent) {
 		console.log('Send msg: ', userCurrent.socketId)
+		console.log(msgPopUser)
 		io.to(`${userCurrent.socketId}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : msgPopUser}));
 	}
 }
