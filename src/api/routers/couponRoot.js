@@ -9,7 +9,7 @@ export default ({ config, db }) => {
     api.get('/:id', getCouponDetailRoot);
     api.put('/:id', updateCouponRoot);
     api.delete('/:id', deleteCouponRoot);
-    api.post('/:id', deliveryCouponRoot);
+    // api.post('/:id', deliveryCouponRoot);
     
 	return api;
 }
