@@ -7,6 +7,7 @@ import category from './routers/category';
 import couponroot from './routers/couponRoot';
 import coupon from './routers/coupon';
 import device from './routers/device';
+import position from './routers/position';
 import buildResponse from './../lib/buildResponse';
 import { MongoClient} from 'mongodb';
 import path from 'path';
@@ -43,6 +44,7 @@ export default ({ config }) => {
 	api.use('/couponroot', couponroot({ config }));
 	api.use('/coupon', coupon({ config }));
 	api.use('/device', device({ config }));
+	api.use('/position', position({ config }));
 
 	// perhaps expose some API metadata at the root
 	api.get('/', (req, res) => {
