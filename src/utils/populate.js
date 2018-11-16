@@ -38,11 +38,11 @@ let popCoupon = async function (schema, data) {
 	let result = await schema.populate(data, [
 		{
 			path: "couponRootId",
-			model: "CouponRoot",
-			populate: {
-				path: "banner",
-				model: "File"
-			}
+			model: "CouponRoot"
+			// populate: {
+			// 	path: "banner",
+			// 	model: "File"
+			// }
         }
     ])
 	return result;
