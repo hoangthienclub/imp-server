@@ -1,11 +1,13 @@
 import fs from 'fs';
 import CouponRoot from './../../models/couponroot';
 import Coupon from './../../models/coupon';
+import Device from './../../models/device';
 import { mapMessage } from './../../utils/mapping';
 import { create, find, findById, update, deleteFn } from '../../utils/handle';
 import { generate } from 'randomstring';
 import { popCouponRoot } from '../../utils/populate'; 
 import { connectDbUser } from './../../databases';
+import { push } from '../../utils/notify';
 
 
 module.exports = {
@@ -21,83 +23,74 @@ module.exports = {
                 companyId: req.user.company._id
             });
             const filter = req.body.filter;
-            let listUsers;
-            req.dbUser.collection('users').find().toArray()
-            .then(users => {
-                listUsers = users;
-                const userIds = users.map(key => key._id.toString());
-                return req.dbMain.collection('level_current').find({uid: {$in: userIds}, status: 1}).toArray()
+            let listUsers = await req.dbUser.collection('users').find().toArray();
+            const userIds = listUsers.map(key => key._id.toString());
+            const levels = await req.dbMain.collection('level_current').find({uid: {$in: userIds}, status: 1}).toArray();
+            listUsers = listUsers.map(user => {
+                user.level = levels.filter(level => level.uid == user._id)[0];
+                user.age = new Date().getFullYear() - +user.yearofbirth
+                return user;
+            });
+            let filterGender = [];
+            if (filter.gender && filter.gender.length > 0) {
+                filterGender = listUsers.filter(user => filter.gender.indexOf(+user.gender) != -1)
+            }
+            else {
+                filterGender = listUsers;
+            }
+
+            let filterAge = [];
+            if (filter.ageFrom && filter.ageTo) {
+                filterAge = filterGender.filter(user => user.age > filter.ageFrom && user.age < filter.ageTo)
+            }
+            else {
+                filterAge = filterGender;
+            }
+
+            let filterPosition = [];
+            if (filter.position && filter.position.length > 0) {
+                filterPosition = filterAge.filter(user => filter.position.indexOf(user.position._id.toString()) != -1)
+            }
+            else {
+                filterPosition = filterAge;
+            }
+
+            let filterLevel = [];
+            if (filter.level && filter.level.length > 0) {
+                filterLevel = filterPosition.filter(user => {
+                    var level = null;
+                    if (user.level) {
+                        level = user.level.current;
+                    }
+                    filter.level.indexOf(level) != -1
+                })
+            }
+            else {
+                filterLevel = filterPosition;
+            }
+            const userFilters = filterLevel.map(user => user._id);
+
+            let arr = userFilters.map(key => {
+                return new Promise((resolve, reject) => {
+                    create(Coupon, {
+                        hashCode: generate({
+                            length: 7,
+                            capitalization: 'uppercase'
+                        }),
+                        issueedToUser: key,
+                        couponRootId: newCouponRoot._id
+                    })
+                    .then(coupon => {
+                        resolve(coupon);
+                    })
+                })
             })
-            .then(levels => {
-                listUsers = listUsers.map(user => {
-                    user.level = levels.filter(level => level.uid == user._id)[0];
-                    user.age = new Date().getFullYear() - +user.yearofbirth
-                    return user;
-                });
-                let filterGender = [];
-                if (filter.gender && filter.gender.length > 0) {
-                    filterGender = listUsers.filter(user => filter.gender.indexOf(+user.gender) != -1)
-                }
-                else {
-                    filterGender = listUsers;
-                }
 
-                let filterAge = [];
-                if (filter.ageFrom && filter.ageTo) {
-                    filterAge = filterGender.filter(user => user.age > filter.ageFrom && user.age < filter.ageTo)
-                }
-                else {
-                    filterAge = filterGender;
-                }
-
-                let filterPosition = [];
-                if (filter.position && filter.position.length > 0) {
-                    filterPosition = filterAge.filter(user => filter.position.indexOf(user.position._id.toString()) != -1)
-                }
-                else {
-                    filterPosition = filterAge;
-                }
-
-                let filterLevel = [];
-                if (filter.level && filter.level.length > 0) {
-                    filterLevel = filterPosition.filter(user => {
-                        var level = null;
-                        if (user.level) {
-                            level = user.level.current;
-                        }
-                        filter.level.indexOf(level) != -1
-                    })
-                }
-                else {
-                    filterLevel = filterPosition;
-                }
-                const userIds = filterLevel.map(user => user._id);
-                let arr = userIds.map(key => {
-                    return new Promise((resolve, reject) => {
-                        create(Coupon, {
-                            hashCode: generate({
-                                length: 7,
-                                capitalization: 'uppercase'
-                            }),
-                            issueedToUser: key,
-                            couponRootId: newCouponRoot
-                        })
-                        .then(coupon => {
-                            resolve(coupon);
-                        })
-                    })
-                })
-                Promise.all(arr)
-                .then(result => {
-                    return popCouponRoot(CouponRoot, newCouponRoot);
-                }, next)
-                .then(result => {
-                    res.data = result;
-                    next();
-                })
-                .catch(next)
-            }, next)
-            .catch(next)
+            await Promise.all(arr);
+            const couponRoot = await popCouponRoot(CouponRoot, newCouponRoot);
+            await pushNotifyCouponRoot(userFilters, next);
+            res.data = couponRoot;
+            next()
         }
         catch (err) {
             console.log(err)
@@ -240,4 +233,35 @@ module.exports = {
             next(err);
         }
     },
+}
+
+var pushNotifyCouponRoot = async (userIds, next) => {
+    try {
+        const data = {
+            title: 'RECEIVE COUPON',
+            body: 'RECEIVE COUPON',
+            alert : alert,
+            identify: 'data',
+            action: 'data',
+            desc: 'data input',
+            sound : sound
+        }
+        const devices = Device.find({
+            userId: {
+                $in: userIds
+            }
+        })
+
+        const input = {
+            notification: data,
+            data: data,
+            registration_ids: devices.map(key => key.token)
+        }
+
+        await push(input);
+    }
+    catch (err) {
+        console.log(err);
+        next(err);
+    }
 }
