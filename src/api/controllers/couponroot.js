@@ -240,11 +240,11 @@ var pushNotifyCouponRoot = async (userIds, next) => {
         const data = {
             title: 'RECEIVE COUPON',
             body: 'RECEIVE COUPON',
-            alert : alert,
+            alert :'You got a meesage',
             identify: 'data',
             action: 'data',
             desc: 'data input',
-            sound : sound
+            sound : 'bingbong.aiff'
         }
         const devices = Device.find({
             userId: {
