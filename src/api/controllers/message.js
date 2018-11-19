@@ -6,13 +6,15 @@ import { popMsg } from '../../utils/populate';
 module.exports = {
     getMessages: async (req, res, next) => {
         try {
-            let skippingMessages = req.query.total - 0 || 0;
+            // let skippingMessages = req.query.total - 0 || 0;
+            let time =  req.query.time || new Date();
 		    let maxMessages = 20;
             const data = {
                 creatorId: req.user._id,
                 receiverId: req.query.receiverId,
-                skippingMessages : skippingMessages,
-                maxMessages: maxMessages
+                // skippingMessages : skippingMessages,
+                maxMessages: maxMessages,
+                time
             }
             const messages = await Message.loadMsgs(data)
             const msgPop = await popMsg(Message, messages);

@@ -28,11 +28,13 @@ const statics = {
 					creatorId: data.receiverId, 
 					receiverId: data.creatorId
 				}
-			]
+			],
+			createdDate: { $lte: data.time }
 		}
+		console.log(filter)
         return Message.find(filter)
 		.sort({createdDate: -1})
-		.skip(data.skippingMessages || 0)
+		// .skip(data.skippingMessages || 0)
 		.limit(data.maxMessages || 0)
         .catch(err => console.log(err))
 	},
