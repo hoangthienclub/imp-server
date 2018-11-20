@@ -171,5 +171,32 @@ module.exports = {
             console.log(err)
             next(err);
         }
+    },
+
+    getBlockList: async (req, res, next) => {
+        try {
+            const listContact = await Contact.find({
+                $or : [
+                    {
+                        creatorId: req.user._id
+                    },
+                    {
+                        userId: req.user._id
+                    }
+                ],
+                status: 1, 
+                block: true
+            });
+            const listUser = listContact.map(contact => {
+                let user = contact.creatorId.toString() == req.user._id.toString()? contact.userId : contact.creatorId;
+                return user;
+            })
+            res.data = await popUserContact(req.dbUser, listUser);
+            next();
+        }
+        catch (err) {
+            console.log(err)
+            next(err);
+        }
     }
 }
