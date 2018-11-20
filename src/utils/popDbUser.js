@@ -54,8 +54,20 @@ let popContact = async function (db, data) {
     })
 }
 
+let popUserContact = async function (db, data) {
+    return new Promise((resolve, reject) => {
+        db.collection('users').find({
+            _id: { $in : data }
+        }).toArray()
+        .then(users => {
+            resolve(users);
+        })
+    })
+}
+
 module.exports = {
     popMsgUser,
     popOneMsg,
-    popContact
+    popContact,
+    popUserContact
 }

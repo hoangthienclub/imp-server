@@ -2,7 +2,7 @@ import fs from 'fs';
 import Contact from './../../models/contact';
 import { mapMessage } from './../../utils/mapping';
 import { create, find, findById, update, deleteFn } from '../../utils/handle';
-import { popContact } from '../../utils/popDbUser'; 
+import { popContact, popUserContact } from '../../utils/popDbUser'; 
 
 module.exports = {
     requestContact: async (req, res, next) => {
@@ -145,4 +145,31 @@ module.exports = {
             next(err);
         }
     },
+
+    getContact: async (req, res, next) => {
+        try {
+            const listContact = await Contact.find({
+                $or : [
+                    {
+                        creatorId: req.user._id
+                    },
+                    {
+                        userId: req.user._id
+                    }
+                ],
+                status: 1, 
+                block: false
+            });
+            const listUser = listContact.map(contact => {
+                let user = contact.creatorId.toString() == req.user._id.toString()? contact.userId : contact.creatorId;
+                return user;
+            })
+            res.data = await popUserContact(req.dbUser, listUser);
+            next();
+        }
+        catch (err) {
+            console.log(err)
+            next(err);
+        }
+    }
 }
