@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { requestContact, acceptContact, rejectContact } from './../controllers/contact';
+import { requestContact, acceptContact, rejectContact, deleteContact } from './../controllers/contact';
 
 export default ({ config, db }) => {
 	let api = Router();
@@ -7,6 +7,7 @@ export default ({ config, db }) => {
 	api.post('/', requestContact);
 	api.put('/:id/accept', acceptContact);
 	api.put('/:id/reject', rejectContact);
+	api.delete('/:id', deleteContact);
     
 	return api;
 }
