@@ -86,9 +86,17 @@ module.exports = {
         try {
             const updateContact = await Contact.findOneAndUpdate({
                 _id: req.params.id,
-                creatorId: req.user._id
+                $or : [
+                    {
+                        creatorId: req.user._id
+                    },
+                    {
+                        userId: req.user._id
+                    },
+                ]
             }, {
-                block: true
+                block: true,
+                blockUserId: req.user._id
             }, {
                 new: true
             });
@@ -110,7 +118,15 @@ module.exports = {
         try {
             const updateContact = await Contact.findOneAndUpdate({
                 _id: req.params.id,
-                creatorId: req.user._id
+                $or: [
+                    {
+                        creatorId: req.user._id
+                    },
+                    {
+                        userId: req.user._id
+                    },
+                ],
+                blockUserId: req.user._id
             }, {
                 block: false
             }, {

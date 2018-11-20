@@ -10,6 +10,7 @@ const contactSchema = new Schema({
     block: {
         type: Boolean, default: false
     },
+    blockUserId: { type: Schema.Types.ObjectId },
 	active: {type: Boolean, default: true}
 }, { timestamps: true });
 const methods = {
