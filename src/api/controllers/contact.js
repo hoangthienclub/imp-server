@@ -50,11 +50,6 @@ module.exports = {
                 new: true
             });
             if (updateContact) {
-                await create(Contact, {
-                    creatorId: req.user._id,
-                    userId: updateContact.creatorId,
-                    status: 1
-                })
                 res.data = await popContact(req.dbUser, updateContact);
                 next();
             }
@@ -80,36 +75,6 @@ module.exports = {
             else {
                 next('Do not have permission!');
             }
-        }
-        catch (err) {
-            console.log(err)
-            next(err);
-        }
-    },
-
-    deleteContact: async (req, res, next) => {
-        try {
-            const contactInfo = await Contact.findOne({ _id: req.params.id});
-            if (contactInfo) {
-                const delContact = await Contact.deleteMany({
-                    $or: [
-                        {
-                            _id: req.param.id,
-                            status: 1
-                        },
-                        {
-                            creatorId: contactInfo.creatorId,
-                            userId: contactInfo.userId,
-                        },
-                        {
-                            creatorId: contactInfo.userId,
-                            userId: contactInfo.creatorId,
-                        }
-                    ]
-                });
-            }
-            res.data = {};
-            next();
         }
         catch (err) {
             console.log(err)
