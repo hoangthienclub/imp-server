@@ -179,9 +179,6 @@ module.exports = {
                 $or : [
                     {
                         creatorId: req.user._id
-                    },
-                    {
-                        userId: req.user._id
                     }
                 ],
                 status: 1, 
