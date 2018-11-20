@@ -37,8 +37,25 @@ let popOneMsg = async function (db, data) {
     })
 }
 
+let popContact = async function (db, data) {
+    let contact = JSON.parse(JSON.stringify(data));
+    return new Promise((resolve, reject) => {
+        const userIds = [];
+        userIds.push(data.creatorId);
+        userIds.push(data.userId);
+        db.collection('users').find({
+            _id: { $in : userIds }
+        }).toArray()
+        .then(users => {
+            contact.creatorId = users.filter(user => user._id == contact.creatorId)[0];
+            contact.userId = users.filter(user => user._id == contact.userId)[0];
+            resolve(contact);
+        }) 
+    })
+}
 
 module.exports = {
     popMsgUser,
-    popOneMsg
+    popOneMsg,
+    popContact
 }

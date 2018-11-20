@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 var connectDBMain = async () =>  {
 	try {
-		var client = await MongoClient.connect(`${process.env.MONGO_USER_URI}/${process.env.MONGO_MAIN_DB}`);
+		var client = await MongoClient.connect(`${process.env.MONGO_USER_URI}/${process.env.MONGO_MAIN_DB}`, { useNewUrlParser: true });
 		const db = client.db(process.env.MONGO_MAIN_DB);
 		return db;
 	}

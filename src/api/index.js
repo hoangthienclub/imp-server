@@ -8,8 +8,11 @@ import couponroot from './routers/couponRoot';
 import coupon from './routers/coupon';
 import device from './routers/device';
 import position from './routers/position';
+import company from './routers/company';
+import contact from './routers/contact';
 import buildResponse from './../lib/buildResponse';
 import { MongoClient} from 'mongodb';
+import mongoose from 'mongoose';
 import path from 'path';
 
 export default ({ config }) => {
@@ -21,10 +24,16 @@ export default ({ config }) => {
 	api.get('/chat/demo2', (req, res) => {
 		res.sendFile(path.resolve(__dirname)+'/public/index1.html');
 	})
-	api.use(function (req, res, next) {
+	api.use(async (req, res, next) => {
 		try {
 			if (req.user) {
-				req.user = req.user.user;
+				const userInfo = await req.dbUser.collection('users').findOne({
+					_id: mongoose.Types.ObjectId(req.user.user._id)
+				})
+				if (!userInfo) {
+					next(`Dont't have permission!`);
+				}
+				req.user = userInfo;
 				next();
 			}
 			else {
@@ -45,6 +54,8 @@ export default ({ config }) => {
 	api.use('/coupon', coupon({ config }));
 	api.use('/device', device({ config }));
 	api.use('/position', position({ config }));
+	api.use('/company', company({ config }));
+	api.use('/contact', contact({ config }));
 
 	// perhaps expose some API metadata at the root
 	api.get('/', (req, res) => {

@@ -8,7 +8,7 @@ const dbPort = process.env.MONGO_PORT;
 const dbName = process.env.DB_NAME;
 const user = process.env.MONGO_USER;
 const password = process.env.MONGO_PASSWORD;
-const dbURI = process.env.MONGO_URI || `mongodb://${user}:${password}@${dbHost}:${dbPort}/${dbName}`;
+const dbURI = process.env.MONGO_URI || `mongodb://${user}:${password}@${dbHost}:${dbPort}/${dbName}?authSource=TempNSO`;
 const reconnectTimeout = process.env.RECONNECT_TIMEOUT;
 
 function connect() {
