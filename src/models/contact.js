@@ -7,6 +7,9 @@ const contactSchema = new Schema({
         type: Number,
         default: 0 //0 request, 1 accept
     },
+    block: {
+        type: Boolean, default: false
+    },
 	active: {type: Boolean, default: true}
 }, { timestamps: true });
 const methods = {

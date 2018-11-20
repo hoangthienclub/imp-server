@@ -39,52 +39,30 @@ module.exports = {
         }
     },
 
-    getCategory: async (req, res, next) => {
+    acceptContact: async (req, res, next) => {
         try {
-            const listCategory = await find(Category)
-            res.data = await popCategory(Category, listCategory);
-            next();
+            const updateContact = await Contact.findOneAndUpdate({
+                _id: req.params.id,
+                creatorId: req.user._id
+            }, {
+                status: 1
+            });
+            if (updateContact) {
+                await create(Contact, {
+                    userId: req.user._id,
+                    creatorId: req.body.userId,
+                    status: 1
+                })
+                res.data = await popContact(req.dbUser, updateContact);
+                next();
+            }
+            else {
+                next('Do not have permission!');
+            }
         }
         catch (err) {
             console.log(err)
             next(err);
         }
-    },
-
-    getCategoryDetail: async (req, res, next) => {
-        try {
-            const category = await findById(Category, req.params.id)
-            res.data = await popCategory(Category, category);
-            next();
-        }
-        catch (err) {
-            console.log(err)
-            next(err);
-        }
-    },
-
-    updateCategory: async (req, res, next) => {
-        try {
-            const updateCategory = await update(Category, { ...req.body, _id: req.params.id });
-            res.data = await popCategory(Category, updateCategory);
-            next();
-        }
-        catch (err) {
-            console.log(err)
-            next(err);
-        }
-    },
-
-    deleteCategory: async (req, res, next) => {
-        try {
-            console.log(req.params.id)
-            await deleteFn(Category, req.params.id)
-            res.data = {};
-            next();
-        }
-        catch (err) {
-            console.log(err)
-            next(err);
-        }
-    },
+    }
 }
