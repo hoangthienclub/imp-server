@@ -123,7 +123,7 @@ module.exports = {
                 _id: req.params.id,
                 creatorId: req.user._id
             }, {
-                block: 1
+                block: true
             }, {
                 new: true
             });
@@ -139,5 +139,29 @@ module.exports = {
             console.log(err)
             next(err);
         }
-    }
+    },
+    
+    unBlockContact: async (req, res, next) => {
+        try {
+            const updateContact = await Contact.findOneAndUpdate({
+                _id: req.params.id,
+                creatorId: req.user._id
+            }, {
+                block: false
+            }, {
+                new: true
+            });
+            if (updateContact) {
+                res.data = await popContact(req.dbUser, updateContact);
+                next();
+            }
+            else {
+                next('Do not have permission!');
+            }
+        }
+        catch (err) {
+            console.log(err)
+            next(err);
+        }
+    },
 }
