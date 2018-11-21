@@ -37,11 +37,11 @@
         });
         $('#poke').click(function () {
             var input = document.getElementById("input").value;
-            // socket.emit('send-message', {
-            //     receiverId: '5be99326844f461870f2f4d3',
-            //     desc: input,
-            // });
-            // $('#content').append(`<p>You chat: ${input}</p>`)
+            socket.emit('send-message', {
+                receiverId: '5be99326844f461870f2f4d3',
+                desc: input,
+            });
+            $('#content').append(`<p>You chat: ${input}</p>`)
             // socket.emit('typing', {
             //     receiverId: '5be99326844f461870f2f4d3',
             //     type: 0,
@@ -54,9 +54,9 @@
             // socket.emit('del-message', {
             //     msgId: '5bec4cf216d177c373ad95f9'
             // });
-            socket.emit('join-conversation', {
-                userId: '5be99326844f461870f2f4d3'
-            });
+            // socket.emit('join-conversation', {
+            //     userId: '5be99326844f461870f2f4d3'
+            // });
         })
     </script>
 </body>

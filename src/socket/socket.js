@@ -105,9 +105,20 @@ const sendMessage = async (io, socket, dbUser, data) => {
 	const msgPopUser = await popOneMsg(dbUser, msgPopAvt);
 	const userCurrent = await UserSocket.findOne({userId: data.receiverId});
 	if (userCurrent) {
-		console.log('Send msg: ', userCurrent.socketId)
-		console.log(msgPopUser)
 		io.to(`${userCurrent.socketId}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : msgPopUser}));
+		await Contact.findOneAndUpdate({
+			creatorId: socket.userId,
+			userId: data.receiverId
+		}, {
+			lastActiveCreator: new Date()
+		});
+
+		await Contact.findOneAndUpdate({
+			userId: socket.userId,
+			creatorId: data.receiverId
+		}, {
+			lastActiveUser: new Date()
+		});
 	}
 }
 
@@ -170,27 +181,16 @@ const socketTyping = async (io, socket, dbUser, data) => {
 
 const joinConversation = async (io, socket, data) => {
 	try {
-		const contactCurrent = await Contact.findOne({
-			$or: [
-				{
-					creatorId: socket.userId,
-					userId: data.userId
-				},
-				{
-					userId: socket.userId,
-					creatorId: data.userId
-				}
-			]
+		await Contact.updateMany({
+			creatorId: socket.userId
+		}, {
+			lastActiveCreator: new Date()
 		});
-		if (contactCurrent) {
-			if (contactCurrent.creatorId.toString() == socket.userId) {
-				contactCurrent.lastActiveCreator = new Date();
-			}
-			else if (contactCurrent.userId.toString() == socket.userId) {
-				contactCurrent.lastActiveUser = new Date();
-			}
-			await contactCurrent.save();
-		}
+		await Contact.updateMany({
+			userId: socket.userId
+		}, {
+			lastActiveUser: new Date()
+		})
 	}
 	catch (err) {
 		console.log(err)
