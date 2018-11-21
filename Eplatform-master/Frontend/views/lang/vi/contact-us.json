@@ -1,0 +1,21 @@
+{
+    "lbl_intro" : "HÃY GIỮ LIÊN LẠC VỚI CHÚNG TÔI",
+    "lbl_contactInfo" : "Thông tin liên hệ",
+    "lbl_desc" : "Giới thiệu",
+    "lbl_address" : "Địa chỉ",
+    "lbl_getDirection" : "CHỈ ĐƯỜNG",
+    "lbl_phoneNumber" : "Số điện thoại",
+    "placeholder_phoneNumber" : "Nhập vào số điện thoại",
+    "lbl_email" : "Email",
+    "placeholder_email" : "Nhập vào địa chỉ email",
+    "lbl_descForm" : "Chúng tôi rất mong muốn lắng nghe ý kiến từ bạn. Hãy gửi thông tin vào form bên dưới và chúng tôi sẽ liên hệ với bạn sớm nhất có thể.",
+    "lbl_fullName" : "Họ và tên",
+    "placeholder_fullName" : "Nhập vào họ và tên",
+    "lbl_location" : "Địa chỉ (Tùy chọn)",
+    "placeholder_location" : "Nhập vào địa chỉ",
+    "lbl_message" : "Lời nhắn",
+    "placeholder_message" : "Nhập vào lời nhắn của bạn...",
+    "btn_signupforNews" : "Đăng ký để cập nhật những thông tin mới nhất",
+    "btn_submit" : "Gửi",
+    "lbl_descContent" : "Smart Business Directory là công cụ giúp khách hàng và đối tác không chỉ quảng bá công ty và dịch vụ của bạn, mà còn giúp bạn kết nối và mở rộng doanh nghiệp một cách an toàn và hiệu quả."
+}

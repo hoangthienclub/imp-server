@@ -1,0 +1,17 @@
+<% if (index == 0) { %>
+<label class="form-form-control-label control-label" for="<%= id %>"><%= field.label %></label>
+<div class="row col-sm-11 offset-1">
+    <label class="form-form-control-label control-label" for="<%= id %>">Province</label>
+    <select class="form-control" ui-select2 data-label="<%= field.label %>" ng-model="<%= getAttr('provinceId') %>" ng-change="vm.updateDistrict(<%= getAttr('provinceId') %>)"  ng-required="<%= field.required != false ? 'true' : 'false' %>">
+        <option value=""></option>
+        <option ng-repeat="e in vm.provinces" value="{{ e._id }}"> {{ e.vietnamese }} </option>
+    </select>
+</div>
+<div class="row col-sm-11 offset-1" ng-if="<%= getAttr('provinceId') %> && <%= getAttr('provinceId') %> != '-1'">
+    <label class="form-form-control-label control-label" for="<%= id %>">District</label>
+    <select class="form-control" ui-select2  data-label="<%= field.label %>" ng-model="<%= getAttr('districtId') %>" ng-required="<%= field.required != false ? 'true' : 'false' %>">
+        <option value=""></option>
+        <option ng-repeat="e in vm.districts" value="{{ e._id }}"> {{ e.vietnamese }} </option>
+    </select>
+</div>
+<% } %>

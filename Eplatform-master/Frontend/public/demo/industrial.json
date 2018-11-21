@@ -1,0 +1,682 @@
+{
+    "_id": "5b0e2c61c0127223983eb82d",
+    "area": 500,
+    "chinhSachUuDai": "<p style=\"text-align:justify\">VSIP is a self-contained industrial park with modern facilities such as:</p>\n\n<ul>\n\t<li>Ready-built factories</li>\n\t<li>Full infrastructure facilities including electricity, treated water, sewerage treatment</li>\n\t<li>Telecommunications</li>\n</ul>\n\n<p style=\"text-align:justify\">For investors to set up their manufacturing plants.</p>\n",
+    "coCauSuDungDat": "<p style=\"text-align:justify\">Minimum land plot from 5,000 sqm (currently 100% occupied)</p>\n",
+    "diaHinhDiaChat": "<p>Flat land</p>\n",
+    "districtName": "Thuan An",
+    "coordinates": [
+        [
+            [
+                106.7139387,
+                10.939401
+            ],
+            [
+                106.7160201,
+                10.9285088
+            ],
+            [
+                106.7119753,
+                10.9277293
+            ],
+            [
+                106.7130589,
+                10.9239896
+            ],
+            [
+                106.716814,
+                10.9244531
+            ],
+            [
+                106.7170393,
+                10.9230836
+            ],
+            [
+                106.7236161,
+                10.9233154
+            ],
+            [
+                106.7283475,
+                10.9236525
+            ],
+            [
+                106.7342377,
+                10.9240212
+            ],
+            [
+                106.7344308,
+                10.9251168
+            ],
+            [
+                106.7347741,
+                10.9273711
+            ],
+            [
+                106.7353535,
+                10.9277925
+            ],
+            [
+                106.7354393,
+                10.9299836
+            ],
+            [
+                106.7355037,
+                10.9312056
+            ],
+            [
+                106.736598,
+                10.9311845
+            ],
+            [
+                106.7366195,
+                10.9324697
+            ],
+            [
+                106.7373705,
+                10.9325329
+            ],
+            [
+                106.7377782,
+                10.9331017
+            ],
+            [
+                106.7382932,
+                10.9324907
+            ],
+            [
+                106.7388082,
+                10.932575
+            ],
+            [
+                106.7387867,
+                10.937526
+            ],
+            [
+                106.7388296,
+                10.9391272
+            ],
+            [
+                106.7139387,
+                10.939401
+            ]
+        ]
+    ],
+    "giaDien": "5000vnd/kwh",
+    "employee" : "3291481 (nam 2019)",
+    "giaNuoc": "10000vnd/m3",
+    "haTangKyThuat": "<p style=\"text-align:justify\">Infrastructure meeting the international standards, wastewater treatment plants, power plants...</p>\n",
+    "heThongDien": "VSIP Power Plant synchronized with National - Grid Supply: 4x63 MVA – 110/22 KV transformer equal to 214.2 MW",
+    "heThongGiaoThong": "Spindle system wide 28m, 4-lane traffic system 18m wide internal axis, including 2 lanes",
+    "heThongNuoc": "WHO Quality Standard: max capacity of 40,000 m3",
+    "heThongVienThong": "6,000 lines, equipped with IDD, private leased lines and fiber optic capabilities. Broadband ADSL services available.",
+    "heThongXuLyNuocThai": "18,000 m3 per day. On progress to install the 4th module which will increase the total capacity up to 24,000 m3 per day",
+    "khiHau": "<p style=\"text-align:justify\">Tropical equatorial nature, year-round temperatures, high humidity and abundant light source.</p>\n",
+    "name": "Vietnam - Singapore Industrial Park (VSIP 1)",
+    "nganhNgheTiepNhan": "<p style=\"text-align:justify\">Engineering and Car Parts and Accessories Electronics and Electrical, Pharmaceuticals and Health Care, Food and Beverage, Supporting Industries, Food Processing, Construction Materials, Mechanical Engineering, Electronics, Equipment and Spare parts, Medical Instruments.</p>\n",
+    "owner": "<p style=\"text-align:justify\">Vietnam-Singapore Industrial Park Joint Venture Company (Joint Venture between Becamex IDC Corporation &amp; Sembcorp Development)</p>\n\n<p style=\"text-align:justify\"><em><strong>* Management office:</strong></em></p>\n\n<ul>\n\t<li style=\"text-align:justify\"><strong>Address:</strong> VSIP I Binh Duong, No. 8 Dai lo Huu Nghi, VSIP, Thuan An Town, Binh Duong.</li>\n\t<li style=\"text-align:justify\"><strong>Tel:</strong> (84.650) 3743 898; <strong>Fax:</strong> (84.650) 3743 430</li>\n\t<li style=\"text-align:justify\"><strong>Email:</strong> marketing@vsip.com.vn</li>\n\t<li style=\"text-align:justify\"><strong>Website:</strong> www.vsip.com.vn&nbsp;</li>\n</ul>\n",
+    "phiXuLyNuocThai": "10000vnd/m3",
+    "tiLeThue": "99%",
+    "tienIchCongCong": "<p style=\"text-align: justify;\">Sports facilities, banks, post office, restaurants, canteen and commercial centre</p>\n",
+    "logo": {
+        "name": "HinhDaiDienKhuCongNghiep__f6daa987_thump.jpg",
+        "url": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__f6daa987_thump.jpg"
+    },
+    "province": {
+        "name": "Binh Duong Province",
+        "url": "binh-duong-province"
+    },
+    "images": [
+        {
+            "name": "FileGallery_f13d6d13_1.jpg",
+            "url": "http://ip.nso.com.vn/HinhBDS/Upload/FileGallery_f13d6d13_1.jpg"
+        },
+        {
+            "name": "FileGallery_d9754250_2.jpg",
+            "url": "http://ip.nso.com.vn/HinhBDS/Upload/FileGallery_d9754250_2.jpg"
+        },
+        {
+            "name": "FileGallery_e2767142_3.JPG",
+            "url": "http://ip.nso.com.vn/HinhBDS/Upload/FileGallery_e2767142_3.JPG"
+        },
+        {
+            "name": "FileGallery_14435868_4.jpg",
+            "url": "http://ip.nso.com.vn/HinhBDS/Upload/FileGallery_14435868_4.jpg"
+        },
+        {
+            "name": "FileGallery_b8aca099_DSC_7419 (2).jpg",
+            "url": "http://ip.nso.com.vn/HinhBDS/Upload/FileGallery_b8aca099_DSC_7419 (2).jpg"
+        },
+        {
+            "name": "FileGallery_b82dd039_DSC_7423.jpg",
+            "url": "http://ip.nso.com.vn/HinhBDS/Upload/FileGallery_b82dd039_DSC_7423.jpg"
+        }
+    ],
+    "address": {
+        "raw": "Vietnam-Singapore Industrial Park, 8 Huu Nghi Avenue, Thuan An District, Vietnam",
+        "latLng": {
+            "lat": 10.940542,
+            "lng": 106.728244
+        }
+    },
+    "news": [
+        {
+            "logo": {
+                "name": "boyte2.png",
+                "url": "http://eplatform.nso.com.vn/userimages/admin/201602/boyte2.png"
+            },
+            "title": "GREEN CROSS launches the “Clean Hands – Warm Hands” campaign",
+            "date": "2016-02-29T00:00:00.000Z",
+            "desc": " Green Cross has collaborated with the Ministry of Health and the Health Environment Protection Bureau in fulfilling the &ldquo;Clean Hands &ndash; Warm Hands&rdquo; campaign. "
+        }
+    ],
+    "companies": [
+        {
+            "_id": "5b064b84dc975309b8fab6a4",
+            "address": {
+                "raw": "36 VSIP, Street 6",
+                "latLng": {
+                    "lat": 10.9375368,
+                    "lng": 106.72666090000007
+                }
+            },
+            "provinceId": "5b058eb1dc975311982fad1c",
+            "provinceName": "Binh Duong",
+            "logo": {
+                "name": "behn-meyer1_3.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/10/behn-meyer1_3.jpg"
+            },
+            "name": "BEHN MEYER Co.,Ltd",
+            "url": "behn-meyer-coltd",
+            "taxNumber": 3700720496,
+            "categories": [
+                {
+                    "name": "Chemical and Chemical Products",
+                    "url": "http://smartdirectory.vn:3330/map/chemical-and-chemical-products"
+                }
+            ]
+        },
+        {
+            "_id": "5b064b85dc975309b8fab6a7",
+            "address": {
+                "raw": "28 Tu Do Avenue",
+                "latLng": {
+                    "lng": 106.7253166,
+                    "lat": 10.9351559
+                }
+            },
+            "provinceId": "5b058eb1dc975311982fad1c",
+            "provinceName": "Binh Duong",
+            "logo": {
+                "name": "greencross.gif",
+                "url": "http://eplatform.nso.com.vn/logo/11/greencross.gif"
+            },
+            "name": "Green Cross Vietnam Co., Ltd",
+            "url": "green-cross-vietnam-co-ltd",
+            "taxNumber": 3700539025,
+            "categories": [
+                {
+                    "name": "Chemical and Chemical Products",
+                    "url": "http://smartdirectory.vn:3330/map/chemical-and-chemical-products"
+                }
+            ]
+        },
+        {
+            "_id": "5b064b87dc975309b8fab6c2",
+            "address": {
+                "raw": "2 VSIP, Street 6",
+                "latLng": {
+                    "lat": 10.9375668,
+                    "lng": 106.72124389999999
+                }
+            },
+            "provinceId": "5b058eb1dc975311982fad1c",
+            "provinceName": "Binh Duong",
+            "logo": {
+                "name": "logo.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/33/logo.jpg"
+            },
+            "name": "CEI Internatonal Investments Viet Nam Co., Ltd.",
+            "url": "cei-internatonal-investments-viet-nam-co-ltd",
+            "taxNumber": 3700403828,
+            "categories": [
+                {
+                    "name": "Computer",
+                    "url": "http://smartdirectory.vn:3330/map/computer"
+                }
+            ]
+        },
+        {
+            "_id": "5b064b88dc975309b8fab6c8",
+            "address": {
+                "raw": "10 VSIP, Street 8",
+                "latLng": {
+                    "lat": 10.9301884,
+                    "lng": 106.7296086
+                }
+            },
+            "provinceId": "5b058eb1dc975311982fad1c",
+            "provinceName": "Binh Duong",
+            "logo": {
+                "name": "1009.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/35/1009.jpg"
+            },
+            "name": "Tan Chong (VietNam) Industrial Machinery Co., Ltd",
+            "url": "tan-chong-vietnam-industrial-machinery-co-ltd",
+            "taxNumber": 302344430,
+            "categories": [
+                {
+                    "name": "Services",
+                    "url": "http://smartdirectory.vn:3330/map/services"
+                },
+                {
+                    "name": "Leasing",
+                    "url": "http://smartdirectory.vn:3330/map/leasing"
+                }
+            ]
+        },
+        {
+            "_id": "5b064b89dc975309b8fab6cb",
+            "address": {
+                "raw": "12A Doc Lap Avenue",
+                "latLng": {
+                    "lng": 106.7191878,
+                    "lat": 10.9274581
+                }
+            },
+            "provinceId": "5b058eb1dc975311982fad1c",
+            "provinceName": "Binh Duong",
+            "logo": {
+                "name": "1460992054605_37831.png",
+                "url": "http://eplatform.nso.com.vn/logo/36/1460992054605_37831.png"
+            },
+            "name": "Toyota Material Handling VietNam",
+            "url": "toyota-material-handling-vietnam",
+            "taxNumber": 3700233968,
+            "categories": []
+        },
+        {
+            "_id": "5b064b8bdc975309b8fab6e3",
+            "address": {
+                "raw": "32 Tu Do Avenue",
+                "latLng": {
+                    "lng": 106.7278808,
+                    "lat": 10.9352085
+                }
+            },
+            "provinceId": "5b058eb1dc975311982fad1c",
+            "provinceName": "Binh Duong",
+            "logo": {
+                "name": "1019.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/44/1019.jpg"
+            },
+            "name": "Casarredo Manufacturing Co., Ltd",
+            "url": "casarredo-manufacturing-co-ltd",
+            "taxNumber": 3700556630,
+            "categories": []
+        },
+        {
+            "_id": "5b064b8bdc975309b8fab6e6",
+            "address": {
+                "raw": "31 VSIP, Street 6",
+                "latLng": {
+                    "lat": 10.9375368,
+                    "lng": 106.72666090000007
+                }
+            },
+            "provinceId": "5b058eb1dc975311982fad1c",
+            "provinceName": "Binh Duong",
+            "logo": {
+                "name": "1020.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/45/1020.jpg"
+            },
+            "name": "Dic VietNam Co., Ltd",
+            "url": "dic-vietnam-co-ltd",
+            "taxNumber": 3700626944,
+            "categories": [
+                {
+                    "name": "Chemical and Chemical Products",
+                    "url": "http://smartdirectory.vn:3330/map/chemical-and-chemical-products"
+                }
+            ]
+        },
+        {
+            "_id": "5b064b8bdc975309b8fab6e9",
+            "address": {
+                "raw": "72 Doc Lap Avenue",
+                "latLng": {
+                    "lat": 10.9278251,
+                    "lng": 106.72830199999999
+                }
+            },
+            "provinceId": "5b058eb1dc975311982fad1c",
+            "provinceName": "Binh Duong",
+            "logo": {
+                "name": "logo.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/46/logo.jpg"
+            },
+            "name": "Branch Of Au Chau Company Limited",
+            "url": "branch-of-au-chau-company-limited",
+            "taxNumber": 0,
+            "categories": [
+                {
+                    "name": "Construction / Architects",
+                    "url": "http://smartdirectory.vn:3330/map/construction-architects"
+                }
+            ]
+        },
+        {
+            "_id": "5b064b8cdc975309b8fab6ec",
+            "address": {
+                "raw": "25 Tu Do Avenue, Vietnam - Singapore Industrial Park, Thuan An, Binh Duong",
+                "latLng": {
+                    "lat": 10.935198,
+                    "lng": 106.72001120000004
+                }
+            },
+            "provinceId": "5b058eb1dc975311982fad1c",
+            "provinceName": "Binh Duong",
+            "logo": {
+                "name": "1461059292088_37956.png",
+                "url": "http://eplatform.nso.com.vn/logo/47/1461059292088_37956.png"
+            },
+            "name": "APM Springs VietNam Co., Ltd",
+            "url": "apm-springs-vietnam-co-ltd",
+            "taxNumber": 3700611874,
+            "categories": [
+                {
+                    "name": "Automotive",
+                    "url": "http://smartdirectory.vn:3330/map/automotive"
+                }
+            ]
+        },
+        {
+            "_id": "5b064b8ddc975309b8fab6f2",
+            "address": {
+                "raw": "7 VSIP, Street 8",
+                "latLng": {
+                    "lat": 10.9299326,
+                    "lng": 106.72513279999998
+                }
+            },
+            "provinceId": "5b058eb1dc975311982fad1c",
+            "provinceName": "Binh Duong",
+            "logo": {
+                "name": "1461072025387_37959.png",
+                "url": "http://eplatform.nso.com.vn/logo/49/1461072025387_37959.png"
+            },
+            "name": "Daily Full International Printing Viet Nam Co., Ltd",
+            "url": "daily-full-international-printing-viet-nam-co-ltd",
+            "taxNumber": 3700329733,
+            "categories": [
+                {
+                    "name": "Printing/Publishing",
+                    "url": "http://smartdirectory.vn:3330/map/printingpublishing"
+                }
+            ]
+        },
+        {
+            "_id": "5b064b90dc975309b8fab701",
+            "address": {
+                "raw": "18 Huu Nghi Avenue",
+                "latLng": {
+                    "lng": 106.7187881,
+                    "lat": 10.924669
+                }
+            },
+            "provinceId": "5b058eb1dc975311982fad1c",
+            "provinceName": "Binh Duong",
+            "logo": {
+                "name": "1028.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/54/1028.jpg"
+            },
+            "name": "King Power Co., Ltd",
+            "url": "king-power-co-ltd",
+            "taxNumber": 3700446211,
+            "categories": [
+                {
+                    "name": "Machine",
+                    "url": "http://smartdirectory.vn:3330/map/machine"
+                },
+                {
+                    "name": "Electrical",
+                    "url": "http://smartdirectory.vn:3330/map/electrical"
+                }
+            ]
+        },
+        {
+            "_id": "5b064b92dc975309b8fab707",
+            "address": {
+                "raw": "46 Tu Do Avenue",
+                "latLng": {
+                    "lat": 10.9357774,
+                    "lng": 106.73804640000003
+                }
+            },
+            "provinceId": "5b058eb1dc975311982fad1c",
+            "provinceName": "Binh Duong",
+            "logo": {
+                "name": "logo_20130314002.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/56/logo_20130314002.jpg"
+            },
+            "name": "Far Eastern Apparel VietNam Co., Ltd",
+            "url": "far-eastern-apparel-vietnam-co-ltd",
+            "taxNumber": 3700426550,
+            "categories": [
+                {
+                    "name": "Garment",
+                    "url": "http://smartdirectory.vn:3330/map/garment"
+                }
+            ]
+        }
+    ],
+    "industrialPark": [
+        {
+            "_id": "5b0e2c63c0127223983ebad9",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__b8d6b9da_thumb1034.jpg",
+            "name": "Tan Binh Industrial Park",
+            "area": 352.5,
+            "tiLeThue": 0,
+            "address": "Bac Tan Uyen, Binh Duong",
+            "url": "tan-binh-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebadc",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__f6daa987_thump.jpg",
+            "name": "Vietnam - Singapore Industrial Park (VSIP 1)",
+            "area": 500,
+            "tiLeThue": 0,
+            "address": "Vietnam-Singapore Industrial Park, 8 Huu Nghi Avenue, Thuan An District, Vietnam",
+            "url": "vietnam-singapore-industrial-park-vsip-1"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebadf",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__d1498179_an tay.jpg",
+            "name": "An Tay Industrial Park",
+            "area": 997.74,
+            "tiLeThue": 0,
+            "address": "Ben Cat, Binh Duong",
+            "url": "an-tay-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebae2",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__8d221a72_thump.jpg",
+            "name": "Bau Bang Industrial Park",
+            "area": 997.74,
+            "tiLeThue": 0,
+            "address": "Lai Uyen, Ben Cat, Binh Duong",
+            "url": "bau-bang-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebae5",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__1e3d9573_khu-cong-nghiep-det-may-binh-an.jpg",
+            "name": "Binh An Industrial Park",
+            "area": 25.9,
+            "tiLeThue": 0,
+            "address": "Di An, Binh Duong",
+            "url": "binh-an-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebae8",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__c2a00e3d_thump.jpg",
+            "name": "Binh Duong Industrial Park",
+            "area": 16.5,
+            "tiLeThue": 0,
+            "address": "Di An, Binh Duong",
+            "url": "binh-duong-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebaeb",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__7daed356_thumb1033.jpg",
+            "name": "Dai Dang Industrial Park",
+            "area": 274.36,
+            "tiLeThue": 0,
+            "address": "Thu Dau Mot, Binh Duong",
+            "url": "dai-dang-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebaee",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__8c319a37_thump1.jpg",
+            "name": "Dat Cuoc Industrial Park",
+            "area": 212.84,
+            "tiLeThue": 0,
+            "address": "Dat Cuoc, Tan Uyen, Binh Duong",
+            "url": "dat-cuoc-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebaf1",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__ce03281a_thump1.jpg",
+            "name": "Dong An Industrial Park",
+            "area": 122.43,
+            "tiLeThue": 0,
+            "address": "Binh Hoa, Thuan An, Binh Duong",
+            "url": "dong-an-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebaf4",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__51954536_thump1.jpg",
+            "name": "Dong An 2 Industrial Park",
+            "area": 158.11,
+            "tiLeThue": 0,
+            "address": "Thuan An, Binh Duong",
+            "url": "dong-an-2-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebaf7",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__320a20d2_thump1.jpg",
+            "name": "Kim Huy Industrial Park",
+            "area": 213.63,
+            "tiLeThue": 0,
+            "address": "Binh Chuan, Thuan An, Binh Duong",
+            "url": "kim-huy-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebafd",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__5c03241e_FileGallery_b3ca901e_2.jpg",
+            "name": "My Phuoc Industrial Park",
+            "area": 376.92,
+            "tiLeThue": 0,
+            "address": "Ben Cat, Binh Duong",
+            "url": "my-phuoc-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebb00",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__cf602f23_my phuoc 2.jpg",
+            "name": "My Phuoc 2 Industrial Park",
+            "area": 477.39,
+            "tiLeThue": 0,
+            "address": "Ben Cat, Binh Duong",
+            "url": "my-phuoc-2-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebb03",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__b162d1ce_thump1.jpg",
+            "name": "My Phuoc 3 Industrial Park",
+            "area": 997.71,
+            "tiLeThue": 0,
+            "address": "Ben Cat, Binh Duong",
+            "url": "my-phuoc-3-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebb06",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__fc2995c0_thump1.jpg",
+            "name": "Nam Tan Uyen Industrial Park",
+            "area": 330.51,
+            "tiLeThue": 0,
+            "address": "Khanh Binh, Tan Uyen, Binh Duong",
+            "url": "nam-tan-uyen-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebb09",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__a2d75716_thump1.jpg",
+            "name": "Nam Tan Uyen Industrial Park (expanded) Industrial Park",
+            "area": 288.52,
+            "tiLeThue": 0,
+            "address": "Khanh Binh, Tan Uyen, Binh Duong",
+            "url": "nam-tan-uyen-industrial-park-expanded-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebb0c",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__f5c6765d_thump1.jpg",
+            "name": "Phu Gia Industrial Park",
+            "area": 133.29,
+            "tiLeThue": 0,
+            "address": "Phu Hoa, Thu Dau Mot, Binh Duong",
+            "url": "phu-gia-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebb0f",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__5b276a5b_KHU-CN-RACH-BAP.jpg",
+            "name": "Rach Bap Industrial Park",
+            "area": 278.6,
+            "tiLeThue": 0,
+            "address": "Rach Bap Industrial Park, My Phuoc, Ben Cat, Binh Duong, Vietnam",
+            "url": "rach-bap-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebb12",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__8e48c0d3_thump1.jpg",
+            "name": "Song Than 1 Industrial Park",
+            "area": 178.01,
+            "tiLeThue": 0,
+            "address": "Di An, Binh Duong, Vietnam",
+            "url": "song-than-1-industrial-park"
+        },
+        {
+            "_id": "5b0e2c63c0127223983ebb15",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__70f05a43_thump1.jpg",
+            "name": "Song Than 2 Industrial Park",
+            "area": 279.27,
+            "tiLeThue": 0,
+            "address": "Di An, Binh Duong",
+            "url": "song-than-2-industrial-park"
+        },
+        {
+            "_id": "5b0e2c64c0127223983ebbf0",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__47567c24_Thumbnail-3.jpg",
+            "name": "Bang Industrial Park",
+            "area": 135,
+            "tiLeThue": 0,
+            "address": "Le Thuy district, Quang Binh province",
+            "url": "bang-industrial-park"
+        },
+        {
+            "_id": "5b0e2c64c0127223983ebcda",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__5067ef21_Untitled-1.jpg",
+            "name": "Vietnam - Singapore II Industrial Park (VSIP 2)",
+            "area": 2045,
+            "tiLeThue": 0,
+            "address": "Road 3 VSIP II, Hoa Loi, Ben Cat, Binh Duong, Vietnam",
+            "url": "vietnam-singapore-ii-industrial-park-vsip-2"
+        },
+        {
+            "_id": "5b0e2c64c0127223983ebd19",
+            "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__5360b5c6_cover.jpg",
+            "name": "Viet Huong 1 Industrial Park",
+            "area": 36.06,
+            "tiLeThue": 0,
+            "address": "Thuan An, Binh Duong, Viet Nam",
+            "url": "viet-huong-1-industrial-park"
+        }
+    ],
+    "totalCompanies": 248
+}

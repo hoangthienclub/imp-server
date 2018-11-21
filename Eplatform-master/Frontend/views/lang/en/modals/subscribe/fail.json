@@ -1,0 +1,6 @@
+{
+    "label": "Fail",
+    "error": "Please try again later!!!",
+    "exist": "Email already exist!",
+    "validate": "Please input valid email"
+}

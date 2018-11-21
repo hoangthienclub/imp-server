@@ -1,0 +1,48 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong>System</strong>
+                    <small>Report</small>
+                </div>
+                <div class="card-block">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Company Chart</div>
+                                    <div class="panel-body">
+                                        <canvas id="line" class="chart chart-pie" chart-options="vm.options" chart-data="vm.data" chart-labels="vm.labels">
+                                        </canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 col-lg-3" ng-repeat="elem in vm.collections">
+                                        <div class="card">
+                                            <div class="card-body p-3 d-flex align-items-center">
+                                                <i style="min-width: 56px; text-align: center" class="fa {{ elem.fontAwesome }} bg-primary p-3 font-2xl mr-3"></i>
+                                                <div>
+                                                    <div class="text-value-sm text-primary"><b>{{ vm.countData[elem.collection] }}</b></div>
+                                                    <div class="text-muted text-uppercase font-weight-bold small">{{ elem.label }}</div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer px-3 py-2">
+                                                <a class="btn-block text-muted d-flex justify-content-between align-items-center" ui-sref="{{ 'index.' + elem.collection }}">
+                                                    <span class="small font-weight-bold">View More</span>
+                                                    <i class="fa {{ elem.fontAwesome }}"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

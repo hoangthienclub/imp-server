@@ -1,0 +1,5 @@
+<% if (index == 0) { %>
+<div class="col-sm-12">
+    <tags-input ng-model="<%= getAttr(attr) %>"  data-label="<%= field.label %>" name="<%= id %>" id="<%= id %>" ng-focus="<%= id %>=true" ng-required="<%= field.required != false ? 'true' : 'false' %>"></tags-input>
+</div>
+<% } %>

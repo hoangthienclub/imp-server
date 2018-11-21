@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <%- include("partials/head") %>
+    <link rel="stylesheet" href="public/slick/slick.css" type="text/css" />
+    <link rel="stylesheet" href="public/slick/slick-theme.css" type="text/css" />
+
+</head>
+
+<body style="background:#f8f9fb;">
+
+    <div class="aboutus">
+        <%- include("partials/headers/top-nav") %>
+    </div>
+
+
+    <div id="aboutBanner">
+        <div class="container">
+            <div class="companyIntro">
+                <div class="companyName">
+                    <h3  class="fontsize18"><%= langData.lbl_about %></h3>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="listAbout text-center">
+                <% for (var e in pageData.aboutUsData) { 
+                    text = pageData.aboutUsData[e].title;
+                    text = text.substring(text.indexOf("#") + 1, text.lastIndexOf("#"));
+                %>
+                <div class="listAboutItem">
+                    <img src="<%= pageData.aboutUsData[e].imageId.url %>" />
+                    <h4><%= text %></h4>
+                    <p><%= pageData.aboutUsData[e].title.replace(/#.*#/, '') %></p>
+                    <p><% if (language == "vi") { %> <%- pageData.aboutUsData[e].fullDesc.substring(0, 98) %>... <% } else { %> <%- pageData.aboutUsData[e].fullDesc.substring(0, 100) %>... <% } %></p>
+                </div>
+                <% } %>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="container text-center aboutBlock1" style="">
+        <h2><%= pageData.aboutUsData[0].titleDesc %></h2>
+        <p><%= pageData.aboutUsData[0].fullDesc %></p>
+    </div>
+
+    <div class="text-right aboutBlock2" style="">
+                <h2><%= pageData.aboutUsData[1].titleDesc %></h2>
+                <p><%= pageData.aboutUsData[1].fullDesc %></p>
+            <div class="clearfix"></div>
+            <!-- <div class="whoImg">
+                <img src="public/assets/oval-7-copy-2.png" />
+                <img src="public/assets/oval-7-copy-5.png" />
+                <img src="public/assets/oval-7-copy-2.png" />
+                <img src="public/assets/oval-7-copy-5.png" />
+                <img src="public/assets/oval-7-copy-5.png" />
+            </div> -->
+    </div>
+
+    <div class="text-center coverImg" >
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="" style="background:#fff;">
+        <div class="container">
+            <div class="leftColAbout">
+                <h2><%= pageData.aboutUsData[2].titleDesc %></h2>
+                <p style="text-align:justify;"><%= pageData.aboutUsData[2].fullDesc %></p>
+            </div>
+            <div class="rightColAbout">
+                <img src="public/assets/rectangle-31.jpg" />
+                <p>“<%= langData.lbl_ad %>”</p>
+                <!-- <img src="public/assets/rectangle-31-copy.jpg" />
+                <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. </p> -->
+            </div>
+        </div>
+    </div>
+
+    <%- include("partials/footers/default") %>
+
+</body>
+
+</html>

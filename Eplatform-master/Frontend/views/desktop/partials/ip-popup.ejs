@@ -1,0 +1,17 @@
+<div class="popUpCompanyOnMap listInfo">
+    <% if (row) { %>
+    <div class="itemPopup">
+        <div class="popUpContent">
+            <a href="<%= genUrl.getIndustrialParkUrl(row.url) %>" target="_blank"><h7><%= row.name %></h7></a>
+            <p><a href="javascript:void(0)"><%= langData.lblAddress %>: <%= row.address ? row.address.raw : "" %> </a></p>
+            <p><a href="javascript:void(0)"><%= langData.lblArea %>: <%= row.area %> ha</a></p>
+        </div>
+        <div class="popUpImage">
+            <div>
+                <img src="<%= row.logoImageId ? row.logoImageId.url : 0 %>">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <% } %>
+</div>

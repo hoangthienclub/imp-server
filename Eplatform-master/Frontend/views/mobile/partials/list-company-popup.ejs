@@ -1,0 +1,20 @@
+<div class="popUpCompanyOnMap listInfo">
+    <% for (let company of companies) { %>
+    <div class="itemPopup">
+        <div class="resultItemProvince"  style="margin-bottom: 10px;margin-top: -10px;">
+            <h6 style="background: #9ab1fd; color: #fff;"><%= company.provinceData.name %></h6>
+        </div>
+        <div class="popUpContent">
+            <a href="<%= genUrl.getDetailUrl(company.url) %>"><h7><%= company.name %></h7></a>
+            <p><a href="javascript:void(0)"><%= company.companyCategories.join(", ") %> &nbsp;</a></p>
+            <p><a href="javascript:void(0)"><%= company.address ? company.address.raw : "" %></a></p>
+        </div>
+        <div class="popUpImage">
+            <div>
+                <img src="<%= company.logoImageId ? company.logoImageId.url : 0 %>">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <% } %>
+</div>

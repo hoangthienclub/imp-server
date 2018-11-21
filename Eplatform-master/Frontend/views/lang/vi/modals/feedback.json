@@ -1,0 +1,11 @@
+{
+    "lbl_title" : "Phản hồi",
+    "lbl_desc" : "Chúng tôi hy vọng nhận được phản hồi từ bạn để cải thiện website tốt hơn.",
+    "lbl_icon" : "Ý kiến của bạn là gì?",
+    "lbl_selectCategory" : "Vui lòng lựa chọn danh mục phản hồi",
+    "btn_compliment" : "Khen ngợi",
+    "btn_error" : "Có gì đó không đúng",
+    "btn_suggestion" : "Đề xuất",
+    "lbl_feedback" : "Vui lòng điền nội dung phản hồi vào ô bên dưới",
+    "btn_send" : "Gửi"
+}

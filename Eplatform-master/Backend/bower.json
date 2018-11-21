@@ -1,0 +1,36 @@
+{
+  "name": "nodejs-cms",
+  "version": "1.0.0",
+  "description": "Code builder in nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/louis.it/nodejs-cms.git"
+  },
+  "author": "Louis Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/louis.it/nodejs-cms/issues"
+  },
+  "homepage": "https://gitlab.com/louis.it/nodejs-cms#README",
+  "dependencies": {
+    "bootstrap": "4.0.0-alpha.6",
+    "jquery": "^3.0.0",
+    "tether": "latest",
+    "angular": "latest",
+    "angular-ui-router": "1.0.0-beta.3",
+    "oclazyload": "latest",
+    "angular-breadcrumb": "latest",
+    "angular-loading-bar": "latest",
+    "fontawesome": "latest",
+    "simple-line-icons": "latest",
+    "chart.js": "^2.3.0",
+    "angular-chart.js": "^1.0.3",
+    "angular-ckeditor": "^1.0.3",
+    "angular-google-places-autocomplete": "*",
+    "angular-ui-select2": "latest"
+  }
+}

@@ -1,0 +1,8 @@
+<div class="col-sm-12">
+    <div ckeditor="{
+        language: '<%= lang %>',
+        allowedContent: true,
+        entities: false,
+        filebrowserBrowseUrl: '/app/#/file/browser'
+    }"  data-label="<%= lang.toUpperCase() %>: <%= field.label %>" ng-model="<%= getAttr(attr, lang) %>" ready="onReady()" ng-required="<%= field.required != false ? 'true' : 'false' %>"></div>
+</div>

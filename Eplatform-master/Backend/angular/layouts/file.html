@@ -1,0 +1,31 @@
+<script>
+
+    function getUrlParam(paramName) {
+        var reParam = new RegExp('(?:[\?&]|&amp;)' + paramName + '=([^&]+)', 'i') ;
+        var match = window.location.href.match(reParam) ;
+
+        return (match && match.length > 1) ? match[1] : '' ;
+    }
+
+    var funcNum = getUrlParam('CKEditorFuncNum');
+    window.addEventListener("message", function (e) {
+        if (funcNum) {
+            window.opener.CKEDITOR.tools.callFunction(funcNum, e.data.map(e => fileBrowserUrl + e.url));
+        } else {
+            window.opener.fileSelected (e.data);
+        }
+        window.close();
+    }, false);
+
+</script>
+<style>
+    .iframe-hidden{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 0;
+    }
+</style>
+<ui-view></ui-view>

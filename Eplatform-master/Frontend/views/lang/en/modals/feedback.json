@@ -1,0 +1,11 @@
+{
+    "lbl_title" : "Your feedback",
+    "lbl_desc" : "We would like your feedback to improve our website.",
+    "lbl_icon" : "What is your opinion of page?",
+    "lbl_selectCategory" : "Please select your feedback category below",
+    "btn_compliment" : "Compliment",
+    "btn_error" : "Something isn't quite right",
+    "btn_suggestion" : "Suggestion",
+    "lbl_feedback" : "Please leave your feedback below",
+    "btn_send" : "Send"
+}

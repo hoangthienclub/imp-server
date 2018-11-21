@@ -1,0 +1,3 @@
+<div class="col-sm-12">
+    <input type="text" class="form-control"  data-label="<%= lang.toUpperCase() %>: <%= field.label %>" ng-model="<%= getAttr(attr, lang) %>" ng-class="form.<%= id %>.$valid ? 'form-control-success' : 'form-control-danger'" name="<%= id %>" id="<%= id %>" placeholder="<%= field.label %> <%= lang %>" ng-focus="<%= id %>=true" ng-required="<%= field.required != false ? 'true' : 'false' %>"/>
+</div>

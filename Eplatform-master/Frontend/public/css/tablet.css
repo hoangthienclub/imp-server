@@ -1,0 +1,780 @@
+@charset "utf-8";
+/* CSS Document */
+
+@media (min-width:769px) and (max-width: 1024px) {
+.container{
+	padding-left: 5px;
+	padding-right: 5px;
+	width: 90%;
+}
+.topNavHome .navContent {
+	padding: 0;
+}
+.aboutSmartItem {
+    width: 33% !important;
+    float: left;
+    height: 500px;
+    margin-bottom: 60px;
+}
+.aboutSmartContent h2 {
+    font-size: 34px;
+}
+.aboutStatisticItem{
+	padding:0;
+	float:left;
+	width: auto;
+	height: auto;
+	margin-right: 0;
+}
+.aboutStatisticItem:nth-child(4){
+	margin-right: 0px;
+}
+.aboutStatisticContent{
+	float:left;
+	background:#fff;
+	border-radius:8px;
+	box-shadow: 0px 7px 72px -8px rgba(0,0,0,0.0);
+	width: 270px;
+	height: 210px;
+	margin-right: 30px;
+	
+}
+.aboutStatisticContent > img {
+    float: right;
+    margin-right: 20px;
+    margin-top: 50px;
+    width: 48px;
+    filter: invert(0.5) sepia(57.5) saturate(31) grayscale(4);
+    opacity: 0.5;
+    position: relative;
+}
+.searchInfo .controlS > input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	font-family: 'Montserrat-Light', sans-serif;
+	line-height:1.5;
+  }
+  .searchInfo .controlS > input::-moz-placeholder { /* Firefox 19+ */
+	font-family: 'Montserrat-Light', sans-serif;
+	line-height:1.5;
+  }
+  .searchInfo .controlS > input:-ms-input-placeholder { /* IE 10+ */
+	font-family: 'Montserrat-Light', sans-serif;
+	line-height:1.5;
+  }
+  .searchInfo .controlS > input:-moz-placeholder { /* Firefox 18- */
+	font-family: 'Montserrat-Light', sans-serif;
+	line-height:1.5;
+  }
+
+.col01{
+	width:24%;
+	height:60px;
+	float:left;
+	margin:0 20px 0 0;
+	padding:0;
+}
+.col02{
+	width:19%;
+	float:left;
+	margin:0 20px 0 0;
+	padding:0;
+}
+.col03{
+	width:30%;
+	float:left;
+	margin:0 20px 0 0;
+	padding:0;
+}
+.col04{
+	width:19%;
+	float:left;
+	margin:0 0;
+	padding:0 0;
+}
+
+.listSubMenu a {
+	font-size: 13px;
+	line-height: 21px;
+}
+.listSubMenu li {
+    padding: 0px 14px;
+}
+.footerLeftContent p{
+	font-size: 12px;
+	line-height: 22px;
+    margin: 19px 0px 20px 0;
+}
+.footerLeftContent {
+    width: 31%;
+}
+.footerRightContent {
+    width: 69%;
+}
+.basicIntroDesc {
+    width: 100%;
+    margin-right: 0;
+}
+.connectBody.bodySC img {
+    margin: 80px 68px;
+}
+.featureCategory2 .connectHeader {
+    margin-left: 50px;
+}
+.codeSelectItem {
+    margin-right: 40px;
+}
+.featureCertItem {
+    width: 30%;
+}
+.featureProductItem{
+	width: 30%;
+	margin-right: 30px;
+}
+.featureProductItem:nth-child(3n+3){
+	margin-right: 0;
+}
+.featureProductItem:nth-child(4n+4){
+	margin-right: 30px;
+}
+.featureProductItem img {
+    width: 100%;
+}
+.productDetailPanel .modal-dialog {
+	width: 90%;
+	height: auto;
+}
+.productDetailPanel .modal-content {   
+	width: 100%;
+    height: auto;
+    float: left;
+    padding-bottom: 30px;
+}
+.topImgGalleryProduct {
+	height: auto;
+	max-height: 470px;
+}
+.itemGal01 {
+    width: 100%;
+    height: auto;
+}
+#signup .modal-dialog {
+    width: 95%;
+    height: 728px;
+    margin-top: 20px;
+}
+.modalLeft {
+	width: 50%;
+	padding: 50px 30px;
+}
+.modalRight {
+	width: 50%;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.modalRight img {
+    margin: 130px 0px 0px 00px;
+    width: 100%;
+	height: auto;
+}
+#login .modal-dialog {
+    width: 95%;
+    height: 600px;
+    margin-top: 20px;
+}
+.provinceDetailPanel .modal-dialog {
+    width: 90%;
+    margin-top: 10px;
+}
+.levelInfoItem {
+    width: 45%;
+    height: 564px;
+    border-top: 4px solid #fff;
+    background: #fff;
+    border-radius: 7px;
+	margin-right: 20px;
+	margin-left: 20px;
+	margin-bottom: 40px;
+
+}
+.listAboutItem {
+    width: 31%;
+	margin-right: 26px;
+	height: auto;
+	min-height: 450px;
+}
+.whoImg img {
+    margin: 0 30px 0 0;
+    width: 125px;
+    height: 125px;
+}
+.leftColAbout {
+    margin-top: -360px;
+
+}
+.leftColAbout h2{
+	margin-left: 5px;
+}
+
+.contactLeft {
+	height: 1000px;
+
+}
+.contactRight {
+	height: 1000px;
+
+}
+.contactForm {
+	height: 1000px;
+}
+
+.connectHeader h7{
+	width:100%;
+	float:left;
+}
+.customerNav{
+	width: 70%;
+}
+.footerLeftContent {
+    width: 30%;
+}
+.footerRightContent {
+	width: 70%;
+}
+
+#ourCustomer img, #ourPartner img {
+	width: 150px;
+	height: 100px;
+    padding: 30px;
+}
+.aboutSmartContent p {
+    display: block;
+}
+
+#ourCustomer, #ourPartner {
+    min-height: 340px;
+    background-size: 100%;
+}
+
+.basicContent .customCard .whiteSVG, .customCard h7{
+	white-space: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	-webkit-justify-content: none;
+	-webkit-align-items: none;
+	height: auto;
+}
+.customCard .blackSVG{
+	height: auto;
+}
+.customCard svg{
+	height: auto;
+}
+
+.customCard table tr td{
+	padding: 0 5px;
+}
+#contentapp #app .appImg img{
+	width: 100%;
+}
+.appFeatureInfo {
+    width: 50%;
+}
+.appFeatureContent{
+	width: 50%;
+}
+.appPros .appContent {
+    margin-top: 180px;
+}
+.appDown {
+    padding: 50px 0;
+}
+.appStore img {
+    float: left;
+    margin-right: 20px;
+    margin-top: 40px;
+}
+.appQR {
+    margin-right: 30px;
+}
+.appStore p {
+	margin-top: 40px;
+}
+#contentapp #app .appContent {
+    margin-top: 50px;
+}
+.conLeft {
+	width: 60%;
+}
+.conRight {
+	width: 40%;
+}
+.blockDFooter .pageNav {
+    width: 41%;
+}
+.companyListItem {
+	width: 100%;
+	padding: 5px 5px 0 10px;
+}
+.companyListItem:nth-child(2n) {
+	padding: 5px 5px 0 10px;
+}
+.propertyListItem {
+    width: 50%;
+    margin-bottom: 20px;
+}
+.asrlList {
+	width: 100%;
+}
+}
+
+
+
+@media only screen and (max-width: 769px) {
+
+	.customCard table tr td{
+		padding: 0 5px;
+	}
+	.controlS{
+		width:90%;
+		margin:0 auto;
+	}
+	.searchInfo .controlS > input{
+		border-bottom-right-radius:unset !important;
+		border-top-right-radius:unset !important;
+		border:hidden;
+		width: calc(100% - 80px);
+		font-size:16px;
+		line-height: 24px;
+		color: #000;
+		height:64px;
+	}
+	.searchInfo .controlS > button{
+		border-bottom-left-radius:unset !important;
+		border-top-left-radius:unset !important;
+		background:#1046f1;
+		margin-left:-7px;
+		border:none;
+		color:#fff;
+		padding:20px 29px;
+		width:80px;
+		height:64px;
+		float:right;
+	}
+	
+	.searchInfo > .para01{
+		width:90%;
+		height:54px;
+		margin:20px auto 115px auto;
+	}
+	.searchInfo > .para02{
+		width:90%;
+		height:63px;
+		margin:0 auto 49px auto;
+	}
+
+
+	.topNavHome .navContent {
+		padding: 0;
+	}
+	div.aboutSmart > h2 {
+		width: 90%;
+		margin: 60px auto 30px auto;
+	}
+	.aboutSmartItem {
+		height: 570px;
+	}
+	
+	.aboutStatistic > div.container > h2{
+		width:auto;
+	}
+	.aboutStatistic > div.container > p{
+		width:auto;
+	}
+	.listSubMenu li {
+		padding: 0px 10px;
+	}
+	.listSubMenu a {
+		font-size: 12px;
+		line-height: 6px;
+	}
+	.footerLeftContent p{
+		font-size: 12px;
+		line-height: 18px;
+		margin: 12px 0px 12px 0;
+	}
+	.col01{
+		width:45%;
+		height:60px;
+		float:left;
+		margin:0 20px 30px 0;
+		padding:0;
+	}
+	.col02{
+		width:45%;
+		float:left;
+		margin:0 20px 30px 0;
+		padding:0;
+	}
+	.col03{
+		width:45%;
+		float:left;
+		margin:0 20px 0 0;
+		padding:0;
+	}
+	.col04{
+		width:45%;
+		float:left;
+		margin:0 0;
+		padding:0 0;
+	}
+
+	.connectBodyContent {
+		width: 100%;
+	}
+	
+	.featureCategory2 .connectHeader {
+		margin-left: 30px;
+	}
+	.featureVerticalDivider {
+		height: 312px;
+	}
+	.codeSelectItem {
+		width: 45%;
+		margin-right: 20px;
+	}
+	.codeSelection .connectBody {
+		padding-left: 60px;
+		margin-top: 10px;
+	}
+	.featureCertItem {
+		width: 30%;
+		margin-right: 15px;
+	}
+	.featureCertItemYear {
+		margin-left: 132px;
+	}
+	.featureProductItem{
+		width: 30%;
+		height: 500px;
+		margin-right: 30px;
+	}
+	.featureProductItem:nth-child(3n+3){
+		margin-right: 0;
+	}
+	.featureProductItem:nth-child(4n+4){
+		margin-right: 30px;
+	}
+	.featureProductItem img {
+		width: 100%;
+	}
+	.featureProductItemContent img {
+		width: 24px;
+	}
+	.modalRight img {
+		margin: 130px 0px 0px 00px;
+		width: 100%;
+		height: auto;
+	}
+	#profileBanner .companyIntroAvatar {
+		width: 100px;
+		height: 100px;
+		float: left;
+		padding-right: 1rem;
+	}
+	#profileBanner .companyName {
+
+		padding: 20px 0 13px 30px;
+		display: table;
+		vertical-align: middle;
+		margin: 0 auto;
+
+	}
+	#profileBanner .myCompany {
+		margin-top: 0;
+	}
+	#profileEdit .myCompany {
+		margin-top: 276px;
+	}
+	.profileRight > img.imgNameCard {
+		width: 100%;
+		height: auto;
+	}
+	#setting .formControl{
+		width: 100%;
+	}
+	.companyIntroduce {
+
+		padding: 0;
+		float: left;
+		margin-top: 176px;
+		position: relative;
+	
+	}
+	
+	.levelInfoItem {
+		width: 45%;
+		height: 564px;
+		border-top: 4px solid #fff;
+		background: #fff;
+		border-radius: 7px;
+		margin-right: 18px;
+		margin-left: 18px;
+		margin-bottom: 40px;
+
+	}
+	.myCompany.changeCover{
+		margin-top: 12px;
+	}
+	.listAboutItem {
+		width: 32%;
+		margin-right: 14px;
+		height: 450px;	
+	}
+	.whoImg img {
+		margin: 0 15px 30px 10px;
+		width: 100px;
+		height: 100px;
+	}
+	.whoImg img:last-child {
+		margin: 0 10px 30px 10px;
+	}
+	.leftColAbout {
+		margin-top: -360px;
+	
+	}
+	.leftColAbout h2{
+		margin-left: 5px;
+	}
+	.aboutBlock2 {
+		-webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 27%);
+		clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 27%);
+	}
+
+	.rightColAbout p {
+		color: #666;	
+	}
+	.contactLeft {
+		height: 1000px;
+	
+	}
+	.contactRight {
+		padding: 40px 30px;
+		height: 1000px;
+	
+	}
+	.contactForm {
+		height: 1000px;
+	}
+	#companyInfo {
+		padding-top: 30px;
+	}
+	
+.footerLeftContent {
+    width: 25%;
+}
+.footerRightContent {
+	width: 75%;
+}
+.aboutSmartContent p {
+    margin: 10px 10px 20px 10px;
+}
+#ourCustomer img, #ourPartner img {
+	width: 150px;
+	height: 100px;
+    padding: 40px;
+}
+.aboutSmartContent h2 {
+    font-size: 36px;
+}
+#login .modal-dialog {
+    width: 90%;
+}
+#signup .modal-dialog {
+    width: 90%;
+}
+.modalRight {
+    display: none;
+}
+.modalLeft {
+	width: 100%;
+	border-radius: 6px;
+}
+#ourCustomer, #ourPartner {
+    min-height: 310px;
+    background-size: 100%;
+}
+
+	.basicContent .customCard .whiteSVG, .customCard h7{
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: block;
+		-webkit-justify-content: none;
+		-webkit-align-items: none;
+		height: auto;
+	}
+	.customCard .blackSVG{
+		height: auto;
+	}
+	.customCard svg{
+		height: auto;
+	}
+	#app .appContent {
+		float: left;
+	}
+	#contentapp #app .appImg img{
+		width: 100%;
+	}
+	#contentapp #app {
+		padding: 60px 0px;
+	}
+	.appFeatureInfo {
+		width: 40%;
+	}
+	.appFeatureContent{
+		width: 60%;
+		max-width: 400px;
+		float: left;
+		margin-right: auto;
+		margin-left: auto;
+		margin-top: 60px;
+	}
+	.appFeatureInfo h2{
+		font-size: 40px;
+	}
+	.appPros{
+		margin-bottom: 300px;
+	}
+	.appPros .appContent {
+		width: 100%;
+		text-align: center;
+		margin-top: 650px;
+		height: 300px;
+		background: #fff;
+	}
+	.appDown {
+		padding: 50px 0;
+	}
+	.appStore img {
+		width: 30%;
+		margin-right: 20px;
+	}
+	.appQR {
+		width: 30%;
+		margin-right: 30px;
+	}
+	.appQR img{
+		width: 100%;
+	}
+	.appStore p {
+		margin-top: 40px;
+		font-size: 18px;
+	}
+	#contentapp #app .appContent {
+		margin-top: 50px;
+	}
+	.conLeft {
+		width: 60%;
+	}
+	.conRight {
+		width: 40%;
+	}
+	.conRight a{
+		font-size: 12px;
+	}
+	.block-rendered img {
+		width: 40px;
+		padding-top: 10px;
+	}
+	.block-rendered-content {
+		padding-left: 10px;
+		padding-top: 6px;
+	}
+	.block-rendered-content h7 {
+		font-size: 14px;
+	}
+	.block-rendered-content p {
+		font-size: 18px;
+	}
+	.conBodyLeft {
+		width: 200px;
+	}
+	.conLeft h4 {
+		font-size: 32px;
+	}
+	.conBodyRight {
+		width: calc(100% - 200px);
+		margin-left: 199px;
+		padding: 20px 10px 20px 20px;
+	}
+	.con-left-menu {
+		padding: 8px 10px;
+		font-size: 14px;
+	}
+	.conBodyRight table tr td {
+		font-size: 14px;
+	}
+	.conBodyRight table tr td:nth-child(1) p{
+		font-size: 14px;
+	}
+	.conBodyRight table tr td:nth-child(2){
+		padding-left: 30px;
+		font-size: 14px;
+	}
+	.conBodyRight table tr td:nth-child(2) p{
+		font-size: 14px;
+	}
+	.blockDTitle h7 {
+		font-size: 18px;
+	}
+	.IPListItem {
+		padding: 12px 5px 12px 10px;
+	}
+	.IPListItemContent h7 {
+		font-size: 16px;
+	}
+	.IPListItemContent p {
+		font-size: 14px;
+	}
+	.blockDFooter .pageNav {
+		width: 43%;
+	}
+	.blockD {
+		margin-bottom: 20px;
+	}
+	.companyListItem {
+		width: 100%;
+		padding: 5px 5px 0 10px;
+		margin-top: 5px;
+	}
+	.companyListItem:nth-child(2n) {
+		padding: 5px 5px 0 10px;
+	}
+	.companyListItem .resultItem {
+		height: auto;
+		padding-top: 5px;
+	}
+	.propertyListItem {
+		width: 50%;
+		margin-bottom: 20px;
+	}
+	.newsItemHL {
+		width: 25%;
+	}
+	.newsItemHR {
+		width: 75%;
+		padding-left: 20px;
+	}
+	.newsItemHR h7 {
+		font-size: 16px;
+	}
+	.newsItemHR p {
+		font-size: 12px;
+	}
+	.newsItemHR span {
+		font-size: 12px;
+	}
+	.asrlList {
+		width: 100%;
+	}
+}

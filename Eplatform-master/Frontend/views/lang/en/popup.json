@@ -1,0 +1,14 @@
+{
+    "lbl_success" : "Success!",
+    "lbl_thankyouSubscribe" : "Thank you for your subscribing",
+    "lbl_error" : "Error!",
+    "lbl_alreadySignUp" : "You have already signed up",
+    "lbl_cookie" : "This website uses cookies to ensure you get the best experience on our website.",
+    "lbl_moreInfo" : "More Info",
+    "btn_gotIt" : "Got It",
+    "lbl_thankyou" : "Thank you!",
+    "lbl_contactsoon" : "We will contact you soon",
+    "lbl_confirmAccount" : "Confirm Account",
+    "lbl_otpInput" : "Enter OTP number was sent to your phone",
+    "lbl_confirm" : "Confirm"
+}

@@ -1,0 +1,96 @@
+<div class="hintViewAll">
+    <p><a href="<%= genUrl.getMapUrl() %>?text=<%= keySearch %>"> > <%=lang.title_all_results %> <%= keySearch %></a></p>
+</div>
+<div class="hintBlock">
+    <h6 class="hintBlockTitle">Company Name</h6>
+    <ul class="hintBlockList">
+        <% for (var e = 0; e < data.companies.length; e++) { 
+            companies = data.companies[e]; %>
+            <li>
+                <a href="<%= genUrl.getDetailUrl() %>/<%= companies.aUrl %>" target="_blank">
+                    <img src="<%= companies.imgUrl %>" />
+                    <p class="fullCap"><%- companies.text %></p>
+                </a>
+            </li>
+        <% } %>     
+        <li>
+            <a class="hintViewAll" href="<%= genUrl.getMapUrl() %>?text=<%= keySearch %>">
+                <p>>> <%=lang.lbl_all_company %> <%= keySearch %></p>
+            </a>
+        </li>  
+    </ul>
+</div>
+<div class="hintBlock">
+    <h6 class="hintBlockTitle">Category Name</h6>
+    <ul class="hintBlockList">
+        <% for (var e = 0; e < data.companyCategories.length; e++) { 
+            companyCategories = data.companyCategories[e]; %>
+            <li>
+                <a href="<%= genUrl.getMapUrl() %>?ep_companyCategories=<%= companyCategories._id %>" target="_blank">
+                    <p class="fullCap"><%- companyCategories.text %></p>
+                </a>
+            </li>
+        <% } %>     
+        <!-- <li>
+            <a class="hintViewAll" href="#">
+                <p>>> <%=lang.lbl_all_category %> <%= keySearch %></p>
+            </a>
+        </li>   -->
+    </ul>
+</div>
+<div class="hintBlock">
+    <h6 class="hintBlockTitle">Code Vn</h6>
+    <ul class="hintBlockList">
+        <% for (var e = 0; e < data.codeVns.length; e++) { 
+            codeVns = data.codeVns[e]; %>
+            <li>
+                <a href="<%= genUrl.getMapUrl() %>?ep_codeVns=<%= codeVns._id %>" target="_blank">
+                    <p class="fullCap"><%- codeVns.code %> - <%- codeVns.text %></p>
+                </a>
+            </li>
+        <% } %>    
+        <!-- <li>
+            <a class="hintViewAll" href="#">
+                <p>>> <%=lang.lbl_all_code_vn %> <%= keySearch %></p>
+            </a>
+        </li>    -->
+    </ul>
+</div>
+
+<div class="hintBlock">
+    <h6 class="hintBlockTitle">Code Sic</h6>
+    <ul class="hintBlockList">
+        <% for (var e = 0; e < data.codeSics.length; e++) { 
+            codeSics = data.codeSics[e]; %>
+            <li>
+                <a href="<%= genUrl.getMapUrl() %>?ep_codeSics=<%= codeSics._id %>" target="_blank">
+                    <p class="fullCap"><%- codeSics.code %> - <%- codeSics.text %></p>
+                </a>
+            </li>
+        <% } %>    
+        <!-- <li>
+            <a class="hintViewAll" href="#">
+                <p>>> <%=lang.lbl_all_code_sic %> <%= keySearch %></p>
+            </a>
+        </li>    -->
+    </ul>
+</div>
+
+<div class="hintBlock">
+    <h6 class="hintBlockTitle">Code Naic</h6>
+    <ul class="hintBlockList">
+        <% for (var e = 0; e < data.codeNaics.length; e++) { 
+            codeNaics = data.codeNaics[e]; %>
+            <li>
+                <a href="<%= genUrl.getMapUrl() %>?ep_codeNaics=<%= codeNaics._id %>" target="_blank">
+                    <p class="fullCap"><%- codeNaics.code %> - <%- codeNaics.text %></p>
+                </a>
+            </li>
+        <% } %>    
+        <!-- <li>
+            <a class="hintViewAll" href="#">
+                <p>>> <%=lang.lbl_all_code_naic %> <%= keySearch %></p>
+            </a>
+        </li>    -->
+    </ul>
+</div>

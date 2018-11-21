@@ -1,0 +1,80 @@
+
+
+<!-- Login -->
+
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modalLeft">
+
+                <div class="modal-header">
+                    <h3 class="modal-title fontsize16" id="loginLabel" style="display: contents;"><%= langData.title_logIn %></h3>
+                    <button type="button" class="close closeButton" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="username" class="col-form-label"><%= langData.lbl_phoneNumber %></label>
+                            <input type="text" class="" name="username" id="username" placeholder="<%= langData.placeholder_phone %>" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="userPass" class="col-form-label"><%= langData.lbl_pass %></label>
+                            <input type="password" class="" name="password" id="userPass" placeholder="<%= langData.placeholder_pass %>" required />
+                        </div>
+                        <div class="form-group">
+                            <a href="#" class="aForgotPassword" data-toggle="modal" data-dismiss="modal" data-target="#forgetPassword" ><%= langData.btn_forgotPassword %></a>
+                            <button type="button" class="btn-primary floatRight" style="width:55%"><%= langData.btn_logIn %></button>
+                        </div>
+                        <div class="form-group">
+                            <label class="customCheck"><%= langData.btn_rememberMe %>
+                                <input type="checkbox" checked="checked" name="remember" />
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <%= langData.lbl_dontHaveAccount %>
+                    <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#signup">
+                        <b> <%= langData.btn_register %></b>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(() => {
+            $("#login a[data-toggle='modal']").click(function () {
+                var modalName = $(this).attr("data-target").replace("#", "");
+                window.showModal(modalName);
+                return true;
+            })
+            function login() {
+                var postData = {};
+                $("#login form").serializeArray().forEach(function (e) {
+                    postData[e.name] = e.value;
+                })
+
+                $.ajax({
+                    url: loginApi,
+                    method: "post",
+                    data: postData,
+                    success: function (objData) {
+                        $(objData.html).modal();
+                        if (objData.reload) {
+                            window.location.reload();
+                        }
+                    }
+                })
+            }
+            $("#login form").submit(function () {
+                login();
+                return false;
+            });
+        })
+    </script>
+</div>
+<!-- End login -->

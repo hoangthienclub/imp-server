@@ -1,0 +1,620 @@
+{
+    "_id": "5bea6d92052164371870d8c0",
+    "name": "Demo company",
+    "aliasName": "Demo company",
+    "located": "Cao Bang Province - VietNam",
+    "desc": "<p>Demo company</p>\n",
+    "facebook": "",
+    "google": "",
+    "twitter": "",
+    "linkedin": "",
+    "categories": [
+        {
+            "name": "Services",
+            "url": "http://smartdirectory.vn:3330/map/services"
+        }
+    ],
+    "phoneNumbers": [
+        "1231245566"
+    ],
+    "faxs": [
+        "12134545"
+    ],
+    "emails": [
+        "demo@gmail.com"
+    ],
+    "website": "demo.vn",
+    "taxNumber": 1234567890098,
+    "registrationNumber": 32131241221,
+    "legalRepresentative": "Khau Thi Thien Kim",
+    "issuedOn": "2000-01-01T00:00:00.000Z",
+    "registrationDate": "2000-01-01T00:00:00.000Z",
+    "registeredCapital": 2,
+    "totalInvestedCapital": 34,
+    "issuedPlace": "Demo company",
+    "area": 23323,
+    "employeeSize": 321,
+    "country": "VietNam",
+    "address": "188/5/12b To Ngoc Van, Linh Đong, Thu Duc",
+    "district": "Ha Quang",
+    "latLng": {
+        "lat": 10.9375339,
+        "lng": 106.72835699999996
+    },
+    "province": {
+        "provinceId": "5b058eb1dc975311982facdd",
+        "name": "Cao Bang Province",
+        "url": "cao-bang-province",
+        "housing": "<p><img alt=\"\" src=\"http://cities.nso.com.vn/HinhBDS/Upload/images/Cao%20Bang.jpg\" style=\"width:100%\" /></p>\r\n"
+    },
+    "legalStructure": {
+        "_id": "5b062e32dc9753105c38da40",
+        "userId": "59d735a4b359cb0a447919dd",
+        "oldId": 1,
+        "cre_ts": "2018-06-03T10:14:05.931Z",
+        "modByUserId": "59d735a4b359cb0a447919dd",
+        "mod_ts": "2018-07-12T11:59:25.141Z",
+        "name": "Limited Liability Company with a Single member",
+        "collection": "ep_companyLegalStructures"
+    },
+    "speakingLanguages": "EN",
+    "originalNationality": {"name": "Vietnam"},
+    "trademarks": "Demo company",
+    "businessType": {"name": "Limited Partnership"},
+    "certificates": [
+        {
+            "image": "https://hub.nso.vn/glide/eplatform/icon/Iso/DIN.jpg?ts=1536122520",
+            "name": "Demo",
+            "year": 2011
+        },
+        {
+            "image": "https://hub.nso.vn/glide/eplatform/icon/Iso/DIN.jpg?ts=1536122520",
+            "name": "Demo",
+            "year": 2011
+        },
+        {
+            "image": "https://hub.nso.vn/glide/eplatform/icon/Iso/DIN.jpg?ts=1536122520",
+            "name": "Demo",
+            "year": 2011
+        },
+        {
+            "image": "https://hub.nso.vn/glide/eplatform/icon/Iso/DIN.jpg?ts=1536122520",
+            "name": "Demo",
+            "year": 2011
+        }
+    ],
+    "news": [{
+        "logo": {
+            "name": "behn-meyer1_3.jpg",
+            "url": "http://eplatform.nso.com.vn/logo/10/behn-meyer1_3.jpg"
+        },
+        "title": "title",
+        "date": "2010-03-08T00:00:00.000Z",
+        "desc": "<p style=\"text-align: justify;\">Association activities of the Association in the form of economic organization, was established on the basis of voluntary, non-profit aims to represent and protect the legitimate interests of its members</p>\n"
+    }],
+    "customers": [
+        {
+            "logo": {
+                "name": "behn-meyer1_3.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/10/behn-meyer1_3.jpg"
+            },
+            "url": "http://smartdirectory.vn:3330/detail/behn-meyer-coltd"
+        },
+        {
+            "logo": {
+                "name": "behn-meyer1_3.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/10/behn-meyer1_3.jpg"
+            },
+            "url": "http://smartdirectory.vn:3330/detail/behn-meyer-coltd"
+        },
+        {
+            "logo": {
+                "name": "behn-meyer1_3.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/10/behn-meyer1_3.jpg"
+            },
+            "url": "http://smartdirectory.vn:3330/detail/behn-meyer-coltd"
+        },
+        {
+            "logo": {
+                "name": "behn-meyer1_3.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/10/behn-meyer1_3.jpg"
+            },
+            "url": "http://smartdirectory.vn:3330/detail/behn-meyer-coltd"
+        },
+        {
+            "logo": {
+                "name": "behn-meyer1_3.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/10/behn-meyer1_3.jpg"
+            },
+            "url": "http://smartdirectory.vn:3330/detail/behn-meyer-coltd"
+        }
+    ],
+    "suppliers": [
+        {
+            "logo": {
+                "name": "behn-meyer1_3.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/10/behn-meyer1_3.jpg"
+            },
+            "url": "http://smartdirectory.vn:3330/detail/behn-meyer-coltd"
+        },
+        {
+            "logo": {
+                "name": "behn-meyer1_3.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/10/behn-meyer1_3.jpg"
+            },
+            "url": "http://smartdirectory.vn:3330/detail/behn-meyer-coltd"
+        },
+        {
+            "logo": {
+                "name": "behn-meyer1_3.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/10/behn-meyer1_3.jpg"
+            },
+            "url": "http://smartdirectory.vn:3330/detail/behn-meyer-coltd"
+        },
+        {
+            "logo": {
+                "name": "behn-meyer1_3.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/10/behn-meyer1_3.jpg"
+            },
+            "url": "http://smartdirectory.vn:3330/detail/behn-meyer-coltd"
+        },
+        {
+            "logo": {
+                "name": "behn-meyer1_3.jpg",
+                "url": "http://eplatform.nso.com.vn/logo/10/behn-meyer1_3.jpg"
+            },
+            "url": "http://smartdirectory.vn:3330/detail/behn-meyer-coltd"
+        }
+    ],
+    "products": [
+        {
+            "images": [
+                {
+                    "url": "https://hub.nso.vn/glide/eplatform/company/logos/default/Default-logo-20180509-01.png?ts=1542037094",
+                    "name": "Default-logo-20180509-01.png"
+                }
+            ],
+            "name": "Demo product",
+            "desc": "<p>Demo product</p>\n"
+        },
+        {
+            "images": [
+                {
+                    "url": "https://hub.nso.vn/glide/eplatform/company/logos/default/Default-logo-20180509-01.png?ts=1542037094",
+                    "name": "Default-logo-20180509-01.png"
+                }
+            ],
+            "name": "Demo product",
+            "desc": "<p>Demo product</p>\n"
+        },
+        {
+            "images": [
+                {
+                    "url": "https://hub.nso.vn/glide/eplatform/company/logos/default/Default-logo-20180509-01.png?ts=1542037094",
+                    "name": "Default-logo-20180509-01.png"
+                }
+            ],
+            "name": "Demo product",
+            "desc": "<p>Demo product</p>\n"
+        },
+        {
+            "images": [
+                {
+                    "url": "https://hub.nso.vn/glide/eplatform/company/logos/default/Default-logo-20180509-01.png?ts=1542037094",
+                    "name": "Default-logo-20180509-01.png"
+                }
+            ],
+            "name": "Demo product",
+            "desc": "<p>Demo product</p>\n"
+        },
+        {
+            "images": [
+                {
+                    "url": "https://hub.nso.vn/glide/eplatform/company/logos/default/Default-logo-20180509-01.png?ts=1542037094",
+                    "name": "Default-logo-20180509-01.png"
+                }
+            ],
+            "name": "Demo product",
+            "desc": "<p>Demo product</p>\n"
+        }
+    ],
+    "code": {
+        "sics": [
+            {
+                "code": "016",
+                "name": "Vegetables and Melons"
+            },
+            {
+                "code": "0171",
+                "name": "Berry Crops"
+            },
+            {
+                "code": "0173",
+                "name": "Tree Nuts"
+            },
+            {
+                "code": "0181",
+                "name": "Ornamental Floriculture and Nursery Products"
+            }
+        ],
+        "vns": [
+            {
+                "code": "1410",
+                "name": "Manufacture of wearing apparel, except fur apparel"
+            },
+            {
+                "code": "1420",
+                "name": "Manufacture of articles of fur"
+            },
+            {
+                "code": "1430",
+                "name": "Manufacture of knitted and crocheted apparel"
+            },
+            {
+                "code": "151",
+                "name": "Tanning and dressing of leather; manufacture of luggage, handbags, saddlery and harness; dressing and dyeing of fur"
+            }
+        ],
+        "naics": [
+            {
+                "code": "21",
+                "name": "Mining, Quarrying, and Oil and Gas Extraction"
+            },
+            {
+                "code": "44-45",
+                "name": "Retail Trade"
+            },
+            {
+                "code": "53",
+                "name": "Real Estate and Rental and Leasing"
+            },
+            {
+                "code": "55",
+                "name": "Management of Companies and Enterprises"
+            }
+        ]
+    },
+    "images": [
+        {
+            "url": "https://hub.nso.vn/glide/eplatform/company/logos/default/Default-logo-20180509-09.pngDefault-logo-20180509-10.png?ts=1542078318",
+            "name": "Default-logo-20180509-09.pngDefault-logo-20180509-10.png"
+        }
+    ],
+    "logo": {
+        "name": "Default-logo-20180509-01.png",
+        "url": "https://hub.nso.vn/glide/eplatform/company/logos/default/Default-logo-20180509-01.png?ts=1542037094"
+    },
+    "industrialPark": {
+        "url": "demo",
+        "name": "Demo",
+        "owner": "<p>Demo</p>\n",
+        "address": "188/5/12b To Ngoc Van, Linh Đong, Thu Duc",
+        "chinhSachUuDai": "<p>Demo</p>\n",
+        "nganhNgheTiepNhan": "<p>Demo</p>\n",
+        "area": 3213.32,
+        "images": {
+            "name": "1Huynh De Te Hung Food Processing Co., Ltd.jpg",
+            "url": "https://hub.nso.vn/glide/eplatform/company/logos/1Huynh De Te Hung Food Processing Co., Ltd.jpg?ts=1536563206"
+        }
+    },
+    "association": {
+        "name": "Vietnam Cotton & Spinning Association (VCOSA)",
+        "url": "vietnam-cotton-spinning-association-vcosa",
+        "address": "10F, 10 Nguyen Hue St., Ben Nghe Ward, District 1",
+        "phoneNumber": [
+            "+84 8 3911 0995"
+        ],
+        "email": [],
+        "website": "www.vcosa.org.vn",
+        "desc": "<p style=\"text-align: justify;\">Vietnam Cotton &amp; Spinning Association (VCOSA) is a non-governmental organization with the voluntary participation of organizations, enterprises and managers, scientists, technicians of all economic sectors in Vietnam</p>\n",
+        "foundDate": "2009-03-10T00:00:00.000Z",
+        "images": {
+            "name": "AssociationProfilePicture__7240f253_thumbnail.jpg",
+            "url": "http://association.nso.com.vn/HinhBDS/Upload/AssociationProfilePicture__7240f253_thumbnail.jpg"
+        }
+    },
+    "relatedCompanies": [{
+        "_id": "5b064b84dc975309b8fab6a4",
+        "address": {
+            "raw": "36 VSIP, Street 6",
+            "latLng": {
+                "lat": 10.9375368,
+                "lng": 106.72666090000007
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "behn-meyer1_3.jpg",
+            "url": "http://eplatform.nso.com.vn/logo/10/behn-meyer1_3.jpg"
+        },
+        "name": "BEHN MEYER Co.,Ltd",
+        "url": "behn-meyer-coltd",
+        "taxNumber": 3700720496,
+        "categories": [{
+            "name": "Chemical and Chemical Products",
+            "url": "http://smartdirectory.vn:3330/map/chemical-and-chemical-products"
+        }]
+    }, {
+        "_id": "5b064b85dc975309b8fab6a7",
+        "address": {
+            "raw": "28 Tu Do Avenue",
+            "latLng": {
+                "lng": 106.7253166,
+                "lat": 10.9351559
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "greencross.gif",
+            "url": "http://eplatform.nso.com.vn/logo/11/greencross.gif"
+        },
+        "name": "Green Cross Vietnam Co., Ltd",
+        "url": "green-cross-vietnam-co-ltd",
+        "taxNumber": 3700539025,
+        "categories": [{
+            "name": "Chemical and Chemical Products",
+            "url": "http://smartdirectory.vn:3330/map/chemical-and-chemical-products"
+        }]
+    }, {
+        "_id": "5b064b85dc975309b8fab6ad",
+        "address": {
+            "raw": "F-2-CN Unt, D15 Street",
+            "latLng": {
+                "lat": 11.133308,
+                "lng": 106.60047050000003
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "goodsteel.gif",
+            "url": "http://eplatform.nso.com.vn/logo/20/goodsteel.gif"
+        },
+        "name": "Good Steel Vietnam Co., Ltd",
+        "url": "good-steel-vietnam-co-ltd",
+        "taxNumber": 3700685241,
+        "categories": [{
+            "name": "Metal",
+            "url": "http://smartdirectory.vn:3330/map/metal"
+        }]
+    }, {
+        "_id": "5b064b86dc975309b8fab6b3",
+        "address": {
+            "raw": "5 VSIP, Street 14",
+            "latLng": {
+                "lat": 11.1047711,
+                "lng": 106.69601560000001
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "logo23.jpg",
+            "url": "http://eplatform.nso.com.vn/logo/26/logo23.jpg"
+        },
+        "name": "Guhring VietNam LLC",
+        "url": "guhring-vietnam-llc",
+        "taxNumber": 305875662,
+        "categories": [{
+            "name": "Mechanic",
+            "url": "http://smartdirectory.vn:3330/map/mechanic"
+        }]
+    }, {
+        "_id": "5b064b86dc975309b8fab6b6",
+        "address": {
+            "raw": "28 VSIP II-A, Street 28",
+            "latLng": {
+                "lng": 106.695322,
+                "lat": 11.1421699
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "1001_1.jpg",
+            "url": "http://eplatform.nso.com.vn/logo/27/1001_1.jpg"
+        },
+        "name": "Zeng Hsing Industrial Co., Ltd",
+        "url": "zeng-hsing-industrial-co-ltd",
+        "taxNumber": 3700703596,
+        "categories": []
+    }, {
+        "_id": "5b064b86dc975309b8fab6b9",
+        "address": {
+            "raw": "Lot E613",
+            "latLng": {
+                "lng": 106.6137498,
+                "lat": 11.1347947
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "1002.jpg",
+            "url": "http://eplatform.nso.com.vn/logo/28/1002.jpg"
+        },
+        "name": "Merit Abrasive Products Vietnam Co., Ltd.",
+        "url": "merit-abrasive-products-vietnam-co-ltd",
+        "taxNumber": 3700330496,
+        "categories": [{
+            "name": "Paper and Paper Products",
+            "url": "http://smartdirectory.vn:3330/map/paper-and-paper-products"
+        }]
+    }, {
+        "_id": "5b064b87dc975309b8fab6bc",
+        "address": {
+            "raw": "Tan Phuoc, Tan Binh",
+            "latLng": {
+                "lng": 106.7553371,
+                "lat": 10.9422122
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "76.jpg",
+            "url": "http://eplatform.nso.com.vn/logo/31/76.jpg"
+        },
+        "name": "Machi Enterprises Viet Nam  Co. Ltd",
+        "url": "machi-enterprises-viet-nam-co-ltd",
+        "taxNumber": 3700367792,
+        "categories": [{
+            "name": "Plastic",
+            "url": "http://smartdirectory.vn:3330/map/plastic"
+        }]
+    }, {
+        "_id": "5b064b87dc975309b8fab6bf",
+        "address": {
+            "raw": "28 DT 743",
+            "latLng": {
+                "lat": 10.9091409,
+                "lng": 106.74235939999994
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "bar1162374507.png",
+            "url": "http://eplatform.nso.com.vn/logo/32/bar1162374507.png"
+        },
+        "name": "Long Tai Ceramic Co. Ltd",
+        "url": "long-tai-ceramic-co-ltd",
+        "taxNumber": 3700327486,
+        "categories": [{
+            "name": "Ceramic",
+            "url": "http://smartdirectory.vn:3330/map/ceramic"
+        }]
+    }, {
+        "_id": "5b064b87dc975309b8fab6c2",
+        "address": {
+            "raw": "2 VSIP, Street 6",
+            "latLng": {
+                "lat": 10.9375668,
+                "lng": 106.72124389999999
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "logo.jpg",
+            "url": "http://eplatform.nso.com.vn/logo/33/logo.jpg"
+        },
+        "name": "CEI Internatonal Investments Viet Nam Co., Ltd.",
+        "url": "cei-internatonal-investments-viet-nam-co-ltd",
+        "taxNumber": 3700403828,
+        "categories": [{
+            "name": "Computer",
+            "url": "http://smartdirectory.vn:3330/map/computer"
+        }]
+    }, {
+        "_id": "5b064b88dc975309b8fab6c5",
+        "address": {
+            "raw": "1B hamlet, An Phu",
+            "latLng": {
+                "lng": 106.7130309,
+                "lat": 10.924067
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "1460972169546_37772.png",
+            "url": "http://eplatform.nso.com.vn/logo/34/1460972169546_37772.png"
+        },
+        "name": "Central Iron Furnishing Factory Co.,Ltd",
+        "url": "central-iron-furnishing-factory-coltd",
+        "taxNumber": 3700602527,
+        "categories": []
+    }, {
+        "_id": "5b064b88dc975309b8fab6c8",
+        "address": {
+            "raw": "10 VSIP, Street 8",
+            "latLng": {
+                "lat": 10.9301884,
+                "lng": 106.7296086
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "1009.jpg",
+            "url": "http://eplatform.nso.com.vn/logo/35/1009.jpg"
+        },
+        "name": "Tan Chong (VietNam) Industrial Machinery Co., Ltd",
+        "url": "tan-chong-vietnam-industrial-machinery-co-ltd",
+        "taxNumber": 302344430,
+        "categories": [{
+            "name": "Services",
+            "url": "http://smartdirectory.vn:3330/map/services"
+        }, {
+            "name": "Leasing",
+            "url": "http://smartdirectory.vn:3330/map/leasing"
+        }]
+    }, {
+        "_id": "5b064b89dc975309b8fab6cb",
+        "address": {
+            "raw": "12A Doc Lap Avenue",
+            "latLng": {
+                "lng": 106.7191878,
+                "lat": 10.9274581
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "1460992054605_37831.png",
+            "url": "http://eplatform.nso.com.vn/logo/36/1460992054605_37831.png"
+        },
+        "name": "Toyota Material Handling VietNam",
+        "url": "toyota-material-handling-vietnam",
+        "taxNumber": 3700233968,
+        "categories": []
+    }],
+    "jobs" : [
+        {
+            "title" : "Business Analyst",
+            "salary" : "$1500  - $2000",
+            "type" : "Full time",
+            "address": {
+                "raw": "12A Doc Lap Avenue",
+                "latLng": {
+                    "lng": 106.7191878,
+                    "lat": 10.9274581
+                }
+            },
+            "jobDescription" : "<p>This position leads the requirements development for applying technology to satisfy business needs. Defines and documents internal and external user interfaces and supports system and data requirement clarification and definition. Also, acting as the liaison among internal stakeholders to analyze, document, communicate and validate business and system requirements for platform applications. Specific duties include but are not limited to the following essential job functions:</p>\n\n<ul>\n\t<li>Direct the requirements development for applying technology to satisfy business needs.</li>\n\t<li>Critically evaluate information gathered from multiple sources, reconcile conflicts and decompose high-level information into details</li>\n\t<li>Work with Architects, Technical Leads and other technical roles to design optimal solution</li>\n\t<li>Document business and system requirements clearly, comprehensively and make ensure everyone can easily understand</li>\n\t<li>Support create training materials and documentation for company’s platform’s users and train new end users on the applications</li>\n\t<li>Proactively communicate and collaborate with external and internal stakeholders to analyze information needs and functional requirements and deliver the needed artifacts (i.e., functional requirements, business requirements document, use cases, GUI and screen and Interface designs).</li>\n\t<li>Develop functional specifications and system design specifications.</li>\n\t<li>Follow development progress, support clarify requirement to development team and facilitate to help deliver products successfully</li>\n\t<li>Assist in quality assurance, provide significant contributions in the testing and debugging of new software or enhancements to existing software.</li>\n</ul>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<h2>Yêu Cầu Công Việc</h2>\n\n<p>&nbsp;</p>\n\n<ul>\n\t<li>Have strong passion to build products and user-centered design</li>\n\t<li>Desire to understand and learn about business processes, manufacturing industry</li>\n\t<li>Excellent verbal and written communication skills in English, able to explain technical subject in a high abstraction level so that business users could understand it well.</li>\n\t<li>Agile mindset with great cross-functional collaboration and experience in SDLC&nbsp;</li>\n\t<li>Strong experience with writing Functional specification, describing UX, designing wireframes, explaining business rules</li>\n\t<li>UI-UX optimization, information architecture and database design skills is&nbsp;a plus</li>\n\t<li>Have been involved in business process improvements and delivered successfully is a plus</li>\n\t<li>Knowledge of data analytics / statistics is a big plus</li>\n\t<li>Seek for excellence, always be courageous, work in autonomy but keep yourself humble!</li>\n</ul>\n",
+            "responsibilities" : "<ul>\n\t<li>Have strong passion to build products and user-centered design</li>\n\t<li>Desire to understand and learn about business processes, manufacturing industry</li>\n\t<li>Excellent verbal and written communication skills in English, able to explain technical subject in a high abstraction level so that business users could understand it well.</li>\n\t<li>Agile mindset with great cross-functional collaboration and experience in SDLC&nbsp;</li>\n\t<li>Strong experience with writing Functional specification, describing UX, designing wireframes, explaining business rules</li>\n\t<li>UI-UX optimization, information architecture and database design skills is&nbsp;a plus</li>\n\t<li>Have been involved in business process improvements and delivered successfully is a plus</li>\n\t<li>Knowledge of data analytics / statistics is a big plus</li>\n\t<li>Seek for excellence, always be courageous, work in autonomy but keep yourself humble!</li>\n</ul>\n",
+            "qualification" : "<ul>\n\t<li>Have strong passion to build products and user-centered design</li>\n\t<li>Desire to understand and learn about business processes, manufacturing industry</li>\n\t<li>Excellent verbal and written communication skills in English, able to explain technical subject in a high abstraction level so that business users could understand it well.</li>\n\t<li>Agile mindset with great cross-functional collaboration and experience in SDLC&nbsp;</li>\n\t<li>Strong experience with writing Functional specification, describing UX, designing wireframes, explaining business rules</li>\n\t<li>UI-UX optimization, information architecture and database design skills is&nbsp;a plus</li>\n\t<li>Have been involved in business process improvements and delivered successfully is a plus</li>\n\t<li>Knowledge of data analytics / statistics is a big plus</li>\n\t<li>Seek for excellence, always be courageous, work in autonomy but keep yourself humble!</li>\n</ul>\n",
+            "benefit" : "<ul>\n\t<li>Have strong passion to build products and user-centered design</li>\n\t<li>Desire to understand and learn about business processes, manufacturing industry</li>\n\t<li>Excellent verbal and written communication skills in English, able to explain technical subject in a high abstraction level so that business users could understand it well.</li>\n\t<li>Agile mindset with great cross-functional collaboration and experience in SDLC&nbsp;</li>\n\t<li>Strong experience with writing Functional specification, describing UX, designing wireframes, explaining business rules</li>\n\t<li>UI-UX optimization, information architecture and database design skills is&nbsp;a plus</li>\n\t<li>Have been involved in business process improvements and delivered successfully is a plus</li>\n\t<li>Knowledge of data analytics / statistics is a big plus</li>\n\t<li>Seek for excellence, always be courageous, work in autonomy but keep yourself humble!</li>\n</ul>\n",
+            "deadline" : "2018-11-29T17:00:00.000Z",
+            "status" : "open"
+        }
+    ],
+    "events" : [{
+        "name" : "Mobile day 2018",
+        "timeBegin" : "1970-01-01T04:01:00.000Z",
+        "dateBegin"  : "2018-12-31T16:42:04.000Z",
+        "timeEnd" : "1970-01-01T07:02:00.000Z",
+        "dateEnd" : "2018-12-31T17:00:00.000Z",
+        "address": {
+            "raw": "12A Doc Lap Avenue",
+            "latLng": {
+                "lng": 106.7191878,
+                "lat": 10.9274581
+            }
+        },
+        "organization" : "NSO",
+        "objectiveUer" : "Manager",
+        "deadlineRegister" : "2018-12-30T16:42:04.000Z",
+        "description" : "<p>This position leads the requirements development for applying technology to satisfy business needs. Defines and documents internal and external user interfaces and supports system and data requirement clarification and definition. Also, acting as the liaison among internal stakeholders to analyze, document, communicate and validate business and system requirements for platform applications. Specific duties include but are not limited to the following essential job functions:</p>\n\n<ul>\n\t<li>Direct the requirements development for applying technology to satisfy business needs.</li>\n\t<li>Critically evaluate information gathered from multiple sources, reconcile conflicts and decompose high-level information into details</li>\n\t<li>Work with Architects, Technical Leads and other technical roles to design optimal solution</li>\n\t<li>Document business and system requirements clearly, comprehensively and make ensure everyone can easily understand</li>\n\t<li>Support create training materials and documentation for company’s platform’s users and train new end users on the applications</li>\n\t<li>Proactively communicate and collaborate with external and internal stakeholders to analyze information needs and functional requirements and deliver the needed artifacts (i.e., functional requirements, business requirements document, use cases, GUI and screen and Interface designs).</li>\n\t<li>Develop functional specifications and system design specifications.</li>\n\t<li>Follow development progress, support clarify requirement to development team and facilitate to help deliver products successfully</li>\n\t<li>Assist in quality assurance, provide significant contributions in the testing and debugging of new software or enhancements to existing software.</li>\n</ul>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<h2>Yêu Cầu Công Việc</h2>\n\n<p>&nbsp;</p>\n\n<ul>\n\t<li>Have strong passion to build products and user-centered design</li>\n\t<li>Desire to understand and learn about business processes, manufacturing industry</li>\n\t<li>Excellent verbal and written communication skills in English, able to explain technical subject in a high abstraction level so that business users could understand it well.</li>\n\t<li>Agile mindset with great cross-functional collaboration and experience in SDLC&nbsp;</li>\n\t<li>Strong experience with writing Functional specification, describing UX, designing wireframes, explaining business rules</li>\n\t<li>UI-UX optimization, information architecture and database design skills is&nbsp;a plus</li>\n\t<li>Have been involved in business process improvements and delivered successfully is a plus</li>\n\t<li>Knowledge of data analytics / statistics is a big plus</li>\n\t<li>Seek for excellence, always be courageous, work in autonomy but keep yourself humble!</li>\n</ul>\n",
+        "images": [
+            {
+                "url": "https://hub.nso.vn/glide/eplatform/company/logos/default/Default-logo-20180509-01.png?ts=1542037094",
+                "name": "Default-logo-20180509-01.png"
+            }
+        ],
+        "status" : "open"
+    }]
+}

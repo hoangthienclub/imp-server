@@ -1,0 +1,75 @@
+<% for (var row of pageData.rows) { %>
+<div class="resultItem" id="<%= row._id %>">
+    <div class="resultItemProvince">
+        <h6><%= row.provinceData.name %></h6>
+    </div>
+    <div class="resultItemAva">
+        <a href="<%= genUrl.getDetailUrl(row.url) %>" target="_blank">
+            <% if (row.logoImageId && row.logoImageId.url) { %>
+                <img src="<%= row.logoImageId.url %>">
+            <% } else { %>
+                <img src="<%= genUrl.getComapnyDefaultLogo() %>">
+            <% } %>
+        </a>
+    </div>
+    <div class="resultItemCompanyTitle">
+        <a href="<%= genUrl.getDetailUrl(row.url) %>" target="_blank">
+            <h7><%= row.name %></h7>
+        </a>
+    </div>
+    <div class="resultItemCompanyShortDesc">
+        <table>
+            <tr>                                    
+                <td>
+                        <p><b><%= langData.lbl_tax %>:</b></p>
+                </td>
+                <td>
+                    <a href="<%= genUrl.getDetailUrl(row.url) %>" target="_blank"><%= row.taxNumber %></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        <p><b><%= langData.lbl_category %>:</b></p>
+                </td>
+                <td>
+                        <% if (row.categories.length > 0) { %> <%- row.categories.map(e => '<a href="' + genUrl.getMapUrl(e.name) + '">' + e.name + '</a>').join(", ") %> <% } else { %> <a><%= langData.lbl_otherCat %></a> <% } %> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        <p><b><%= langData.lbl_address %>:</b></p>
+                </td>
+                <td>
+                        <p><% if (row.address && row.address.raw) { %> <%= row.address.raw %> <% } %></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- <div class="resultItemView">
+        <a href="#" data-toggle="modal" data-target="#contactCompany" data="<%= JSON.stringify({_id: row._id}) %>">
+            <div></div>
+            <img src="public/assets/contact-blue.svg" width="24px">
+        </a>
+    </div> -->
+    <div class="clearfix"></div>
+</div>
+<% } %>
+<script>
+    $(() => {
+        $('.resultListing').animate({scrollTop: 0}, 0);
+        $(".resultItem").hover(window.hoverIn, window.hoverOut);
+        $("a[data-toggle='modal']").on("click", function () {
+            var modalName = $(this).attr("data-target").replace("#", "");
+            var data = $(this).attr("data");
+            if (data) {
+                try {
+                    data = JSON.parse(data);
+                } catch (ex) {
+                    data = {};
+                }
+            }
+            window.showModal(modalName, data);
+            return true;
+        })
+    })
+</script>

@@ -1,0 +1,22 @@
+<div class="hintBlock">
+    <ul class="hintBlockList">
+        <% for (var e = 0; e < data.length; e++) { 
+                let company = data[e]; %>
+        <li>
+            <a class="company_search">
+                <img src="<%= company.imgUrl %>" />
+                <p id="value_company" class="fullCap">
+                    <%- company.name %>
+                </p>
+            </a>
+        </li>
+        <% } %>
+    </ul>
+</div>
+
+<script>
+    $(".hintBlockList li").on('click', function() {
+        $("#company").val($(this).text().trim());
+        $('.hintBoxDialog').hide();
+    })
+</script>

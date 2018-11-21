@@ -1,0 +1,19 @@
+{
+    "btn_search" : "Search for a company, product, business activity,...",
+    "lbl_results" : "Results",
+    "btn_showmore" : "Show More",
+    "btn_reset" : "Cancel",
+    "btn_applyFilter" : "Apply Filter",
+    "lbl_tax" : "Tax Number",
+    "lbl_address" : "Address",
+    "lbl_category" : "Category",
+
+    "lbl_company": "Company",
+    "lbl_ip": "Industrial Park",
+    "lbl_cityProvince": "City Province",
+    "lbl_association": "Association",
+    "lbl_province": "Province",
+    "lbl_district": "District",
+    "lbl_layer10k": "10.000 companies",
+    "lbl_layer700k": "800.000 companies"
+}

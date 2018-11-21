@@ -1,0 +1,14 @@
+<div class="popUpCompanyOnMap down">
+    <% if (row) { %>
+    <div class="popUpContent">
+        <a href="<%= genUrl.getProvinceCitylUrl(row.url) %>" target="_blank"><h7><%= row.name %></h7></a>
+        <p><a href="javascript:void(0)"><%= langData.lblArea %>: <%= row.totalArea %> km<sup>2</sup></a></p>
+        <p><a href="javascript:void(0)"><%= langData.lblCompany %>: <%= row.totalCompany %></a></p>
+    </div>
+    <div class="popUpImage">
+        <div>
+            <img src="<%= row.logo ? row.logo.url : 0 %>">
+        </div>
+    </div>
+    <% } %>
+</div>

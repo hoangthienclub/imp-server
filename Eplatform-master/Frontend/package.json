@@ -1,0 +1,31 @@
+{
+    "name": "eplatform-frontend",
+    "version": "1.0.0",
+    "description": "NSO: Eplatform",
+    "repository": {
+        "type": "git",
+        "url": "https://gitlab.com/louis.it/Eplatform"
+    },
+    "dependencies": {
+        "bcryptjs": "^2.1.0",
+        "body-parser": "^1.13.2",
+        "connect-redis": "^3.4.0",
+        "cookie-parser": "^1.4.3",
+        "ejs": "^2.3.3",
+        "express": "^4.13.0",
+        "express-fileupload": "^1.0.0",
+        "express-jwt": "^3.0.1",
+        "express-session": "^1.11.3",
+        "firebase-admin": "^5.12.1",
+        "jsonwebtoken": "^5.0.2",
+        "lodash": "^3.10.0",
+        "moment": "^2.22.2",
+        "mongodb": "^2.1.16",
+        "mongoskin": "^2.1.0",
+        "q": "^1.4.1",
+        "redis": "^2.8.0",
+        "request": "^2.58.0",
+        "rootpath": "^0.1.2",
+        "zerorpc": "^0.9.7"
+    }
+}

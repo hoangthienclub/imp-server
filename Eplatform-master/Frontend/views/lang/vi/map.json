@@ -1,0 +1,19 @@
+{
+    "btn_search" : "Tìm kiếm thông tin về công ty, sản phẩm, hoạt động kinh doanh,...",
+    "lbl_results" : "Kết quả",
+    "btn_showmore" : "Hiển thị thêm",
+    "btn_reset" : "Hủy",
+    "btn_applyFilter" : "Áp dụng",
+    "lbl_tax" : "Mã số thuế",
+    "lbl_address" : "Địa chỉ",
+    "lbl_category" : "Loại",
+
+    "lbl_company": "Công ty",
+    "lbl_ip": "Khu công nghiệp",
+    "lbl_cityProvince": "Tỉnh thành",
+    "lbl_association": "Hiệp hội",
+    "lbl_province": "Tỉnh thành",
+    "lbl_district": "Quận huyện",
+    "lbl_layer10k": "10.000 công ty",
+    "lbl_layer700k": "800.000 công ty"
+}

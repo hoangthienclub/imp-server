@@ -1,0 +1,56 @@
+<%- 
+    JSON.stringify({
+        total: {
+            node: total,
+            page: totalPage
+        },
+        page: page,
+        data: provinces.map(row => { 
+            return `
+            <div class="resultItem" id="` + row._id + `">
+                <div class="resultItemAva">
+                    <a href="` + genUrl.getProvinceCitylUrl(row.url) + `" target="_blank">
+                        <img src="` + row.logo.url + `">
+                    </a>
+                </div>
+                <div class="resultItemCompanyTitle">
+                    <a href="` + genUrl.getProvinceCitylUrl(row.url) + `" target="_blank">
+                        <h7>` + row.name + `</h7>
+                    </a>
+                </div>
+                <div class="resultItemCompanyShortDesc">
+                    <table>
+                        <tr>                                    
+                            <td>
+                                <p><b>` + langData.lblArea + `:</b></p>
+                            </td>
+                            <td>
+                                ` + row.totalArea + ` km<sup>2</sup>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p><b>` + langData.lblPopulation  + `:</b></p>
+                            </td>
+                            <td>
+                                ` + row.population + `
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p><b>` + langData.lblCompany  + `:</b></p>
+                            </td>
+                            <td>
+                                ` + row.totalCompany + `
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            `
+        }
+    )})
+
+
+%>

@@ -1,0 +1,92 @@
+
+
+<!-- Login -->
+
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modalLeft">
+
+                <div class="modal-header" style="border:none;">
+                    <h3 class="modal-title" id="loginLabel" style="display: contents;"><%= langData.title_logIn %></h3>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="username" class="col-form-label"><%= langData.lbl_phoneNumber %></label>
+                            <input type="text" class="" name="username" id="username" placeholder="<%= langData.placeholder_phone %>" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="userPass" class="col-form-label"><%= langData.lbl_pass %></label>
+                            <input type="password" class="" name="password" id="userPass" placeholder="<%= langData.placeholder_pass %>" required />
+                        </div>
+                        <div class="form-group">
+                            <p>
+                                <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#forgetPassword" style="float:right; color:#333; margin-bottom:15px;"><%= langData.btn_forgotPassword %></a>
+                            </p>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <button type="submit" class="btn-primary " style="width:75%"><%= langData.btn_logIn %></button>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <label class="customCheck"><%= langData.btn_rememberMe %>
+                                <input type="checkbox" checked="checked" name="remember" />
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer" style="text-align:left;">
+                        <%= langData.lbl_dontHaveAccount %>
+                    <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#signup">
+                        <b> <%= langData.btn_register %></b>
+                    </a>
+                </div>
+            </div>
+            <div class="modalRight">
+                <button type="button" class="close closeButton" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <img src="public/assets/mockup-01.png" />
+                <h5>Smart Business Directory</h5>
+                <p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(() => {
+            $("#login a[data-toggle='modal']").click(function () {
+                var modalName = $(this).attr("data-target").replace("#", "");
+                window.showModal(modalName);
+                return true;
+            })
+            function login() {
+                var postData = {};
+                $("#login form").serializeArray().forEach(function (e) {
+                    postData[e.name] = e.value;
+                })
+
+                $.ajax({
+                    url: loginApi,
+                    method: "post",
+                    data: postData,
+                    success: function (objData) {
+                        $(objData.html).modal();
+                        if (objData.reload) {
+                            window.location.reload();
+                        }
+                    }
+                })
+            }
+            $("#login form").submit(function () {
+                login();
+                return false;
+            });
+        })
+    </script>
+</div>
+<!-- End login -->

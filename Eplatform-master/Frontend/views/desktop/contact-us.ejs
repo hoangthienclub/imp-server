@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <%- include("partials/head") %>
+
+    <link rel="stylesheet" href="public/slick/slick.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="public/slick/slick-theme.css" />
+
+</head>
+
+<body>
+
+    <div class="contactuss">
+        <%- include("partials/headers/top-nav") %>
+    </div>
+
+
+    <div id="contactForm"  >
+        <div class="container">
+            <div class="guideNav">
+                <a href="<%= genUrl.getHomeUrl() %>"><%= langData.menu_home %> ></a>
+                <a href="<%= genUrl.getContactUsUrl() %>"> <%= langData.menu_contactUs %></a>
+            </div>
+            <div class="companyIntro">
+                <div class="companyName">
+                    <h3><%= langData.lbl_intro %></h3>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="contactForm">
+                <div class="contactLeft">
+                    <h6><%= langData.lbl_contactInfo %></h6>
+                    <br />
+                    <br />
+                    <p class="font-bold"><%= langData.lbl_desc %></p>
+                    <p class="font-regular"><%= langData.lbl_descContent %></p>
+                    <br />
+                    <p class="font-bold"><%= langData.lbl_address %></p>
+                    <p class="font-regular"><%= pageData.websiteData.address.raw %></p>
+                    <a class="font-bold" target= "_blank" href="https://www.google.com/maps/dir//C%C3%B4ng+ty+C%E1%BB%95+ph%E1%BA%A7n+D%E1%BB%8Bch+v%E1%BB%A5+v%C3%A0+%C4%90%E1%BA%A7u+t%C6%B0+M%E1%BB%99t+C%E1%BB%ADa+Qu%E1%BB%91c+Gia+(NSO),+10%C2%B056'26.+106%C2%B043'41.,+0%22N+%C4%90%C6%B0%E1%BB%9Dng+S%E1%BB%91+4+VSIP,+An+Ph%C3%BA,+Thu%E1%BA%ADn+An,+B%C3%ACnh+D%C6%B0%C6%A1ng,+Vi%E1%BB%87t+Nam/@10.9405515,106.7259684,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x3174d9e0a3de408d:0x57117fc8f52229d8!2m2!1d106.7281571!2d10.9405515!3e0"><%= langData.lbl_getDirection %></a>
+                    <br />
+                    <br />
+                    <br />
+                    <p class="font-bold"><%= langData.lbl_phoneNumber %></p>
+                    <% for (var i=0 ; i < pageData.websiteData.phone.length; i++) { %>
+                    <p class="font-regular">
+                        <a href="tel:<%= pageData.websiteData.phone[i] %>"><%= pageData.websiteData.phone[i] %> </a>
+                    </p>
+                    <% } %>
+                    <br />
+                    <p class="font-bold"><%= langData.lbl_email %></p>
+                    <% for (var i=0 ; i < pageData.websiteData.email.length; i++) { %>
+                    <p class="font-regular">
+                        <a href="mailto:<%= pageData.websiteData.email[i] %>"><%= pageData.websiteData.email[i] %> </a>
+                    </p>
+                    <% } %>
+                </div>
+                <div class="contactRight">
+                    <p><%= langData.lbl_descForm %></p>                    
+                    <form action="/post" method="POST">
+                        <div class="form-group">
+                            <label for="fullName" class="col-form-label"><%= langData.lbl_fullName %></label>
+                            <input type="text" placeholder="<%= langData.placeholder_fullName %>" name="fullName" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-form-label"><%= langData.lbl_email %></label>
+<input type="email" placeholder="<%= langData.placeholder_email %>" name="email" required />
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber" class="col-form-label"><%= langData.lbl_phoneNumber %></label>
+                            <input type="tel" placeholder="<%= langData.placeholder_phoneNumber %>" name="phoneNumber" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="location" class="col-form-label"><%= langData.lbl_location %></label>
+                            <input type="text" placeholder="<%= langData.placeholder_location %>" name="location" />
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="col-form-label"><%= langData.lbl_message %></label>
+                            <textarea name="message" draggable="false" placeholder="<%= langData.placeholder_message %>" required ></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="customCheck"><%= langData.btn_signupforNews %>
+                                <input type="checkbox" name="subscribe" checked="checked" />
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btnSubmit"><%= langData.btn_submit %></button>
+                       
+                    </form>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div style="height:40px;"></div>
+
+
+
+    <%- include("partials/footers/default") %>
+    <script src="public/js/jquery.easing.min.js"></script>
+    <script src="public/slick/slick.min.js"></script>
+    <script src="public/js/desktop.js"></script>
+
+</body>
+
+</html>

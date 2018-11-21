@@ -1,0 +1,14 @@
+{
+    "lbl_success" : "Thành công!",
+    "lbl_thankyouSubscribe" : "Cảm ơn bạn đã đăng ký nhận thông tin từ website",
+    "lbl_error" : "Lỗi!",
+    "lbl_alreadySignUp" : "Số điện thoại này đã đăng ký tài khoản",
+    "lbl_cookie" : "Website sử dụng cookies để đảm bảo trải nghiệm của bạn tốt nhất.",
+    "lbl_moreInfo" : "Thông tin chi tiết",
+    "btn_gotIt" : "Đã hiểu",
+    "lbl_thankyou" : "Cảm ơn!",
+    "lbl_contactsoon" : "Chúng tôi sẽ sớm liên hệ với bạn",
+    "lbl_confirmAccount" : "Xác nhận tài khoản",
+    "lbl_otpInput" : "Nhập vào mã OTP đã được gửi đến điện thoại của bạn",
+    "lbl_confirm" : "Xác nhận"
+}

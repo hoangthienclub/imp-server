@@ -1,0 +1,16 @@
+{
+    "title_register" : "Register",
+    "btn_employee" : "Employee Company",
+    "btn_personal" : "Personal",
+    "lbl_yourCompany" : "Your Company",
+    "placeholer_yourCompany" : "Select your Company",
+    "lbl_phoneNumber" : "Phone Number",
+    "placeholder_phoneNumber" : "Enter your phone Number",    
+    "lbl_pass" : "Password",
+    "placeholder_pass" : "Enter your password",
+    "btn_register" : "REGISTER",
+    "btn_agreeTerms" : "By registering, I here by agree with the",
+    "btn_terms" : "Terms of Use",
+    "lbl_haveAccount" : "Already have an account?",
+    "btn_logIn" : "Log In"
+}

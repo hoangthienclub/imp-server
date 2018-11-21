@@ -1,0 +1,22 @@
+{
+    "btn_search" : "Tìm kiếm công ty, ngành nghề,...",
+    "menu_signIn" : "Đăng nhập",
+    "menu_signUp" : "Đăng ký",
+    "menu_accountSetting" : "Cài đặt",
+    "menu_profile" : "Trang cá nhân",
+    "menu_editProfile" : "Chỉnh sửa trang cá nhân",        
+    "menu_notification" : "Thông báo",
+    "menu_logOut" : "Đăng xuất",
+    "menu_english" : "Tiếng Anh",
+    "menu_vietnam" : "Tiếng Việt",
+    "menu_aboutUs" : "Về chúng tôi",
+    "menu_contactUs" : "Liên hệ",
+    "menu_faq" : "FAQ",
+    "menu_terms" : "Điều khoản sử dụng",
+    "menu_home" : "Trang chủ",
+    "menu_search" : "Tìm kiếm",
+    "menu_companyDetail" : "Chi tiết",
+    "menu_app" : "Ứng dụng mobile",
+    "menu_province" : "Tỉnh/thành phố",
+    "menu_ip" : "Khu công nghiệp"        
+}

@@ -1,0 +1,22 @@
+{
+    "btn_search" : "Search for a company, industrial,...",
+    "menu_signIn" : "Sign In",
+    "menu_signUp" : "Sign Up",
+    "menu_accountSetting" : "Account Setting",
+    "menu_profile" : "Profile",
+    "menu_editProfile" : "Edit Profile",    
+    "menu_notification" : "Notification",
+    "menu_logOut" : "Log Out",
+    "menu_english" : "English",
+    "menu_vietnam" : "Vietnamese",
+    "menu_aboutUs" : "About Us",
+    "menu_contactUs" : "Contact Us",
+    "menu_faq" : "FAQs",
+    "menu_terms" : "Terms & Conditions",
+    "menu_home" : "Homepage",
+    "menu_search" : "Search",
+    "menu_companyDetail" : "Company Detail",
+    "menu_app" : "Mobile app",
+    "menu_province" : "Province/City",
+    "menu_ip" : "Industrial Park"
+}

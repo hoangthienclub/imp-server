@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-controller="Navbar as vm">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{ vm.siteData.data.en.desc }}">
+    <meta name="author" content="NSO">
+    <meta name="keyword" content="{{ vm.siteData.keywords }}">
+    <link rel="shortcut icon" href="/public/img/favicon.png">
+
+    <title>{{ vm.siteData.data.en.name }}</title>
+
+    <link rel="stylesheet" href="/node_modules/angular-toastr/dist/angular-toastr.css" />
+    <link rel="stylesheet" href="/public/plugins/iCheck/square/green.css" />
+    <link rel="stylesheet" href="/public/css/jquery.nestable.css" />
+    <link rel="stylesheet" href="/bower_components/select2/select2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.2.0/ng-tags-input.css"/>
+    <link href="/node_modules/angular-tooltips/dist/angular-tooltips.min.css" rel="stylesheet" type="text/css" />
+    <!-- Main styles for this application -->
+    <link href="/public/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+
+    <!-- User Interface -->
+    <ui-view></ui-view>
+
+    <script>
+        var fileBrowserUrl = "<%= fileBrowserUrl %>";
+    </script>
+    <!-- Bootstrap and necessary plugins -->
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/bower_components/select2/select2.js"></script>
+    <script src="/bower_components/tether/dist/js/tether.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/bower_components/angular-google-places-autocomplete/src/autocomplete.css">
+
+    <script src="/public/plugins/iCheck/icheck.min.js"></script>
+    <script src="/public/js/jquery.nestable.js"></script>
+    <!-- <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script> -->
+    <script src="https://cdn.ckeditor.com/4.9.2/full-all/ckeditor.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?mid=1cFDvE7JtCCxjrR7jk9_sqz3tsXU&key=AIzaSyC01xk6g1-fLTBjEZeRouhA9TOLt8kEZeU&libraries=places,geometry"></script>
+
+    <!-- AngularJS -->
+    <script src="/bower_components/angular/angular.min.js"></script>
+
+    <!-- AngularJS plugins -->
+    <script src="/node_modules/chart.js/dist/Chart.min.js"></script>
+    <script src="/node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.2.0/ng-tags-input.js"></script>
+    <script src="/public/js/angular-nestable.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-ui-select2/src/select2.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+    <script src="/bower_components/angular-breadcrumb/dist/angular-breadcrumb.min.js"></script>
+    <script src="/bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script src="/bower_components/angular-ckeditor/angular-ckeditor.js"></script>
+    <script src="/bower_components/angular-google-places-autocomplete/src/autocomplete.js"></script>
+    <script type="text/javascript" src="/node_modules/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="/public/js/angular-input-masks-standalone.min.js"></script>
+    <script src="/node_modules/angular-input-masks/releases/angular-input-masks-standalone.min.js"></script>
+    <script src="/node_modules/angular-tooltips/dist/angular-tooltips.min.js"></script>
+    <!-- Core App scripts -->
+
+
+    <script src="/angular/app.js"></script>
+    <script src="/angular/states.js"></script>
+    <script src="/gencode/states.js"></script>
+    <script src="/angular/directives.js"></script>
+    
+    <script src="/angular/app-services/form.service.js"></script>
+    <script src="/angular/app-services/user.service.js"></script>
+    <script src="/angular/app-services/provider.service.js"></script>
+    <script src="/angular/default.controler.js"></script>
+</body>
+
+</html>

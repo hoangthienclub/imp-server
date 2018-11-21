@@ -1,0 +1,3 @@
+<div class="col-sm-12">
+    <textarea class="form-control" rows="<%= field.rows ? field.rows : 5 %>" data-label="<%= lang.toUpperCase() %>: <%= field.label %>" ng-class="form.<%= id %>.$valid ? 'form-control-success' : 'form-control-danger'" ng-model="<%= getAttr(attr, lang) %>" name="<%= id %>" id="<%= id %>"  ng-focus="<%= id %>=true" ng-required="<%= field.required != false ? 'true' : 'false' %>"></textarea>
+</div>

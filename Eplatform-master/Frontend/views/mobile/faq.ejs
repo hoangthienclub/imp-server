@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<%- include("partials/head") %>
+</head>
+
+<body>
+
+
+	<div class="topNavWhite">
+        <%- include("partials/headers/top-nav") %>
+	</div>
+
+	<div class="clearfix"></div>
+
+	<div id="subTitle" >
+		<div class="container">
+			<div class="pageTitle">
+				<div class="">
+					<h3 class="fontsize18"><%= langData.lbl_title %></h3>
+					<h7 class="font-regular fontsize12"><%= langData.lbl_desc %></h7>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div id="content" class="">
+		<div class="container">
+			<div class="mainContent">
+				<div id="accordion">
+					<% for (var e in pageData.faqData) { %>
+					<div class="card">
+						<div class="card-header" id="heading<%= e %>">
+							<h5 class="mb-0">
+								<button class="btn btn-link customCard collapsed" data-toggle="collapse" data-target="#collapse<%= e %>" aria-expanded="false"
+									aria-controls="#collapse<%= e %>">
+									<table>
+										<tr>
+											<td>
+												<img src="public/assets/hepl-center.svg" class="blackSVG" width="27px" />
+											</td>
+											<td>
+												<h7 class="font-bold"><%= pageData.faqData[e].question %></h7>
+											</td>
+											<td>
+												<i class="fa fa-angle-down"></i>
+											</td>
+										</tr>
+									</table>
+								</button>
+							</h5>
+						</div>
+
+						<div id="collapse<%= e %>" class="collapse" aria-labelledby="heading<%= e %>" data-parent="#accordion">
+							<div class="card-body">
+								<p><%= pageData.faqData[e].answer %></p>
+							</div>
+						</div>
+					</div>
+					<% } %>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+    <%- include("partials/footers/default") %>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/TweenMax.min.js"></script>
+	<script src="public/js/waypoints.min.js"></script>
+	<script src="public/js/jquery.counterup.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<%- JSON.stringify({
+    total: total,
+    page: page,
+    totalPage: totalPage,
+    arr: associations.map(e => {
+        return {
+            name: e.name,
+            url: e.url,
+            desc: e.desc,
+            address: e.address.raw,
+            totalCompany: e.totalCompany || 0,
+            logo: e.logoImageId ? e.logoImageId : {
+                name: "",
+                url: ""
+            }
+        }
+})}) %>

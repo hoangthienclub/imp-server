@@ -1,0 +1,17 @@
+{
+    "title_logIn" : "Log In",
+    "lbl_phoneNumber" : "Phone Number",
+    "placeholder_phone" : "Enter your phone number",
+    "lbl_pass" : "Password",
+    "placeholder_pass" : "Enter your password",
+    "btn_forgotPassword" : "Forgot Password?",
+    "btn_logIn" : "Log In",
+    "btn_rememberMe" : "Remember me",
+    "lbl_dontHaveAccount" : "Don't have an account?",
+    "btn_register" : "Register",
+    "title_resetPassword" : "Reset Password",
+    "lbl_otp" : "OTP",
+    "lbl_newPass" : "New Password",
+    "lbl_newPassAgain" : "Retype New Password",
+    "btn_resetPassword" : "Reset Password" 
+}

@@ -1,0 +1,23 @@
+<% if (index == 0) { %>
+<div class="col-sm-12" style="margin-bottom: 10px">
+    <div class="row">
+        <% if (field.multi) { %>
+        <div class="col-sm-12 img-reponsive" ng-repeat="file in <%= getAttr(attr) %> track by $index">
+            <div class="row">
+                <my-file class="col-sm-12" file="file"></my-file>
+            </div>
+            <p>&nbsp;</p>
+        </div>
+        <% } else { %>
+        <div class="col-sm-12 img-reponsive">
+            <div class="row">
+                <my-file class="col-sm-12" file="<%= getAttr(field.attr) %>"></my-file>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>
+<div class="col-sm-12">
+    <a class="btn btn-sm btn-danger select-file" name="<%= id %>" href="#" ng-model="<%= getAttr(attr) %>" select-file multiple="<%= field.multi ? 'true' : 'false' %>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; File &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<% } %>

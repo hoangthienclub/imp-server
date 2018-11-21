@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="161" height="157" viewBox="0 0 161 157">
+    <defs>
+        <linearGradient id="a" x1="30072%" x2="55576%" y1="21937.182%" y2="3452.156%">
+            <stop offset="0%" stop-color="gray" stop-opacity=".25"/>
+            <stop offset="54%" stop-color="gray" stop-opacity=".12"/>
+            <stop offset="100%" stop-color="gray" stop-opacity=".1"/>
+        </linearGradient>
+        <linearGradient id="b" x1="54283%" x2="54283%" y1="59495%" y2="48985%">
+            <stop offset="0%" stop-color="#FFF" stop-opacity=".12"/>
+            <stop offset="55%" stop-color="#FFF" stop-opacity=".09"/>
+            <stop offset="100%" stop-color="#FFF" stop-opacity=".02"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <path stroke="#6F93F9" stroke-width=".779" d="M123.255 21.266c.342.186.683.375 1.021.567"/>
+        <path stroke="#6F93F9" stroke-dasharray="2.306" stroke-width=".779" d="M126.263 22.996c20.553 12.563 34.281 35.272 34.281 61.202a72.004 72.004 0 0 1-2.236 17.856"/>
+        <path stroke="#6F93F9" stroke-dasharray="2.336" stroke-width=".779" d="M18.038 84.198c0-31.105 19.755-57.575 47.348-67.45" opacity=".21"/>
+        <path stroke="#6F93F9" stroke-dasharray="2.336" stroke-width=".779" d="M123.255 147.131a70.687 70.687 0 0 1-33.964 8.638c-23.238 0-43.88-11.174-56.886-28.467" opacity=".5"/>
+        <g stroke-width=".779" opacity=".21">
+            <path stroke="#6F93F9" stroke-dasharray="2.326" d="M134.31 101.023c-6.805 18.343-24.39 31.41-45.019 31.41-26.52 0-48.02-21.597-48.02-48.235 0-26.639 21.5-48.235 48.02-48.235a47.673 47.673 0 0 1 29.12 9.881"/>
+            <path stroke="#2196F3" d="M119.328 46.56c.303.244.603.492.9.743"/>
+        </g>
+        <g stroke="#2196F3" stroke-width=".779" opacity=".5">
+            <path stroke-dasharray="2.25" d="M88.61 56.868h.681c9.653 0 18.583 5.135 23.471 13.496a27.445 27.445 0 0 1 .298 27.164"/>
+            <path d="M112.493 98.5c-.204.334-.415.659-.632.977"/>
+        </g>
+        <ellipse cx="152.722" cy="13.734" fill="#CEDBFD" fill-rule="nonzero" opacity=".3" rx="2.722" ry="2.734"/>
+        <ellipse cx="145.185" cy="80.8" fill="#CEDBFD" fill-rule="nonzero" opacity=".3" rx="2.722" ry="2.734"/>
+        <ellipse cx="2.722" cy="40.734" fill="#CEDBFD" fill-rule="nonzero" opacity=".5" rx="2.722" ry="2.734"/>
+        <ellipse cx="5.722" cy="31.734" fill="#CEDBFD" fill-rule="nonzero" opacity=".3" rx="2.722" ry="2.734"/>
+        <g fill-rule="nonzero">
+            <g transform="translate(29)">
+                <rect width="75.463" height="136.375" x="24.514" y="9.384" fill="url(#a)" rx="2.861" transform="rotate(-22.95 62.245 77.571)"/>
+                <rect width="73.422" height="132.692" x="25.533" y="11.229" fill="#FFF" rx="3.186" transform="rotate(-22.95 62.244 77.574)"/>
+                <path fill="#1046F1" d="M54.685 12.336a5.961 5.961 0 0 1-3.429 6.957l-23.351 9.903a5.948 5.948 0 0 1-7.377-2.376l-12.37 5.244a2.79 2.79 0 0 0-1.482 3.66L53.595 146.64a2.79 2.79 0 0 0 3.656 1.484l59.081-25.051a2.79 2.79 0 0 0 1.482-3.66L70.9 8.492a2.79 2.79 0 0 0-3.655-1.483l-12.56 5.327z"/>
+                <rect width="16.363" height="1.024" x="30.432" y="20.923" fill="#DBDBDB" rx=".467" transform="rotate(-22.95 38.613 21.435)"/>
+                <ellipse cx="49.307" cy="16.791" fill="#DBDBDB" rx="1" ry="1" transform="rotate(-22.95 49.307 16.79)"/>
+                <path fill="url(#b)" d="M72.249 63.302l-6.236-1.266-3.93 19.153-8.072-1.587-1.313 6.461 11.7 2.212 2.943.63z"/>
+                <path fill="#FFF" d="M71.879 63.38l-5.617-1.072-3.7 19.43-8.265-1.578-1.072 5.624 11.068 2.105 2.823.506z"/>
+            </g>
+            <g fill="#FFF" opacity=".2">
+                <path d="M61.118 30.837l23.354-9.901a5.961 5.961 0 0 0 3.429-6.958l11.936-5.064-.178-.42a2.79 2.79 0 0 0-3.656-1.483l-12.556 5.325a5.961 5.961 0 0 1-3.43 6.957l-23.346 9.903a5.864 5.864 0 0 1-1.968.455 5.944 5.944 0 0 0 6.415 1.186zM39.892 37.363a2.794 2.794 0 0 1 1.481-3.66l10.661-4.52a5.928 5.928 0 0 1-2.74-2.365l-12.37 5.244a2.79 2.79 0 0 0-1.482 3.66L82.361 146.64a2.79 2.79 0 0 0 3.655 1.484l.616-.26-46.74-110.5z"/>
+            </g>
+        </g>
+    </g>
+</svg>

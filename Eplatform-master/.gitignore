@@ -1,0 +1,10 @@
+Backend/bower_components
+Backend/node_modules
+Frontend/bower_components
+Frontend/node_modules
+Frontend/public/*.html
+Frontend/config.json
+Search/model_1.json
+Search/New
+Search/Update/*.bin
+Search/Update/Search_10k.py

@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <%- include("partials/head") %>
+</head>
+
+<body>
+
+    <div class="topNavWhite">
+        <%- include("partials/headers/top-nav") %>
+    </div>
+
+    <div id="subTitle">
+        <div class="container">
+            <div class="guideNav">
+                <a href="<%= genUrl.getHomeUrl() %>"><%= langData.menu_home %></a> >
+                <a href="<%= genUrl.getAppUrl() %>"><%= langData.menu_app %></a>
+            </div>
+        </div>
+    </div>
+
+	<div class="clearfix"></div>
+
+    <div id="contentapp">
+        <div id="app">
+            <div class="container">
+                <div class="appImg">
+                    <img src="public/images/app.png">
+                </div>
+                <div class="appContent">
+                    <h2><%= langData.titleIntro %></h2>
+                    <p class="fontsize24 color6F93F9"><%= langData.subTitleIntro %></p>
+                    <p class="color333 font-light"><%= langData.contentIntro1 %></p>
+                    <p class="color333 font-light"><%= langData.contentIntro2 %></p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+
+        <div class="appFeature">
+            <div class="container">
+                <div class="appFeatureInfo">
+                    <span><%= langData.bestService %></span>
+                    <h2><%= langData.titleFeature %></h2>
+                    <p class="color000 font-bold fontsize24"><%= langData.titleFeature %></p>
+                        <ul class="font-light fontsize18 marginLeft40px">
+                            <li class="fontsize18"><i class="fa fa-hand-point-right color6F93F9"></i> <%= langData.cf1 %></li>
+                            <li class="fontsize18"><i class="fa fa-hand-point-right color6F93F9"></i> <%= langData.cf2 %></li>
+                            <li class="fontsize18"><i class="fa fa-hand-point-right color6F93F9"></i> <%= langData.cf3 %></li>
+                            <% if (langData.cf6 && langData.cf7 && langData.cf8) { %>
+                                <li class="fontsize18"><i class="fa fa-hand-point-right color6F93F9"></i> <%= langData.cf6 %></li>
+                                <li class="fontsize18"><i class="fa fa-hand-point-right color6F93F9"></i> <%= langData.cf7 %></li>
+                                <li class="fontsize18"><i class="fa fa-hand-point-right color6F93F9"></i> <%= langData.cf8 %></li>
+                            <% } %>
+                        </ul>
+                    </p>
+                    <p class="color000 font-bold fontsize24"><%= langData.strongpoint %>
+                        <ul class="font-light fontsize18 marginLeft40px">
+                            <li class="fontsize18"><i class="fa fa-thumbs-up color6F93F9"></i> <%= langData.cf4 %></li>
+                            <li class="fontsize18"><i class="fa fa-thumbs-up color6F93F9"></i> <%= langData.cf5 %></li>
+                            <% if (langData.cf9) { %>
+                                <li class="fontsize18"><i class="fa fa-thumbs-up color6F93F9"></i> <%= langData.cf9 %></li>
+                            <% } %>
+                        </ul>
+                    </p>
+                </div>
+                <div class="appFeatureContent">
+                    <div class="featureIcon featureActive" data="info01">
+                        <img src="public/assets/ic_graph.png">
+                    </div>
+                    <div class="featureIcon" data="info02">
+                        <img src="public/assets/ic_graph.png">
+                    </div>
+                    <div class="featureIcon" data="info03">
+                        <img src="public/assets/ic_graph.png">
+                    </div>
+                    <div class="featureIcon" data="info04">
+                        <img src="public/assets/ic_graph.png">
+                    </div>
+                    <div class="featureIcon" data="info05">
+                        <img src="public/assets/ic_graph.png">
+                    </div>
+                    <div class="featureInfo info01">
+                        <h5><%= langData.titleFeature1 %></h5>
+                        <p><%= langData.contentFeature1 %></p>
+                    </div>
+                    <div class="featureInfo info02">
+                        <h5><%= langData.titleFeature2 %></h5>
+                        <p><%= langData.contentFeature2 %></p>
+                    </div>
+                    <div class="featureInfo info03">
+                        <h5><%= langData.titleFeature3 %></h5>
+                        <p><%= langData.contentFeature3 %></p>
+                    </div>
+                    <div class="featureInfo info04">
+                        <h5><%= langData.titleFeature4 %></h5>
+                        <p><%= langData.contentFeature4 %></p>
+                    </div>
+                    <div class="featureInfo info05">
+                        <h5><%= langData.titleFeature5 %></h5>
+                        <p><%= langData.contentFeature5 %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="appPros">         
+            <div class="container">
+                <div class="appContent">
+                    <h2><%= langData.titleChatPrivilges %></h2>
+                    <ul class="font-light fontsize18 text-left">
+                        <li class="fontsize18"><%= langData.contentChatPrivilges1 %></li>
+                        <li class="fontsize18"><%= langData.contentChatPrivilges2 %></li>
+                    </ul>
+                </div>
+            </div> 
+        </div>
+
+
+        <div class="appDown">
+            <div class="container">
+                <h2><%= langData.lbl_downloadApp %></h2>
+                <div class="appStore">
+                    <h4>App store & Play store</h4>
+                    <a href="#"><img src="public/images/app-store.png"></a>
+                    <a href="#"><img src="public/images/google-play.png"></a>
+                    <p><%= langData.lbl_or %></p>
+                </div>                
+                <div class="qrCode">
+                    <h4><%= langData.lbl_scanCode %></h4>
+                    <div class="appQR">
+                        <img src="public/assets/ios.png">
+                        <p>iOS</p>
+                    </div>
+                    <div class="appQR">
+                        <img src="public/assets/android.png">
+                        <p>Android</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <%- include("partials/footers/default") %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/TweenMax.min.js"></script>
+    <script src="public/js/waypoints.min.js"></script>
+    <script src="public/js/jquery.counterup.min.js"></script>
+    <script src="public/js/desktop.js"></script>
+
+</body>
+
+</html>
