@@ -149,7 +149,6 @@ module.exports = {
 
     getContact: async (req, res, next) => {
         try {
-            req.user._id = '5be99326844f461870f2f4d3';
             const listContact = await Contact.find({
                 $or : [
                     {
