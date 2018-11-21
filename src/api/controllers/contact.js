@@ -1,5 +1,6 @@
 import fs from 'fs';
 import Contact from './../../models/contact';
+import Message from './../../models/message';
 import { mapMessage } from './../../utils/mapping';
 import { create, find, findById, update, deleteFn } from '../../utils/handle';
 import { popContact, popUserContact } from '../../utils/popDbUser'; 
@@ -148,6 +149,7 @@ module.exports = {
 
     getContact: async (req, res, next) => {
         try {
+            req.user._id = '5be99326844f461870f2f4d3';
             const listContact = await Contact.find({
                 $or : [
                     {
@@ -160,11 +162,38 @@ module.exports = {
                 status: 1, 
                 block: false
             });
-            const listUser = listContact.map(contact => {
-                let user = contact.creatorId.toString() == req.user._id.toString()? contact.userId : contact.creatorId;
-                return user;
+            const listUser = listContact.map(async contact => {
+                const filter = {
+                    $or: [
+                        {
+                            creatorId: contact.creatorId,
+                            receiverId: contact.userId
+                        },
+                        {
+                            creatorId: contact.userId,
+                            receiverId: contact.creatorId
+                        }
+                    ]
+                }
+                let message = await Message.find(filter).sort({createdDate: -1}).limit(1)
+                if (message.length == 0) {
+                    message = {};
+                }
+                else {
+                    message = message[0];
+                }
+                let response = {
+                    userId: contact.creatorId.toString() == req.user._id.toString()? contact.userId : contact.creatorId,
+                    message: {
+                        unread: 0,
+                        lastMessage: message.desc || '',
+                        lastMessageTime: message.createdDate
+                    }
+                };
+                return response;
             })
-            res.data = await popUserContact(req.dbUser, listUser);
+            const result = await Promise.all(listUser);
+            res.data = await popUserContact(req.dbUser, result);
             next();
         }
         catch (err) {
