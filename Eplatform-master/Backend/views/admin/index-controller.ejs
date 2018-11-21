@@ -1,0 +1,130 @@
+<% label = String.fromCharCode(name.charCodeAt(0) - 32) + name.slice(1); %>
+(function() {
+    'use strict';
+
+    angular
+        .module('app')
+        .controller('<%= label %><%= formAction %>.IndexController', function($timeout, $rootScope, $scope, $state, $stateParams, $location, Toastr, FormService, LocalStorageService) {
+            var vm = this;
+            var collection = "<%= collection %>";
+            vm.ft = { name: "", parentId: "", sortVal: 1, sortAttr: "cre_ts" };
+            vm.canFilter = true;
+            vm.fileBrowserUrl = fileBrowserUrl;
+
+            
+
+            vm.loadPage = (i) => {
+                FormService.getPage(collection, i, vm.ft)
+                    .then(function(res) {
+                        if (res && res.status == 200) {
+                            $location.search({name: vm.ft.name, numRecord: vm.ft.numRecord, page: i, parentId: vm.ft.parentId, sortVal: vm.ft.sortVal, sortAttr: vm.ft.sortAttr});
+                            $location.replace();
+                            LocalStorageService.setObject("<%= collection %>", {name: vm.ft.name, numRecord: vm.ft.numRecord, page: i, parentId: vm.ft.parentId, sortVal: vm.ft.sortVal, sortAttr: vm.ft.sortAttr})
+                            vm.rows = res.data.rows;
+
+
+                            vm.numRowPerPage = res.data.numRowPerPage;
+                            vm.pageNums = [...Array(Math.ceil(res.data.count / vm.numRowPerPage)).keys()].splice(i - 4 >= 0 ? i - 4 : 0, 9);
+                            vm.currentPage = i;
+                            vm.numPage = Math.ceil(res.data.count / vm.numRowPerPage);
+                            vm.countFrom = vm.currentPage * vm.numRowPerPage + 1;
+                            vm.numRecord = res.data.count;
+                            angular.element("table").ready(function () {
+                                setTimeout(function () {
+                                    angular.element("table tr").each((i, e) => { $(e).find(".headcol, .headcol2").height($(e).height() - 25); })
+                                })
+                            })
+                        } else
+                            Toastr.error("Something error");
+                    });
+            }
+
+            vm.rowClick = (_id) => {
+                if (vm.popupSelect) {
+                    try {
+                        window.opener.onSelected(_id);
+                        window.close();
+                    } catch(ex) { }
+                }
+            }
+            if ($location.search().popupSelect) {
+                vm.popupSelect = true;
+            }
+
+            vm.filter = () => {
+                vm.loadPage(0);
+            }
+
+            if ($location.search().name || $location.search().page || $location.search().parentId) {
+                vm.ft.name = $location.search().name || "";
+                vm.ft.parentId = $location.search().parentId || "";
+                vm.ft.numRecord = $location.search().numRecord || "20";
+                vm.ft.sortAttr = $location.search().sortAttr || "cre_ts";
+                vm.ft.sortVal = $location.search().sortVal || 1;
+                vm.currentPage = $location.search().page || 0;
+                vm.loadPage(vm.currentPage);
+            } else {
+                var saveData = LocalStorageService.getObject("<%= collection %>");
+                if (saveData) {
+                    vm.ft.name = saveData.name || "";
+                    vm.ft.numRecord = saveData.numRecord || "20";
+                    vm.ft.parentId = saveData.parentId || "";
+                    vm.ft.sortAttr = saveData.sortAttr || "cre_ts";
+                    vm.ft.sortVal = saveData.sortVal || 1;
+                    vm.currentPage = saveData.page || 0;
+
+                    vm.loadPage(vm.currentPage);
+                } else {
+                    vm.loadPage(0);
+                }
+            }
+
+            vm.delete = (_id) => {
+                if (confirm("Detete this record?")) {
+                    FormService.delete(collection, _id)
+                        .then(function() {
+                            Toastr.success("Delete completed");
+                            vm.loadPage(vm.currentPage);
+                        })
+                        .catch(function(err) {
+                            Toastr.error(err);
+                        })
+                } else {
+                    Toastr.info("Cancel")
+                }
+            }
+
+            vm.updateQuickCheck = (_id, attr, val) => {
+                let postData = {};
+                postData[attr] = val;
+                FormService.updateQuickCheck(collection, _id, postData)
+                    .then(function (res) {
+                        console.log(res);
+                    })
+                    .catch(function (res) {
+                        console.log(res);
+                    })
+            }
+
+            vm.updateFeatureImage = (_id, featureImage) => {
+                FormService.updateFeatureImage(collection, _id, featureImage)
+                    .then(function (res) {
+                        console.log(res);
+                    })
+                    .catch(function (res) {
+                        console.log(res);
+                    })
+            }
+
+            vm.updateSort = (attr, val) => {
+                if (vm.ft.sortAttr == attr) {
+                    vm.ft.sortVal *= -1;
+                } else {
+                    vm.ft.sortAttr = attr;
+                    vm.ft.sortVal = 1;
+                }
+
+                vm.loadPage(0);
+            }
+        });
+})();

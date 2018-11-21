@@ -1,0 +1,15 @@
+<div class="col-sm-12">
+    <input type="text"  data-label="<%= field.label %>" class="form-control" ng-class="form.<%= id %>_rawAddress.$valid ? 'form-control-success' : 'form-control-danger'" ng-model="<%= getAttr(attr, lang) %>.rawAddress" placeholder="Text address <%= lang %>" name="<%= id %>_rawAddress" id="<%= id %>_rawAddress"  ng-focus="<%= id %>_rawAddress=true" ng-required="<%= field.required != false ? 'true' : 'false' %>"/>
+</div>
+<% if (last) { %>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12">
+    <my-map class="row" my-id="<%= attr %>Map" ng-data="<%= getAttr(attr) %>">
+    </my-map>
+</div>
+<div class="col-sm-12">
+    <div>
+        <div>
+<% } %>

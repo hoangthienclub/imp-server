@@ -1,0 +1,65 @@
+
+<!--Modal for report company-->
+<div class="modal fade" id="reportCompany" tabindex="-1" role="dialog" aria-labelledby="reportCompanyLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="reportCompanyLabel" style="display: contents;"><%= langData.title_report %></h6>
+                <button type="button" class="close closeButton" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input name="_id" type="hidden" value="<%= receiveData._id %>"/>
+                    <div class="form-group">
+                        <!-- <p class="font-regular"><%= langData.lbl_reportDesc %></p> -->
+                        <p class="font-regular"><%= langData.lbl_selectTab %></p>
+                        <select name="select-company" id="select-company">
+                            <option value="1"><%= langData.tab_companyInfo %></option>
+                            <option value="2"><%= langData.tab_connection %></option>
+                            <option value="3"><%= langData.tab_businessIntro %></option>
+                            <option value="4"><%= langData.tab_product %></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="falseInfor" class="col-form-label"><%= langData.lbl_falseInfo %></label>
+                        <input type="text" class="" id="falseInfor" placeholder="<%= langData.lbl_falseInfo %>" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="rightInfor" class="col-form-label"><%= langData.lbl_infoEdit %></label>
+                        <textarea class="" id="rightInfor" placeholder="<%= langData.lbl_infoEdit %>" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="clearfix"></div>
+                <button type="button" class="nextButton" id="btnSubmitReport"><%= langData.lbl_send %></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(() => {
+            function submit() {
+                var postData = {};
+                $("#reportCompany form").serializeArray().forEach(function (e) {
+                    postData[e.name] = e.value;
+                })
+
+                $.ajax({
+                    url: "<%= genUrl.getReportCompanyApi() %>",
+                    method: "post",
+                    data: postData,
+                    success: function (html) {
+                        $(html).modal();
+                    }
+                })
+            }
+            $("#btnSubmitReport").click(function () {
+                submit();
+                return false;
+            });
+        })
+    </script>
+</div>

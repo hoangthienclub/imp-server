@@ -1,0 +1,22 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal ng-pristine ng-valid" name="form" ng-submit="vm.Save()">
+                <div class="card">
+                    <div class="card-header">
+                        <strong><%= data.name %></strong>
+                        <small>Layout</small>
+                    </div>
+                    <div class="card-block">
+                        <div class="col-sm-12 row">
+                            <%- data.detail %>
+                        </div>  
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-sm btn-default" ui-sref="index.<%= collection %>"><i class="fa fa-dot-circle-o"></i> Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

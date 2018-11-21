@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<title>5A058A8F-6F12-46E4-A607-B99E5B11E3AF</title>
+<desc>Created with sketchtool.</desc>
+<g id="Symbols">
+	<g id="Icons-_x2F_-24px-_x2F_-award">
+		<g id="Combined-Shape">
+			<path id="path-1_1_" fill="#1046F1" d="M9.015,15.424l-0.75,5.651l3.221-1.933c0.317-0.189,0.712-0.189,1.029,0l3.222,1.933
+				l-0.75-5.651C14.063,15.795,13.056,16,12,16C10.945,16,9.938,15.796,9.015,15.424z M7.14,14.354C5.231,12.893,4,10.59,4,8
+				c0-4.418,3.582-8,8-8c4.418,0,8,3.582,8,8c0,2.589-1.23,4.892-3.139,6.354l1.13,8.516c0.11,0.83-0.788,1.419-1.506,0.988
+				L12,21.166l-4.485,2.691c-0.718,0.432-1.616-0.159-1.506-0.989L7.14,14.354z M15.33,12.991C16.939,11.916,18,10.082,18,8
+				c0-3.313-2.687-6-6-6S6,4.687,6,8s2.687,6,6,6c1.164,0,2.25-0.332,3.17-0.904C15.22,13.056,15.273,13.021,15.33,12.991z"/>
+		</g>
+		<defs>
+			<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+				<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+			</filter>
+		</defs>
+		<mask maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24" id="mask-2">
+			<g filter="url(#Adobe_OpacityMaskFilter)">
+				<path id="path-1" fill="#FFFFFF" d="M9.015,15.424l-0.75,5.651l3.221-1.933c0.317-0.189,0.712-0.189,1.029,0l3.222,1.933
+					l-0.75-5.651C14.063,15.795,13.056,16,12,16C10.945,16,9.938,15.796,9.015,15.424z M7.14,14.354C5.231,12.893,4,10.59,4,8
+					c0-4.418,3.582-8,8-8c4.418,0,8,3.582,8,8c0,2.589-1.23,4.892-3.139,6.354l1.13,8.516c0.11,0.83-0.788,1.419-1.506,0.988
+					L12,21.166l-4.485,2.691c-0.718,0.432-1.616-0.159-1.506-0.989L7.14,14.354z M15.33,12.991C16.939,11.916,18,10.082,18,8
+					c0-3.313-2.687-6-6-6S6,4.687,6,8s2.687,6,6,6c1.164,0,2.25-0.332,3.17-0.904C15.22,13.056,15.273,13.021,15.33,12.991z"/>
+			</g>
+		</mask>
+		<g id="UI_x2F_Color_x2F_Flat_x2F_Black" mask="url(#mask-2)">
+			<rect id="Base" fill="#1046F1" width="24" height="24"/>
+		</g>
+	</g>
+</g>
+</svg>

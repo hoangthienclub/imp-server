@@ -1,0 +1,19 @@
+{
+    "tab_generalInfo" : "Giới thiệu chung",
+    "tab_connection" : "Kết nối",
+    "tab_news" : "Tin tức & Sự kiện",
+    "lbl_address" : "Địa chỉ",
+    "lbl_phoneNumber" : "Số điện thoại",
+    "lbl_email" : "Email",
+    "lbl_website" : "Website",
+    "lbl_introduction" : "Giới thiệu",
+    "lbl_foundDate" : "Ngày thành lập",
+    "lbl_registrationNumber" : "Mã số đăng ký",
+    "lbl_president" : "Chủ tịch",
+    "lbl_vicePresident" : "Phó chủ tịch",
+    "lbl_secretary" : "Thư ký",
+    "lbl_member" : "Thành viên",
+    "lbl_tax" : "Mã số thuế",
+    "lbl_category" : "Ngành nghề",
+    "lbl_Viewall": "Xem tất cả"
+}

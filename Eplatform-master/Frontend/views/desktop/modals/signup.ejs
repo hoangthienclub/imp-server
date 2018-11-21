@@ -1,0 +1,274 @@
+
+
+<!-- Signup -->
+
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signupLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modalLeft">
+
+                <div class="modal-header" style="border:none;">
+                    <h3 class="modal-title" id="signupLabel" style="display: contents;"><%= langData.title_register %></h3>
+                </div>
+
+                <div class="modal-body">
+                    <div class="nav nav-tabs" style="border:none;">
+                        <div style="float:left; width:50%;">
+                            <div id="personalToggle">
+                                <label class="customRadio"><%= langData.btn_personal %>
+                                    <input type="radio" checked="checked" name="accType" value="personal" required/>
+                                    <span class="checkmarkRadio"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div style="float:left; width:50%;">
+                            <div id="companyToggle">
+                                <label class="customRadio"><%= langData.lbl_yourCompany %>
+                                    <input type="radio" name="accType" value="company" required/>
+                                    <span class="checkmarkRadio"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" style="margin-top:30px;">
+                        <div id="personalPanel">
+                            <form>
+                                <div class="form-group">
+                                    <label for="personalPhone" class="col-form-label"><%= langData.lbl_phoneNumber %></label>
+                                    <input type="tel" class="" id="personalPhone" name="username" placeholder="<%= langData.placeholder_phoneNumber %>" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="personalPass" class="col-form-label"><%= langData.lbl_pass %></label>
+                                    <input type="password" class="" id="personalPass" name="password" placeholder="<%= langData.placeholder_pass %>" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="customCheck"> <%= langData.btn_agreeTerms %>
+                                        <a href="<%= genUrl.getTermConditionUrl() %>">
+                                            <b><%= langData.btn_terms %></b>
+                                        </a>
+                                        <input type="checkbox" name="accept" checked="checked" required/>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <div id="recaptcha-container" style="display: none;"></div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn-primary" id="btnPersonalSignIn" style="width:75%"><%= langData.btn_register %></button>
+                                </div>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                        <div id="companyPanel">
+                            <form>
+                                <div class="form-group">
+                                    <label for="select-company" class="col-form-label"><%= langData.placeholer_yourCompany %></label>
+                                    <div class="dropdownDiv">
+                                        <input name="inputSelect" class="inputDropdownList" placeholder="Select a company">
+                                        <a class="buttonDropdownList"><img src="public/assets/arrow-down.svg"></a>
+                                        <div class="dropdownList font-light">
+                                            <ul>
+                                                <li>Ho chi minh 1</li>
+                                                <li>Binh Duong 1</li>
+                                                <li>Test 1</li>
+                                                <li>test2 1</li>
+                                                <li>Ho chi minh 2</li>
+                                                <li>Binh Duong 2</li>
+                                                <li>Test2</li>
+                                                <li>test2 3</li>
+                                                <li>Ho chi minh4</li>
+                                                <li>Binh Duong4</li>
+                                                <li>Test5</li>
+                                                <li>test26</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone" class="col-form-label">P<%= langData.lbl_phoneNumber %></label>
+                                    <input type="text" class="" id="phone" placeholder="<%= langData.placeholder_phoneNumber %>" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="companyPass" class="col-form-label"><%= langData.lbl_pass %></label>
+                                    <input type="password" class=" successInfo" id="companyPass" placeholder="<%= langData.placeholder_pass %>" required/>
+                                </div>
+                                <div class="form-group">
+
+                                    <label class="customCheck"><%= langData.btn_agreeTerms %>
+                                        <a href="#">
+                                            <b><%= langData.btn_terms %></b>
+                                        </a>
+                                        <input type="checkbox" checked="checked" required/>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn-primary " style="width:75%"><%= langData.btn_register %></button>
+                                </div>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="text-align:left;">
+                        <%= langData.lbl_haveAccount %>
+                    <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#login">
+                        <b><%= langData.btn_logIn %></b>
+                    </a>
+                </div>
+            </div>
+            <div class="modalRight">
+                <button type="submit" class="close closeButton" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <img src="public/assets/mockup-01.png" />
+                <h5>Smart Business Directory</h5>
+                <p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        // Initialize Firebase
+        $(() => {
+
+
+            $("#companyPanel").hide();
+            $(".buttonTrigger").click(function(){
+                $(".buttonTrigger").hide();
+                $("input[name='txtSearchNavTxt']").show();
+                $("button[name='btnSearchNavBtn']").show();
+            });
+
+            $('.buttonDropdownList').click(function(){
+                $('.dropdownList').toggle();
+            });
+
+            $('.dropdownList li').click(function(){
+                $('.inputDropdownList').val($(this).text());
+                $('.dropdownList').toggle();
+            });
+
+            $('.inputDropdownList').keypress(function(){
+                $('.dropdownList').show();
+            });
+
+            $(".inputDropdownList").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".dropdownList li").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
+            $(".inputDropdownList").focus(function() {
+                $('.dropdownList').show();       
+                //return false;
+            });
+
+
+            $("#companyToggle").click(function(){
+                $("#companyPanel").show();
+                $("#personalPanel").hide();
+            });
+            
+            $("#personalToggle").click(function(){
+                $("#companyPanel").hide();
+                $("#personalPanel").show();
+            });
+            
+
+            $("#signup a[data-toggle='modal']").click(function () {
+                var modalName = $(this).attr("data-target").replace("#", "");
+                window.showModal(modalName);
+                return true;
+            })
+
+
+            var config = {
+                apiKey: "AIzaSyCJz2-LcJkxPVhK3O_F4_cAMsqYV9lT3iE",
+                authDomain: "eplatform-a6a31.firebaseapp.com",
+                databaseURL: "https://eplatform-a6a31.firebaseio.com",
+                projectId: "eplatform-a6a31",
+                storageBucket: "eplatform-a6a31.appspot.com",
+                messagingSenderId: "817758136524"
+            };
+            
+            if (!firebase.apps.length) {
+                firebase.initializeApp(config);
+            }
+            
+            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+                callback: function () {
+                    console.log("Verify captcha");
+                    sendLoginCode();
+                }
+            });
+            window.recaptchaVerifier.render();
+
+
+            function sendLoginCode () {
+                const recaptchaVerifier = window.recaptchaVerifier;
+                const phoneNumber = $("#personalPhone").val();
+                
+                firebase.auth().signInWithPhoneNumber(phoneNumber, recaptchaVerifier)
+                    .then(function (result) {
+                        console.log("Send");
+                        window.confirmationResult = result;
+                        verifyLoginCode();
+                    })
+                    .catch(function(err) {
+                        console.log(err);
+                    })
+            }
+
+            function verifyLoginCode() {
+                function verify (code) {
+                    window.confirmationResult.confirm(code)
+                        .then(function (user) {
+                            signUp();
+                        })
+                        .catch(function (err) {
+                            console.log(err);
+                        })
+                }
+                $.ajax({
+                    method: "get",
+                    url: "/modal/confirmOTP",
+                    success: function (html) {
+                        $("body").append(html);
+                        $("body").ready(function () {
+                            $(".modal").modal();
+                        });
+
+                        $("#confirmOtp").click(function () {
+                            let code = $("#otp").val();
+                            verify(code);
+                        })
+                    }
+                })
+            }
+
+            function signUp() {
+                var postData = {};
+                $("#personalPanel form").serializeArray().forEach(function (e) {
+                    postData[e.name] = e.value;
+                })
+                $.ajax({
+                    url: signUpApi,
+                    method: "post",
+                    data: postData,
+                    success: function (html) {
+                        $(html).modal();
+                    }
+                })
+            }
+
+            $("#personalPanel form").submit(function () {
+                $("#recaptcha-container").show();
+                return false;
+            })
+        });
+    </script>
+</div>
+<!-- End Signup -->

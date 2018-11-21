@@ -1,0 +1,110 @@
+<%- JSON.stringify({
+	PCI: pageData.PCI,
+	RegionId: pageData.RegionId,
+	agriculturalProductionLand: pageData.agriculturalProductionLand,
+	annualAverageCapitalOfEnterprises: pageData.annualAverageCapitalOfEnterprises,
+	averagePopulation: pageData.averagePopulation,
+	borders: pageData.borders,
+	climate: pageData.climate,
+	coastline: pageData.coastline,
+	education: pageData.education,
+	electricSupply: pageData.electricSupply,
+	ethnic: pageData.ethnic,
+	fineArts: pageData.fineArts,
+	forestyLand: pageData.forestyLand,
+	gdpGrowthRate: pageData.gdpGrowthRate,
+	headquartersCommittee: pageData.headquartersCommittee,
+	homesteadLand: pageData.homesteadLand,
+	hospitalAndMedicalCentres: pageData.hospitalAndMedicalCentres,
+	inmigrationRate: pageData.inmigrationRate,
+	laborForce: pageData.laborForce,
+	labourForceAt15YearsOfAgeAndAbove: pageData.labourForceAt15YearsOfAgeAndAbove,
+	language: pageData.language,
+	mainIndustries: pageData.mainIndustries,
+	name: pageData.name,
+	naturalIncreaseRateOfPopulation: pageData.naturalIncreaseRateOfPopulation,
+	naturalResources: pageData.naturalResources,
+	netTurnover: pageData.netTurnover,
+	numberOfProject: pageData.numberOfProject,
+	peoplesCommitee: pageData.peoplesCommitee,
+	peoplesCouncil: pageData.peoplesCouncil,
+	population: pageData.population,
+	populationBySex: pageData.populationBySex,
+	profitBeforeTaxes: pageData.profitBeforeTaxes,
+	profitRate: pageData.profitRate,
+	relevantGovernmentDepartments: pageData.relevantGovernmentDepartments,
+	scienceAndTechnology: pageData.scienceAndTechnology,
+	speciallyUsedLand: pageData.speciallyUsedLand,
+	telecommunications: pageData.telecommunications,
+	totalArea: pageData.totalArea,
+	totalExport: pageData.totalExport,
+	transportation: pageData.transportation,
+	unemployment: pageData.unemployment,
+	waterSupply: pageData.waterSupply,
+	website: pageData.website,
+	companies: pageData.companyData.map(e => {
+        return {
+            _id: e._id,
+            address: {
+				raw: e.address.raw, 
+				latLng: e.address.latLng
+			},
+            provinceId: e.address.provinceId,
+            provinceName: e.provinceData.name,
+            logo: e.logoImageId ? {
+                name: e.logoImageId.name.trim(),
+                url: e.logoImageId.url.trim()
+            } : {name: "", url: ""},
+            name: e.name,
+            url: e.url,
+            taxNumber: e.taxNumber,
+            categories: e.categories.map(f => {
+                return {
+                    name: f.name,
+                    url: genUrl.getMapUrl(f.name)
+                }
+            })
+        }
+	}),
+	geometry: pageData.geometryProvince.map(e => {
+        return e
+	}),
+	totalIndustrialPark: pageData.totalIP,
+	totalCompanies: pageData.totalCompany,
+	industrialPark: pageData.ipData.map(e => {
+        return {
+            _id: e._id,
+			logoImageId: e.logoImageId.url,
+			name: e.name,
+			area: e.area,
+			tiLeThue: e.tiLeThue,
+			address: e.address.raw,
+			url: e.url
+		}
+	}),
+	propertyList: pageData.propertyList.map(e => {
+        return {
+            _id: e._id,
+			url: e.url,
+			purpose: e.purpose,
+			image: e.image,
+			name: e.name,
+			price: e.price.text,
+			proptype: e.proptype,
+			area: e.area.text,
+			district: e.district,
+			province: e.province
+		}
+	}),
+    news: pageData.newsData.map(e => {
+        return {
+            logo: e.imageIds ? {
+                name: e.imageIds.name.trim(),
+                url: e.imageIds.url.trim()
+            } : {name: "", url: ""},
+            title: e.title,
+            date: e.date,
+            desc: e.desc
+        }
+    })
+}) %>

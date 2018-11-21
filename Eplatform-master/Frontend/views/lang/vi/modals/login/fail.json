@@ -1,0 +1,7 @@
+{
+    "label": "Thất bại",
+    "error": "Vui lòng thử lại sau!!!",
+    "exist": "Lỗi! Số điện thoại đã tồn tại.",
+    "authFail": "Lỗi! Số điện thoại hoặc mật khẩu không chính xác.",
+    "validate": "Vui lòng nhập số điện thoại hợp lệ."
+}

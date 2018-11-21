@@ -1,0 +1,9 @@
+{
+    "term": "Please agree to the terms of use!",
+    "label": "Fail",
+    "error": "Please try again later!!!",
+    "exist": "Phone number already exist!",
+    "authFail": "Phone number or password is incorrect",
+    "validate": "Please input valid phone number",
+    "nonAuth": "Your phone number has not been verified"
+}

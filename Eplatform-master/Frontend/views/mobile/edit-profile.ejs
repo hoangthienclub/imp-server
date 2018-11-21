@@ -1,0 +1,670 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <%- include("partials/head") %>
+
+    <link rel="stylesheet" href="public/slick/slick.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="public/slick/slick-theme.css" />
+
+</head>
+
+<body>
+
+    <div class="">
+        <%- include("partials/headers/top-nav") %>
+    </div>
+
+
+
+    <div id="profileEdit">
+        <div class="container">
+            <% if (currentUser.cover && currentUser.cover.url) { %>
+            <img class="profileTopBanner bannerPic" src="<%= currentUser.cover.url %>">
+            <% } else { %>
+            <img class="profileTopBanner bannerPic" src="public/assets/bernard-hermant-616385-unsplash.jpg">
+            <% } %>
+            <div class="myCompany changeCover">
+                <a href="#bannerFile">
+                    <h6 class="font-regular fontsize12">
+                        <img src="public/assets/group-3.svg" width="16" height="16"><%= langData.btn_changeCover %></h6>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="editProfileInfo">
+        <div class="container">
+            <div class="formEdit text-center">
+                <h2 class="fontsize18">Edit Profile</h2>
+                <div class="changeAva">
+                    <a href="#avatarFile">
+                        <img class="avaPic" src="<% if (currentUser.avatar) { %> <%=currentUser.avatar.url%> <% } else {%>public/assets/profile.svg <% } %>">
+                        <img class="iconPic" src="public/assets/camera.svg">
+                    </a>
+                </div>
+                <a href="#avatarFile" id="changeAva">
+                    <p>
+                        <%= langData.btn_changeAvatar %>
+                    </p>
+                </a>
+                <div class="formControl text-left">
+                    <div class="form-group">
+                        <label for="introduction" class="col-form-label">
+                            <%= langData.lbl_intro %></label>
+                        <textarea id="introduction" placeholder="<%= langData.lbl_intro %>"><%= currentUser.introduction %></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="fullname" class="col-form-label">
+                            <%= langData.lbl_fullName %></label>
+                        <input id="fullname" placeholder="<%= langData.lbl_fullName %>" type="text" value="<%= currentUser.fullname %>"></textarea>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="button" class="btn-primary " id="btnDone">
+                            <%= langData.btn_done %></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="updateAccout text-center">
+        <div class="container">
+            <h2><%= langData.title_levelAccount %></h2>
+            <div class="accountLevelInfo">
+                <div class="levelInfoItem <% if (currentUser.currentLevel == 0) { %> currentLevel <% }%>">
+                    <div class="levelInfoItemTop">
+                        <h6>
+                            <%= langData.lbl_defaultInfo %>
+                        </h6>
+                        <p>
+                            <%= langData.lbl_avatar %>
+                        </p>
+                        <p>
+                            <%= langData.lbl_cover %>
+                        </p>
+                        <p>
+                            <%= langData.lbl_intro %>
+                        </p>
+                        <p>
+                            <%= langData.lbl_fullName %>
+                        </p>
+                        <p>
+                            <%= langData.lbl_userName %>
+                        </p>
+                        <p>
+                            <%= langData.lbl_password %>
+                        </p>
+                    </div>
+                    <a class="finishedLevel isDisabled">
+                        <p class="large">
+                            <%= langData.btn_upgrade %>
+                        </p>
+                    </a>
+                </div>
+                <div class="levelInfoItem <% if (currentUser.currentLevel == 1) { %> currentLevel <% }%>">
+                    <div class="levelInfoItemTop">
+                        <h6>
+                            <%= langData.lbl_level %> 1
+                            <br>
+                            <%= langData.lbl_basicInfo %>
+                        </h6>
+                        <p>
+                            <%= langData.lbl_gender %>
+                        </p>
+                        <p>
+                            <%= langData.lbl_age %>
+                        </p>
+                        <p>
+                            <%= langData.lbl_address %>
+                        </p>
+                        <p>
+                            <%= langData.lbl_email %>
+                        </p>
+                        <p>
+                            <%= langData.lbl_phoneNumber %>
+                        </p>
+                        <p>
+                            <%= langData.lbl_social %>
+                        </p>
+                    </div>
+                    <a class="<% if (currentUser.currentLevel == 0) { %> unfinishedLevel <% } else {%> finishedLevel isDisabled <% } %>" id="upgrade_modal_1">
+                        <p class="large">
+                            <%= langData.btn_upgrade %>
+                        </p>
+                    </a>
+                </div>
+                <div class="levelInfoItem  <% if (currentUser.currentLevel == 2) { %> currentLevel <% }%>">
+                    <div class="levelInfoItemTop">
+                        <h6>
+                            <%= langData.lbl_level %> 2
+                            <br>
+                            <%= langData.lbl_companyInfo %>
+                        </h6>
+                        <p>
+                            <%= langData.lbl_cardVisit %>
+                        </p>
+                        <p>
+                            <%= langData.lbl_taxNumber %>
+                        </p>
+                        <p>
+                            <%= langData.lbl_company %>
+                        </p>
+                        <p>
+                            <%= langData.lbl_position %>
+                        </p>
+                        <p>
+                            <%= langData.lbl_speakingLanguage %>
+                        </p>
+                    </div>
+                    <a class="<% if (currentUser.currentLevel == 1) { %> unfinishedLevel <% } else {%> finishedLevel isDisabled <% } %>" id="upgrade_modal_2">
+                        <p class="large">
+                            <%= langData.btn_upgrade %>
+                        </p>
+                    </a>
+                </div>
+                <div class="levelInfoItem  <% if (currentUser.currentLevel == 3) { %> currentLevel <% }%>">
+                    <div class="levelInfoItemTop">
+                        <h6>
+                            <%= langData.lbl_level %> 3
+                            <br>
+                            <%= langData.lbl_commitment %>
+                        </h6>
+                        <p>
+                            <%= langData.lbl_identityCard %>
+                        </p>
+                        <p>
+                            <%= langData.lbl_agreement %>
+                        </p>
+                    </div>
+                    <a class="<% if (currentUser.currentLevel == 2) { %> unfinishedLevel <% } else {%> finishedLevel isDisabled <% } %>" id="upgrade_modal_3">
+                        <p class="large">
+                            <%= langData.btn_upgrade %>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-hidden" style="width: 0; height: 0; overflow: hidden;">
+        <form action="http://hub.nso.vn/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file">
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="upgrade_1" tabindex="-1" role="dialog" aria-labelledby="feedbackLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="margin-top:20px;">
+            <div class="modal-content">
+                <div class="modalLeft" style="height:800px">
+                    <div class="modal-body">
+                        <h2><%= langData.lbl_basicInfo %></h2>
+                        <div class="form-group">
+                            <label for="age" class="col-form-label">
+                                <%= langData.lbl_age %></label>
+                            <input id="age" placeholder="<%= langData.lbl_age %>" type="number" value="<%= currentUser.yearofbirth %>"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender" class="col-form-label">
+                                    <%= langData.lbl_gender %></label>
+                            <div class="nav nav-tabs" style="border:none;">
+                                <div style="float:left; width:50%;">
+                                    <div id="personalToggle">
+                                        <label class="customRadio"><%= langData.rd_male %>
+                                            <input type="radio" <% if (currentUser.gender == 1) { %>checked="checked"<% } %> name="accType" value="1">
+                                            <span class="checkmarkRadio"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="float:left; width:50%;">
+                                    <div id="companyToggle">
+                                        <label class="customRadio"><%= langData.rd_female %>
+                                            <input type="radio" <% if (currentUser.gender == 0) { %>checked="checked"<% } %> name="accType" value="0">
+                                            <span class="checkmarkRadio"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-form-label">
+                                <%= langData.lbl_email %></label>
+                            <input id="email" placeholder="<%= langData.lbl_email %>" type="text" value="<%= currentUser.email %>"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-form-label">
+                                <%= langData.lbl_phoneNumber %></label>
+                            <input id="phone" placeholder="<%= langData.lbl_phoneNumber %>" type="number" value="<%= currentUser.phone %>"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="col-form-label">
+                                <%= langData.lbl_address %></label>
+                            <input id="address" placeholder="<%= langData.lbl_address %>" type="text" value="<%= currentUser.address %>"></textarea>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="button" class="btn-primary " id="btnUpgradeLevel1">
+                                <%= langData.btn_done %></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Feedback -->
+
+      <!-- Modal -->
+      <div class="modal fade" id="upgrade_2" tabindex="-1" role="dialog" aria-labelledby="feedbackLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="margin-top:20px;">
+            <div class="modal-content">
+                <div class="modalLeft" style="height:800px">
+                    <div class="modal-body">
+                        <h2><%= langData.lbl_companyInfo %></h2>
+                        <div class="changeAva text-center">
+                            <a href="#cardFile">
+                                <img class="cardPic" src="<% if (currentUser.cardvisit) { %> <%=currentUser.cardvisit.url%> <% } else {%>public/assets/profile.svg <% } %>">
+                                <img class="iconPic" src="public/assets/camera.svg">
+                            </a>
+                        </div>
+                        <a href="#cardFile" id="changeAva" class="text-center">
+                            <p>
+                                <%= langData.btn_uploadNamecard %>
+                            </p>
+                        </a>
+                        <div class="form-group">
+                            <label for="taxid" class="col-form-label">
+                                <%= langData.lbl_taxNumber %></label>
+                            <input id="taxid" placeholder="<%= langData.lbl_taxNumber %>" type="number" value="<%= currentUser.taxnumber %>" />
+                        </div>
+                        <div class="form-group">
+                            <label for="company" class="col-form-label"><%= langData.lbl_company %></label>
+                            <input id="company" placeholder="<%= langData.lbl_company %>" type="text" <% if (currentUser.company && currentUser.company.name) { %> value="<%= currentUser.company.name %>" <% } %> />
+                            <input id="company-select2" type="hidden" />
+                            <input id="company-id" type="hidden" <% if (currentUser.company && currentUser.company._id) { %> value="<%= currentUser.company._id %>" <% } %> />
+                            <input id="company-isStore" type="hidden" <% if (currentUser.company && currentUser.company.isStore) { %> value="<%= currentUser.company.isStore %>" <% } %> />
+                            <input id="company-url" type="hidden" <% if (currentUser.company && currentUser.company.url) { %> value="<%= currentUser.company.url %>" <% } %> />
+                        </div>
+                        <div class="form-group">
+                            <label for="position" class="col-form-label"><%= langData.lbl_position %></label>
+                            <input id="position" placeholder="<%= langData.lbl_position %>" type="text" <% if (currentUser.position && currentUser.position.name) { %> value="<%= currentUser.position.name %>" <% } %> />
+                            <input id="position-select2" type="hidden" />
+                            <input id="position-id" type="hidden" <% if (currentUser.position && currentUser.position._id) { %> value="<%= currentUser.position._id %>" <% } %> />
+                        </div>
+                        <div class="form-group">
+                            <label for="language" class="col-form-label">
+                                <%= langData.lbl_speakingLanguage %></label>
+                            <input id="language" placeholder="<%= langData.lbl_speakingLanguage %>" type="text" value="<%= currentUser.speakinglanguages %>"></textarea>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="button" class="btn-primary " id="btnUpgradeLevel2">
+                                <%= langData.btn_done %></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Feedback -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="upgrade_3" tabindex="-1" role="dialog" aria-labelledby="feedbackLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="margin-top:20px;">
+            <div class="modal-content">
+                <div class="modalLeft" style="height:800px">
+                    <div class="modal-body text-center">
+                        <h2><%= langData.lbl_companyInfo %></h2>
+                        <div class="changeAva">
+                            <a href="#idenFile">
+                                <img class="idenPic" src="<% if (currentUser.identitycard) { %> <%=currentUser.identitycard.url%> <% } else {%>public/assets/profile.svg <% } %>">
+                                <img class="iconPic" src="public/assets/camera.svg">
+                            </a>
+                        </div>
+                        <a href="#idenFile" id="changeAva">
+                            <p>
+                                <%= langData.btn_uploadIdentityCard %>
+                            </p>
+                        </a>
+                        <div id="hopdong">
+                            <% if (currentUser.agreement && currentUser.agreement._id) { %>
+                                <div class="downloadAgreement">
+                                    <a class="agreement" href="<%= currentUser.agreement.url %>" target="_blank"><p><%= currentUser.agreement.name %></p></a>
+                                    <a href="#agreeFile"><img src="public/assets/group-3.svg" width="19" height="19"></a>
+                                </div>
+                            <% } else { %>
+                                <a href="#agreeFile">
+                                    <p>
+                                        <%= langData.btn_uploadAgreement %>
+                                    </p>
+                                </a>
+                            <% } %> 
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn-primary " id="btnUpgradeLevel3">
+                                <%= langData.btn_done %></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Feedback -->
+
+    <%- include("partials/footers/default") %>
+    <link href="http://select2.github.io/select2/select2-3.5.2/select2.css" rel="stylesheet" />
+    <script src="http://select2.github.io/select2/select2-3.5.2/select2.js"></script>
+    <script>
+        var companyData = {
+            _id: $('#company-id').val(),
+            name: $('#company').val(),
+            isStore: $('#company-isStore').val() == "true",
+            url: $('#company-url').val()
+        };
+        var listCompany = [];
+        $("#company").click(function () {
+            setTimeout(() => {
+                $("#company-select2").select2('open');
+            }, 100);
+
+            $("#company-select2").select2({
+                placeholder: 'Select an option',
+                allowClear: true,
+                tags: false,
+                ajax: {
+                    url: '/api-v1.0/company/getListCompanySampleData',
+                    dataType: 'json',
+                    data: function(term) {
+                        return {
+                            key: term
+                        };
+                    },
+                    results: function(data) {
+                        listCompany = data;
+                        return {
+                            results: data.map(e => {
+                                return {
+                                    id: e._id,
+                                    text: e.name
+                                }
+                            })
+                        };
+                    }
+                }
+            }).on("change", function(e) {
+                listCompany.forEach(element => {
+                    if (e.added.id == element._id) {
+                        companyData = element;
+                    }
+                });
+                $('.select2-container').hide();
+                $("#company").val(e.added.text);
+            }); 
+        });
+        var positionData = {
+            _id: $('#position-id').val(),
+            name: $('#position').val(),
+        };
+        var listPosition = [];
+        $("#position").click(function () {
+            setTimeout(() => {
+                $("#position-select2").select2('open');
+            }, 100);
+
+            $("#position-select2").select2({
+                placeholder: 'Select an option',
+                allowClear: true,
+                tags: false,
+                ajax: {
+                    url: '/api-v1.0/company/getListCompanyPositionSampleData',
+                    dataType: 'json',
+                    data: function(term) {
+                        return {
+                            key: term
+                        };
+                    },
+                    results: function(data) {
+                        listPosition = data;
+                        return {
+                            results: data.map(e => {
+                                return {
+                                    id: e._id,
+                                    text: e.name
+                                }
+                            })
+                        };
+                    }
+                }
+            }).on("change", function(e) {
+                listPosition.forEach(element => {
+                    if (e.added.id == element._id) {
+                        positionData = element;
+                    }
+                });
+                $('.select2-container').hide();
+                $("#position").val(e.added.text);
+            }); 
+        });
+        var imageActionData = {
+            updateAvatar: {
+                class: "avaPic",
+                folderName: "avatars",
+                infoUrl: "<%= genUrl.getSiteApi() %>profile/image/avatar"
+            }, 
+            updateCard: {
+                class: "cardPic",
+                folderName: "cards",
+                infoUrl: "<%= genUrl.getSiteApi() %>profile/image/card"
+            }, 
+            updateBanner: {
+                class: "bannerPic",
+                folderName: "banners",
+                infoUrl: "<%= genUrl.getSiteApi() %>profile/image/banner"
+            },
+            updateIdentity: {
+                class: "idenPic",
+                folderName: "identitys",
+                infoUrl: "<%= genUrl.getSiteApi() %>profile/image/identity"
+            },
+            updateAgreement: {
+                class: "agreePic",
+                folderName: "agreements",
+                infoUrl: "<%= genUrl.getSiteApi() %>profile/image/agreement"
+            }
+        }
+
+        var user_token = "<%- pageData.jwt %>";
+        $(() => {
+            $hiddenForm = $(".form-hidden form");
+
+            function updateUserInfo(imageData, infoObj) {
+                $.ajax({
+                    url: imageData.infoUrl,
+                    method: "post",
+                    data: infoObj,
+                    success: function (data) {
+                        if (data.status == "OK") {
+                            $("." + imageData.class).attr("src", infoObj.url);
+                        }
+                    }
+                })
+            }
+            function updateImage(imageData) {
+                var file = $hiddenForm.find("input[type^='file']").get(0).files[0];
+                var formData = new FormData();
+                formData.append('file', file);
+                formData.append('user_token', user_token);
+                formData.append('folder', imageData.folderName);
+
+                if (currentFileSelect == "updateAgreement") {
+                    $.ajax({
+                        url: "http://sso.nso.vn/upload/pdf",
+                        data: formData,
+                        method: "post",
+                        cache: false,
+                        contentType: false,
+                        processData: false
+                    }).done(function (response) {
+                        console.log(response);
+                        if (response.statusCode == 200) {
+                            $('#hopdong').empty();
+                            $('#hopdong').append(`
+                                <div class="downloadAgreement">
+                                    <a class="agreement" href="` + response.data.url + `" target="_blank"><p>` + response.data.name + `</p></a>
+                                    <a href="#agreeFile"><img src="public/assets/group-3.svg" width="19" height="19"></a>
+                                </div>
+                            `);
+                        } else {
+                            alert("upload fail")
+                        }
+                    })
+                } else {
+                    $.ajax({
+                        url: "http://sso.nso.vn/upload",
+                        data: formData,
+                        method: "post",
+                        cache: false,
+                        contentType: false,
+                        processData: false
+                    }).done(function (response) {
+                        console.log(response);
+                        if (response.statusCode == 200) {
+                            $("." + imageData.class).attr("src", response.data.url);
+                            // updateUserInfo(imageData, response);
+                        } else {
+                            alert("upload fail")
+                        }
+                    })
+                }
+            }
+            
+            var currentFileSelect = "";
+            $hiddenForm.find("input[type^='file']").on("change", function () {
+                updateImage(imageActionData[currentFileSelect]);
+            })
+            $("a[href^='#avatarFile'], a[href^='#cardFile'], a[href^='#bannerFile'], a[href^='#idenFile'], a[href^='#agreeFile']").click(function () {
+                switch ($(this).attr("href")) {
+                    case "#avatarFile":
+                        currentFileSelect = "updateAvatar";
+                        break;
+                    case "#cardFile":
+                        currentFileSelect = "updateCard";
+                        break;
+                    case "#bannerFile":
+                        currentFileSelect = "updateBanner";
+                        break;
+                    case "#idenFile":
+                        currentFileSelect = "updateIdentity";
+                        break;
+                    case "#agreeFile":
+                        currentFileSelect = "updateAgreement";
+                        break;
+                    default:
+                        return false;
+                        break;
+                }
+                $hiddenForm.find("input[type^='file']").click();
+                return false;
+            })
+        })
+
+          $("#btnDone").click(function () {
+            $.ajax({
+                url: "/profile/edit",
+                method: "post",
+                data: {
+                    introduction: $("#introduction").val(),
+                    fullname: $("#fullname").val()
+                },
+                success: function (response, textStatus, xhr) {
+                    if (response.statusCode == 200) {
+                        alert("done");
+                    } else {
+                        alert("fail");
+                    }
+                }
+            });
+        })
+
+        <% if (currentUser.current == 0) { %>
+            $("#upgrade_modal_1").click(function() {
+                $("#upgrade_1").modal();
+            })
+
+            $("#btnUpgradeLevel1").click(function () {
+                $.ajax({
+                    url: "/upgrade",
+                    method: "post",
+                    data: {
+                        yearofbirth: $("#age").val(),
+                        gender: parseInt($('input[name=accType]:checked').val()),
+                        email: $("#email").val(),
+                        phone: $("#phone").val(),
+                        address: $("#address").val(),
+                        socialmedialink: "Demo"
+                    },
+                    success: function (response, textStatus, xhr) {
+                        if (response.statusCode == 200) {
+                            alert("pending approve");
+                        } else {
+                            alert("fail");
+                        }
+                    }
+                });
+            })
+        <% } %>
+
+        <% if (currentUser.current == 1) { %>
+            $("#upgrade_modal_2").click(function() {
+                $("#upgrade_2").modal();
+            })
+    
+            $("#btnUpgradeLevel2").click(function () {
+                $.ajax({
+                    url: "/upgrade",
+                    method: "post",
+                    dataType: "json",
+                    data: {
+                        taxnumber: $("#taxid").val(),
+                        company: JSON.stringify(companyData),
+                        position: JSON.stringify(positionData),
+                        speakinglanguages: $("#language").val(),
+                    },
+                    success: function (response, textStatus, xhr) {
+                        if (response.statusCode == 200) {
+                            alert("pending approve");
+                        } else {
+                            alert("fail");
+                        }
+                    }
+                });
+            })
+        <% } %>
+
+        <% if (currentUser.current == 2) { %>
+            $("#upgrade_modal_3").click(function() {
+                $("#upgrade_3").modal();
+            })
+
+            $("#btnUpgradeLevel3").click(function () {
+                $.ajax({
+                    url: "/upgrade",
+                    method: "post",
+                    dataType: "json",
+                    data: {
+                        
+                    },
+                    success: function (response, textStatus, xhr) {
+                        if (response.statusCode == 200) {
+                            alert("pending approve");
+                        } else {
+                            alert("fail");
+                        }
+                    }
+                });
+            })
+        <% } %>
+    </script>
+</body>
+
+</html>

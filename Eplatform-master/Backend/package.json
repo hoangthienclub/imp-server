@@ -1,0 +1,61 @@
+{
+  "name": "nodejs-cms",
+  "version": "1.0.0",
+  "description": "Code builder in nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/louis.it/nodejs-cms.git"
+  },
+  "author": "Louis Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/louis.it/nodejs-cms/issues"
+  },
+  "homepage": "https://gitlab.com/louis.it/nodejs-cms#README",
+  "dependencies": {
+    "@google-cloud/translate": "^1.1.0",
+    "angular": "^1.6.5",
+    "angular-chart.js": "^1.1.1",
+    "angular-input-masks": "^4.1.0",
+    "angular-loading-bar": "^0.9.0",
+    "angular-timeago": "^0.4.4",
+    "angular-toastr": "^2.1.1",
+    "angular-tooltips": "^1.2.2",
+    "angular-ui-router": "^1.0.3",
+    "bcrypt": "^1.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.2",
+    "bootstrap": "^3.3.7",
+    "connect-memcached": "^1.0.0",
+    "connect-redis": "^3.4.0",
+    "deep-diff": "^0.3.8",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-jwt": "^5.3.0",
+    "express-session": "^1.15.5",
+    "gulp": "^3.9.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.22.0",
+    "mongodb": "^2.2.31",
+    "mongoskin": "^2.1.0",
+    "q": "^1.5.0",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.16.0",
+    "gulp": "^3.9.1",
+    "gulp-bower-src": "^0.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-filter": "^4.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "main-bower-files": "^2.13.1",
+    "run-sequence": "^1.2.2"
+  }
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <%- include("partials/head") %>
+
+    <link rel="stylesheet" href="public/slick/slick.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="public/slick/slick-theme.css" />
+</head>
+
+<body>
+
+    <div class="">
+        <%- include("partials/headers/top-nav") %>
+    </div>
+
+
+
+    <div id="profileBanner">
+        <div class="container">
+            <% if (currentUser.coverImageId && currentUser.coverImageId.url) { %>
+                <img class="profileTopBanner" src="<%= currentUser.coverImageId.url %>">
+            <% } else { %>
+                <img class="profileTopBanner" src="public/assets/bernard-hermant-616385-unsplash.jpg">
+            <% } %>
+            <div class="companyIntroduce">
+                <div class="companyIntroAvatar">
+                    <% if (currentUser.avatar && currentUser.avatar.url) { %>
+                    <img src="<%= currentUser.avatar.url %>">
+                    <% } else { %>
+                    <img src="public/images/avatar.png" />
+                    <% } %>
+                </div>
+                <div class="companyName">
+                    <h6> <a href="<% if (currentUser.company && currentUser.company.url) { %> <%= genUrl.getDetailUrl() %>/<%= currentUser.company.url %> <% } %>"><% if (currentUser.company && currentUser.company.name) { %> <%= currentUser.company.name %> <% } else { %> No Company <% } %></a>
+                        <img src="public/assets/award.svg" />
+                    </h6>
+                    <!-- <p class="font-regular small">Joined on January 2018</p> -->
+                </div>
+            </div>
+            <div class="myCompany">
+                <h6>
+                    <img src="public/assets/home.svg"><%= langData.menu_profile %></h6>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="companyInfo">
+        <div class="container">
+            <div class="companySlideNav text-left nav nav-tabs">
+                <ul class="list-inline">
+                    <li class="companySlideNavItem active">
+                        <a data-toggle="tab" href="#profile"><%= langData.tab_profile %></a>
+                    </li>
+                    <li class="companySlideNavItem">
+                        <a data-toggle="modal" data-target="#messengerApp"><%= langData.lbl_mess %></a>
+                    </li>
+                    <li class="companySlideNavItem">
+                        <a data-toggle="tab" href="#privileges">Privileges</a>
+                    </li>
+                    <!-- <li class="companySlideNavItem">
+                        <a data-toggle="tab" href="#setting"><%= langData.tab_setting %></a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="companyInfoContent">
+            <div class="mainInfo">
+                <div class="tab-content">
+
+                    <div id="profile" class="tab-pane active">
+                        <div class="container">
+                            <div class="profileLeft">
+                                <a href="<%= genUrl.getEditProfileUrl() %>" class="font-regular">
+                                    <img src="public/assets/group-3.svg"> <%= langData.btn_editProfile %></a>
+                                <div class="profileLeftContent">
+                                    <h7><%= langData.lbl_yourLevel %>
+                                        <a href="#">Level <%= currentUser.currentLevel %></a>
+                                    </h7>
+
+                                    <h7><%= langData.lbl_aboutMe %></h7>
+                                    <p><%= currentUser.introduction %></p>
+
+                                    <h7><%= langData.lbl_address %></h7>
+                                    <p><%= currentUser.address %>
+                                    </p>
+
+                                    <h7><%= langData.lbl_phoneNumber %></h7>
+                                    <p>
+                                        <a class="color000" href="tel:+84123456789"><%= currentUser.phone %></a>
+                                    </p>
+
+                                    <h7><%= langData.lbl_email %></h7>
+                                    <p>
+                                        <a class="color000" href="mailto:contact@nso.com.vn"><%= currentUser.email %></a>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="setting" class="tab-pane">
+                        <div class="container">
+                            <p><%= langData.lbl_settingDesc %></p>
+                            <div class="basicContent">
+                                <div id="accordion">
+                                    <div class="card">
+                                        <div class="card-header" id="heading1">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link customCard collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                                                    <img src="public/assets/lock.svg" width="27px" />
+                                                    <h7 class="font-regular"><%= langData.lbl_changePassword %></h7>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                            </h5>
+                                        </div>
+
+                                        <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <div class="formControl">
+                                                    <div class="form-group">
+                                                        <label for="currentPassword" class="col-form-label"><%= langData.lbl_currentPass %></label>
+                                                        <input class="" id="currentPassword" placeholder="<%= langData.lbl_currentPass %>" type="password">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="newPass" class="col-form-label"><%= langData.lbl_newPass %></label>
+                                                        <input class="" id="newPass" placeholder="<%= langData.lbl_newPass %>" type="password">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="confirmNewPass" class="col-form-label"><%= langData.lbl_confirmNewPass %></label>
+                                                        <input class="" id="confirmNewPass" placeholder="<%= langData.lbl_confirmNewPass %>" type="password">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button type="button" class="btn-primary " id="btnSavePass"><%= langData.btn_changePassword %></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="card">
+                                        <div class="card-header" id="heading2">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link customCard collapsed" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                                    <img src="public/assets/notification.svg" width="27px" />
+                                                    <h7 class="font-regular"><%= langData.lbl_settingNoti %></h7>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                            </h5>
+                                        </div>
+
+                                        <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <table class="tableContent tableSetting">
+                                                    <tr>
+                                                        <td>
+                                                            <p><%= langData.lbl_settingNoti1 %></p>
+                                                        </td>
+                                                        <td>
+                                                            <label class="switch">
+                                                                <input type="checkbox" checked>
+                                                                <span class="slider round"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <p><%= langData.lbl_settingNoti2 %></p>
+                                                        </td>
+                                                        <td>
+                                                            <label class="switch">
+                                                                <input type="checkbox" checked>
+                                                                <span class="slider round"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="privileges" class="tab-pane">
+                        <div class="container">
+
+                        </div>
+                    </div>
+
+
+                    <div id="setting" class="tab-pane">
+                        <div class="container">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+
+    <!--Modal copied-->
+    <div class="notification" style="display: none;">
+        <p class="font-light">
+            Copied to clipboard!
+        </p>
+    </div>
+
+     <!-- Modal download app -->
+     <div class="modal fade" id="messengerApp" tabindex="-1" role="dialog" aria-labelledby="messengerLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="width:400px;">
+            <div class="modal-content">
+                <div class="modal-header" style="border:none;">
+                    <h6 class="modal-title" id="messengerLabel"></h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="public/assets/gp-4.png"/>
+                    <h2 class="color1046f1"><%= langData.lbl_please %></h2>
+                    <p class="color333"><%= langData.lbl_open %></p>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End download app-->
+
+
+    <%- include("partials/footers/default") %>
+
+</body>
+
+</html>

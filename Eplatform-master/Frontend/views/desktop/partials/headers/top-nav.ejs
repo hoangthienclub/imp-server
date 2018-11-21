@@ -1,0 +1,181 @@
+<div class="topNav">
+    <div class="container">
+        <div class="navLogo">
+            <a href="/">
+                <img src="<%- siteInfo.headerLogo.url %>" height="100%" />
+            </a>
+        </div>
+        <div class="navContent">
+            <ul>
+                <li class="searchBox">
+                    <input class="searchInputForHint" type="text" name="txtSearchNavTxt" placeholder="<%= langData.btn_search %>" style="display:none;" />
+                    <button type="button" name="btnSearchNavBtn" class="iconNextInput" style="display:none;">
+                        <img src="public/assets/search.svg" />
+                    </button>
+                    <button type="button" name="buttonTrigger" class="buttonTrigger">
+                        <img src="public/assets/search.svg" />
+                    </button>
+                </li>
+                <li>
+                    <a class="dropdown-toggle" role="button" id="user">
+                        <% if (currentUser._id && currentUser.avatarImageId && currentUser.avatarImageId.url) { %>
+                            <img src="<%= currentUser.avatarImageId.url %>?w=24&h=24&fit=crop" style="filter: unset" width="24px" class="iconSVG whiteSVG" />
+                        <% } else { %>
+                            <img src="public/assets/profile.svg" width="24px" class="iconSVG whiteSVG" />
+                        <% } %>
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="user">
+                        <div class="smenu">
+                            <ul>
+                                <% if (currentUser._id) { %>
+                                <li>
+                                    <a href="<%= genUrl.getProfileUrl() %>"><%= langData.menu_profile %></a>
+                                </li>
+                                <li>
+                                    <a href="<%= genUrl.getNotificationUrl() %>"><%= langData.menu_notification %></a>
+                                </li>
+                                <li>
+                                    <a onclick="return Logout();" id="logoutButton" class="colorF90"><%= langData.menu_logOut %></a>
+                                </li>
+                                <% } else { %>
+                                    <li>
+                                        <a onclick="return Signin();"><%= langData.menu_signIn %></a>  
+                                    </li>
+                                    <li>
+                                        <a onclick="return Signup();"><%= langData.menu_signUp %></a>  
+                                    </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="dropdown-toggle" role="button" id="menu">
+                        <img src="public/assets/burger.svg" width="24px" height="24px" />
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="menu">
+                        <div class="smenu">
+                            <ul>
+                                <li class="dropdown-submenu">
+                                    <a class="test" tabindex="-1" href="<% if ( language=='en' ) { %>/change-lang/vi<% } else if ( language=='vi' ) { %>/change-lang/en<% } %>"><% if ( language=='en' ) { %> Tiếng Việt <% } else if ( language=='vi' ) { %> English  <% } %>
+                                        <img src="public/assets/dropdown.svg" />
+                                    </a>
+                                    <!-- <ul class="dropdown-menu submenu">
+                                        <li>
+                                            <a tabindex="-1" href="/change-lang/en"><%= langData.menu_english %> </a>
+                                        </li>
+                                        <li>
+                                            <a tabindex="-1" href="/change-lang/vi"><%= langData.menu_vietnam %></a>
+                                        </li>
+                                    </ul> -->
+                                
+                                <li>
+                                    <a href="<%= genUrl.getMapUrl() %>?layers=ep_industrialParks&zoom=10&bb_string=106.0015869140625,10.422988388338242,107.51220703125,11.298281121130604"><%= langData.menu_ip %></a>
+                                </li>
+                                <li>
+                                    <a href="<%= genUrl.getMapUrl() %>?layers=ep_cityProvinces&bb_string=91.2744140625,8.885071663468993,115.4443359375,22.573438264572395&zoom=6"><%= langData.menu_province %></a>
+                                </li>
+                                <li>
+                                    <a href="<%= genUrl.getAppUrl() %>"><%= langData.menu_app %></a>
+                                </li>
+                                <li>
+                                    <a href="<%= genUrl.getAboutUsUrl() %>"><%= langData.menu_aboutUs %></a>
+                                </li>
+                                <li>
+                                    <a href="<%= genUrl.getContactUsUrl() %>"><%= langData.menu_contactUs %></a>
+                                </li>
+                                <li>
+                                    <a href="<%= genUrl.getFaqUrl() %>"><%= langData.menu_faq %></a>
+                                </li>
+                                <li>
+                                    <a href="<%= genUrl.getTermConditionUrl() %>"><%= langData.menu_terms %></a>
+                                </li>
+
+                                <!-- </li>
+                                <li>
+                                    <a href="#" data-toggle="modal" data-target="#fail"><%= langData.lbl_error %></a>
+                                </li>
+                                <li>
+                                    <a href="#" data-toggle="modal" data-target="#success"><%= langData.lbl_success %></a>
+                                </li> -->
+                                <!-- <li>
+                                    <a href="#" data-toggle="modal" data-target="#feedback">Feedback</a>
+                                </li> -->
+                            </ul>
+
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+
+    <!-- Hint for search -->
+    <div class="hintBox">
+        <div class="suggest-search">
+            
+        </div>
+    </div> 
+    <!-- End hint for search -->
+</div>
+<script src="public/js/jquery-3.3.1.js"></script>
+<script>
+    function Signup() {
+        var index = 0;
+        window.open("http://sso.nso.vn/register-client?origin=" + location.origin + "&lang=<%= language %>", "", "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=400,width=500,height=500");
+        window.addEventListener('message', onPingBackMessageSignup, false);
+
+        function onPingBackMessageSignup(e) {
+            console.log(e);
+
+            index++;
+            if (index == 1) {
+                if (e.data.statusCode == 200) {
+                    alert("register success");
+                } else {
+                    alert("register error");
+                }
+            }
+        }
+    }
+
+    function Signin() {
+        var index = 0;
+        window.open("http://sso.nso.vn/login-client?origin=http://smartdirectory.vn" + "&lang=<%= language %>", "", "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=400,width=500,height=500");
+        window.addEventListener('message', onPingBackMessageSignin, false);
+
+        function onPingBackMessageSignin(e) {
+            console.log(e);
+            index++;
+            if (index == 1) {
+                $.ajax({
+                    url: "/login",
+                    method: "post",
+                    dataType: "json",
+                    data: {
+                        token: e.data.data.token,
+                        uid: e.data.data.uid,
+                        user: JSON.stringify(e.data.data.user)
+                    },
+                    success: function (response, textStatus, xhr) {
+                        // window.opener.postMessage(response, '*');
+                        // window.close();
+                        if (response.reload) {
+                            window.location.reload();
+                        } else {
+                            index = 0;
+                            alert("login error");
+                        }
+                    }
+                })
+            }
+           
+        }
+    }
+</script>

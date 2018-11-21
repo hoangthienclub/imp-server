@@ -1,0 +1,129 @@
+
+<!-- Feedback -->
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="feedback" tabindex="-1" role="dialog" aria-labelledby="feedbackLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="margin-top:20px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="feedbackLabel" style="display: contents;"><%= langData.lbl_title %></h6>
+                <button type="button" class="close closeButton" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="fbSelect">
+                        <p><%= langData.lbl_desc %></p>
+                        <p><%= langData.lbl_icon %></p>
+                        <div class="nav nav-tabs">
+                            <ul class="feedbackIcon list-inline">
+                                <li>
+                                    <a data-toggle="tab" href="#imgFB1" class="imgFB1">
+                                        <img class="feedbackIco imgFB1" src="public/assets/fill-5.svg" />
+                                    </a>
+                                    <input type="radio" value="1" name="opinion" id="f1" required/>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#imgFB2" class="imgFB2">
+                                        <img class="feedbackIco" id="imgFB2" src="public/assets/fill-8.svg" />
+                                    </a>
+                                    <input type="radio" value="2" name="opinion" id="f2"/>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#imgFB3" class="imgFB3">
+                                        <img class="feedbackIco" id="imgFB3" src="public/assets/fill-1.svg" />
+                                    </a>
+                                    <input type="radio" value="3" name="opinion" id="f3">
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#imgFB4" class="imgFB4">
+                                        <img class="feedbackIco" id="imgFB4" src="public/assets/fill-3.svg" />
+                                    </a>
+                                    <input type="radio" value="4" name="opinion" id="f4"/>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#imgFB5" class="imgFB5">
+                                        <img class="feedbackIco" id="imgFB5" src="public/assets/fill-10.svg" />
+                                    </a>
+                                    <input type="radio" value="5" name="opinion" id="f5"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="fbCat">
+                        <p><%= langData.lbl_selectCategory %></p>
+                        <div class="nav nav-tabs">
+                            <ul class="fbCategory list-inline">
+                                <li>
+                                    <a data-toggle="tab" href="#c1" class="fbCate1">
+                                        <div>
+                                            <p><%= langData.btn_compliment %></p>
+                                        </div>
+                                    </a>
+                                    <input type="radio" value="1" name="fbCategory" id="c1" required/>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#c2" class="fbCate2">
+                                        <div>
+                                            <p><%= langData.btn_error %></p>
+                                        </div>
+                                    </a>
+                                    <input type="radio" value="2" name="fbCategory" id="c2"/>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#c3" class="fbCate3">
+                                        <div>
+                                            <p><%= langData.btn_suggestion %></p>
+                                        </div>
+                                    </a>
+                                    <input type="radio" value="3" name="fbCategory" id="c3"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="divider"></div>
+                    <div class="fbContent">
+                        <p><%= langData.lbl_feedback %></p>
+                        <textarea name="txtFeedback" required></textarea>
+                    </div>
+                    <br>
+                    <div class="modal-footer">
+                        <button type="submit" class="finishButton"><%= langData.btn_send %></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Feedback -->
+
+
+<script>
+    $(() => {
+        $(".feedbackIcon li, .fbCategory li").click(function () {
+            $(this).find("input").prop("checked", true);
+        })
+        $("#feedback form").submit(function () {
+            var feedbackData = {
+                opinion: $("li.active > input[name^='opinion']").val(),
+                catefory: $("li.active > input[name^='fbCategory']").val(),
+                detail: $("textarea[name^='txtFeedback']").val()
+            }
+            $.ajax({
+                url: feedbackApi,
+                method: "post",
+                data: feedbackData,
+                success: function (html) {
+                    $("body .modal").each(function (e) {
+                        $(this).remove();
+                    })
+                    $(html).modal();
+                }
+            })
+        })
+    });
+</script>

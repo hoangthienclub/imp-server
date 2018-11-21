@@ -1,0 +1,147 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i>
+                    {{ "<%= moduleName %>" | stateLabel }}
+                </div>
+                <div class="card-block">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <% if (parentField) { %>
+                            <div class="col-sm-4">
+                                <a class="btn btn-info" ng-if="vm.ft.parentId" ui-sref="<%= parentField.editRoute %>({ _id: vm.ft.parentId })"> Back </a>
+                            </div>
+                            <div class="col-sm-6"  ng-class="vm.ft.parentId ? 'offset-2' : 'offset-6'">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon"><i class="fa fa-filter"></i></span>
+                                    <input type="text" class="form-control" ng-model="vm.ft.name" ng-change="vm.filter()" placeholder="Enter name to filter" aria-describedby="basic-addon">
+                                    <select class="form-control" ng-model="vm.ft.numRecord" ng-change="vm.filter()">
+                                        <option value="">Num result</option>
+                                        <option ng-repeat="i in [2, 4, 6, 8, 10] track by $index" value="{{ i * 5 }}">{{ i * 5 }} result</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <% } else { %>
+                            <div class="col-sm-6 offset-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon"><i class="fa fa-filter"></i></span>
+                                    <input type="text" class="form-control" ng-model="vm.ft.name" ng-change="vm.filter()" placeholder="Enter name to filter" aria-describedby="basic-addon">
+                                    <select class="form-control" ng-model="vm.ft.numRecord" ng-change="vm.filter()">
+                                        <option value="">Num result</option>
+                                        <option ng-repeat="i in [2, 4, 6, 8, 10] track by $index" value="{{ i * 5 }}">{{ i * 5 }} result</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <% } %>
+                        </div>
+                        <hr>
+                    </div>
+                    <% addCol = featureImage ? 1 : 0 %>
+                    <div class="col-sm-12" style="padding: 0;">
+                        <table class="table table-striped table-bordered" style="border-collapse: separate;">
+                            <thead>
+                                <tr>
+                                    <th colspan="<%= 10 + quickChecks.length + addCol %>" class="text-center"> {{ vm.numRecord }} Record(s), {{ vm.numPage }} Page(s) </th>
+                                </tr>
+                                <tr>
+                                    <th colspan="<%= addCol + 4 %>" class="text-center"> Infomation </th>
+                                    <th colspan="<%= quickChecks.length %>" class="text-center"> Status </th>
+                                    <th colspan="2" class="text-center"> Create </th>
+                                    <th colspan="2" class="text-center"> Modify </th>
+                                    <th class="headcol2"> <a class="btn btn-success" href="#" ng-click=vm.filter()>Reload</a> </th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center sort-attr headcol" ng-click="vm.updateSort('_id',vm.ft.sortVal)">#</th>
+                                    <th>&nbsp;</th>
+                                    <% if (featureImage) { %>
+                                        <th class="text-center sort-attr"> Image </th>
+                                    <% } %>
+                                    <th class="text-center sort-attr" ng-click="vm.updateSort('textQuery',vm.ft.sortVal)" style="min-width: 400px;">Name</th>
+                                    <th class="text-center sort-attr" ng-click="vm.updateSort('completionRate',vm.ft.sortVal)">%</th>
+                                    <% for (var e of quickChecks) { %>
+                                    <th class="text-center sort-attr" ng-click="vm.updateSort('<%= e.attr %>',vm.ft.sortVal)"><%= e.label %></th>
+                                    <% } %>
+                                    <th class="text-center sort-attr" ng-click="vm.updateSort('cre_ts',vm.ft.sortVal)" style="min-width: 105px;">Time</th>
+                                    <th class="text-center sort-attr" ng-click="vm.updateSort('userId',vm.ft.sortVal)">By</th>
+                                    <th class="text-center sort-attr" ng-click="vm.updateSort('mod_ts',vm.ft.sortVal)" style="min-width: 105px;">Time</th>
+                                    <th class="text-center sort-attr" ng-click="vm.updateSort('modByUserId',vm.ft.sortVal)">By</th>
+                                    
+                                    <!-- Action -->
+                                    <% if (!routes.moreAdd) { %>
+                                    <th class="headcol2"><a ui-sref-active ui-sref="<%= routes.add %>({parentId: vm.ft.parentId})" class="btn btn-sm btn-success">Add new</a></th>
+                                    <% } else { %>
+                                    <th class="headcol2">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Add
+                                            </button>
+                                            <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#" ng-repeat="(i, elem) in vm.routeParams" ui-sref="<%= routes.add %>({<%= routes.routeAdd %>: elem._id})">{{ elem.name }}</a>
+                                        </div>
+                                    </th>
+                                    <% } %>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <style>
+                                    td div {
+                                        text-align: center;
+                                    }
+                                </style>
+                                <tr ng-repeat="(idx, row) in vm.rows track by $index">
+                                    <td class="headcol"><strong>#{{ idx + vm.countFrom }}</strong></td>
+                                    <td>&nbsp;</td>
+
+                                    <% if (featureImage) { %>
+                                        <td><img update-feature ng-model="row.featureImage" ng-change="vm.updateFeatureImage(row._id, row.featureImage)" ng-src="{{ row.featureImage.url }}" width="100px" height="50px" class="img-responsive"/></td>
+                                    <% } %>
+                                    <td ng-click="vm.rowClick(row._id)" ng-class="vm.popupSelect ? 'popupSelect' : ''" ng-bind-html="(row.name || row.anotherName) | unsafe"></td>
+                                    <td ><b>{{ row.completionRate | number:0 }}</b></td>
+                                    
+                                    
+                                    <!-- Status -->
+                                    <% for (var e of quickChecks) { %>
+                                    <td><div tooltips tooltip-template="Check: <%= e.label %>"><input type="checkbox" icheck ng-model="row.<%= e.attr %>" name="<%= e.attr %>Temp" id="<%= e.attr %>Temp" ng-change="vm.updateQuickCheck(row._id, '<%= e.attr %>', row.<%= e.attr %>)"/></div></td>
+                                    <% } %>
+                                    
+                                    <!-- create time & create by -->
+                                    <td>{{ row.cre_ts | date:"dd/ MM/ yyyy" }}</td>
+                                    <td><a class="btn btn-link" style="padding: 0;" tooltips tooltip-template="Edit {{ row.fullname }}" ui-sref="index.users<%= formAction %>.edit({_id: row.userId})">{{ row.fullname }}</a></td>
+                                    
+                                    
+                                    <!-- modify time & modify by -->
+                                    <td ng-if="row.modByUserId">{{ row.mod_ts | date:"dd/ MM/ yyyy" }}</td>
+                                    <td ng-if="row.modByUserId"><a class="btn btn-link" style="padding: 0;" tooltips tooltip-template="Edit {{ row.editFullname }}" ui-sref="index.users<%= formAction %>.edit({_id: row.modByUserId})">{{ row.editFullname }}</a></td>
+                                    <td ng-if="!row.modByUserId"></td>
+                                    <td ng-if="!row.modByUserId"></td>
+
+                                    <td class="headcol2">
+                                        <% for (var e in routes.more) { %>
+                                        <a class="btn btn-sm <%= routes.more[e].aIcon %>" ui-sref="<%= routes.more[e].route %>" tooltips tooltip-template="<%= routes.more[e].label %>" ui-sref-active><i class="fa <%= routes.more[e].icon %>"></i></a>
+                                        <% } %>
+                                        <a class="btn btn-sm btn-danger" ng-click="vm.delete(row._id)" href="#" tooltips tooltip-template="Delete" ui-sref-active><i class="fa fa-trash"></i></a>
+                                    </td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-12">
+                        <ul class="pagination" ng-if="vm.numPage >= 2">
+                            <li class="page-item" ng-if="vm.currentPage != 0"><a class="page-link" href="javascript:void(0)" ng-click="vm.loadPage(vm.currentPage - 1)">Prev</a>
+                            </li>
+                            <li ng-repeat="i in vm.pageNums" class="page-item" ng-class="i == vm.currentPage ? 'active' : ''"><a class="page-link" href="javascript:void(0)" ng-click="vm.loadPage(i)">{{ i + 1 }}</a>
+                            </li>
+                            <li class="page-item" ng-if="vm.currentPage < vm.numPage - 1"><a class="page-link" href="javascript:void(0)" ng-click="vm.loadPage(vm.currentPage + 1)">Next</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

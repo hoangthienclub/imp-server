@@ -1,0 +1,158 @@
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="index.home"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-info">NEW</span></a>
+            </li>
+
+            <li class="divider"></li>
+            <li class="nav-title">
+                Main Navigation
+            </li>
+
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-archive"></i> Company Input</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref="index.ep_companies" ui-sref-active="active"><i class="fa fa-info"></i> Company </a>
+                        <!-- <a class="nav-link" ui-sref="index.ep_companyBusinessIntros" ui-sref-active="active"><i class="fa fa-info"></i> Business Intro </a>
+                        <a class="nav-link" ui-sref="index.ep_companyRegistrationInfos" ui-sref-active="active"><i class="fa fa-info"></i> Registration Info </a>                        
+                        <a class="nav-link" ui-sref="index.ep_companyContacts" ui-sref-active="active"><i class="fa fa-info"></i> Contact </a>   -->
+                        <a class="nav-link" ui-sref="index.ep_companyProducts" ui-sref-active="active"><i class="fa fa-product-hunt"></i> Product </a>
+                        <!-- <a class="nav-link" ui-sref="index.ep_companyCustomers" ui-sref-active="active"><i class="fa fa-info"></i> Customer </a>   
+                        <a class="nav-link" ui-sref="index.ep_companySuppliers" ui-sref-active="active"><i class="fa fa-info"></i> Suppliers </a>   
+                        <a class="nav-link" ui-sref="index.ep_companySales" ui-sref-active="active"><i class="fa fa-info"></i> Sale </a>  
+                        <a class="nav-link" ui-sref="index.ep_companyPurchasings" ui-sref-active="active"><i class="fa fa-info"></i> Purchasing </a>                                                                                                                                                                                                                
+                        <a class="nav-link" ui-sref="index.ep_companyCertificates" ui-sref-active="active"><i class="fa fa-info"></i> Certificate </a>                        
+                        <a class="nav-link" ui-sref="index.ep_companyShareholders" ui-sref-active="active"><i class="fa fa-info"></i> Shareholder </a>                                                
+                        <a class="nav-link" ui-sref="index.ep_companyFacilities" ui-sref-active="active"><i class="fa fa-info"></i> Facilities </a>  
+                        <a class="nav-link" ui-sref="index.ep_companyMachines" ui-sref-active="active"><i class="fa fa-info"></i> Machine </a>  
+                        <a class="nav-link" ui-sref="index.ep_companyNews" ui-sref-active="active"><i class="fa fa-info"></i> News </a>                        
+                        <a class="nav-link" ui-sref="index.ep_companyRoles" ui-sref-active="active"><i class="fa fa-info"></i> Role </a>                                                                                                                  -->
+                        <a class="nav-link" ui-sref="index.ep_companyEvents" ui-sref-active="active"><i class="fa fa-product-hunt"></i> Event </a>
+                        <a class="nav-link" ui-sref="index.ep_companyJobs" ui-sref-active="active"><i class="fa fa-product-hunt"></i> Job </a>
+                        <a class="nav-link" ui-sref="index.ep_companyPromotions" ui-sref-active="active"><i class="fa fa-product-hunt"></i> Promotion </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-th-large"></i> IP, Association, City/Province</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref="index.ep_industrialParks" ui-sref-active="active"><i class="fa fa-industry"></i> Industrial Park </a>
+                        <a class="nav-link" ui-sref="index.ep_associations" ui-sref-active="active"><i class="fa fa-sitemap"></i> Association </a>
+                        <a class="nav-link" ui-sref="index.ep_provinceCities" ui-sref-active="active"><i class="fa fa-building-o"></i> Province / City </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-object-group"></i> System Categories </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref="index.ep_companyNews" ui-sref-active="active"><i class="fa fa-bars"></i> News </a>
+                        <a class="nav-link" ui-sref="index.ep_companyGroupCategories" ui-sref-active="active"><i class="fa fa-align-justify"></i> Group Category </a>                                                
+                        <a class="nav-link" ui-sref="index.ep_companyCategories" ui-sref-active="active"><i class="fa fa-bars"></i> Category </a>
+                        <a class="nav-link" ui-sref="index.ep_companyLegalStructures" ui-sref-active="active"><i class="fa fa-info"></i> Legal Structure </a> 
+                        <a class="nav-link" ui-sref="index.ep_companyTypes" ui-sref-active="active"><i class="fa fa-info"></i> Company Type </a> 
+                        <a class="nav-link" ui-sref="index.ep_companyBusinessTypes" ui-sref-active="active"><i class="fa fa-info"></i> Business Type </a>                                                         
+                        <a class="nav-link" ui-sref="index.ep_companyQualityCertificates" ui-sref-active="active"><i class="fa fa-info"></i> Quality Certificate </a>                    
+                        <a class="nav-link" ui-sref="index.ep_companyPositions" ui-sref-active="active"><i class="fa fa-info"></i> Position </a>
+                        <a class="nav-link" ui-sref="index.ep_companyDepartments" ui-sref-active="active"><i class="fa fa-info"></i> Department </a>                                                                        
+                        <a class="nav-link" ui-sref="index.ep_companyDegrees" ui-sref-active="active"><i class="fa fa-info"></i> Degree </a>                        
+                        <a class="nav-link" ui-sref="index.system_locationTypes" ui-sref-active="active"><i class="fa fa-info"></i> Location Type </a>
+                        <a class="nav-link" ui-sref="index.ep_tags" ui-sref-active="active"><i class="fa fa-tags"></i> Tag </a>
+                        <a class="nav-link" ui-sref="index.ep_keywords" ui-sref-active="active"><i class="fa fa-file-word-o"></i> Keyword </a> 
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-code"></i> Code Number</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref="index.ep_productCodes" ui-sref-active="active"><i class="fa fa-info"></i> Product Code </a>                                                
+                        <a class="nav-link" ui-sref="index.ep_codeTags" ui-sref-active="active"><i class="fa fa-info"></i> Tag Code </a>                                                
+                        <a class="nav-link" ui-sref="index.ep_codeVns" ui-sref-active="active"><i class="fa fa-info"></i> VN Code </a>                        
+                        <a class="nav-link" ui-sref="index.ep_codeSics" ui-sref-active="active"><i class="fa fa-info"></i> SIC Code </a>
+                        <a class="nav-link" ui-sref="index.ep_codeNaics" ui-sref-active="active"><i class="fa fa-info"></i> NAICS Code </a>
+                        <a class="nav-link" ui-sref="index.ep_codeNsos" ui-sref-active="active"><i class="fa fa-info"></i> NSO Code </a>
+                        <a class="nav-link" ui-sref="index.ep_codeRelations" ui-sref-active="active"><i class="fa fa-info"></i> Code Relation </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-map-o"></i> Location & Map </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref="index.system_mapCountries" ui-sref-active="active"><i class="fa fa-globe"></i> Country </a>
+                        <a class="nav-link" ui-sref="index.system_mapProvinces" ui-sref-active="active"><i class="fa fa-info"></i> Province </a>
+                        <a class="nav-link" ui-sref="index.system_mapDistricts" ui-sref-active="active"><i class="fa fa-info"></i> District </a>
+                        <a class="nav-link" ui-sref="index.system_specialZones" ui-sref-active="active"><i class="fa fa-info"></i> Special Zone </a>                        
+                        <a class="nav-link" ui-sref="index.system_mapGroups" ui-sref-active="active"><i class="fa fa-info"></i> Group Place </a>                                                
+                        <a class="nav-link" ui-sref="index.system_mapPlaces" ui-sref-active="active"><i class="fa fa-map-marker"></i> Place </a>
+                        <a class="nav-link" ui-sref="index.system_mapRegions" ui-sref-active="active"><i class="fa fa-info"></i> Region </a>                        
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-folder-open-o"></i> File Management </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref="index.ep_siteDocuments" ui-sref-active="active"><i class="fa fa-file-o"></i> Documents </a>
+                    </li>
+                </ul>
+            </li>
+
+            
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-list-alt"></i> Website Management </a>
+                <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" ui-sref="index.ep_userAccounts" ui-sref-active="active"><i class="fa fa-user"></i> User Account </a>
+                    <a class="nav-link" ui-sref="index.ep_contacts" ui-sref-active="active"><i class="fa fa-commenting-o"></i> Contact </a>
+                    <a class="nav-link" ui-sref="index.ep_subscribes" ui-sref-active="active"><i class="fa fa-scribd"></i> Subscribes </a>
+                    <a class="nav-link" ui-sref="index.ep_partners" ui-sref-active="active"><i class="fa fa-user"></i> Partner & Customer</a>
+                    <a class="nav-link" ui-sref="index.ep_partnerNews" ui-sref-active="active"><i class="fa fa-user"></i> Partner</a>
+                    <a class="nav-link" ui-sref="index.ep_customerReviews" ui-sref-active="active"><i class="fa fa-user"></i> Customer Review </a>                    
+                    <a class="nav-link" ui-sref="index.ep_dashboards" ui-sref-active="active"><i class="icon-puzzle"></i> Dashboard </a>
+                    <a class="nav-link" ui-sref="index.ep_dashboardTypes" ui-sref-active="active"><i class="icon-puzzle"></i> Dashboard Type </a>
+                    <a class="nav-link" ui-sref="index.ep_aboutUses" ui-sref-active="active"><i class="icon-puzzle"></i> About Us </a>                                                                              
+                    <a class="nav-link" ui-sref="index.ep_faqs" ui-sref-active="active"><i class="icon-puzzle"></i> FAQs </a>  
+                    <a class="nav-link" ui-sref="index.ep_terms" ui-sref-active="active"><i class="icon-puzzle"></i> Terms & Conditions </a>                                                          
+                </li>
+                </ul>
+            </li>
+
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-cogs"></i> Website Setting </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref="index.ep_settings" ui-sref-active="active"><i class="fa fa-info"></i>Website info </a>
+                        <a class="nav-link" ui-sref="index.ep_menus" ui-sref-active="active"><i class="fa fa-bars"></i> Menu </a>
+                        <a class="nav-link" ui-sref="index.ep_navs" ui-sref-active="active"><i class="fa fa-bars"></i> Navigation </a>
+                        <a class="nav-link" ui-sref="index.system_unitTypes" ui-sref-active="active"><i class="fa fa-language"></i> Unit Type </a>
+                        <a class="nav-link" ui-sref="index.system_units" ui-sref-active="active"><i class="fa fa-language"></i> Unit </a>
+                    </li>
+                </ul>
+            </li>
+            
+            
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-users"></i> Staff Account </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="index.ep_users"><i class="fa fa-user"></i> Staff Account </a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="index.ep_roles"><i class="fa fa-user-plus"></i> Staff Role </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="divider"></li>
+
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,28 @@
+<% if (index == 0) { %>
+<% if (field.preload != false) { %>
+<div class="col-sm-12">
+    <div class="row">
+        <div class="col-sm-12">
+            <select class="form-control"  data-label="<%= field.label %>" style="width: calc(100% - 2 * 46px); float: left; <%= field.multi ? 'padding: 1.5px' : '' %>" ui-select2 <%= field.multi ? "multiple" : "" %> ng-model="<%= getAttr(attr) %>" name="<%= id %>" id="<%= id %>" ng-required="<%= field.required != false ? 'true' : 'false' %>">
+                <option value=""></option>
+                <option ng-repeat="(idx, elem) in vm.<%= field.lookupFrom %>" value="{{ elem._id }}" ng-bind-html="elem.name | unsafe"></option>
+            </select>
+            <div class="btn-group pull-right" style="width: calc(2 * 46px);">
+                <button type="button" class="btn btn-success" ng-click="vm.refreshLookup('<%= field.lookupFrom %>')"><i class="fa fa-refresh"></i></button>
+                <button type="button" class="btn btn-primary" ng-click="vm.addElementToLookupTable('<%= field.lookupFrom %>')"><i class="fa fa-plus"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<% } else { %>
+<div class="col-sm-12">
+    <div class="row">
+        <div class="col-sm-12">
+            <input class="form-control"  data-label="<%= field.label %>" type="hidden" <%= field.multi ? "multiple" : "" %> ui-select2="{formatSelection: vm.formatSelection, formatResult: vm.formatResult, initSelection: vm.initSelection, query: vm.<%= field.lookupFrom %>Query}" style="width: calc(100% - 1 * 46px); float: left; <%= field.multi ? 'padding: 1.5px' : '' %>" <%= field.multi ? "multiple" : "" %> ng-model="<%= getAttr(attr) %>" name="<%= id %>" id="<%= id %>" ng-required="<%= field.required != false ? 'true' : 'false' %>"/>
+            <div class="btn-group pull-right" style="width: calc(1 * 46px);">
+                <button type="button" class="btn btn-primary" ng-click="vm.addElementToLookupTable('<%= field.lookupFrom %>')"><i class="fa fa-plus"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<% }} %>

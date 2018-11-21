@@ -1,0 +1,21 @@
+{
+    "lbl_intro" : "LET'S KEEP IN TOUCH",
+    "lbl_contactInfo" : "Contact Information",
+    "lbl_desc" : "Description",
+    "lbl_address" : "Address",
+    "lbl_getDirection" : "GET DIRECTIONS",
+    "lbl_phoneNumber" : "Phone Number",
+    "placeholder_phoneNumber" : "Enter your phone number",
+    "lbl_email" : "Email",
+    "placeholder_email" : "Enter your email",
+    "lbl_descForm" : "We'd love to hear from you! Fill out this form and we'll get back to you as soon as we can.",
+    "lbl_fullName" : "Full Name",
+    "placeholder_fullName" : "Enter your full name",
+    "lbl_location" : "Your Location (Optional)",
+    "placeholder_location" : "Enter your location",
+    "lbl_message" : "Message",
+    "placeholder_message" : "Enter your messages....",
+    "btn_signupforNews" : "Sign me up for news and updates",
+    "btn_submit" : "Submit",
+    "lbl_descContent" : "Smart Business Directory is a tool to provide customers and partners a way not only to promote their services and businesses, but also to connect and expand their network safely and efffectively."
+}

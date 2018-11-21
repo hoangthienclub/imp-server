@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <%- include("partials/head") %>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" />
+</head>
+
+<body>
+
+
+    <div class="topNavWhite searchResult">
+        <%- include("partials/headers/top-nav") %>
+    </div>
+    <div id="result">
+        <div class="map">
+            <div id="map"></div>
+            <div class="loaded.done"></div>
+        </div>
+
+        <div class="resultPanel">
+            <div class="resultTop">
+                <div class="searchBar">
+                    <input class="searchInputForHint" type="text" name="txtSearchBar" placeholder="<%= langData.btn_search %>" />
+                    <button type="button" name="btnSearchBar" class="iconNextInput">
+                        <img src="public/assets/search.svg" />
+                    </button>
+                </div>
+
+                <div class="filterBar">
+                    <img src="public/assets/filter.svg" id="filterBtn" />
+                    <!-- <img src="public/assets/sliders.svg" id="sortBtn" /> -->
+                    <img src="public/assets/layer-01.svg" id="layerBtn" />
+                    <div class="pageNav">
+                        
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="resultIngo text-center">
+                <p><span>...</span> <%= langData.lbl_results %></p>
+            </div>
+
+            <div class="resultListing demo">
+                
+            </div>
+
+        </div>
+    </div>
+
+    <div class="expandBtn">
+        <img src="public/assets/arrow-down.svg" />
+    </div>
+
+    <div class="filterPanel">
+        <div class="holderContent" style="margin-top: 10px">
+            <input type="hidden" id="search-filter" value="default">
+            <% for (let type of [{
+                attr: "ep_companyCategories",
+                name: langData.lbl_category
+            }, {
+                attr: "ep_industrialParks",
+                name: langData.lbl_ip
+            }, {
+                attr: "system_mapProvinces",
+                name: langData.lbl_province
+            }, {
+                attr: "system_mapDistricts",
+                name: langData.lbl_district
+            }]) { %>
+            <div class="item01 <%= type.attr %>" style="display: none">
+                <h7><%= type.name %></h7>
+                <ul data-type="<%= type.attr %>">
+                </ul>
+            </div>
+            <% } %>
+        </div>
+        <div class="endItem text-center">
+            <button type="button" name="btnSaveFilter" class=""><%= langData.btn_applyFilter %></button>
+        </div>
+    </div>
+
+
+    <div class="layerPanel">
+        <div class="holderContent">
+            <div class="item01">
+                <ul>
+                    <% for (let type of [{
+                        attr: "ep_companies",
+                        name: langData.lbl_company,
+                        active: false
+                    }, {
+                        attr: "ep_industrialParks",
+                        name: langData.lbl_ip,
+                        active: false
+                    }, {
+                        attr: "ep_cityProvinces",
+                        name: langData.lbl_cityProvince,
+                        active: false
+                    }]) { %>
+                    <li>
+                        <label class="filterCheck customCheck layer <%= type.active != false ? 'active' : '' %>" type="<%= type.attr %>"> <p><%= type.name %> Layer</p>
+                            <input type="checkbox" <%= type.active != false ? 'checked' : '' %> name="layers"/>
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <div class="item01" id="clientType">
+                <ul>
+                    <% for (let type of [{
+                        attr: "10K",
+                        name: langData.lbl_layer10k
+                    }, {
+                        attr: "700K",
+                        name: langData.lbl_layer700k
+                    }]) { %>
+                    <li>
+                        <label class="filterCheck customCheck clientType">
+                            <input type="radio" name="clientType" value="<%= type.attr %>"/>  <%= type.name %>
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown-menu sortPanel" aria-labelledby="user">
+        <div class="smenu">
+            <ul>
+                <li data="desc">
+                    <a href="javascipt:void(0)">A -> Z
+                        <img src="public/assets/dropdown.svg" /> </a>
+                </li>
+                <li data="asc">
+                    <a href="javascipt:void(0)">Z -> A
+                        <img src="public/assets/dropdown.svg" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hint for search -->
+    <div class="hintBox">
+        <div class="suggest-search">
+            
+        </div>
+    </div> 
+    <!-- End hint for search -->
+    
+    <%- include("partials/footers/default") %>
+    <!-- Script for google map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC01xk6g1-fLTBjEZeRouhA9TOLt8kEZeU"></script>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+    <script src='https://unpkg.com/leaflet.gridlayer.googlemutant@latest/Leaflet.GoogleMutant.js'></script>
+    <!-- End script for google map -->
+    <link href="http://select2.github.io/select2/select2-3.5.2/select2.css" rel="stylesheet" />
+    <script src="http://select2.github.io/select2/select2-3.5.2/select2.js"></script>
+    <script src="public/js/desktop.js"></script>
+    <!-- <script src="public/frontend/province.js"></script> -->
+    <script src="public/frontend/map.js"></script>
+    </div>
+</body>
+
+</html>

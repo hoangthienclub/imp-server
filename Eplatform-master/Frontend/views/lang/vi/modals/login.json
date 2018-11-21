@@ -1,0 +1,17 @@
+{
+    "title_logIn" : "Đăng nhập",
+    "lbl_phoneNumber" : "Số điện thoại",
+    "placeholder_phone" : "Nhập vào số điện thoại",
+    "lbl_pass" : "Mật khẩu",
+    "placeholder_pass" : "Nhập vào mật khẩu",
+    "btn_forgotPassword" : "Quên mật khẩu?",
+    "btn_logIn" : "Đăng nhập",
+    "btn_rememberMe" : "Ghi nhớ",
+    "lbl_dontHaveAccount" : "Không có tài khoản?",
+    "btn_register" : "Đăng ký",
+    "title_resetPassword" : "Khôi phục mật khẩu",
+    "lbl_otp" : "OTP",
+    "lbl_newPass" : "Mật khẩu mới",
+    "lbl_newPassAgain" : "Nhập lại mật khẩu mới",
+    "btn_resetPassword" : "Khôi phục mật khẩu" 
+}

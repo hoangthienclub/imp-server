@@ -1,0 +1,36 @@
+<% if (index == 0) { %>
+<div class="col-sm-12" ng-init="vm.<%= model %>.<%= attr %>={}">
+    <div class="row">
+        <div class="col-sm-4">
+            <label>
+                <input type="checkbox" icheck ng-model="vm.<%= model %>.<%= attr %>.add"/>
+                <span style="margin-left: 10px">Add</span>
+            </label>
+        </div>
+        <div class="col-sm-4">
+            <label>
+                <input type="checkbox" icheck ng-model="vm.<%= model %>.<%= attr %>.edit"/>
+                <span style="margin-left: 10px">Update</span>
+            </label>
+        </div>
+        <div class="col-sm-4">
+            <label>
+                <input type="checkbox" icheck ng-model="vm.<%= model %>.<%= attr %>.delete"/>
+                <span style="margin-left: 10px">Delete</span>
+            </label>
+        </div>
+        <div class="col-sm-4">
+            <label>
+                <input type="checkbox" icheck ng-model="vm.<%= model %>.<%= attr %>.view"/>
+                <span style="margin-left: 10px">View</span>
+            </label>
+        </div>
+        <div class="col-sm-4">
+            <label>
+                <input type="checkbox" icheck ng-model="vm.<%= model %>.<%= attr %>.asAdmin"/>
+                <span style="margin-left: 10px">as Admin</span>
+            </label>
+        </div>
+    </div>
+</div>
+<% } %>

@@ -1,0 +1,54 @@
+<%- 
+    JSON.stringify({
+        total: {
+            node: total,
+            page: totalPage
+        },
+        page: page,
+        data: ips.map(row => { 
+            return `
+            <div class="resultItem" id="` + row._id + `">
+                <div class="resultItemAva">
+                    <a href="` + genUrl.getIndustrialParkUrl(row.url) + `" target="_blank">
+                        <img src="` + (row.logoImageId ? row.logoImageId.url : '') + `">
+                    </a>
+                </div>
+                <div class="resultItemCompanyTitle">
+                    <a href="` + genUrl.getIndustrialParkUrl(row.url) + `" target="_blank">
+                        <h7>` + row.name + `</h7>
+                    </a>
+                </div>
+                <div class="resultItemCompanyShortDesc">
+                    <table>
+                        <tr>                                    
+                            <td>
+                                <p><b>` + langData.lblAddress + `:</b></p>
+                            </td>
+                            <td>
+                                ` + (row.address ? row.address.raw : "") + `
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p><b>` + langData.lblArea  + `:</b></p>
+                            </td>
+                            <td>
+                                ` + row.area + ` ha
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p><b>` + langData.lblScope  + `:</b></p>
+                            </td>
+                            <td>
+                                ` + row.nganhNgheTiepNhan + `
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            `
+        }
+    )})
+%>

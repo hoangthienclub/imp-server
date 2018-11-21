@@ -1,0 +1,19 @@
+{
+    "tab_generalInfo" : "General Information",
+    "tab_connection" : "Connection",
+    "tab_news" : "News & Events",
+    "lbl_address" : "Address",
+    "lbl_phoneNumber" : "Phone Number",
+    "lbl_email" : "Email",
+    "lbl_website" : "Website",
+    "lbl_introduction" : "Introduction",
+    "lbl_foundDate" : "Found Date",
+    "lbl_registrationNumber" : "Registration Number",
+    "lbl_president" : "President",
+    "lbl_vicePresident" : "Vice President",
+    "lbl_secretary" : "Secretary",
+    "lbl_member" : "Members",
+    "lbl_tax" : "Tax Number",
+    "lbl_category" : "Category",
+    "lbl_Viewall": "View all"
+}

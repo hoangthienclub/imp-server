@@ -1,0 +1,133 @@
+
+    <% if (!cookieAccepted) { %>
+    <!-- Notification -->
+    <div class="notification">
+        <button type="button" class="close closeButton hideNoti" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <p class="font-light">
+            <%= langData.lbl_cookie %>
+        </p>
+        <a class="hideNoti"><%= langData.btn_gotIt %></a>
+    </div>
+    <!-- End Notification -->
+    <% } %>
+
+    <% if (!cookieDownloadClosed) { %>
+     <!-- Notification 2 -->
+     <div id="download_app" class="notification notification2 noti2">
+        <button type="button" class="close closeButton hideNoti notiApp" data-target="noti2" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <p class="font-light">
+            <%= langData.lbl_downloadMobileApp %>
+        </p>
+        <a class="appLink" href="#"><img src="public/images/app-store.png"></a>
+        <a class="appLink" href="#"><img src="public/images/google-play.png"></a>
+        <a href="http://smartdirectory.vn:3330/mobile-app"><%= langData.lbl_more %></a>
+    </div>
+    <!-- End Notification 2 -->
+    <% } %>
+
+    <% if (pageData.showFooter) { %>
+    <div class="gottopping" style="display:none;">
+        <a>
+            <i class="fa fa-angle-up"></i>
+        </a>
+    </div>
+
+    <div id="footer">
+        <div class="footerItem">
+            <div class="container">
+                <div class="logoArea">
+                    <img src="public/images/logo.png" width="100%" />
+                </div>
+                <div class="col01 colFooter">
+                    <p><%= langData.lbl_contactInfo %></p>
+                    <p>
+                        <% for (var e in siteInfo.phone) { %>
+                            <% if (e == 0) { %>
+                                <a href="tel:<%= siteInfo.phone[e] %>"><%= siteInfo.phone[e] %></a>
+                            <% } else { %>
+                                <br/><a href="tel:<%= siteInfo.phone[e] %>"><%= siteInfo.phone[e] %></a>
+                            <% } %>
+                        <% } %>
+                        <% for (var e in siteInfo.email) { %>
+                            <br/><a href="mailto:<%= siteInfo.email[e] %>"><%= siteInfo.email[e] %></a>
+                        <% } %>
+                        <br/><a href="https://goo.gl/cuGcXs" target="_blank"><%= siteInfo.address.raw %></a>
+                    </p>
+                </div>
+                <div class="col02 colFooter">
+                    <p class="mobileAppDownload"><%= langData.lbl_downloadApp %></p>
+                    <a href="#"><img src="public/images/app-store.png"></a>
+                    <a href="#"><img src="public/images/google-play.png"></a>
+                </div>
+                <div class="col03 colFooter">
+                    <p><%= langData.lbl_subscribe %></p>
+                    <input type="text" name="txtSubscribe" placeholder="<%= langData.btn_subscribe %>" />
+                    <button type="button" class="btn-primary iconNextInput" name="btnSubscribe">
+                        <img src="public/assets/arrow-right-blue.svg" /> </button>
+                </div>
+                <div class="col04 linkWith colFooter">
+                    <p><%= langData.lbl_linkWith %></p>
+                    <a href="http://nso.com.vn/"  target="_blank" title="NSO group">
+                        <img src="public/assets/nso.png" />
+                    </a>
+                    <a href="http://vietnampropertyhub.com/" target="_blank" title="Vietnam Property Hub">
+                        <img src="public/assets/propertyHub.png" />
+                    </a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="footerItem text-center">
+            <div class="container">
+                <div class="footerLeftContent">
+                    <p>&copy; 2018 by smartdirectory.com. All rights reserved</p>
+                </div>
+                <div class="footerRightContent">
+                    <ul class="listSubMenu font-regular">
+                        <li>
+                            <a href="<%= genUrl.getHomeUrl() %>"><%= langData.menu_home %></a>
+                        </li>
+                        <li>
+                            <a href="<%= genUrl.getContactUsUrl() %>"><%= langData.menu_contactUs %></a>
+                        </li>
+                        <li>
+                            <a href="<%= genUrl.getFaqUrl() %>"><%= langData.menu_faq %></a>
+                        </li>
+                        <li>
+                            <a href="<%= genUrl.getTermConditionUrl() %>"><%= langData.menu_terms %></a>
+                        </li>
+                        <li>
+                            <a data-toggle="modal" data-target="#feedback"><%= langData.menu_feedback %></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="text-center botLine">
+
+        </div>
+    </div>
+    <% } %>
+
+    <script>
+        var mapUrl = "<%= genUrl.getMapUrl() %>";
+        var detailUrl = "<%= genUrl.getDetailUrl() %>";
+        var feedbackApi = "<%= genUrl.getFeedbackApi() %>";
+        var subscribeApi = "<%= genUrl.getSubscribeApi() %>";
+        var contactApi = "<%= genUrl.getContactApi() %>";
+        var signUpApi = "<%= genUrl.getSignUpApi() %>";
+        var loginApi = "<%= genUrl.getLoginApi() %>";
+        var logoutApi = "<%= genUrl.getLogoutApi() %>";
+    </script>
+    <% if (!currentUser._id) { %> 
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <% } %>
+    <script src="public/js/jquery-3.3.1.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
+    <script src="public/js/fontawesome-all.js"></script>
+    <script src="public/frontend/main.js"></script>

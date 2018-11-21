@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>B206102C-1DA8-43AC-B1AF-2A5687152BC3</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="24" height="24"></rect>
+    </defs>
+    <g id="💻-Desktop-Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.1.Home-Page" transform="translate(-1095.000000, -2430.000000)">
+            <g id="Rectangle" transform="translate(1095.000000, 2430.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#D0021B" xlink:href="#path-1"></use>
+                <rect fill="#F8F9FB" mask="url(#mask-2)" x="4" y="4" width="16" height="16"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

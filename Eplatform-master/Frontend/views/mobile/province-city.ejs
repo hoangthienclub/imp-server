@@ -1,0 +1,718 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<%- include("partials/head") %>
+</head>
+
+<body>
+
+
+	<div class="topNavWhite">
+        <%- include("partials/headers/top-nav") %>
+	</div>
+
+	<div class="clearfix"></div>
+
+	<!-- <div id="subTitle" style="">
+		<div class="container">
+			<div class="guideNav">
+				<a href="<%= genUrl.getHomeUrl() %>"><%= langData.menu_home %></a> >
+				<a href="<%= genUrl.getFaqUrl() %>"><%= langData.menu_faq %></a>
+			</div>
+			<div class="pageTitle">
+				<div class="">
+					<h3><%= langData.lbl_title %></h3>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div> -->
+
+
+	<div id="content">
+		<div class="container">
+			<div class="conHead">
+				<div class="conLeft">
+					<h4><%= pageData.name %></h4>
+					<div class="block-rendered">
+						<img src="public/assets/areaIcon-01.svg">
+						<div class="block-rendered-content">
+							<h7><%= langData.lbl_totalArea %></h7>
+							<p><%= pageData.totalArea %> km<sup>2</sup></p>
+						</div>
+					</div>
+					<div class="block-rendered">
+						<img src="public/assets/locationIcon-01.svg">
+						<div class="block-rendered-content">
+							<h7><%= langData.lbl_Region %></h7>
+							<p><%= pageData.regionName %></p>
+						</div>
+					</div>
+					<div class="block-rendered">
+						<img src="public/assets/industrialParkIcon-01.svg">
+						<div class="block-rendered-content">
+							<h7><%= langData.lbl_ip %></h7>
+							<p><%= pageData.totalIP %></p>
+						</div>
+					</div>
+					<div class="block-rendered">
+						<img src="public/assets/companyIcon-01.svg">
+						<div class="block-rendered-content">
+							<h7><%= langData.lbl_activeEnterprises %></h7>
+							<p><%= pageData.totalCompany %></p>
+						</div>
+					</div>
+					<div class="block-rendered">
+						<img src="public/assets/populationIcon-01.svg">
+						<div class="block-rendered-content">
+							<h7><%= langData.lbl_population %></h7>
+							<p><%- pageData.population %></p>
+						</div>
+					</div>
+					<div class="block-rendered">
+						<img src="public/assets/propertiesIcon-01.svg">
+						<div class="block-rendered-content">
+							<h7><%= langData.lbl_property %></h7>
+							<p id="totalProperty">0</p>
+						</div>
+					</div>
+				</div>
+				<div class="conRight">
+						<div class="citiesMap" id="mapProvinceCity" style="width: 100%; height: 450px">
+	
+						</div>
+						<script src="https://maps.googleapis.com/maps/api/js?mid=1cFDvE7JtCCxjrR7jk9_sqz3tsXU&key=AIzaSyC01xk6g1-fLTBjEZeRouhA9TOLt8kEZeU&libraries=places"></script>
+						<script>
+								function initMapProvinceCity() {
+								var coords = JSON.parse("<%- JSON.stringify(pageData.geometryProvince) %>");
+								let tempCenter = coords[0][0];
+								let lat = parseFloat(tempCenter[parseInt(tempCenter.length/2)][1]);
+								let lng = parseFloat(tempCenter[parseInt(tempCenter.length/2)][0]);
+								
+								var mapProvinceCity = new google.maps.Map(document.getElementById('mapProvinceCity'), {
+									zoom: 8,
+									center: {lat: lat, lng: lng},
+									maxZoom: 20
+								});
+
+								let coordsLatLng=[]; 
+
+								for(let i=0; i < coords.length; i++) {
+									for (let j=0; j < coords[i].length; j++) {
+										coordsLatLng = [];
+										tempCoords = coords[i][j];
+										for (let z=0; z < tempCoords.length; z++) {
+											coordsLatLng.push({
+												lng: parseFloat(tempCoords[z][0]),
+												lat:  parseFloat(tempCoords[z][1])
+											});
+										}
+										let bermudaTriangle = new google.maps.Polygon({
+											paths: coordsLatLng,
+											strokeColor: '#FF0000',
+											strokeOpacity: 0.8,
+											strokeWeight: 2,
+											fillColor: '#FF0000',
+											fillOpacity: 0.35
+										});
+
+										bermudaTriangle.setMap(mapProvinceCity);
+									}
+								}
+
+							}
+
+							google.maps.event.addDomListener(window, "load", initMapProvinceCity);
+						</script>
+					<a href="<%= genUrl.getMapUrl() %>?layers=ep_companies&system_mapProvinces=<%= pageData.provinceId[0] %>" class="backButton"><%= langData.btn_backCompany %></a>
+					<a href="<%= genUrl.getMapUrl() %>?layers=ep_cityProvinces&bb_string=91.2744140625,8.885071663468993,115.4443359375,22.573438264572395&zoom=6" class="viewOtherButton"><%= langData.btn_viewProvince %></a>
+				</div>
+			</div>
+			<div class="conBody">
+				<div class="companySlideNav text-left nav nav-tabs">
+					<div class="nav nav-tabs">
+						<ul class="list-inline">
+							<li class="companySlideNavItem active">
+								<a data-toggle="tab" href="#geography"><%= langData.tab_geography %></a>
+							</li>
+							<li class="companySlideNavItem">
+								<a data-toggle="tab" href="#economy"><%= langData.tab_economy %></a>
+							</li>
+							<li class="companySlideNavItem">
+								<a data-toggle="tab" href="#connection"><%= langData.tab_connection %></a>
+							</li>
+							<li class="companySlideNavItem">
+								<a data-toggle="tab" href="#infrastructure"><%= langData.tab_infrastructure %></a>
+							</li>
+							<li class="companySlideNavItem">
+								<a data-toggle="tab" href="#goverment"><%= langData.tab_government %></a>
+							</li>
+							<li class="companySlideNavItem">
+								<a data-toggle="tab" href="#socialcultural"><%= langData.tab_socialCulture %></a>
+							</li>
+							<% if (pageData.newsData && pageData.newsData.length > 0) { %>
+							<li class="companySlideNavItem">
+								<a data-toggle="tab" href="#newsevents"><%= langData.tab_news %></a>
+							</li>
+							<% } %>
+						</ul>
+					</div>
+				</div>
+				<div class="conBodyRight">
+					<div class="tab-content">
+						<div id="geography" class="tab-pane active">
+							<div class="blockC geography">
+								<table>
+									<% if (pageData.totalArea) { %>
+									<tr>
+										<td><%= langData.lbl_totalArea %></td>
+										<td><%= pageData.totalArea %> km<sup>2</sup></td>
+									</tr>
+									<% } %>
+									<% if (pageData.agriculturalProductionLand) { %>
+									<tr>
+										<td><%= langData.lbl_AgriculturalProductionLand %></td>
+										<td><%= pageData.agriculturalProductionLand %> km<sup>2</sup></td>
+									</tr>
+									<% } %>
+									<% if (pageData.forestyLand) { %>
+									<tr>
+										<td><%= langData.lbl_ForestryLand %></td>
+										<td><%= pageData.forestyLand %> km<sup>2</sup></td>
+									</tr>
+									<% } %>
+									<% if (pageData.speciallyUsedLand) { %>
+									<tr>
+										<td><%= langData.lbl_SpeciallyUsedLand %></td>
+										<td><%= pageData.speciallyUsedLand %> km<sup>2</sup></td>
+									</tr>
+									<% } %>
+									<% if (pageData.homesteadLand) { %>
+									<tr>
+										<td><%= langData.lbl_ResidentialLand %></td>
+										<td><%= pageData.homesteadLand %> km<sup>2</sup></td>
+									</tr>
+									<% } %>
+									<% if (pageData.coastline) { %>
+									<tr>
+										<td><%= langData.lbl_Coastline %></td>
+										<td>
+											<%- pageData.coastline %>
+										</td>
+									</tr>
+									<% } %>
+									<% if (pageData.borders) { %>
+									<tr>
+										<td><%= langData.lbl_Borders %></td>
+										<td>
+											<%- pageData.borders %>
+										</td>
+									</tr>
+									<% } %>
+									<% if (pageData.climate) { %>
+									<tr>
+										<td colspan="2">
+											<%= langData.lbl_Climate %>
+											<%- pageData.climate %>
+										</td>
+									</tr>
+									<% } %>
+									<% if (pageData.naturalResources) { %>
+									<tr>
+										<td colspan="2">
+											<%= langData.lbl_NaturalResources %>
+											<%- pageData.naturalResources %>
+										</td>
+									</tr>
+									<% } %>
+								</table>
+							</div>
+						</div>
+
+						<div id="economy" class="tab-pane">
+							<div class="blockC economy">
+								<table>
+									<% if (pageData.gdpGrowthRate) { %>
+									<tr>
+										<td><%= langData.lbl_GDPGrowthRate %></td>
+										<td><%- pageData.gdpGrowthRate %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.population) { %>
+									<tr>
+										<td><%= langData.lbl_population %></td>
+										<td><%- pageData.population %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.averagePopulation) { %>
+									<tr>
+										<td><%= langData.lbl_PopulationDensity %></td>
+										<td><%- pageData.averagePopulation %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.populationBySex) { %>
+									<tr>
+										<td><%= langData.lbl_PopulationBySex %></td>
+										<td><%- pageData.populationBySex %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.naturalIncreaseRateOfPopulation) { %>
+									<tr>
+										<td><%= langData.naturalIncreaseRateOfPopulation %></td>
+										<td><%- pageData.naturalIncreaseRateOfPopulation %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.inmigrationRate) { %>
+									<tr>
+										<td><%= langData.lbl_ImmigrationRate %></td>
+										<td><%- pageData.inmigrationRate %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.laborForce) { %>
+									<tr>
+										<td><%= langData.lbl_LaborForce %></td>
+										<td><%- pageData.laborForce %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.labourForceAt15YearsOfAgeAndAbove) { %>
+									<tr>
+										<td><%= langData.lbl_LaborForceAt15YearsOfAgeAbove %></td>
+										<td><%- pageData.labourForceAt15YearsOfAgeAndAbove %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.unemployment) { %>
+									<tr>
+										<td><%= langData.lbl_UnemploymentRate %></td>
+										<td><%- pageData.unemployment %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.mainIndustries) { %>
+									<tr>
+										<td colspan="2">
+											<%= langData.lbl_MajorIndustries %>
+											<%- pageData.mainIndustries %>
+										</td>
+									</tr>
+									<% } %>
+									<% if (pageData.totalExport) { %>
+									<tr>
+										<td colspan="2">
+											<%= langData.lbl_ExportGoods %>
+											<%- pageData.totalExport %>
+										</td>
+									</tr>
+									<% } %>
+									<% if (pageData.annualAverageCapitalOfEnterprises) { %>
+									<tr>
+										<td><%= langData.lbl_AnnualAverageCapitalOfEnterprises %></td>
+										<td><%- pageData.annualAverageCapitalOfEnterprises %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.netTurnover) { %>
+									<tr>
+										<td><%= langData.lbl_NetTurnover %></td>
+										<td><%- pageData.netTurnover %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.profitBeforeTaxes) { %>
+									<tr>
+										<td><%= langData.lbl_ProfitBeforeTaxes %></td>
+										<td><%- pageData.profitBeforeTaxes %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.profitRate) { %>
+									<tr>
+										<td><%= langData.lbl_ProfitRatio %></td>
+										<td><%- pageData.profitRate %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.numberOfProject) { %>
+									<tr>
+										<td><%= langData.lbl_NumberOfProject %></td>
+										<td><%= pageData.numberOfProject %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.PCI) { %>
+									<tr>
+										<td><%= langData.lbl_PCI %></td>
+										<td><%- pageData.PCI %></td>
+									</tr>
+									<% } %>
+								</table>
+							</div>
+						</div>
+
+						<div id="connection" class="tab-pane">
+							<div class="blockC connection">
+								<div class="blockD industrialParkList">
+									<div class="blockDTitle">
+										<h7><%= langData.lbl_IndustrialParkListing %></h7>
+								<!-- <a href="#"><%= langData.lbl_ViewAll %></a> -->
+									</div>
+									<div class="blockDGrid">
+										<% if (pageData.ipData && pageData.ipData.length > 0) {
+										for (row of pageData.ipData) { %>
+										<div class="IPListItem">
+											<div class="IPListItemAva">
+												<a href="<%= genUrl.getIndustrialParkUrl(row.url) %>">
+													<% if (row.logoImageId && row.logoImageId.url) { %>
+														<img src="<%= row.logoImageId.url %>">
+													<% } else { %>
+														<img src="<%= genUrl.getComapnyDefaultLogo() %>">
+													<% } %>
+												</a>
+											</div>
+											<div class="IPListItemContent">
+												<a href="<%= genUrl.getIndustrialParkUrl(row.url) %>"><h7><%= row.name %></h7></a>
+												<p><%= langData.lbl_totalArea %>: <%= row.area %>m<sup>2</sup></p>
+												<p><%= langData.lbl_OccupancyRate %> rate: <%= row.tiLeThue %>% </p>
+												<p><%= langData.lbl_address %>: <%= row.address.raw %></p>
+											</div>
+										</div>
+										<% } } %>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								
+								<div class="divider"></div>
+								
+								<div class="blockD propertyList">
+									<div class="blockDTitle">
+										<h7><%= langData.lbl_property %></h7>
+										<a target="_blank" href="http://vietnampropertyhub.com/map/<%= pageData.name %>"><%= langData.lbl_ViewAll %></a>
+									</div>
+									<div class="blockDGrid"  id="listPropertyHub">
+										
+									</div>
+									<div class="clearfix"></div>
+								</div>
+
+								<div class="divider"></div>
+
+								<div class="blockD companyList">
+									<div class="blockDTitle">
+										<h7><%= langData.lbl_Companiesin %> <%= pageData.name %></h7>
+								<a href="<%= genUrl.getMapUrl() %>?layers=ep_companies&system_mapProvinces=<%= pageData.provinceId[0] %>"><%= langData.lbl_ViewAll %></a>
+									</div>
+									<div class="blockDGrid">
+										<% for (row of pageData.companyData) { %>
+											<div class="companyListItem">
+												<div class="resultItem">
+													<div class="resultItemAva">
+														<a href="<%= genUrl.getDetailUrl(row.url) %>">
+															<% if (row.logoImageId && row.logoImageId.url) { %>
+																<img src="<%= row.logoImageId.url %>">
+															<% } else { %>
+																<img src="<%= genUrl.getComapnyDefaultLogo() %>">
+															<% } %>
+														</a>
+													</div>
+													<div class="resultItemCompanyTitle">
+														<a href="<%= genUrl.getDetailUrl(row.url) %>">
+															<h7><%= row.name %></h7>
+														</a>
+													</div>
+													<div class="resultItemCompanyShortDesc">
+														<table>
+															<tr>
+																<td>
+																	<p><b><%= langData.lbl_category %>:</b></p>
+																</td>
+																<td>
+																	<% if (row.categories.length > 0) { %> <%- row.categories.map(e => '<a href="' + genUrl.getMapUrl(e.name) + '">' + e.name + '</a>').join(", ") %> <% } else { %> <a><%= langData.lbl_otherCat %></a> <% } %> 
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<p><b><%= langData.lbl_address %>:</b></p>
+																</td>
+																<td>
+																	<p><% if (row.address && row.address.raw) { %> <%= row.address.raw %> <% } %></p>
+																</td>
+															</tr>
+														</table>
+													</div>
+													<div class="clearfix"></div>
+												</div>
+											</div>
+										<% } %>
+									</div>
+									<!-- <div class="blockDFooter">
+										<div class="pageNav">
+											<a href="#" class="number act">1</a>
+											<a href="#" class="number">2</a>
+											<a href="#" class="number">3</a>
+											...
+											<a href="#" class="number">10</a>
+											<a href="#" class="number">11</a>
+										</div>
+									</div> -->
+									<div class="clearfix"></div>
+								</div>
+								
+
+							</div>
+						</div>
+
+						<div id="infrastructure" class="tab-pane">
+							<div class="blockC infrastructure">
+								<table>
+									<% if (pageData.transportation) { %>
+									<tr>
+										<td colspan="2">
+											<%= langData.lbl_Transportation %>
+											<%- pageData.transportation %>
+										</td>
+									</tr>
+									<% } %>
+									<% if (pageData.telecommunications) { %>
+									<tr>
+										<td colspan="2">
+											<%= langData.lbl_Telecommunications %>
+											<%- pageData.telecommunications %>
+										</td>
+									</tr>
+									<% } %>
+									<% if (pageData.waterSupply) { %>
+									<tr>
+										<td colspan="2">
+											<%= langData.lbl_WaterSupply %>
+											<%- pageData.waterSupply %>
+										</td>
+									</tr>
+									<% } %>
+									<% if (pageData.electricSupply) { %>
+									<tr>
+										<td colspan="2">
+											<%= langData.lbl_ElectricSupply %>
+											<%- pageData.electricSupply %>
+										</td>
+									</tr>
+									<% } %>
+								</table>
+							</div>
+						</div>
+
+						<div id="goverment" class="tab-pane">
+							<div class="blockC goverment">
+								<table>
+									<% if (pageData.peoplesCouncil) { %>
+									<tr>
+										<td><%= langData.lbl_PeopleCouncil %></td>
+										<td><%- pageData.peoplesCouncil %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.peoplesCommitee) { %>
+									<tr>
+										<td><%= langData.lbl_PeopleCommittee %></td>
+										<td><%- pageData.peoplesCommitee %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.relevantGovernmentDepartments) { %>
+									<tr>
+										<td><%= langData.lbl_RelevantGovernmentDepartments %></td>
+										<td>
+											<%- pageData.relevantGovernmentDepartments %>
+										</td>
+									</tr>
+									<% } %>
+									<% if (pageData.website) { %>
+									<tr>
+										<td><%= langData.lbl_Governmentadministrativeunits %></td>
+										<td>
+											Danh sachs huyeen
+										</td>
+									</tr>
+									<% } %>
+									<% if (pageData.name) { %>
+									<tr>
+										<td><%= langData.lbl_Province %></td>
+										<td><%= pageData.name %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.headquartersCommittee) { %>
+									<tr>
+										<td><%= langData.lbl_HeadquarterPeopleCommittee %></td>
+										<td><%- pageData.headquartersCommittee %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.website) { %>
+									<tr>
+										<td><%= langData.lbl_OfficialProvincialWebsite %></td>
+										<td><a href="<%= pageData.website %>"><%= pageData.website %></td>
+									</tr>
+									<% } %>
+								</table>
+							</div>
+						</div>
+
+						<div id="socialcultural" class="tab-pane">
+							<div class="blockC socialcultural">
+								<table>
+									<% if (pageData.ethnic) { %>
+									<tr>
+										<td><%= langData.lbl_Ethnic %></td>
+										<td><%= pageData.ethnic %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.language) { %>
+									<tr>
+										<td><%= langData.lbl_Language %></td>
+										<td><%= pageData.language %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.education) { %>
+									<tr>
+										<td><%= langData.lbl_Education %></td>
+										<td>
+											<%- pageData.education %>
+										</td>
+									</tr>
+									<% } %>
+									<% if (pageData.scienceAndTechnology) { %>
+									<tr>
+										<td><%= langData.lbl_ScienceAndTechnology %></td>
+										<td><%- pageData.scienceAndTechnology %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.hospitalAndMedicalCentres) { %>
+									<tr>
+										<td><%= langData.lbl_HospitalAndMedicalCentres %></td>
+										<td><%- pageData.hospitalAndMedicalCentres %></td>
+									</tr>
+									<% } %>
+									<% if (pageData.fineArts) { %>
+									<tr>
+										<td><%= langData.lbl_FineArts %></td>
+										<td><%- pageData.fineArts %></td>
+									</tr>
+									<% } %>
+								</table>
+							</div>
+						</div>
+
+						<% if (pageData.newsData && pageData.newsData.length > 0) { %>
+							<div id="newsevents" class="tab-pane">
+								<div class="blockC newsevents">
+									<!-- News List -->
+									<% for (var e in pageData.newsData) { %>
+									<div class="newsItemPH">
+										<div class="newsItemH">
+											<div class="newsItemHL">
+												<a href="#" data-toggle="modal" data-target="#news<%= e %>">
+													<img src="<%= pageData.newsData[e].imageIds.url %>">
+												</a>
+											</div>
+											<div class="newsItemHR">
+												<a href="#" data-toggle="modal" data-target="#news<%= e %>">
+													<h7><%= pageData.newsData[e].title %></h7>
+												</a>
+												<span><%= moment(pageData.newsData[e].date).format('DD/MM/YYYY') %></span>
+												<p><%- pageData.newsData[e].desc %></p>
+											</div>
+										</div>
+									</div>
+									<% } %>
+									<!-- <div class="pageNav">
+										<a href="#" class="number">1</a>
+										<a href="#" class="number">2</a>
+										<a href="#" class="number">3</a>
+										...
+										<a href="#" class="number">10</a>
+										<a href="#" class="numberr act">11</a>
+									</div> -->
+								</div>
+							</div>
+						<% } %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--Modal for News-->
+	<% if (pageData.newsData  && pageData.newsData.length > 0) { 
+        for (var e in pageData.newsData) { %>
+			<div class="newsPanel modal fade" id="news<%= e %>" tabindex="-1" role="dialog" aria-labelledby="failLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<button type="button" class="close closeButton" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h6 class="newsPanelTitle"><%= pageData.newsData[e].title %></h4>
+						<span><i class="fa fa-clock"></i> <%= moment(pageData.newsData[e].date).format('DD/MM/YYYY') %></span>
+						<div class="newsDivider"></div>
+						<div class="newsPanelContent">
+							<%- pageData.newsData[e].content %>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+	<% } } %>
+
+    <%- include("partials/footers/default") %>
+<script>
+		$(function() {
+			$.ajax({
+				url: "http://vietnampropertyhub.vn/map/property/" + "<%= pageData.provinceId[0] %>",
+				method: "get",
+				success: function (data) {
+					var listPropertyHubHTML = $("#listPropertyHub");
+					if (data.length > 0 && data[0].length > 0) {
+						$("#totalProperty").text(data[0].length);
+
+						for (let i = 0; i < data[0].length; i++) {
+							let propertyData = data[0][i];
+							let purpose = "";
+
+							if (propertyData.tenure && propertyData.tenure.lease == true)
+								purpose = "For Lease";
+							else if (propertyData.tenure && propertyData.tenure.sale == true)
+								purpose = "For Sale";
+
+							listPropertyHubHTML.append(`
+							<div class="propertyListItem">
+								<div class="propertyListItemTop">
+									<a target="_blank" href="http://vietnampropertyhub.com/detail/` + propertyData.url + `">
+										<img src="` + propertyData.image + `" width="100%">
+										<h6>` + propertyData.name + `</h6>
+									</a>
+								</div>
+								<div class="propertyListItemBot">
+									<h6>` + propertyData.price.text + `</h6>
+									<div class="botB">
+										<p>Type</p>
+										<h7>` + propertyData.proptype + `</h7>											
+									</div>
+									<div class="botB">
+										<p>Area</p>
+										<h7>` + propertyData.area.text + `</h7>											
+									</div>
+									<div class="botB">
+										<p>Location</p>
+										<h7>` + propertyData.district + `, ` + propertyData.province + `</h7>											
+									</div>
+									<div class="botB">
+										<p>Purpose</p>
+										<h7>` + purpose + `</h7>											
+									</div>
+								</div>
+							</div>
+						`);
+						}
+					}
+				}
+			})
+		});
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/TweenMax.min.js"></script>
+	<script src="public/js/waypoints.min.js"></script>
+	<script src="public/js/jquery.counterup.min.js"></script>
+	<script src="public/slick/slick.min.js"></script>
+	<script src="public/js/desktop.js"></script>
+
+</body>
+
+</html>

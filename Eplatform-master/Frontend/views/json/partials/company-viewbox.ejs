@@ -1,0 +1,22 @@
+<%-
+    JSON.stringify(pageData.rows.map(e => { 
+        return {
+            "_id": e._id,
+            "name": e.name,
+            "provice": {
+                "_id": e.provinceData._id,
+                "name": e.provinceData.name
+            },
+            "url": e.url,
+            "logo": e.logoImageId ? e.logoImageId.url : "",
+            "taxNumber": e.taxNumber,
+            "categories": e.categories.map(cat => {
+                return {
+                    "url": genUrl.getMapUrl(cat.name),
+                    "name": cat.name
+                }
+            }),
+            "address": e.address ? e.address.raw : ""
+        }; 
+    }));
+%>

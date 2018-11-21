@@ -1,0 +1,12 @@
+{
+    "title_report" : "Báo cáo",
+    "lbl_reportDesc" : "Điền những thông tin phản hồi theo mẫu",
+    "lbl_selectTab" : "Chọn mục",
+    "tab_companyInfo" : "Thông tin công ty",
+    "tab_connection" : "Liên kết",
+    "tab_businessIntro" : "Hoạt động kinh doanh",
+    "tab_product" : "Sản phẩm",
+    "lbl_falseInfo" : "Thông tin bị sai",
+    "lbl_infoEdit" : "Thông tin chỉnh sửa",
+    "lbl_send" : "Gửi"
+}

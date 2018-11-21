@@ -1,0 +1,29 @@
+<% for (var attr in filter) { %>
+<div class="item01">
+    <h7><%= langData[attr] %></h7>
+    <ul>
+        <% for (var elem of filter[attr].rows) { 
+            if (receive[attr][elem._id]) {
+                elem.checked = true;
+            }
+        %>
+        <li>
+            <label class="filterCheck customCheck <%- elem.checked ? 'active' : '' %>"> <p><%= elem.name %></p>
+                <input type="checkbox" <%- elem.checked ? 'checked="checked"' : '' %> name="<%= attr %>" value="<%= elem._id %>">
+                <span class="checkmark"></span>
+            </label>
+        </li>
+        <% } %>
+        <% if ([collectionConst.INDUSTRIALPARKS, collectionConst.COMPANYCATEGORIES].indexOf(attr) >= 0 && receive[attr]["none"] !== undefined) { 
+
+        %>
+        <li>
+            <label class="filterCheck customCheck <%- receive[attr]["none"] ? 'active' : '' %>"> <p><%= langData.noneIndustrialPark %></p>
+                <input type="checkbox" <%- receive[attr]["none"] ? 'checked="checked"' : '' %> name="<%= attr %>" value="none">
+                <span class="checkmark"></span>
+            </label>
+        </li>
+        <% } %>
+    </ul>
+</div>
+<% } %>

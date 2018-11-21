@@ -1,0 +1,75 @@
+(function () {
+    'use strict';
+    angular
+        .module('app')
+        .config(($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $breadcrumbProvider) => {
+
+            var arr = <%- JSON.stringify(states) %>;
+
+            arr.forEach(element => {
+                let label = String.fromCharCode(element.singular.charCodeAt(0) - 32) + element.singular.slice(1);
+                let _arr = element.singular.split(/(?=[A-Z])/);
+                let path = "";
+                if (_arr.length <= 2) {
+                    path = _arr.join("/").toLowerCase();
+                } else {
+                    path = _arr.splice(0, 2).join("/").toLowerCase();
+                    path += _arr.join("");
+                }
+                
+                $stateProvider
+                    .state("index." + element.plural, {
+                        url: '/' + element.plural + "?parentId",
+                        templateUrl: '/gencode/index/' + element.plural,
+                        controller: label + ".IndexController",
+                        controllerAs: "vm",
+                        ncyBreadcrumb: {
+                            label: label,
+                        },
+                        resolve: {
+                            loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                                return $ocLazyLoad.load({
+                                    files: [
+                                        '/gencode/index-controller/' + element.plural + '.controller.js'
+                                    ]
+                                });
+                            }]
+                        }
+                    })
+                    .state("index." + element.singular, {
+                        statisticsPage: "index." + element.plural,
+                        abstract: true,
+                        templateUrl: '/gencode/form/' + element.plural,
+                        //page title goes here
+                        controller: label + ".FormController",
+                        controllerAs: "vm",
+                        ncyBreadcrumb: {
+                            label: label,
+                        },
+                        resolve: {
+                            loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                                return $ocLazyLoad.load({
+                                    files: [
+                                        '/gencode/form-controller/' + element.plural + '.controller.js'
+                                    ]
+                                });
+                            }]
+                        }
+                    })
+                    .state("index." + element.singular + ".add", {
+                        url: '/' + element.singular + '/form' + "?parentId",
+                        ncyBreadcrumb: {
+                            label: 'Add new'
+                        }
+                    })
+                    .state("index." + element.singular + ".edit", {
+                        url: '/' + element.singular + '/form/:_id' + "?parentId",
+                        ncyBreadcrumb: {
+                            label: 'Edit'
+                        }
+                    })
+                    ;
+            });
+
+        })
+})();

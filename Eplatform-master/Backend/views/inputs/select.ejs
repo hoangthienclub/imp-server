@@ -1,0 +1,8 @@
+<% if (index == 0) { %>
+<div class="col-sm-12">
+    <select class="form-control" ui-select2  data-label="<%= field.label %>" ng-class="form.<%= id %>.$valid ? 'form-control-success' : 'form-control-danger'" ng-model="<%= getAttr(attr) %>" name="<%= id %>" id="<%= id %>" ng-required="<%= field.required != false ? 'true' : 'false' %>">
+        <option value=""></option>
+        <option ng-repeat="(idx, elem) in vm.<%= field.lookupFrom %>" value="elem._id" >{{ elem.name }}</option>
+    </select>
+</div>
+<% } %>

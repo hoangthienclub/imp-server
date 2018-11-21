@@ -1,0 +1,202 @@
+<% 
+    label = String.fromCharCode(name.charCodeAt(0) - 32) + name.slice(1);
+    lookups = [];
+    for (e in fields) {
+        if (fields[e].lookupFrom) {
+            obj = {lookupFrom: fields[e].lookupFrom, preload: false}
+            if (fields[e].preload == false) {
+                obj = {lookupFrom: fields[e].lookupFrom, preload: true}
+            }
+            
+            if (lookups.indexOf(obj) < 0) {
+                lookups.push(obj);
+            }
+        }
+    }
+
+%>
+
+(function() {
+    'use strict';
+
+    angular
+        .module('app')
+        .controller('<%= label %><%= formAction %>.FormController', function($rootScope, $location, $http, $scope, $state, $stateParams, Toastr, FormService, LocalStorageService) {
+            var vm = this;
+            var collection = "<%= collection %>";
+            vm.edit = false;
+            vm.<%= model %> = {};
+            vm.addModal = {};
+            let langs = <%- JSON.stringify(langs) %>
+
+            vm.formatResult = (e) => {
+                return e.text;
+            }
+            vm.formatSelection = (e) => {
+                return e.text;
+            }
+
+            vm.convertFrom = (lang) => {
+                if (vm.<%= model %>.data) {
+                    for (let key of langs) {
+                        if (lang == key) continue;
+                        
+                        for (let attr in vm.<%= model %>.data[lang]) {
+                            if (attr == "_id")
+                                continue;
+                            if (!vm.<%= model %>.data[key])
+                                vm.<%= model %>.data[key] = {}
+                            vm.<%= model %>.data[key][attr] = vm.<%= model %>.data[lang][attr];
+                        }
+                    }
+                }
+            }
+
+            <% if (lookups.length > 0) { %>
+                vm.initSelection = (element, callback) => {
+                    callback([]);
+                }
+                
+                vm.refreshLookup =  (lookupCollection) => {
+                    FormService.lookup(lookupCollection)
+                        .then(function (res) {
+                            vm[lookupCollection] = res.data;
+                        })
+                        .catch(function (err) {
+                            console.log(err);
+                        })
+                }
+            <% } %>
+
+
+            <% for (var e in lookups) { %>
+                <% if (lookups[e].preload) { %>
+                    vm.<%= lookups[e].lookupFrom %>Query = (query) => {
+                        FormService.lookup("<%= lookups[e].lookupFrom %>", { name: query.term })
+                            .then(function (res) {
+                                let arr = res.data.map((e) => {
+                                    return {
+                                        text: e.name,
+                                        id: e._id
+                                    }
+                                })
+                                query.callback({results: arr});
+                            })
+                            .catch(function (err) {
+                                query.callback({results: []});
+                            })
+                    }
+                <% } else { %>
+                    vm.refreshLookup("<%= lookups[e].lookupFrom %>");
+                <% } %>
+            <% } %>
+
+            
+            <% for (e in fields) { 
+                if (fields[e].parentAttr) {
+            %>
+
+                if (!$location.search().parentId) {
+                    var saveData = LocalStorageService.getObject("<%= collection %>");
+                    if (saveData && saveData.parentId) {
+                        vm.<%= model %>.<%= fields[e].attr %> = $location.search().parentId;
+                    } else {
+                        $state.go("index.home");
+                    }
+                } else {
+                    vm.<%= model %>.<%= fields[e].attr %> = $location.search().parentId;
+                }
+            <% }} %>
+
+            vm.addElementToLookupTable = function (lookupCollection) {
+                vm.addModal.url = $state.href("index." + lookupCollection, {}, {absolute: true}) + "?layout=empty";
+                vm.addModal.active = true;
+                angular.element("#addModal").modal("show")
+            }
+
+            if ($stateParams._id) {
+                vm.edit = true;
+                FormService.getById(collection, $stateParams._id)
+                    .then(function(res) {
+                        if (res && res.status == 200) {
+                            vm.<%= model %> = res.data;
+                        }
+                    })
+                    .catch(function(err) {
+                        console.log(err);
+                    });
+
+                
+                vm.Save = () => {
+                    if ($scope.form.$valid) {
+                        FormService.update(collection, vm.<%= model %>._id, vm.<%= model %>)
+                            .then(function(res) {
+                                Toastr.success("Update completed!")
+                            })
+                            .catch(function(err) {
+                                Toastr.error(err.data);
+                            })
+                    } else {
+                        Toastr.warning("Entry field");
+                    }
+                }
+            } else {
+                <% if (parentField) { %>
+                    vm.<%= model %>.<%= parentField.attr %> = $location.search().parentId;
+                <% } %>
+                vm.Save = () => {
+                    if ($scope.form.$valid) {
+                        FormService.save(collection, vm.<%= model %>)
+                            .then(function(res) {
+                                Toastr.success("Add new completed!");
+                                $state.go("index.<%= collection %>");
+                            })
+                            .catch(function(err) {
+                                Toastr.error(err.data);
+                            })
+                    } else {
+                        Toastr.warning("Entry field");
+                    }
+                }
+            }
+            vm.insertAsNew = () => {
+                if ($scope.form.$valid) {
+                    let modelData = JSON.parse(JSON.stringify(vm.<%= model %>));
+                    delete modelData._id;
+                    if (modelData.data) {
+                        for (let lang of <%- JSON.stringify(langs) %>) {
+                            delete modelData.data[lang]._id;
+                        }
+                    }
+                    FormService.save(collection, modelData)
+                        .then(function(res) {
+                            Toastr.success("Insert new completed!");
+                        })
+                        .catch(function(err) {
+                            Toastr.error(err.data);
+                        })
+                } else {
+                    Toastr.warning("Entry field");
+                }
+            }
+            <!-- this function only support for en and vi lang -->
+            angular.element(".col-sm-5 + .col-sm-5").append("<span>EN</span>")
+            angular.element(".col-sm-5 + .col-sm-5 > span").click(function (e) {
+                try {
+                    let arr = $(this).parent().find("input, textarea").attr("ng-model").split(".");
+                    let attr = arr[arr.length - 1];
+                    
+                    FormService.translate(vm.<%= model %>.data.vi[attr])
+                        .then(res => {
+                            if (!vm.<%= model %>.data.en)
+                                vm.<%= model %>.data.en = {};
+                                
+                            vm.<%= model %>.data.en[attr] = res.data;
+                        })
+                        .catch(console.log)
+                } catch (ex) {
+                    console.log(ex);
+                }
+            })
+        });
+})();

@@ -1,0 +1,10 @@
+<% if(index == 0) { %>
+    <% for (var t in inputConfig.radio[field.config]) { 
+        option = inputConfig.radio[field.config][t]
+    %>
+<div class="col-sm-12">
+    <input type="radio" icheck  data-label="<%= field.label %>" ng-model="<%= getAttr(attr) %>" name="<%= id %>" id="<%= id %>_<%= option.value %>"  value="<%= option.value %>" ng-focus="<%= id %>=true" ng-required="<%= field.required != false ? 'true' : 'false' %>"/>
+    <label for="<%= id %>_<%= option.value %>" class="form-form-control-label control-label">&nbsp;&nbsp;&nbsp;<%= option.en %>&nbsp;&nbsp;&nbsp;</label>
+</div>
+    <% } %>
+<% } %>

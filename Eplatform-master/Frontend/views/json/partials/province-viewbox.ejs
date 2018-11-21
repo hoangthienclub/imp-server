@@ -1,0 +1,20 @@
+<%- 
+    JSON.stringify({
+        total: total,
+        page: page,
+        totalPage: totalPage,
+        arr: provinces.map(e => { return {
+            name: e.name,
+            totalArea: e.totalArea,
+            totalCompany: e.totalCompany,
+            totalIP: e.totalIP,
+            population: e.population,
+            url: e.url,
+            logo: e.logo ? e.logo : {
+                name: "",
+                url: ""
+            }
+    }})})
+
+
+%>

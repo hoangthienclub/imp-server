@@ -1,0 +1,9 @@
+{
+    "term": "Vui lòng đồng ý với điều khoản sử dụng!",
+    "label": "Thất bại",
+    "error": "Vui lòng thử lại sau!!!",
+    "exist": "Lỗi! Số điện thoại đã tồn tại.",
+    "authFail": "Lỗi! Số điện thoại hoặc mật khẩu không chính xác.",
+    "validate": "Vui lòng nhập số điện thoại hợp lệ.",
+    "nonAuth": "Số điện thoại này chưa được xác thực "
+}

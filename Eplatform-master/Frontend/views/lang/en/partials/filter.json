@@ -1,0 +1,10 @@
+{
+    "mapProvinces": "Province/City",
+    "mapDistricts": "Districts",
+    "industrialParks": "Industrial Park",
+    "companyCategories": "Category",
+    "noneIndustrialPark": "Another",
+    "btn_showmore": "Show more",
+    "btn_reset": "Cancel",
+    "btn_applyFilter": "Apply"
+}

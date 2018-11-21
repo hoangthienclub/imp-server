@@ -1,0 +1,38 @@
+<!-- Navbar -->
+<div ng-include="'/angular/components/navbar.html'"></div>
+
+<div class="app-body">
+    <!-- Navigation -->
+    <div ng-include="'/angular/components/sidebar-nav.html'"></div>
+
+    <!-- Main content -->
+    <main class="main">
+
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb" breadcrumb>
+            <ncy-breadcrumb></ncy-breadcrumb>
+
+            <!-- Breadcrumb Menu-->
+            <li class="breadcrumb-menu">
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    <a class="btn btn-secondary" ui-sref="index.siteDocuments" tooltips tooltip-template="Documents" tooltip-side="bottom"><i class="fa fa-file-text-o"></i> &nbsp;Documents</a>
+                    <a class="btn btn-secondary" ui-sref="index.settings" tooltips tooltip-template="Site settings" tooltip-side="bottom"><i class="icon-settings"></i> &nbsp;Site settings</a>
+                </div>
+            </li>
+
+        </ol>
+
+        <div class="container-fluid">
+            <ui-view></ui-view>
+        </div>
+        <!-- /.conainer-fluid -->
+    </main>
+
+
+    <!-- Aside Menu -->
+    <div ng-include="'/angular/components/aside.html'"></div>
+
+</div>
+
+<!-- Footer -->
+<div ng-include="'/angular/components/footer.html'"></div>

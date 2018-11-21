@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <%- include("partials/head") %>
+</head>
+
+<body>
+
+    <div class="topNavWhite">
+        <%- include("partials/headers/top-nav") %>
+    </div>
+
+    <div id="subTitle" style="">
+        <div class="container">
+            <div class="pageTitle">
+                <div class="">
+                    <h3 class="fontsize18"><%- langData.title_terms %></h3>
+                    <h7 class="font-regular fontsize12"><%- pageData.termData.title %></h7>                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="content" class="">
+        <div class="container">
+            <div class="termContent">
+                <div class="rightColTerm">
+                    <%- pageData.termData.content %>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <div class="goTop">
+        <a href="#">
+            <i class="fa fa-angle-up"></i>
+        </a>
+    </div>
+
+    <%- include("partials/footers/default") %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/TweenMax.min.js"></script>
+    <script src="public/js/waypoints.min.js"></script>
+    <script src="public/js/jquery.counterup.min.js"></script>
+
+</body>
+
+</html>

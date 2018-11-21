@@ -1,0 +1,177 @@
+<%- JSON.stringify({
+    _id: pageData._id,
+    name: pageData.name,
+    aliasName: pageData.aliasName ? pageData.aliasName : "",
+    located: (language == "vi" ? pageData.provinceName.name : pageData.provinceData.name) + " - " + pageData.countryData.name,
+    desc: pageData.desc,
+    facebook: pageData.facebook ? pageData.facebook : "", 
+    google: pageData.google ? pageData.google : "", 
+    twitter: pageData.twitter ? pageData.twitter : "", 
+    linkedin: pageData.linkedin ? pageData.linkedin : "",
+    
+    categories: pageData.categoryData.rows == undefined ? [] : pageData.categoryData.rows.map(e => {
+        return {
+            name: e.name,
+            url: genUrl.getMapUrl(e.name)
+        }
+    }),
+    
+    phoneNumbers: pageData.phoneNumber,
+    faxs: pageData.fax,
+    emails: pageData.email,
+    website: pageData.website,
+    taxNumber: pageData.taxNumber,
+
+    registrationNumber: pageData.registrationNumber,
+    legalRepresentative: pageData.legalRepresentative,
+    issuedOn: pageData.issuedOn,
+    registrationDate: pageData.registrationDate,
+    registeredCapital: pageData.registeredCapital,
+    totalInvestedCapital: pageData.totalInvestedCapital,
+    issuedPlace: pageData.issuedPlace,
+    area: pageData.area,
+    employeeSize: pageData.employeeSize,
+    country: pageData.countryData.name,
+    address: pageData.address ? pageData.address.raw : "",
+    district: pageData.districtData.name,
+    latLng: {
+        lat: pageData.address.latLng.lat,
+        lng: pageData.address.latLng.lng
+    },
+    province: {
+        provinceId: pageData.address.provinceId,
+        name: pageData.provinceData.name,
+        url: pageData.provinceData.url,
+        housing: pageData.provinceData.housing
+    },
+    legalStructure: pageData.legalStructureData,
+    speakingLanguages: pageData.speakingLanguages,
+    originalNationality: pageData.originalNationalityData,
+    trademarks: pageData.trademarks,
+    businessType: pageData.businessTypeData,
+
+    certificates: pageData.certificateData.rows == undefined ? [] : pageData.certificateData.rows.map(e => {
+        return {
+            image: e.imageCertificate,
+            name: e.name,
+            year: e.yearBegin ? e.yearBegin.getFullYear() : ""
+        }
+    }),
+    news: pageData.newsData.rows == undefined ? [] : pageData.newsData.rows.map(e => {
+        return {
+            logo: e.imageIds ? {
+                name: e.imageIds.name.trim(),
+                url: e.imageIds.url.trim()
+            } : {name: "", url: ""},
+            title: e.title,
+            date: e.date
+        }
+    }),
+    customers: pageData.customerData == undefined ? [] : pageData.customerData.map(e => {
+        return {
+            logo: e.logoImageId ? {
+                name: e.logoImageId.name.trim(),
+                url: e.logoImageId.url.trim()
+            } : {name: "", url: ""},
+            url: genUrl.getDetailUrl(e.url)
+        }
+    }),
+    suppliers: pageData.supplierData == undefined ? [] : pageData.supplierData.map(e => {
+        return {
+            logo: e.logoImageId ? {
+                name: e.logoImageId.name.trim(),
+                url: e.logoImageId.url.trim()
+            } : {name: "", url: ""},
+            url: genUrl.getDetailUrl(e.url)
+        }
+    }),
+    products: pageData.productData.rows == undefined ? [] : pageData.productData.rows.map(e => {
+        return {
+            images: e.imageIds.map(f => { return {
+                url: f.url.trim(),
+                name: f.name.trim()
+            }}),
+            name: e.name,
+            desc: e.desc
+        }
+    }),
+    code: {
+        sics: pageData.codeSicData.rows == undefined ? [] : pageData.codeSicData.rows.map(e => {
+            return {
+                code: e.code,
+                name: e.name
+            }
+        }),
+        vns: pageData.codeVnData.rows == undefined ? [] : pageData.codeVnData.rows.map(e => {
+            return {
+                code: e.code,
+                name: e.name
+            }
+        }),
+        naics: pageData.codeNaicsData.rows == undefined ? [] : pageData.codeNaicsData.rows.map(e => {
+            return {
+                code: e.code,
+                name: e.name
+            }
+        })
+    },
+    images: pageData.galleryImageIds ? pageData.galleryImageIds.map(e => { return {
+        url: e.url.trim(),
+        name: e.name.trim()
+    }}) : [],
+    logo: pageData.logoImageId ? {
+        name: pageData.logoImageId.name.trim(),
+        url: pageData.logoImageId.url.trim()
+    } : {name: "", url: ""},
+
+    industrialPark: pageData.industrialParkData._id ? {
+        url: pageData.industrialParkData.url,
+        name: pageData.industrialParkData.name,
+        owner: pageData.industrialParkData.owner, 
+        address: pageData.industrialParkData.address ? pageData.industrialParkData.address.raw : "", 
+        chinhSachUuDai: pageData.industrialParkData.chinhSachUuDai, 
+        nganhNgheTiepNhan: pageData.industrialParkData.nganhNgheTiepNhan, 
+        area: pageData.industrialParkData.area, 
+        images: pageData.industrialParkData.logoImageId ? {
+            name: pageData.industrialParkData.logoImageId.name.trim(),
+            url: pageData.industrialParkData.logoImageId.url.trim()
+        } : {name: "", url: ""}
+    } : {},
+
+    association: pageData.associationData._id ? {
+        name: pageData.associationData.name,
+        url: pageData.associationData.url,
+        address: pageData.associationData.address ? pageData.associationData.address.raw : "", 
+        phoneNumber: pageData.associationData.phoneNumber, 
+        email: pageData.associationData.email, 
+        website: pageData.associationData.website, 
+        desc: pageData.associationData.desc, 
+        foundDate: pageData.associationData.foundDate, 
+        images: pageData.associationData.logoImageId ? {
+            name: pageData.associationData.logoImageId.name.trim(),
+            url: pageData.associationData.logoImageId.url.trim()
+        } : {name: "", url: ""}
+    } : pageData.associationData,
+
+    relatedCompanies: pageData.companies.map(e => {
+        return {
+            address: e.address.raw,
+            provinceId: e.address.provinceId,
+            provinceName: e.provinceData.name,
+            logo: e.logoImageId ? {
+                name: e.logoImageId.name.trim(),
+                url: e.logoImageId.url.trim()
+            } : {name: "", url: ""},
+            name: e.name,
+            url: e.url,
+            taxNumber: e.taxNumber,
+            categories: e.categories.map(f => {
+                return {
+                    name: f.name,
+                    url: genUrl.getMapUrl(f.name)
+                }
+            })
+        }
+    }),
+    jobs: pageData.jobs
+}) %>

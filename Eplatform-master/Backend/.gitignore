@@ -1,0 +1,11 @@
+nohup.out
+run
+iisnode
+node_modules/
+.idea/
+run
+bower_components/
+public/upload/
+package-lock.json
+config.json
+iisnode

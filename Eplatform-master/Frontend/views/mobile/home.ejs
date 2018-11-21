@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <%- include("partials/head") %>
+</head>
+
+<body>
+
+    <div class="topNavHome">
+        <%- include("partials/headers/top-nav") %>
+    </div>
+
+    <div id="banner">
+        <div class="container">
+            <div class="searchInfo">
+                <h2><%= langData.lbl_titleSearch %></h2>
+                <div class="controlS clearfix">
+                    <input class="searchInputForHint" type="text" name="txtSearch" placeholder="<%= langData.btn_search %>" />
+                    <button type="submit" name="btnSearch">
+                        <img src="public/assets/search.svg" />
+                    </button>
+                </div>
+                <p class="para01"><%= langData.lbl_desc1Search %></p>
+                <a class="navdown" href="#category">
+                    <img src="public/assets/arrow-down.svg" />
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="category" class="text-center">
+        <div class="container">
+            <h2 class="fontsize18"><%= langData.lbl_filter %></h2>
+            <div id="catContainer" class="catContainer">
+                <% for (let cat of pageData.companyCategories) { %>
+                <div class="catItem">
+                    <a href="<%= genUrl.getMapUrl(cat.name) %>">
+                        <% if (cat.imageId && cat.imageId.url) { %>
+                            <img src="<%= cat.imageId.url %>?w=45&h=45&fit=crop" />
+                        <% } else { %>
+                            <img src="public/assets/legal-struture.svg" />
+                        <% } %>
+                        <h6><span><%- cat.name %></span></h6>
+                    </a>
+                </div>
+                <% } %>
+                <div class="catItem lastChildCatItem" id="loadMoreCat">
+                    <a href="javascript:void(0)">
+                        <i class="fa fa-plus"></i>
+                        <h6><span><%= langData.btn_showmore %></span></h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="about" class="text-center">
+
+        <div class="container aboutSmart">
+            <h2><%= langData.lbl_aboutUs %></h2>
+            <div class="aboutSmartContainer">
+                <% for (var e in pageData.aboutUsData) { 
+                    text = pageData.aboutUsData[e].title;
+                    text = text.substring(text.indexOf("#") + 1, text.lastIndexOf("#"));
+                %>
+                <div class="aboutSmartItem">
+                    <div class="aboutSmartContent">
+                        <img src="<%= pageData.aboutUsData[e].imageId.url %>" />
+                        <a href="<%= genUrl.getAboutUsUrl() %>">
+                            <h2><%= text %></h2> 
+                            <h5><%= pageData.aboutUsData[e].title.replace(/#.*#/, '') %></h5>
+                        </a>
+                        <p><%- pageData.aboutUsData[e].shortDesc %></p>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <div id="app">
+        <div class="container">
+            <div class="appContent">
+                <h2><%= langData.titleIntro %></h2>
+                <p class="fontsize24 color6F93F9"><%= langData.subTitleIntro %></p>
+                <p class="color333 font-light"><%= langData.contentIntro1 %></p>
+                <p class="color333 font-light"><%= langData.contentIntro2 %></p>
+                <a href="<%= genUrl.getAppUrl() %>"><%= langData.lbl_more %></a>
+                <div class="appDownload">
+                    <h4><%= langData.lbl_downloadApp %></h4>
+                    <a href="#"><img src="../public/assets/appstorem.png"></a>
+                    <a href="#"><img src="../public/assets/playstorem.png"></a>
+                    <div class="clearfix"></div>
+                </div>
+            </div>            
+            <div class="appImg">
+                <img src="../public/images/app.png">
+            </div>
+        </div>
+    </div>
+
+    <div id="statictis" class="aboutStatistic">
+        <div class="container">
+            <div class="aboutSmartContainer2">
+                <div class="staContent">
+                    <% for (var e = 0; e < pageData.dashboardBusinessData.length; e++) { %>
+                        <div class="staContentContainer">
+                            <div class="staItem staItem0<%= e+1 %>">
+                                <div class="titleSta">
+                                    <img src="<%= pageData.dashboardBusinessData[e].imageId.url %>" />
+                                    <h7>&nbsp;<%= pageData.dashboardBusinessData[e].name %></h7>
+                                </div>
+                                <div class="numberSta">
+                                    <h4><%= pageData.dashboardBusinessData[e].value %></h4>
+                                </div>
+
+                                <img class="staImgBG" src="public/assets/bg1-0<%= e+1 %>.png"/>
+                            </div>
+                        </div>
+                    <% } %>
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="divider"></div>
+
+                <div class="staContent2">
+                    <% pageData.totalVisitor = siteInfo.visitor %>
+                    <% for (var e = 0; e < pageData.dashboardWebsiteData.length; e++) { 
+                        pageData.dashboardWebsiteData[e].value = pageData[pageData.dashboardWebsiteData[e].countData] ? pageData[pageData.dashboardWebsiteData[e].countData] : pageData.dashboardWebsiteData[e].value;
+                    %> 
+                        <div class="aboutStatisticItem">
+                            <div class="aboutStatisticContent aboutStatisticContent<%= e+1 %>">
+                                <div></div>
+                                <h5><%= pageData.dashboardWebsiteData[e].name %></h5>
+                                <h2 class="counter"  id="count0<%= e+1 %>"value-to="<% if ( e == 3) { %> <%= pageData.dashboardWebsiteData[e].value - Math.floor(Math.random() * 10) %> <% } else { %> <%= pageData.dashboardWebsiteData[e].value %> <% } %>"></h2>
+                                <img src="<%= pageData.dashboardWebsiteData[e].imageId.url %>" />
+                            </div>
+                        </div>
+                    <% } %>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="customer">
+        <div class="container">
+            <h2 class="fontsize18"><%= langData.lbl_customerReview %></h2>
+
+            <div id="slideNav1"  class="companySlideNav customerNav text-left">
+                <div class="nav nav-tabs" >
+                    <ul class="list-inline"  id="slideNav1header">
+                        <li class="companySlideNavItem active">
+                            <a data-toggle="tab" href="#ourPartner"><%= langData.tab_ourPartner %></a>
+                        </li>
+                        <li class="companySlideNavItem">
+                            <a data-toggle="tab" href="#ourCustomer"><%= langData.tab_ourCustomer %></a>
+                        </li>
+                        <!-- <li class="companySlideNavItem">
+                            <a data-toggle="tab" href="#ourReview"><%= langData.tab_customerReview %></a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content">
+                <div id="ourPartner" class="customerPanel tab-pane active">
+                    <div class="blockPartner">
+                        <div class="blockPartnerItem">
+                            <div class="blockPartnerContent">
+                                <% for (var i = 0; i < pageData.customerData.length/2; i++) { %>
+                                <a href="<%= genUrl.getDetailUrl() %>/<%= pageData.customerData[i].url %>">
+                                    <img src="<%= pageData.customerData[i].logoImageId.url %>" />
+                                </a>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="blockPartnerItem">
+                            <div class="blockPartnerContent">
+                                <% for (var j = parseInt(pageData.customerData.length/2); j < pageData.customerData.length; j++) { %>
+                                <a href="<%= genUrl.getDetailUrl() %>/<%= pageData.customerData[j].url %>">
+                                    <img src="<%= pageData.customerData[j].logoImageId.url %>" />
+                                </a>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <img class="arrowPrev" src="public/assets/arrow.svg" width="20" height="14">
+                    <img class="arrowNext" src="public/assets/arrow.svg" width="20" height="14">
+                </div>
+
+                <div id="ourCustomer" class="customerPanel tab-pane">
+                    <div class="blockCustomer">
+                        <div class="blockPartnerItem">
+                            <div class="blockPartnerContent">
+                                <% for (var i = 0; i < parseInt(pageData.partnerData.length/2); i++) { %>
+                                <a>
+                                    <img src="<%= pageData.partnerData[i].logoId.url %>" />
+                                </a>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="blockPartnerItem">
+                            <div class="blockPartnerContent">
+                                <% for (var j = parseInt(pageData.partnerData.length/2); j < pageData.partnerData.length; j++) { %>
+                                <a>
+                                    <img src="<%= pageData.partnerData[j].logoId.url %>" />
+                                </a>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <img class="arrowPrev2" src="public/assets/arrow.svg" width="20" height="14">
+                    <img class="arrowNext2" src="public/assets/arrow.svg" width="20" height="14">
+                </div>
+
+                <div id="ourReview" class="customerPanel tab-pane">
+                    <div class="reviewSlick">
+                        <div class="reviewSlickItem">
+                        <% for (var e = 0; e < pageData.customerReviewData.length/2; e++) { %>
+                            <div class="reviewDiv">
+                                <div class="reviewAva">
+                                    <img src="<%= pageData.customerReviewData[e].imageId.url %>" />
+                                </div>
+                                <div class="reviewContent">
+                                    <% for (var i = 0; i < pageData.customerReviewData[e].star; i++) { %>
+                                        <img src="public/assets/star-copy-2.svg" />&nbsp;
+                                    <% } %>
+                                    <p><%= pageData.customerReviewData[e].review %></p>
+                                </div>
+                            </div>
+                        <% } %>
+                        </div>
+                        <div class="reviewSlickItem">
+                            <% for (var e = pageData.customerReviewData.length/2; e < pageData.customerReviewData.length; e++) { %>
+                                <div class="reviewDiv">
+                                    <div class="reviewAva">
+                                        <img src="<%= pageData.customerReviewData[e].imageId.url %>" />
+                                    </div>
+                                    <div class="reviewContent">
+                                        <% for (var i = 0; i < pageData.customerReviewData[e].star; i++) { %>
+                                            <img src="public/assets/star-copy-2.svg" />&nbsp;
+                                        <% } %>
+                                        <p><%= pageData.customerReviewData[e].review %></p>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Hint for search -->
+    <div class="hintBox">
+        <div class="suggest-search">
+            
+        </div>
+    </div> 
+    <!-- End hint for search -->
+
+    <%- include("partials/footers/default") %>
+    <script src="public/js/TweenMax.min.js"></script>
+    <script src="public/js/waypoints.min.js"></script>
+    <script src="public/js/jquery.counterup.min.js"></script>
+    <script src="public/slick/slick.js"></script>
+    <script src="public/js/selectize.js"></script>
+    <script src="public/js/countUp.js"></script>
+    <script src="public/js/jquery.touchSwipe.min.js"></script>    
+
+</body>
+
+</html>

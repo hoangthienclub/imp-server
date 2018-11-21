@@ -1,0 +1,827 @@
+{
+    "_id": "5b0e2a7cc01272091c13ada4",
+    "PCI": "<p>58.89 (2015) - Rank: 25</p>\r\n",
+    "RegionId": [],
+    "agriculturalProductionLand": 1905,
+    "annualAverageCapitalOfEnterprises": "<p>597,387 billion dongs (2014)</p>\r\n",
+    "averagePopulation": "<p>723 person/km2 (2015)</p>\r\n",
+    "borders": "<p style=\"text-align:justify\">Southern: Ho Chi Minh City.</p>\r\n\r\n<p style=\"text-align:justify\">East: Dong Nai Province.</p>\r\n\r\n<p style=\"text-align:justify\">West: Tay Ninh Province and Ho Chi Minh City</p>\r\n",
+    "climate": "<p style=\"text-align:justify\">Characterized climate is tropical monsoon, hot and humid with two seasons, the rainy season starting in May to 11, the dry season from about December to April last year following the year, average annual rainfall of 1,800 mm to 2,000 mm. The annual average temperature is 26,5 degrees Celsius.</p>\r\n",
+    "coastline" : "<p>128 km</p>\r\n",
+    "education": "<ul>\r\n\t<li style=\"text-align:justify\">Binh Duong University</li>\r\n\t<li style=\"text-align:justify\">Thu Dau Mot University</li>\r\n\t<li style=\"text-align:justify\">Binh Duong&nbsp;Economics and Technology University</li>\r\n\t<li style=\"text-align:justify\">Eastern International University</li>\r\n\t<li style=\"text-align:justify\">Vietnamese - German University</li>\r\n\t<li style=\"text-align:justify\">HCMC Open University (Binh Duong Branch)</li>\r\n\t<li style=\"text-align:justify\">Thuy Loi University (Binh Duong Branch)</li>\r\n\t<li style=\"text-align:justify\">Public Affairs Officers School - University of Ngo Quyen (Decision No. 1359 / QD-TTg).</li>\r\n\t<li style=\"text-align:justify\">Binh Duong Medical College</li>\r\n\t<li style=\"text-align:justify\">Vietnam - Singapore Vocational College</li>\r\n\t<li style=\"text-align:justify\">Dong An Vocational Colleges</li>\r\n\t<li style=\"text-align:justify\">Binh Duong School of Agriculture and Forestry</li>\r\n\t<li style=\"text-align:justify\">Binh Duong School of Economics</li>\r\n\t<li style=\"text-align:justify\">Binh Duong School of Fine Art</li>\r\n\t<li style=\"text-align:justify\">Binh Duong School of Culture - Art and Tourism</li>\r\n</ul>\r\n",
+    "electricSupply" : "<p style=\"text-align:justify\">National electricity network covers all districts, communes in the province to meet production demand.</p>\r\n",
+    "ethnic": "Kinh , Hoa, Khmer, Tay",
+    "fineArts": "<p style=\"text-align:justify\">Binh Duong has the traditional villages, such as wood sculpture and ceramics and lacquer. Since ancient art of ceramics, lacquer and sculpture of the Pacific has participated in international fairs and also have exported to France and many countries in the region.</p>\r\n",
+    "forestyLand": 153,
+    "gdpGrowthRate": "<p>13% (2015)</p>\r\n",
+    "headquartersCommittee": "16th Floor, Civic Center Building, Le Loi Street, Phu Hoa Ward, Thu Dau Mot City, Binh Duong Province",
+    "homesteadLand": 144,
+    "hospitalAndMedicalCentres" : "<p style=\"text-align:justify\">Thua Thien Hue is one of the three intensive and high-tech medical centers of Vietnam. Total number</p>\r\n\r\n<p style=\"text-align:justify\">of health establishments under provincial Department of Health in Thua Thien Hue is 182, of which:&nbsp; 12 hospitals, 15 regional polyclinics, sanatorium and rehabilitation hospital and 153 medical service units in communes, precincts.</p>\r\n\r\n<ul>\r\n\t<li style=\"text-align:justify\">Total number of patient beds is 1,550.</li>\r\n\t<li style=\"text-align:justify\">Number of medical staffs: 600 doctors, 422 physicians, 378 nurses and 364 midwives.</li>\r\n\t<li style=\"text-align:justify\">Number of pharmaceutical staffs: 21 pharmacists of high degree, 80 pharmacists of middle degree and 37 assistant pharmacists.</li>\r\n</ul>\r\n",
+    "inmigrationRate": "<p>52.0% (2015)</p>\r\n",
+    "laborForce": "<p>997,118 people</p>\r\n",
+    "labourForceAt15YearsOfAgeAndAbove": "<p>63.4% (2015)</p>\r\n",
+    "language": "Vietnamese",
+    "regionName" : "Tay Nguyen",
+    "mainIndustries": "<p style=\"text-align:justify\">The industry supports the textile industry, leather - shoes, mechanical, electrical - electric, woodworking, processing industry.</p>\r\n",
+    "name": "Binh Duong Province",
+    "naturalIncreaseRateOfPopulation": "<p>14.8% (2015)</p>\r\n",
+    "naturalResources": "<p style=\"text-align:justify\"><strong>Land resources: </strong></p>\r\n\r\n<p style=\"text-align:justify\">The plentiful lands of Binh Duong include various types:</p>\r\n\r\n<ul>\r\n\t<li style=\"text-align:justify\">Grey on ancient alluvial soil, an area of 200,000 hectares, is distributed over the districts of Dau Tieng, Ben Cat, Thuan An, and Thu Dau Mot town. This soil is suitable for intense cropping, especially industrial plantations and fruit trees.</li>\r\n\t<li style=\"text-align:justify\">Yellow-brown on ancient alluvial soil, covering approximately 35,206 hectares, is located on the low sloping hills in the districts of Tan Uyen, Phu Giao, Thu Dau Mot town, Thuan An, and a few areas along Highway 13. This land is suitable for vegetable crops as well as fruit and nut trees such as jackfruit or cashew.</li>\r\n\t<li style=\"text-align:justify\">Alluvial Glay on slope convergence, located in the north of Tan Uyen, Phu Giao, Ben Cat, Dau Tieng, Thuan An, and Di An districts. Flat humus clay of about 7,900 hectares is scattered in depressed areas along rivers and streams. This soil is alkaline, acidic because of its iron and aluminum sulphate content. Treated soil can grow rice, vegetables and fruit trees, among other crops.</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\"><strong>Forest resources:</strong></p>\r\n\r\n<ul>\r\n\t<li style=\"text-align:justify\">Because of the humid tropical climate and fertile soil, the old forests of Binh Duong province support a very diverse and rich ecosystem. There are vast expanses of managed old growth forest. Forests in the province provide a number of valuable timbers such Cam Xe, Sao, Trac, Go do, Cam lai, and Giang huong. Binh Duong forests also supply a variety of medicinal herbs, food plants, and animals (including rare species).</li>\r\n</ul>\r\n\r\n<p style=\"text-align:justify\"><strong>Mineral resources:</strong></p>\r\n\r\n<ul>\r\n\t<li style=\"text-align:justify\">Along with valuable forest resources, mineral resources are another advantage of Binh Duong province, which became the cradle for many traditional industries, such as ceramics, sculpture, wood, and lacquer. Kaolin, white clay, colored clay, white grit, blue stone, and laterite mines scatter across the province, mostly in Tan Uyen, Thuan An town, Di An town, and Thu Dau Mot city.</li>\r\n</ul>\r\n",
+    "netTurnover": "<p>812,358 billion dongs (2014)</p>\r\n",
+    "numberOfProject": "2567.00",
+    "peoplesCommitee": "<p style=\"text-align:justify\">16th Floor, Civic Center Building, Le Loi Street, Phu Hoa Ward, Thu Dau Mot City, Binh Duong Province.</p>\r\n",
+    "peoplesCouncil": "<p style=\"text-align:justify\">15B Floor, Provincial Administrative Center, Hoa Phu Ward, Thu Dau Mot City, Binh Duong Province.</p>\r\n",
+    "population": "<p>1,802,500 (10/2014)</p>\r\n",
+    "populationBySex": "<p>93.3 males per 100 females (2015)</p>\r\n",
+    "profitBeforeTaxes": "<p>28,008 billion dongs (2014)</p>\r\n",
+    "profitRate": "<p>3.34% (2014)</p>\r\n",
+    "relevantGovernmentDepartments": "<ul>\r\n\t<li>People&#39;s Committee Office of Binh Duong</li>\r\n\t<li>Department of Culture, Sports and Tourism</li>\r\n\t<li>Management Board Industrial Park of Binh Duong</li>\r\n\t<li>Department of Industry and Trade</li>\r\n\t<li>Department of Education and Training</li>\r\n\t<li>Department of Transport</li>\r\n\t<li>Department of Planning and Investment</li>\r\n\t<li>Department of Science and Technology</li>\r\n\t<li>Department of Labour, War Invalids and Social Affairs</li>\r\n\t<li>Department of Home Affairs</li>\r\n\t<li>Department of Foreign Affairs</li>\r\n\t<li>Department of Finance</li>\r\n\t<li>Department of Natural Resources and Environment</li>\r\n\t<li>Department of Information and Communications</li>\r\n\t<li>Department of Justice</li>\r\n\t<li>Department of Construction</li>\r\n\t<li>Department of Health</li>\r\n\t<li>Inspectors of Binh Duong</li>\r\n</ul>\r\n",
+    "scienceAndTechnology" : "<p style=\"text-align:justify\">Viet Tri general hospital is the satellite hospital of the Central Healthcare system in the North Vietnam.Besides, there are other district hospitals to meet the healthcare needs of people in the province and in the region.</p>\r\n",
+    "speciallyUsedLand": 356,
+    "telecommunications" : "<p style=\"text-align:justify\">Thua Thien Hue network for post and telecommunications was developed 60 post offices, 17 agents, 12 kiosks, 111 points of village cultural post office, raising wide &ndash; province service in the ratio of 2.84 km/ a point. Mobile phone networks &ndash; Vina Phone, MobiFone, Viettel &hellip; &ndash; has been in operation. Total number of phone subscribers from 6 telephone commutnication networks are 218.187 (total phone subscribers include telephone subscribers and mobile phone subscribers is 355.674), reaching 31 pieces/ 100 people. There are 205 BTS stations for receiving and transmission. Total number of internet subscribers in Thua Thien Hue is 9.196 of which 7.166 is ADSL internet and 2.030 is dialed subscriber one.</p>\r\n",
+    "totalArea": 2694.44,
+    "totalExport": 0,
+    "transportation": "<p style=\"text-align:justify\">The system of roads and waterways of Binh Duong province is very important in connecting regions inside and outside the province. The road system centers on the important transport routes of Highway 13, running from Ho Chi Minh City through the province from south to north, crossing Binh Phuoc province, connecting Cambodia to Thailand border. This highway is significantly meaningful to military and economic purposes.</p>\r\n\r\n<p style=\"text-align:justify\">Highway 14 from Tay Ninh province runs through Dau Tieng district to Chon Thanh district, Dong Xoai Town, Bu Dang district (Binh Phuoc province) across the vast Central Highlands. The road is strategically important to Vietnam&rsquo;s development both in war and peacetime.</p>\r\n\r\n<p style=\"text-align:justify\">There are also inter-provincial highway 1A from Thu Dau Mot town to Phuoc Long district (Binh Phuoc), inter-provincial highway 13 from Chon Thanh district to Dong Phu district (Binh Phuoc) and Dau Tieng district (Binh Duong), inter-provincial Highway 16 from Tan Uyen town to Phuoc Vinh (Phu Giao district), Route 14 from Ben Cat district to Dau Tieng district ... and the road system provides key access routes to connect Thu Dau Mot city with the other towns and residential areas inside the province.</p>\r\n\r\n<p style=\"text-align:justify\">Regarding the water transport system, Binh Duong is located between three major rivers, including the important Saigon River. Binh Duong is connected by waterways to major ports in the South enabling the exchange of goods with Mekong Delta provinces.</p>\r\n",
+    "unemployment": "<p>4.2%</p>\r\n",
+    "waterSupply" : "<p style=\"text-align:justify\">Cities, commune, town had water plants with total capacity of above 108,000 m3/ day/ night, to satisfy demand for production and consumption.</p>\r\n",
+    "website": "www.binhduong.gov.vn",
+    "companies": [{
+        "_id": "5b064b84dc975309b8fab6a4",
+        "address": {
+            "raw": "36 VSIP, Street 6",
+            "latLng": {
+                "lat": 10.9375368,
+                "lng": 106.72666090000007
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "behn-meyer1_3.jpg",
+            "url": "http://eplatform.nso.com.vn/logo/10/behn-meyer1_3.jpg"
+        },
+        "name": "BEHN MEYER Co.,Ltd",
+        "url": "behn-meyer-coltd",
+        "taxNumber": 3700720496,
+        "categories": [{
+            "name": "Chemical and Chemical Products",
+            "url": "http://smartdirectory.vn:3330/map/chemical-and-chemical-products"
+        }]
+    }, {
+        "_id": "5b064b85dc975309b8fab6a7",
+        "address": {
+            "raw": "28 Tu Do Avenue",
+            "latLng": {
+                "lng": 106.7253166,
+                "lat": 10.9351559
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "greencross.gif",
+            "url": "http://eplatform.nso.com.vn/logo/11/greencross.gif"
+        },
+        "name": "Green Cross Vietnam Co., Ltd",
+        "url": "green-cross-vietnam-co-ltd",
+        "taxNumber": 3700539025,
+        "categories": [{
+            "name": "Chemical and Chemical Products",
+            "url": "http://smartdirectory.vn:3330/map/chemical-and-chemical-products"
+        }]
+    }, {
+        "_id": "5b064b85dc975309b8fab6ad",
+        "address": {
+            "raw": "F-2-CN Unt, D15 Street",
+            "latLng": {
+                "lat": 11.133308,
+                "lng": 106.60047050000003
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "goodsteel.gif",
+            "url": "http://eplatform.nso.com.vn/logo/20/goodsteel.gif"
+        },
+        "name": "Good Steel Vietnam Co., Ltd",
+        "url": "good-steel-vietnam-co-ltd",
+        "taxNumber": 3700685241,
+        "categories": [{
+            "name": "Metal",
+            "url": "http://smartdirectory.vn:3330/map/metal"
+        }]
+    }, {
+        "_id": "5b064b86dc975309b8fab6b3",
+        "address": {
+            "raw": "5 VSIP, Street 14",
+            "latLng": {
+                "lat": 11.1047711,
+                "lng": 106.69601560000001
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "logo23.jpg",
+            "url": "http://eplatform.nso.com.vn/logo/26/logo23.jpg"
+        },
+        "name": "Guhring VietNam LLC",
+        "url": "guhring-vietnam-llc",
+        "taxNumber": 305875662,
+        "categories": [{
+            "name": "Mechanic",
+            "url": "http://smartdirectory.vn:3330/map/mechanic"
+        }]
+    }, {
+        "_id": "5b064b86dc975309b8fab6b6",
+        "address": {
+            "raw": "28 VSIP II-A, Street 28",
+            "latLng": {
+                "lng": 106.695322,
+                "lat": 11.1421699
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "1001_1.jpg",
+            "url": "http://eplatform.nso.com.vn/logo/27/1001_1.jpg"
+        },
+        "name": "Zeng Hsing Industrial Co., Ltd",
+        "url": "zeng-hsing-industrial-co-ltd",
+        "taxNumber": 3700703596,
+        "categories": []
+    }, {
+        "_id": "5b064b86dc975309b8fab6b9",
+        "address": {
+            "raw": "Lot E613",
+            "latLng": {
+                "lng": 106.6137498,
+                "lat": 11.1347947
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "1002.jpg",
+            "url": "http://eplatform.nso.com.vn/logo/28/1002.jpg"
+        },
+        "name": "Merit Abrasive Products Vietnam Co., Ltd.",
+        "url": "merit-abrasive-products-vietnam-co-ltd",
+        "taxNumber": 3700330496,
+        "categories": [{
+            "name": "Paper and Paper Products",
+            "url": "http://smartdirectory.vn:3330/map/paper-and-paper-products"
+        }]
+    }, {
+        "_id": "5b064b87dc975309b8fab6bc",
+        "address": {
+            "raw": "Tan Phuoc, Tan Binh",
+            "latLng": {
+                "lng": 106.7553371,
+                "lat": 10.9422122
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "76.jpg",
+            "url": "http://eplatform.nso.com.vn/logo/31/76.jpg"
+        },
+        "name": "Machi Enterprises Viet Nam  Co. Ltd",
+        "url": "machi-enterprises-viet-nam-co-ltd",
+        "taxNumber": 3700367792,
+        "categories": [{
+            "name": "Plastic",
+            "url": "http://smartdirectory.vn:3330/map/plastic"
+        }]
+    }, {
+        "_id": "5b064b87dc975309b8fab6bf",
+        "address": {
+            "raw": "28 DT 743",
+            "latLng": {
+                "lat": 10.9091409,
+                "lng": 106.74235939999994
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "bar1162374507.png",
+            "url": "http://eplatform.nso.com.vn/logo/32/bar1162374507.png"
+        },
+        "name": "Long Tai Ceramic Co. Ltd",
+        "url": "long-tai-ceramic-co-ltd",
+        "taxNumber": 3700327486,
+        "categories": [{
+            "name": "Ceramic",
+            "url": "http://smartdirectory.vn:3330/map/ceramic"
+        }]
+    }, {
+        "_id": "5b064b87dc975309b8fab6c2",
+        "address": {
+            "raw": "2 VSIP, Street 6",
+            "latLng": {
+                "lat": 10.9375668,
+                "lng": 106.72124389999999
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "logo.jpg",
+            "url": "http://eplatform.nso.com.vn/logo/33/logo.jpg"
+        },
+        "name": "CEI Internatonal Investments Viet Nam Co., Ltd.",
+        "url": "cei-internatonal-investments-viet-nam-co-ltd",
+        "taxNumber": 3700403828,
+        "categories": [{
+            "name": "Computer",
+            "url": "http://smartdirectory.vn:3330/map/computer"
+        }]
+    }, {
+        "_id": "5b064b88dc975309b8fab6c5",
+        "address": {
+            "raw": "1B hamlet, An Phu",
+            "latLng": {
+                "lng": 106.7130309,
+                "lat": 10.924067
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "1460972169546_37772.png",
+            "url": "http://eplatform.nso.com.vn/logo/34/1460972169546_37772.png"
+        },
+        "name": "Central Iron Furnishing Factory Co.,Ltd",
+        "url": "central-iron-furnishing-factory-coltd",
+        "taxNumber": 3700602527,
+        "categories": []
+    }, {
+        "_id": "5b064b88dc975309b8fab6c8",
+        "address": {
+            "raw": "10 VSIP, Street 8",
+            "latLng": {
+                "lat": 10.9301884,
+                "lng": 106.7296086
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "1009.jpg",
+            "url": "http://eplatform.nso.com.vn/logo/35/1009.jpg"
+        },
+        "name": "Tan Chong (VietNam) Industrial Machinery Co., Ltd",
+        "url": "tan-chong-vietnam-industrial-machinery-co-ltd",
+        "taxNumber": 302344430,
+        "categories": [{
+            "name": "Services",
+            "url": "http://smartdirectory.vn:3330/map/services"
+        }, {
+            "name": "Leasing",
+            "url": "http://smartdirectory.vn:3330/map/leasing"
+        }]
+    }, {
+        "_id": "5b064b89dc975309b8fab6cb",
+        "address": {
+            "raw": "12A Doc Lap Avenue",
+            "latLng": {
+                "lng": 106.7191878,
+                "lat": 10.9274581
+            }
+        },
+        "provinceId": "5b058eb1dc975311982fad1c",
+        "provinceName": "Binh Duong",
+        "logo": {
+            "name": "1460992054605_37831.png",
+            "url": "http://eplatform.nso.com.vn/logo/36/1460992054605_37831.png"
+        },
+        "name": "Toyota Material Handling VietNam",
+        "url": "toyota-material-handling-vietnam",
+        "taxNumber": 3700233968,
+        "categories": []
+    }],
+    "geometry": [
+        [
+            [
+                [106.44635009765642, 11.499449729919547],
+                [106.44931793212896, 11.49931621551525],
+                [106.45246887207048, 11.499835968017578],
+                [106.45595550537115, 11.499977111816463],
+                [106.45796203613276, 11.50008583068859],
+                [106.46213531494169, 11.499897956848201],
+                [106.46682739257818, 11.498194694519157],
+                [106.48528289794939, 11.500008583068904],
+                [106.49177551269531, 11.497077941894531],
+                [106.49405670166033, 11.495757102966365],
+                [106.49652099609392, 11.494891166687069],
+                [106.49960327148438, 11.493871688842887],
+                [106.50292968750028, 11.487729072570914],
+                [106.50482940673834, 11.486390113830566],
+                [106.50926971435541, 11.484501838684196],
+                [106.51190185546903, 11.482345581054688],
+                [106.51687622070341, 11.478967666625977],
+                [106.52102661132818, 11.479043960571346],
+                [106.52339172363276, 11.477960586547965],
+                [106.52730560302757, 11.475163459777946],
+                [106.529037475586, 11.473427772521973],
+                [106.53083801269526, 11.471832275390568],
+                [106.53291320800793, 11.470709800720215],
+                [106.53529357910162, 11.469567298889103],
+                [106.55558776855497, 11.477513313293457],
+                [106.5573959350586, 11.474786758422852],
+                [106.56167602539091, 11.46904182434082],
+                [106.5641479492188, 11.466053009033203],
+                [106.56855010986357, 11.460692405700797],
+                [106.57003021240257, 11.448598861694393],
+                [106.56291198730486, 11.442149162292424],
+                [106.56101989746094, 11.440093994140682],
+                [106.5585861206057, 11.438698768615723],
+                [106.55335998535173, 11.436742782592773],
+                [106.54685211181635, 11.431240081787166],
+                [106.5452499389649, 11.428253173828182],
+                [106.54186248779325, 11.420511245727596],
+                [106.54078674316423, 11.385077476501465],
+                [106.54792022705084, 11.380256652832145],
+                [106.54991149902338, 11.376873970031795],
+                [106.55394744873064, 11.3716335296632],
+                [106.55596923828153, 11.37084770202648],
+                [106.5594558715822, 11.370233535766602],
+                [106.56161499023443, 11.36931037902832],
+                [106.56352233886724, 11.369120597839355],
+                [106.56825256347673, 11.370246887207088],
+                [106.57051849365251, 11.373012542724666],
+                [106.57299804687517, 11.37524223327648],
+                [106.5788192749024, 11.37735366821289],
+                [106.58333587646484, 11.378104209900016],
+                [106.5852661132813, 11.379243850708008],
+                [106.58747863769526, 11.380422592163029],
+                [106.59298706054699, 11.380213737487793],
+                [106.59568786621088, 11.381867408752441],
+                [106.60222625732422, 11.38566112518322],
+                [106.60438537597662, 11.38560867309576],
+                [106.60945892333984, 11.385362625122127],
+                [106.61635589599615, 11.362106323242301],
+                [106.61913299560541, 11.36117172241211],
+                [106.6219177246096, 11.361002922058162],
+                [106.62552642822271, 11.35960483551031],
+                [106.62873840332031, 11.358284950256404],
+                [106.63101196289062, 11.358527183532715],
+                [106.63616943359375, 11.357988357544059],
+                [106.63851928710943, 11.358460426330623],
+                [106.64109802246111, 11.358905792236385],
+                [106.64362335205078, 11.358584403991813],
+                [106.645736694336, 11.358114242553654],
+                [106.64847564697294, 11.3583021163941],
+                [106.65653991699236, 11.356444358825684],
+                [106.65834045410179, 11.355463027954158],
+                [106.6628494262697, 11.354645729064998],
+                [106.66624450683588, 11.353145599365234],
+                [106.67580413818376, 11.380400657653922],
+                [106.67910766601568, 11.38326644897461],
+                [106.67498779296903, 11.394304275512695],
+                [106.67326354980497, 11.399821281433105],
+                [106.67959594726557, 11.396679878234863],
+                [106.68734741210943, 11.394122123718262],
+                [106.69060516357428, 11.394880294799918],
+                [106.6923370361331, 11.397162437439022],
+                [106.6942062377932, 11.398407936096305],
+                [106.69891357421875, 11.397714614868164],
+                [106.70493316650419, 11.395667076110954],
+                [106.71147155761736, 11.406147956848088],
+                [106.71415710449236, 11.408185005188045],
+                [106.72234344482439, 11.421153068542594],
+                [106.72879028320324, 11.430948257446346],
+                [106.73062133789068, 11.430788993835506],
+                [106.73312377929693, 11.430440902709961],
+                [106.73539733886741, 11.430169105529842],
+                [106.7425842285158, 11.43896293640148],
+                [106.74436950683616, 11.439931869506779],
+                [106.74646759033226, 11.440695762634391],
+                [106.74968719482428, 11.442450523376465],
+                [106.75578308105474, 11.451897621154785],
+                [106.75451660156278, 11.474290847778377],
+                [106.75634765625, 11.474761009216365],
+                [106.77462768554705, 11.480375289916935],
+                [106.77646636962919, 11.48155212402338],
+                [106.782470703125, 11.485906600952092],
+                [106.79170989990263, 11.489259719848633],
+                [106.79437255859403, 11.488676071167049],
+                [106.7992248535158, 11.484383583068904],
+                [106.80281066894526, 11.472246170044059],
+                [106.80320739746088, 11.446283340454215],
+                [106.7996749877932, 11.443641662597656],
+                [106.79726409912121, 11.440992355346737],
+                [106.79399108886747, 11.437275886535645],
+                [106.7911224365235, 11.433445930480957],
+                [106.78778076171892, 11.43017387390148],
+                [106.78440093994146, 11.428123474121207],
+                [106.78132629394531, 11.425996780395565],
+                [106.77854919433622, 11.42505168914795],
+                [106.77406311035156, 11.425152778625545],
+                [106.77072143554716, 11.422916412353459],
+                [106.7697143554688, 11.416263580322266],
+                [106.76963043212885, 11.402873039245605],
+                [106.77430725097679, 11.39788818359375],
+                [106.77680969238287, 11.397244453430176],
+                [106.7804718017581, 11.397443771362305],
+                [106.78525543212902, 11.396452903747672],
+                [106.78569793701172, 11.378360748291072],
+                [106.79890441894537, 11.379573822021598],
+                [106.8017349243164, 11.378890991211051],
+                [106.81205749511724, 11.374130249023551],
+                [106.8148345947265, 11.37537002563488],
+                [106.81874084472662, 11.378084182739258],
+                [106.8219299316408, 11.38039398193365],
+                [106.82678222656256, 11.378885269165096],
+                [106.82962036132835, 11.378570556640568],
+                [106.8350296020509, 11.377982139587402],
+                [106.83718109130876, 11.375083923339957],
+                [106.84008789062506, 11.372994422912654],
+                [106.84375, 11.373340606689453],
+                [106.84943389892584, 11.374415397644157],
+                [106.85314178466825, 11.374650955200195],
+                [106.85673522949224, 11.358611106872615],
+                [106.85419464111328, 11.358109474182186],
+                [106.85760498046875, 11.349098205566463],
+                [106.85935211181646, 11.347496032714844],
+                [106.85746002197271, 11.343586921691838],
+                [106.85718536376947, 11.31221961975109],
+                [106.86129760742193, 11.312786102294979],
+                [106.86763763427763, 11.310453414916992],
+                [106.86972045898466, 11.3091077804566],
+                [106.87187957763689, 11.308428764343375],
+                [106.8746185302735, 11.310002326965446],
+                [106.87126922607433, 11.317310333251953],
+                [106.86919403076166, 11.320875167846793],
+                [106.87162017822294, 11.325298309326172],
+                [106.87353515625028, 11.327173233032227],
+                [106.87729644775396, 11.331217765808162],
+                [106.87948608398432, 11.334014892578182],
+                [106.88539123535168, 11.339711189270076],
+                [106.88890075683594, 11.339541435241642],
+                [106.89450073242193, 11.339357376098633],
+                [106.89872741699247, 11.338923454284782],
+                [106.90310668945341, 11.345626831054688],
+                [106.9049911499024, 11.348648071289062],
+                [106.9077453613283, 11.352292060852108],
+                [106.91006469726562, 11.35272121429449],
+                [106.91320800781278, 11.353883743286133],
+                [106.91961669921875, 11.351252555847225],
+                [106.92430877685541, 11.353552818298283],
+                [106.93306732177746, 11.352003097534123],
+                [106.9388656616211, 11.350014686584473],
+                [106.94143676757841, 11.347125053405875],
+                [106.91336822509771, 11.23630809783947],
+                [106.9146499633789, 11.225973129272461],
+                [106.91327667236345, 11.21468639373785],
+                [106.90682220458984, 11.211668014526367],
+                [106.90895843505865, 11.192989349365291],
+                [106.9127426147461, 11.194096565246582],
+                [106.92933654785156, 11.190665245056096],
+                [106.93894195556646, 11.179313659667969],
+                [106.94178771972662, 11.177509307861385],
+                [106.94512176513689, 11.173885345459041],
+                [106.95960235595697, 11.15120887756359],
+                [106.96353912353521, 11.142521858215446],
+                [106.96057128906267, 11.142403602600211],
+                [106.95632171630888, 11.123288154601994],
+                [106.96362304687517, 11.10794639587408],
+                [106.95664978027366, 11.099294662475586],
+                [106.94885253906256, 11.092643737792912],
+                [106.94604492187511, 11.07616329193121],
+                [106.94962310791021, 11.07452487945568],
+                [106.95051574707031, 11.06956958770752],
+                [106.92618560791044, 11.058451652526855],
+                [106.92160797119169, 11.046451568603516],
+                [106.91944122314459, 11.04543399810791],
+                [106.90550231933594, 11.022288322448844],
+                [106.90321350097656, 11.023160934448356],
+                [106.89787292480469, 11.027112960815487],
+                [106.89424133300781, 11.02789211273199],
+                [106.89051055908232, 11.027125358581543],
+                [106.88677978515642, 11.025911331176871],
+                [106.88088989257812, 11.023129463195914],
+                [106.87635040283226, 11.020819664001522],
+                [106.8707580566408, 11.020612716674862],
+                [106.86832427978521, 11.021727561950684],
+                [106.86579895019548, 11.023978233337402],
+                [106.8625717163086, 11.028363227844238],
+                [106.86073303222662, 11.030264854431096],
+                [106.85804748535179, 11.032549858093319],
+                [106.85423278808616, 11.034016609191838],
+                [106.85109710693376, 11.034345626831112],
+                [106.84602355957054, 11.036168098449707],
+                [106.84423065185564, 11.03686332702648],
+                [106.84142303466803, 11.038392066955623],
+                [106.83586883544922, 11.047534942626896],
+                [106.83425903320341, 11.051050186157283],
+                [106.83100128173857, 11.057256698608455],
+                [106.8259353637697, 11.065296173095703],
+                [106.8235626220706, 11.065344810485783],
+                [106.82091522216808, 11.064983367919979],
+                [106.81858062744146, 11.064274787902889],
+                [106.81513977050787, 11.063264846801815],
+                [106.80812835693388, 11.061450958252067],
+                [106.80487060546903, 11.06068038940441],
+                [106.802490234375, 11.059903144836483],
+                [106.79940032959001, 11.052462577819938],
+                [106.80287170410156, 11.050655364990234],
+                [106.8057708740235, 11.048711776733512],
+                [106.81002044677763, 11.042637825012207],
+                [106.80798339843767, 11.026323318481388],
+                [106.80581665039091, 11.025613784790039],
+                [106.80209350585955, 11.025119781494197],
+                [106.79978942871111, 11.024859428405762],
+                [106.79537963867182, 11.023854255676326],
+                [106.78176116943365, 11.011938095092773],
+                [106.77583312988304, 10.998492240905705],
+                [106.77806854248047, 10.994050025940055],
+                [106.77970123291044, 10.990810394287166],
+                [106.78194427490257, 10.987221717834473],
+                [106.78514862060547, 10.984177589416504],
+                [106.78943634033232, 10.980096817016658],
+                [106.79460906982416, 10.97106075286871],
+                [106.79153442382841, 10.969738006591797],
+                [106.78038024902344, 10.964303970337028],
+                [106.77444458007812, 10.939991950988713],
+                [106.78794860839838, 10.922203063964844],
+                [106.82964324951178, 10.89557075500494],
+                [106.816177368164, 10.881967544555664],
+                [106.8099975585938, 10.877524375915527],
+                [106.78556060791038, 10.867392539978027],
+                [106.73754119873075, 10.886687278747559],
+                [106.73480987548834, 10.886374473571834],
+                [106.73143768310575, 10.891049385070858],
+                [106.7247238159182, 10.891442298889103],
+                [106.721435546875, 10.893445014953556],
+                [106.71502685546903, 10.892617225646973],
+                [106.71070861816423, 10.866592407226676],
+                [106.70876312255871, 10.866839408874625],
+                [106.70510864257841, 10.867028236389103],
+                [106.69493103027344, 10.873370170593205],
+                [106.69306182861351, 10.875982284545898],
+                [106.69160461425793, 10.889946937561035],
+                [106.69142913818354, 10.907148361206112],
+                [106.68973541259783, 10.911408424377498],
+                [106.67809295654314, 10.923678398132438],
+                [106.67617797851557, 10.92308044433588],
+                [106.66864776611351, 10.921026229858455],
+                [106.66635894775413, 10.92151165008545],
+                [106.66287994384766, 10.922678947448787],
+                [106.65711975097673, 10.925786018371639],
+                [106.65498352050793, 10.927457809448242],
+                [106.6402435302735, 10.979317665100154],
+                [106.63570404052763, 10.977437973022461],
+                [106.6333847045899, 10.977710723877067],
+                [106.63016510009794, 10.97850608825695],
+                [106.62194061279303, 10.984572410583553],
+                [106.61399078369135, 11.011725425720329],
+                [106.606674194336, 11.0123548507691],
+                [106.59587097167963, 11.031076431274528],
+                [106.5983352661134, 11.033814430236873],
+                [106.57736968994135, 11.049735069274902],
+                [106.56208801269543, 11.045196533203125],
+                [106.55783843994146, 11.045689582824707],
+                [106.5546188354495, 11.045762062072697],
+                [106.54591369628923, 11.052104949951286],
+                [106.54412078857428, 11.0533704757691],
+                [106.54198455810553, 11.054248809814453],
+                [106.53991699218756, 11.054906845092773],
+                [106.53447723388689, 11.057456016540584],
+                [106.52757263183605, 11.08207893371582],
+                [106.52998352050804, 11.084212303161735],
+                [106.52874755859392, 11.092229843139592],
+                [106.52088928222668, 11.121811866760368],
+                [106.5189895629884, 11.122783660888729],
+                [106.51557159423822, 11.125418663025016],
+                [106.49760437011747, 11.141250610351676],
+                [106.4934463500976, 11.143136024475154],
+                [106.48486328124994, 11.143084526061955],
+                [106.47930908203136, 11.141453742980957],
+                [106.47571563720697, 11.141862869262809],
+                [106.46879577636747, 11.155031204223746],
+                [106.45290374755865, 11.137477874755916],
+                [106.44702911376959, 11.13487434387207],
+                [106.43943023681669, 11.138383865356502],
+                [106.43408966064482, 11.142850875854549],
+                [106.36772155761747, 11.243045806884709],
+                [106.33640289306646, 11.333859443664494],
+                [106.33247375488276, 11.336793899536246],
+                [106.40731811523443, 11.468462944030705],
+                [106.42436218261747, 11.494423866271973],
+                [106.42641448974632, 11.494824409484977],
+                [106.42866516113281, 11.495463371276912],
+                [106.43630981445318, 11.500709533691463],
+                [106.44027709960938, 11.499698638916072],
+                [106.44334411621094, 11.499545097351188],
+                [106.44635009765642, 11.499449729919547]
+            ]
+        ]
+    ],
+    "totalIndustrialPark": 23,
+    "totalCompanies": 23259,
+    "industrialPark": [{
+        "_id": "5b0e2c63c0127223983ebad9",
+        "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__b8d6b9da_thumb1034.jpg",
+        "name": "Tan Binh Industrial Park",
+        "area": 352.5,
+        "tiLeThue": 0,
+        "address": "Bac Tan Uyen, Binh Duong",
+        "url": "tan-binh-industrial-park"
+    }, {
+        "_id": "5b0e2c63c0127223983ebadc",
+        "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__f6daa987_thump.jpg",
+        "name": "Vietnam - Singapore Industrial Park (VSIP 1)",
+        "area": 500,
+        "tiLeThue": 0,
+        "address": "Vietnam-Singapore Industrial Park, 8 Huu Nghi Avenue, Thuan An District, Vietnam",
+        "url": "vietnam-singapore-industrial-park-vsip-1"
+    }, {
+        "_id": "5b0e2c63c0127223983ebadf",
+        "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__d1498179_an tay.jpg",
+        "name": "An Tay Industrial Park",
+        "area": 997.74,
+        "tiLeThue": 0,
+        "address": "Ben Cat, Binh Duong",
+        "url": "an-tay-industrial-park"
+    }, {
+        "_id": "5b0e2c63c0127223983ebae2",
+        "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__8d221a72_thump.jpg",
+        "name": "Bau Bang Industrial Park",
+        "area": 997.74,
+        "tiLeThue": 0,
+        "address": "Lai Uyen, Ben Cat, Binh Duong",
+        "url": "bau-bang-industrial-park"
+    }, {
+        "_id": "5b0e2c63c0127223983ebae5",
+        "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__1e3d9573_khu-cong-nghiep-det-may-binh-an.jpg",
+        "name": "Binh An Industrial Park",
+        "area": 25.9,
+        "tiLeThue": 0,
+        "address": "Di An, Binh Duong",
+        "url": "binh-an-industrial-park"
+    }, {
+        "_id": "5b0e2c63c0127223983ebae8",
+        "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__c2a00e3d_thump.jpg",
+        "name": "Binh Duong Industrial Park",
+        "area": 16.5,
+        "tiLeThue": 0,
+        "address": "Di An, Binh Duong",
+        "url": "binh-duong-industrial-park"
+    }, {
+        "_id": "5b0e2c63c0127223983ebaeb",
+        "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__7daed356_thumb1033.jpg",
+        "name": "Dai Dang Industrial Park",
+        "area": 274.36,
+        "tiLeThue": 0,
+        "address": "Thu Dau Mot, Binh Duong",
+        "url": "dai-dang-industrial-park"
+    }, {
+        "_id": "5b0e2c63c0127223983ebaee",
+        "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__8c319a37_thump1.jpg",
+        "name": "Dat Cuoc Industrial Park",
+        "area": 212.84,
+        "tiLeThue": 0,
+        "address": "Dat Cuoc, Tan Uyen, Binh Duong",
+        "url": "dat-cuoc-industrial-park"
+    }, {
+        "_id": "5b0e2c63c0127223983ebaf1",
+        "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__ce03281a_thump1.jpg",
+        "name": "Dong An Industrial Park",
+        "area": 122.43,
+        "tiLeThue": 0,
+        "address": "Binh Hoa, Thuan An, Binh Duong",
+        "url": "dong-an-industrial-park"
+    }, {
+        "_id": "5b0e2c63c0127223983ebaf4",
+        "logoImageId": "http://ip.nso.com.vn/HinhBDS/Upload/HinhDaiDienKhuCongNghiep__51954536_thump1.jpg",
+        "name": "Dong An 2 Industrial Park",
+        "area": 158.11,
+        "tiLeThue": 0,
+        "address": "Thuan An, Binh Duong",
+        "url": "dong-an-2-industrial-park"
+    }],
+    "propertyList": [{
+        "_id": "5af00131fb1e072068c71002",
+        "url": "5000m2-factory-for-sales-in-vsip-area",
+        "purpose": "For Sale",
+        "image": "https://hub.nso.vn/glide/property-hub/properties/5000m2 Factory for sales in VSIP 1/Untitled-1.jpg?ts=1525917961",
+        "name": "5000m² Factory For Sales in VSIP Area",
+        "price": "45.5 billion VND",
+        "proptype": "For Sales - Factory",
+        "area": "5.000 m²",
+        "district": "Thuận An",
+        "province": "Bình Dương"
+    }, {
+        "_id": "5af540535941d615a0262dd8",
+        "url": "700m-factory-for-Lease-in-tan-phuoc-khanh-binh-duong",
+        "purpose": "For Lease",
+        "image": "https://hub.nso.vn/glide/property-hub/properties/10.848m² Factory for Sales In VSIP I Area/20180511-4.jpg?ts=1526031985",
+        "name": "700m² Factory for Lease in Tan Phuoc Khanh, Binh Duong",
+        "price": "28 Mi VND",
+        "proptype": "For Lease - Factory",
+        "area": "700 m²",
+        "district": "Tân Uyên",
+        "province": "Bình Dương"
+    }, {
+        "_id": "5af5458f5941d615a0262ddf",
+        "url": "10848m-factory-for-sales-in-vsip-i-area",
+        "purpose": "For Sale",
+        "image": "https://hub.nso.vn/glide/property-hub/properties/10.848m² Factory for Sales In VSIP I Area/10848m2_08.jpg?ts=1526262737",
+        "name": "10.848m² Factory for Sales In VSIP I Area",
+        "price": "Contact us",
+        "proptype": "For Sales - Factory",
+        "area": "10.848 m²",
+        "district": "Thuận An",
+        "province": "Bình Dương"
+    }, {
+        "_id": "5af54da05941d615a0262df0",
+        "url": "4000m²-factory-for-sales-in-thuan-an-binh-duong",
+        "purpose": "For Sale",
+        "image": "https://hub.nso.vn/glide/property-hub/properties/4000m² Factory for Sales in Thuan An, Binh Duong/20180511-6.jpg?ts=1526283868",
+        "name": "4000m² Factory for Sales in Thuan An, Binh Duong",
+        "price": "24 billion VND",
+        "proptype": "For Sales - Factory",
+        "area": "4.000 m²",
+        "district": "Thuận An",
+        "province": "Bình Dương"
+    }, {
+        "_id": "5af568785941d615a0262e17",
+        "url": "5500m-factory-for-lease-in-khanh-binh-binh-duong",
+        "purpose": "For Lease",
+        "image": "https://hub.nso.vn/glide/property-hub/properties/Nhà xưởng cho thuê Khánh Bình 5500m2/30826090_2169000479986132_1761502864_o.jpg?ts=1526032417",
+        "name": "5500m² Factory for Lease in Khanh Binh, Binh Duong",
+        "price": "288  million VND",
+        "proptype": "For Lease - Factory",
+        "area": "5.500 ",
+        "district": "Tân Uyên",
+        "province": "Bình Dương"
+    }, {
+        "_id": "5af692665941d615a0262e1c",
+        "url": "4000m-factory-for-lease-in-thuan-an-hoa-binh-duong",
+        "purpose": "For Lease",
+        "image": "https://hub.nso.vn/glide/property-hub/properties/4000m² Factory for Lease in Thuan An Hoa, Binh Duong/4000m2_for_lease-01.jpg?ts=1526287681",
+        "name": "4000m² Factory for Lease in Thuan An Hoa, Binh Duong",
+        "price": "180 Million VND",
+        "proptype": "For Lease - Factory",
+        "area": "4.000 m²",
+        "district": "Thuận An",
+        "province": "Bình Dương"
+    }, {
+        "_id": "5af69ad55941d615a0262e25",
+        "url": "666m²-factory-for-lease-in-binh-chuan-binh-duong",
+        "purpose": "For Lease",
+        "image": "https://hub.nso.vn/glide/property-hub/properties/666m² Factory for Lease in Binh Chuan, Binh Duong/666m2-binhchuan-1.jpg?ts=1526463907",
+        "name": "666m² Factory for Lease in Binh Chuan, Binh Duong",
+        "price": "40 Mi VND",
+        "proptype": "For Lease - Factory",
+        "area": "666 m²",
+        "district": "Thuận An",
+        "province": "Bình Dương"
+    }, {
+        "_id": "5af94fb35941d615a0262e68",
+        "url": "2000m²-factory-for-lease-in-thuan-giao-binh-duong",
+        "purpose": "For Lease",
+        "image": "https://hub.nso.vn/glide/property-hub/properties/2000m² Factory for Lease in Thuan Giao, Binh Duong/2000m2-thuan-giao-1.jpg?ts=1526290378",
+        "name": "2000m² Factory for Lease in Thuan Giao, Binh Duong",
+        "price": "113.8 Mi VND",
+        "proptype": "For Lease - Factory",
+        "area": "2.000 m²",
+        "district": "Thuận An",
+        "province": "Bình Dương"
+    }, {
+        "_id": "5afaa24060ff271024a2df2f",
+        "url": "2000m²-factory-for-lease-in-an-phu-binh-duong",
+        "purpose": "For Lease",
+        "image": "https://hub.nso.vn/glide/property-hub/properties/2000m² Factory for Lease in An Phu, Binh Duong/2000m2_anphu_BD-2.jpg?ts=1526375897",
+        "name": "2000m² Factory for Lease in An Phu, Binh Duong",
+        "price": "100 Mi VND",
+        "proptype": "For Lease - Factory",
+        "area": "2.000 m²",
+        "district": "Thuận An",
+        "province": "Bình Dương"
+    }, {
+        "_id": "5afaa71460ff271024a2df37",
+        "url": "8000m-factory-for-lease-in-binh-hoa-di-an-binh-duong",
+        "purpose": "For Lease",
+        "image": "https://hub.nso.vn/glide/property-hub/properties/8000m² Factory for lease in Binh Hoa,Di An, Binh Duong/8000m2-binhhoa-1.jpg?ts=1526435244",
+        "name": "8000m² Factory for Lease in Binh Hoa, Di An, Binh Duong",
+        "price": "70 - 280 Mi VND",
+        "proptype": "For Lease - Factory",
+        "area": "2.000 m² - 8.000 m²",
+        "district": "Thuận An",
+        "province": "Bình Dương"
+    }],
+    "news": [{
+        "logo": {
+            "name": "behn-meyer1_3.jpg",
+            "url": "http://eplatform.nso.com.vn/logo/10/behn-meyer1_3.jpg"
+        },
+        "title": "title",
+        "date": "2010-03-08T00:00:00.000Z",
+        "desc": "<p style=\"text-align: justify;\">Association activities of the Association in the form of economic organization, was established on the basis of voluntary, non-profit aims to represent and protect the legitimate interests of its members</p>\n"
+    }]
+}

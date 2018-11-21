@@ -1,0 +1,20 @@
+<% if (index == 0) { %>
+<div class="col-sm-12">
+    <input type="text" 
+    class="form-control" 
+    placeholder="<%= field.label %> <%= lang %>" 
+    ng-model="<%= getAttr(attr, lang) %>" 
+    name="<%= id %>" 
+    id="<%= id %>" 
+    ng-focus="<%= id %>=true" 
+    ng-class="form.<%= id %>.$valid ? 'form-control-success' : 'form-control-danger'" 
+    ng-required="<%= field.required != false ? 'true' : 'false' %>"
+    data-label="<%= lang.toUpperCase() %>: <%= field.label %>"
+    <%= field.slug ? "slug=" + lang + " ng-url=" + getAttr("url", lang) : "" %>
+    />
+</div>
+<% } else { %>
+<div class="col-sm-12">
+    <input type="text" class="form-control" placeholder="<%= field.label %> <%= lang %>" ng-model="<%= getAttr(attr, lang) %>" <%= field.slug ? "slug=" + lang + " ng-url=" + getAttr("url", lang) : "" %> name="<%= id %>" id="<%= id %>" ng-focus="<%= id %>=true" ng-required="<%= field.required != false ? 'true' : 'false' %>"/>
+</div>
+<% } %>

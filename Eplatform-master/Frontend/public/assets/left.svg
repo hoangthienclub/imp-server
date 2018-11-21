@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>85D785AC-6DF4-45C8-909F-61311D077A3C</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M0.559946989,38.3483034 L32.8393825,0.779750083 C33.1887839,0.373097761 33.8016866,0.326686767 34.208339,0.676088228 C34.2224015,0.688170931 34.2361149,0.700654017 34.2494625,0.713522125 L34.3119638,0.773778292 C34.6926496,1.14078939 34.7218027,1.74073877 34.3784944,2.14293062 L2.91755234,39 L34.3819847,75.8716163 C34.7281043,76.2772168 34.6951062,76.8830426 34.3069805,77.2486503 L34.2546774,77.297919 C33.8614465,77.6683357 33.2423878,77.6498412 32.871971,77.2566103 C32.8617508,77.2457605 32.8517798,77.2346786 32.842066,77.2233732 L0.559946989,39.6516966 C0.23792,39.2769042 0.23792,38.7230958 0.559946989,38.3483034 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="4.-Arrow-/--3.-Angle-/-1.-Super-/-Left">
+            <g id="icon" transform="translate(20.000000, 1.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="ic_arrow-left"></g>
+                <g id="icon-color" mask="url(#mask-2)" fill="#333333">
+                    <g transform="translate(-20.000000, -1.000000)" id="Gray-20">
+                        <rect x="0" y="0" width="80" height="80"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,210 @@
+
+<%
+getAttr = function (attr, lang) {
+    if (lang) {
+        return "vm." + model + ".data." + lang + "." + attr;
+    } else {
+        return "vm." + model + "." + attr;
+    }
+}
+getSymbol = function (attr, data) {
+    let symbol = "";
+    if (data.config && data.config[attr]) {
+        if (data.config[attr].attach) {
+            let obj = units.find(function (e) { return e._id == data.config[attr].attach; });
+            if (obj) {
+                symbol = " (" + obj.data.en.symbol + ")";
+            }
+        }
+    }
+    return symbol;
+}
+langs = ["en", "vi"];
+lookup = {}
+%>
+<% if (childCollections) { %>
+<div class="animated fadeIn" ng-if="vm.<%= model %>._id">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong>
+                        {{ "<%= moduleName %>" | stateLabel }}
+                    </strong>
+                    <small>Navigation</small>
+                </div>
+                <div class="card-body">
+                    <% for (var t in childCollections) { %>
+                    <a class="btn btn-primary" ui-sref="index.<%= childCollections[t].collection %>({ parentId: vm.<%= model %>._id, parentName: <%= getAttr('name', 'en') %> })"> {{ "<%= childCollections[t].label %>" | stateLabel }} </a>
+                    <% } %>
+                </div>
+                <div class="card-body">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% } %>
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal ng-pristine ng-valid" name="form" ng-submit="<%= submit %>">
+                <div class="card">
+                    <div class="card-header">
+                        <strong><%= moduleName %></strong>
+                        <small>Form</small>
+                    </div>
+                    <style>
+                        .form-group {
+                            margin-bottom: 0.75rem;
+                        }
+                        .checkbox-label {
+                            font-weight: 700;
+                        }
+                        .checkbox-label-right {
+                            padding: 0;
+                        }
+                        .odd {
+                            background-color: #b7b7b736;
+                            padding-top: 5px;
+                            padding-bottom: 5px;
+                        }
+                        .even {
+                            padding-top: 5px;
+                            padding-bottom: 5px;
+                        }
+                    </style>
+                    <div class="card-block">
+                        <!-- Render tab -->
+                        <% if (displayType == "tab") { %>
+                            <div class="col-md-12">
+                                <ul class="nav nav-tabs" role="tablist">
+                            <% for (var i = 0; i < fields.length; i++) { 
+                                field = fields[i];
+
+                                if (field.inputType == "tab") { %>
+                                    <li class="nav-item <%= i == 0 ? 'active': '' %>">
+                                        <a class="nav-link" data-toggle="tab" href="#<%= field.id %>" role="tab" aria-controls="home"><%= field.label %></a>
+                                    </li>
+                                <% } %>
+                            <% } %>
+                                </ul>
+                            </div>
+                        <% } %>
+
+                        
+                        <!-- Render begin of tab -->
+                        <% if (displayType == "tab") { %>
+                            <div class="tab-content">
+                        <% } %>
+
+
+                        <!-- Render Input -->
+                        <% for (var i = 0; i < fields.length; i++) { 
+                            field = fields[i];
+                            if (field.parentAttr) {
+                                continue;
+                            }
+                            attr = field.attr;
+                        %>
+                            <% if (field.inputType == "tab") { %>
+                                <% if (i != 0) { %>
+                                </div>
+                                <% } %>
+                                <div class="tab-pane <%= i == 0 ? 'active' : '' %>" id="<%= field.id %>" role="tabpanel">
+                            <% continue; } %>
+
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <% 
+                                    if (typeof multiLang == "undefined") {
+                                        for (let e in langs) { 
+                                            id = field.attr + "_" + langs[e];
+                                            width = (["number", "decimal", "date", "time", "username", "password", "select", "select_lookup", "file", "email", "tel", "tag", "single", "json", "code", "checkbox"].indexOf(field.inputType) >= 0 ? 10 : 5);
+                                    %>
+                                    <% if (e == 0) { %>
+                                    <div class="col-sm-2 label-right <%= i % 2 == 0 ? 'odd' : 'even' %>">
+                                        <label class="form-form-control-label control-label" for="<%= id %>"><%= field.label %><%- field.required != false ? '(<span class=\"required\">*</span>)' : '' %></label>
+                                    </div>
+                                    <% } %>
+                                    <div class="col-sm-<%= width %> <%= i % 2 == 0 ? 'odd' : 'even' %>">
+                                        <div class="row">
+                                            <div class="form-group col-sm-12" ng-class="!<%= id %> ? '' : form.<%= id %>.$valid ? 'has-success' : 'has-danger has-feedback'">
+                                                <%- include('../inputs/' + field.inputType, { lang: langs[e], index: e, last: e == langs.length - 1 }) %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%  
+                                            if (width == 10) {
+                                                break;
+                                            }
+                                        }
+                                    } else { 
+                                        id = field.attr;
+                                    %>
+                                    <div class="col-sm-2 label-right <%= i % 2 == 0 ? 'odd' : 'even' %>">
+                                        <label class="form-form-control-label control-label" for="<%= id %>"><%= field.label %><%- field.required != false ? '(<span class=\"required\">*</span>)' : '' %></label>
+                                    </div>
+                                    <div class="col-sm-10 <%= i % 2 == 0 ? 'odd' : 'even' %>">
+                                        <div class="row">
+                                            <%- include('../inputs/' + field.inputType, { lang: "", index: 0, last: true }) %>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                                </div>
+                            </div>
+
+                        <% } %>
+                        
+                        <!-- Render end of tab -->
+                        <% if (displayType == "tab") { %>
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-sm btn-primary pull-right"><i class="fa fa-dot-circle-o"></i> Submit</button>
+                        <button type="button" class="btn btn-sm btn-default" ui-sref-active ui-sref="<%= routes.back || ('index.' + collection) %>"><i class="fa fa-dot-circle-o"></i> Cancel</button>
+                        <button type="reset" ng-if="!vm.editPage" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+                        <% if (typeof multiLang == "undefined") {
+                            for (let lang of langs) { %>
+                            <button type="button" class="btn btn-sm btn-warning" ui-sref-active ng-click="vm.convertFrom('<%= lang %>')"><i class="fa fa-dot-circle-o"></i> Convert From <%= lang.toUpperCase() %></button>
+                        <% }} %>
+                        <button type="button" class="btn btn-sm btn-primary" ng-click="vm.insertAsNew()"><i class="fa fa-dot-circle-o"></i> Insert as new</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<style>
+    .modal-extra-large {
+        width: 90%;
+        height: 90%;
+        top: 5%;
+        left: 5%;
+        margin: 0;
+        padding: 0;
+        max-width: none;
+        position: absolute;
+        transform: translate(0, 0%) !important;
+    }
+
+    .modal-content {
+        height: auto;
+        min-height: 100%;
+        border-radius: 0;
+        overflow: auto;
+    }
+</style>
+
+<div class="modal fade extra-large" id="addModal" tabindex="-1" role="dialog" style="display: none; opacity: 1;">
+    <div class="modal-dialog modal-primary modal-extra-large" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <iframe ng-if="vm.addModal.active" ng-src="{{ vm.addModal.url }}" style="width: 100%; height: 100%; border: 0; position: absolute;"></iframe>
+            </div>
+        </div>
+    </div>
+</div>

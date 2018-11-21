@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<%- include("partials/head") %>
+	<link rel="stylesheet" href="public/slick/slick.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="public/slick/slick-theme.css" />
+</head>
+
+<body>
+
+
+	<div class="topNavWhite">
+        <%- include("partials/headers/top-nav") %>
+	</div>
+
+	<div class="clearfix"></div>
+
+	<!-- <div id="subTitle" style="">
+		<div class="container">
+			<div class="guideNav">
+				<a href="<%= genUrl.getHomeUrl() %>"><%= langData.menu_home %></a> >
+				<a href="<%= genUrl.getFaqUrl() %>"><%= langData.menu_faq %></a>
+			</div>
+			<div class="pageTitle">
+				<div class="">
+					<h3><%= langData.lbl_title %></h3>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div> -->
+
+
+	<div id="content">
+		<div class="container">
+			<div class="conHead">
+				<div class="conTitle">
+					<% if (pageData.logoImageId && pageData.logoImageId.url) { %>
+						<img src="<%= pageData.logoImageId.url %>" />
+					<% } else { %>
+						<img src="public/images/avatar.png" />
+					<% } %>
+					<h4><%= pageData.name %></h4>
+					<div class="clearfix"></div>
+				</div>
+				
+				<div class="conLeft">
+					<%- pageData.desc %>		
+				</div>
+				<div class="conRight">
+					<div class="citiesMap" id="mapAssociation" style="width: 100%; height: 350px">
+
+					</div>
+					<script src="https://maps.googleapis.com/maps/api/js?mid=1cFDvE7JtCCxjrR7jk9_sqz3tsXU&key=AIzaSyC01xk6g1-fLTBjEZeRouhA9TOLt8kEZeU&libraries=places"></script>
+					<script>
+							function initMapAssociation() {
+								let lat = parseFloat("<%= pageData.address.latLng.lat %>");
+								let lng = parseFloat("<%= pageData.address.latLng.lng %>");
+								
+								var mapAssociation = new google.maps.Map(document.getElementById('mapAssociation'), {
+									zoom: 18,
+									center: {lat: lat, lng: lng},
+									maxZoom: 20
+								});
+
+								let markerAssociation = new google.maps.Marker({
+									position: new google.maps.LatLng(lat, lng),
+									title: "<%= pageData.name %>"
+								});
+								markerAssociation.setMap(mapAssociation);
+							}
+
+							google.maps.event.addDomListener(window, "load", initMapAssociation);
+					</script>
+				</div>
+			</div>
+			<div class="conBody">
+				<div class="conBodyLeft">
+					<div class="con-left-menu activeMenu" data-target="geography">
+						<img src="public/assets/geography-01.png"/>
+						<%= langData.tab_generalInfo %>
+					</div>
+					<% if (pageData.companyData && pageData.companyData.length > 0) { %>
+					<div class="con-left-menu" data-target="connection">
+						<img src="public/assets/connection-01.png"/>
+						<%= langData.tab_connection %>
+					</div>	
+					<% } %>
+					<% if (pageData.newsData && pageData.newsData.length > 0) { %>
+					<div class="con-left-menu" data-target="newsevents">
+						<img src="public/assets/news-events-01.png"/>
+						<%= langData.tab_news %>
+					</div>
+					<% } %>
+				</div>
+				<div class="conBodyRight">
+					<div class="blockC geography">
+						<table>
+							<% if (pageData.address.raw) { %>
+							<tr>
+								<td><%= langData.lbl_address %></td>
+								<td><%= pageData.address.raw %></td>
+							</tr>
+							<% } %>
+							<% if (pageData.phoneNumber && pageData.phoneNumber.length > 0) { %>
+							<tr>
+								<td><%= langData.lbl_phoneNumber %></td>
+								<td><%- pageData.phoneNumber.map(e => '<a href="tel:' + e + '">' + e + '</a>').join(", ") %></td>
+							</tr>
+							<% } %>
+							<% if (pageData.fax && pageData.fax.length > 0) { %>
+							<tr>
+								<td>Fax</td>
+								<td><%- pageData.fax.map(e => '<a href="tel:' + e + '">' + e + '</a>').join(", ") %></td>
+							</tr>
+							<% } %>
+							<% if (pageData.email && pageData.email.length > 0) { %>
+							<tr>
+								<td><%= langData.lbl_email %></td>
+								<td><%- pageData.email.map(e => '<a href="mailto:' + e + '">' + e + '</a>').join(", ") %></td>
+							</tr>
+							<% } %>
+							<% if (pageData.website) { %>
+							<tr>
+								<td><%= langData.lbl_website %></td>
+								<td><%= pageData.website %></td>
+							</tr>
+							<% } %>
+							<% if (pageData.foundDate) { %>
+							<tr>
+								<td><%= langData.lbl_foundDate %></td>
+								<td><%= moment(pageData.foundDate).format('DD/MM/YYYY') %></td>
+							</tr>
+							<% } %>
+							<% if (pageData.registrationNumber) { %>
+							<tr>
+								<td><%= langData.lbl_registrationNumber %></td>
+								<td><%= pageData.registrationNumber %></td>
+							</tr>
+							<% } %>
+							<% if (pageData.president) { %>
+							<tr>
+								<td><%= langData.lbl_president %></td>
+								<td><%- pageData.president %></td>
+							</tr>
+							<% } %>
+							<% if (pageData.vicePresident) { %>
+							<tr>
+								<td><%= langData.lbl_vicePresident %></td>
+								<td><%- pageData.vicePresident %></td>
+							</tr>
+							<% } %>
+							<% if (pageData.secretary) { %>
+							<tr>
+								<td><%= langData.lbl_secretary %></td>
+								<td><%= pageData.secretary %></td>
+							</tr>
+							<% } %>
+						</table>
+						<div class="blockD galleryList asGal">
+							<% if (pageData.imageIds.length > 0) { %>
+								<% for (var e of pageData.imageIds) { %>
+									<div class="galleryItem">
+										<img src="<%= e.url %>" />
+									</div>
+								<% } %>
+							<% } %>
+						</div>
+					</div>
+
+					
+					<div class="blockC connection">
+
+						<!--Block này tạm thời ẩn-->
+						<div class="blockD" style="display: none;">
+							<div class="connectBodyContentItem">
+								<div class="connectBodyContentItemIMG">
+									<div>&nbsp;</div>
+									<img src="public/assets/city.svg" class="blackSVG" />
+								</div>
+								<div class="connectBodyContentItemContent">
+									<a href="#">
+										<h6>Binh Duong Province</h6>
+									</a>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<!--Block này tạm thời ẩn-->
+
+						<% if (pageData.companyData && pageData.companyData.length > 0) { %>
+						<div class="blockD companyList">
+								<div class="blockDTitle">
+									<h7><%= langData.lbl_member %></h7>
+									<!-- <a href="#"><%= langData.lbl_Viewall %></a> -->
+								</div>
+								<div class="blockDGrid">
+									<!-- Company List -->
+									<% for (row of pageData.companyData) { %>
+										<div class="companyListItem">
+											<div class="resultItem">
+												<div class="resultItemAva">
+													<a href="<%= genUrl.getDetailUrl(row.url) %>">
+														<% if (row.logoImageId && row.logoImageId.url) { %>
+															<img src="<%= row.logoImageId.url %>">
+														<% } else { %>
+															<img src="<%= genUrl.getComapnyDefaultLogo() %>">
+														<% } %>
+													</a>
+												</div>
+												<div class="resultItemCompanyTitle">
+													<a href="<%= genUrl.getDetailUrl(row.url) %>">
+														<h7><%= row.name %></h7>
+													</a>
+												</div>
+												<div class="resultItemCompanyShortDesc">
+													<table>
+														<tr>
+															<td>
+																<p><b><%= langData.lbl_category %>:</b></p>
+															</td>
+															<td>
+																<% if (row.categories.length > 0) { %> <%- row.categories.map(e => '<a href="' + genUrl.getMapUrl(e.name) + '">' + e.name + '</a>').join(", ") %> <% } else { %> <a><%= langData.lbl_otherCat %></a> <% } %> 
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<p><b><%= langData.lbl_address %>:</b></p>
+															</td>
+															<td>
+																<p><% if (row.address && row.address.raw) { %> <%= row.address.raw %> <% } %></p>
+															</td>
+														</tr>
+													</table>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
+									<% } %>
+								</div>
+								<div class="clearfix"></div>
+						</div>
+						<% } %>
+
+						<!--Block này tạm thời ẩn-->
+						
+						<div class="blockD asRelateList" style="display: none;">
+							<div class="blockDTitle">
+								<h7>Related Associations</h7>
+								<a href="#">View all on map</a>
+							</div>
+							<div class="blockDGrid">
+								<div class="asrlList">
+									<div class="asrlListItem">
+										<div class="asrlImg">
+											<img src="public/assets/logo-01.png">
+										</div>
+										<div class="asrlName">
+											<h7>Binh Duong Mechanical Electrical Association (BIMEA)</h7>
+										</div>
+										<div class="asrlInfo">
+											<table>
+												<tr>
+													<td>Category</td>
+													<td>Furniture</td>
+												</tr>
+												<tr>
+													<td>Address</td>
+													<td>Block C, st number 2, Dong An Industrial Park, Thuan An</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="asrlList">
+									<div class="asrlListItem">
+										<div class="asrlImg">
+											<img src="public/assets/logo-01.png">
+										</div>
+										<div class="asrlName">
+											<h7>Binh Duong Mechanical Electrical Association (BIMEA)</h7>
+										</div>
+										<div class="asrlInfo">
+											<table>
+												<tr>
+													<td>Category</td>
+													<td>Furniture</td>
+												</tr>
+												<tr>
+													<td>Address</td>
+													<td>Block C, st number 2, Dong An Industrial Park, Thuan An</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="asrlList">
+									<div class="asrlListItem">
+										<div class="asrlImg">
+											<img src="public/assets/logo-01.png">
+										</div>
+										<div class="asrlName">
+											<h7>Binh Duong Mechanical Electrical Association (BIMEA)</h7>
+										</div>
+										<div class="asrlInfo">
+											<table>
+												<tr>
+													<td>Category</td>
+													<td>Furniture</td>
+												</tr>
+												<tr>
+													<td>Address</td>
+													<td>Block C, st number 2, Dong An Industrial Park, Thuan An</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="asrlList">
+									<div class="asrlListItem">
+										<div class="asrlImg">
+											<img src="public/assets/logo-01.png">
+										</div>
+										<div class="asrlName">
+											<h7>Binh Duong Mechanical Electrical Association (BIMEA)</h7>
+										</div>
+										<div class="asrlInfo">
+											<table>
+												<tr>
+													<td>Category</td>
+													<td>Furniture</td>
+												</tr>
+												<tr>
+													<td>Address</td>
+													<td>Block C, st number 2, Dong An Industrial Park, Thuan An</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="blockDFooter">
+								<div class="pageNav">
+									<a href="#" class="number act">1</a>
+									<a href="#" class="number">2</a>
+									<a href="#" class="number">3</a>
+									...
+									<a href="#" class="number">10</a>
+									<a href="#" class="number">11</a>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<!--Block này tạm thời ẩn-->
+					</div>
+
+                    <% if (pageData.newsData && pageData.newsData.length > 0) { %>
+					<div class="blockC newsevents">
+						<!-- News List -->
+						<% for (var e in pageData.newsData) { %>
+						<div class="newsItemPH">
+							<div class="newsItemH">
+								<div class="newsItemHL">
+									<a href="#" data-toggle="modal" data-target="#news<%= e %>">
+										<img src="<%= pageData.newsData[e].imageIds.url %>">
+									</a>
+								</div>
+								<div class="newsItemHR">
+									<a href="#" data-toggle="modal" data-target="#news<%= e %>">
+										<h7><%= pageData.newsData[e].title %></h7>
+									</a>
+									<span><%= moment(pageData.newsData[e].date).format('DD/MM/YYYY') %></span>
+									<p><%- pageData.newsData[e].desc %></p>
+								</div>
+							</div>
+						</div>
+						<% } %>
+						<!-- <div class="pageNav">
+							<a href="#" class="number">1</a>
+							<a href="#" class="number">2</a>
+							<a href="#" class="number">3</a>
+							...
+							<a href="#" class="number">10</a>
+							<a href="#" class="numberr act">11</a>
+						</div> -->
+					</div>
+                    <% } %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--Modal for News-->
+	<% if (pageData.newsData  && pageData.newsData.length > 0) { 
+        for (var e in pageData.newsData) { %>
+			<div class="newsPanel modal fade" id="news<%= e %>" tabindex="-1" role="dialog" aria-labelledby="failLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<button type="button" class="close closeButton" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h6 class="newsPanelTitle"><%= pageData.newsData[e].title %></h4>
+						<span><i class="fa fa-clock"></i> <%= moment(pageData.newsData[e].date).format('DD/MM/YYYY') %></span>
+						<div class="newsDivider"></div>
+						<div class="newsPanelContent">
+							<%- pageData.newsData[e].content %>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+	<% } } %>
+
+    <%- include("partials/footers/default") %>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/TweenMax.min.js"></script>
+	<script src="public/js/waypoints.min.js"></script>
+	<script src="public/js/jquery.counterup.min.js"></script>
+	<script src="public/slick/slick.min.js"></script>
+	<script src="public/js/desktop.js"></script>
+
+</body>
+
+</html>

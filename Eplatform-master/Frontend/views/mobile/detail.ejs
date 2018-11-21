@@ -1,0 +1,1898 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <%- include("partials/head") %>
+
+    <link rel="stylesheet" href="public/slick/slick.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="public/slick/slick-theme.css" />
+    <script src="public/js/jquery-3.3.1.js"></script>
+    
+</head>
+
+<body>
+
+    <div class="companydetail">
+        <%- include("partials/headers/top-nav") %>
+    </div>
+
+    <div id="companyBanner">
+        <div class="container">
+            <% if (pageData.cre_ts && pageData.cre_ts.getTime() % 3 == 0) { %> 
+                <img class="profileTopBanner" src="public/images/03.png">
+            <% } else if (pageData.cre_ts && pageData.cre_ts.getTime() % 3 == 1) { %>
+                <img class="profileTopBanner" src="public/images/02.png">
+            <% } else { %> 
+                <img class="profileTopBanner" src="public/images/04.png">
+            <% } %>
+            <!-- <% if (pageData.bannerImageId && pageData.bannerImageId.url) { %>
+                <img class="profileTopBanner" src="<%= pageData.bannerImageId.url %>">
+            <% } else { %>
+                <img class="profileTopBanner" src="public/assets/bernard-hermant-616385-unsplash.jpg">
+            <% } %> -->
+            <div class="profileTopBanner overlayProfileBanner"></div>
+            <div class="companyIntroduce">
+                <div class="companyIntroAvatar">
+                    <% if (pageData.logoImageId && pageData.logoImageId.url) { %>
+                        <img src="<%= pageData.logoImageId.url %>" />
+                    <% } else { %>
+                        <img src="public/images/avatar.png" />
+                    <% } %>
+                </div>
+                <div class="companyName">
+                    <h6 class="fontsize16"><%= pageData.name %>
+                        <!-- <img src="public/assets/check.svg" /> -->
+                    </h6>
+                    <p class="font-regular fontsize10"><%= langData.lbl_located %> <%= pageData.provinceName.name %> - <%= pageData.countryData.name ? pageData.countryData.name : langData.lbl_vietnam %></p>
+                    <a class="messenger fontsize10" data-toggle="modal" data-target="#appDownload">
+                        <img src="public/assets/contact.svg"><%= langData.btn_contact %></a>
+                    <a class="report" data-toggle="modal" data-target="#reportCompany">
+                        <img src="public/assets/slash.svg" /><%= langData.title_report %>
+                    </a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+
+
+    <div id="companyInfo">
+        <div class="container">
+            <div class="companySlideNav text-left nav nav-tabs">
+                <ul class="list-inline">
+                    <li class="companySlideNavItem active">
+                        <a data-toggle="tab" href="#basic"><%= langData.tab_companyInfo %></a>
+                    </li>
+                    <li class="companySlideNavItem">
+                        <a data-toggle="tab" href="#connection"><%= langData.tab_connection %></a>
+                    </li>
+                    <% if ((pageData.codeNaicsData.rows && pageData.codeNaicsData.rows.length > 0) || (pageData.codeSicData.rows && pageData.codeSicData.rows.length > 0) || (pageData.codeSicData.rows && pageData.codeSicData.rows.length > 0)) { %>
+                    <li class="companySlideNavItem">
+                        <a data-toggle="tab" href="#features">Code</a>
+                    </li>
+                    <% } %>
+                    <% if (pageData.certificateData.rows && pageData.certificateData.rows.length > 0) { %>
+                        <li class="companySlideNavItem">
+                            <a data-toggle="tab" href="#certificates"><%= langData.lbl_certificate %></a>
+                        </li>
+                    <% } %>
+                    <li class="companySlideNavItem">
+                        <a data-toggle="tab" href="#product"><%= langData.tab_product %></a>
+                    </li>
+                    <% if (pageData.jobs && pageData.jobs.rows.length > 0) { %>
+                    <li class="companySlideNavItem">
+                        <a data-toggle="tab" href="#job"><%= langData.tab_job %></a>
+                    </li>
+                    <% } %>
+                    <% if (pageData.newsData.rows && pageData.newsData.rows.length > 0) { %>
+                    <li class="companySlideNavItem">
+                        <a data-toggle="tab" href="#news"><%= langData.tab_news %></a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="companyInfoContent">
+            <div class="mainInfo">
+                <div class="tab-content">
+                    <div id="basic" class="tab-pane active">
+                        <div class="container">
+                            
+                            <div class="basicContent">
+                                <div id="accordion">
+                                <% if (pageData.desc || pageData.galleryImageIds) { %>
+                                    <div class="card">
+                                        <div class="card-header" id="heading00">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link customCard collapsed" data-toggle="collapse" data-target="#collapse00" aria-expanded="false"
+                                                    aria-controls="collapse00">
+                                                    <img src="../public/assets/home.svg" width="27px" />
+                                                    <h7 class="font-regular"><%= langData.lbl_companyIntro %></h7>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                            </h5>
+                                        </div>
+
+                                        <div id="collapse00" class="collapse" aria-labelledby="heading00" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <div class="basicIntro">
+                                                    <div class="basicIntroDesc">
+                                                        <p><%- pageData.desc %></p>
+                                                        <a class="seemore">More...</a>
+                                                    </div>
+                                                    <div class="basicIntroSocial">
+                                                        <a href="<%= pageData.facebook %>" target="_blank">
+                                                            <img src="public/assets/facebook.svg" />
+                                                        </a>
+                                                        <a href="<%= pageData.google %>" target="_blank">
+                                                            <img src="public/assets/google-plus.svg" />
+                                                        </a>
+                                                        <a href="<%= pageData.twitter %>" target="_blank">
+                                                            <img src="public/assets/twitter.svg" />
+                                                        </a>
+                                                        <a href="<%= pageData.linkedin %>" target="_blank">
+                                                            <img src="public/assets/linkedin.svg" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="slickGallery">
+                                                        <div class="slick-for-Gallery">
+                                                            <% if (pageData.galleryImageIds) for (var e of pageData.galleryImageIds) { %>
+                                                            <div class="item22">
+                                                                <a href="javascript:void(0)">
+                                                                    <img src="<%= e.url %>" />
+                                                                </a>
+                                                            </div>
+                                                            <% } %>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% } %>
+
+                                    <div class="card">
+                                        <div class="card-header" id="headingOne">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link customCard active expandCustomCard" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                                    aria-controls="collapseOne">
+                                                    <img src="public/assets/home.svg" width="27px" />
+                                                    <h7 class="font-regular"><%= langData.lbl_basicInformation %></h7>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                            </h5>
+                                        </div>
+
+                                        <div id="collapseOne" class="active collapse in" aria-labelledby="headingOne" data-parent="#accordion" aria-expanded="true">
+                                            <div class="card-body">
+                                                <table class="tableContent">
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_companyName %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7><%= pageData.name %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% if (pageData.aliasName) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_alias %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.aliasName) { %> onUpdate <% } %>"><% if (pageData.aliasName) { %><%= pageData.aliasName %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    <% if (pageData.categoryData.rows && pageData.categoryData.rows.length > 0) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_category %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (pageData.categoryData.rows.length <= 0) { %> onUpdate <% } %>"><% if (pageData.categoryData.rows.length > 0) { %><%- pageData.categoryData.rows.map(e => '<a href="' + genUrl.getMapUrl() + '?ep_companyCategories=' + e._id + '">' + e.name + '</a>').join(", ") %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    <% if (pageData.address.raw) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_address %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7><%= pageData.address.raw %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_district %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7><%= pageData.districtData.name %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_province %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>
+                                                                <a href="<%= genUrl.getProvinceCitylUrl(pageData.provinceData.url) %>"><%= pageData.provinceName.name %></a>
+                                                                <!-- <a href="#" data-toggle="modal" data-target="#provinces"><%= pageData.provinceData.name %></a> -->
+                                                            </h7>
+                                                            <a href="<%= genUrl.getProvinceCitylUrl(pageData.provinceData.url) %>">
+                                                                <img src="public/assets/link.svg" />
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_country %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7><%= pageData.countryData.name ? pageData.countryData.name : langData.lbl_vietnam %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    
+                                                    <% if (pageData.industrialParkData.name) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_ip %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>
+                                                                <a href="<%= genUrl.getIndustrialParkUrl(pageData.industrialParkData.url) %>" class="<% if (!pageData.industrialParkData.name) { %> onUpdate <% } %>"><% if (pageData.industrialParkData.name) { %><%= pageData.industrialParkData.name %><% } else { %><%= langData.lbl_updating %><% } %></a>
+                                                                <!-- <a href="#" data-target="#industrialPark" data-toggle="modal" class="<% if (!pageData.industrialParkData.name) { %> onUpdate <% } %>"><% if (pageData.industrialParkData.name) { %><%= pageData.industrialParkData.name %><% } else { %><%= langData.lbl_updating %><% } %></a> -->
+                                                            </h7>
+                                                            <a href="<%= genUrl.getIndustrialParkUrl(pageData.industrialParkData.url) %>">
+                                                                <img src="public/assets/link.svg" />
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    
+                                                    <% if (pageData.associationData.name) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_association %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>
+                                                                <a href="<%= genUrl.getAssociationUrl(pageData.associationData.url) %>" class="<% if (!pageData.associationData.name) { %> onUpdate <% } %>"><% if (pageData.associationData.name) { %><%= pageData.associationData.name %><% } else { %><%= langData.lbl_updating %><% } %></a>
+                                                                <!-- <a href="#" data-toggle="modal" data-target="#association" class="<% if (!pageData.associationData.name) { %> onUpdate <% } %>"><% if (pageData.associationData.name) { %><%= pageData.associationData.name %><% } else { %><%= langData.lbl_updating %><% } %></a> -->
+                                                            </h7>
+                                                            <a href="<%= genUrl.getAssociationUrl(pageData.associationData.url) %>">
+                                                                <img src="public/assets/link.svg" />
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    
+                                                    <% if (pageData.phoneNumber && pageData.phoneNumber.length > 0) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_phoneNumber %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.phoneNumber) { %> onUpdate <% } %>" ><% if (pageData.phoneNumber) { %><%- pageData.phoneNumber.map(e => '<a href="tel:' + e + '">' + e + '</a>').join(", ") %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    
+                                                    <% if (pageData.fax && pageData.fax.length > 0) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_fax %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.fax) { %> onUpdate <% } %>"><% if (pageData.fax) { %><%- pageData.fax.map(e => '<a href="tel:' + e + '">' + e + '</a>').join(", ") %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    <% if (pageData.email && pageData.email.length > 0 ) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_email %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.email) { %> onUpdate <% } %>"><% if (pageData.email) { %><%- pageData.email.map(e => '<a href="mailto:' + e + '">' + e + '</a>').join(", ") %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    <% if (pageData.website && pageData.website.length > 0) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_website %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.website) { %> onUpdate <% } %>"><a href="http://<%= pageData.website %>" target="_blank"><% if (pageData.website) { %><%= pageData.website %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-header" id="headingTwo">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link customCard collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                                                    aria-controls="collapseTwo">
+                                                    <img src="public/assets/legal-struture.svg" width="27px" />
+                                                    <h7 class="font-regular"><%= langData.lbl_registrationInformation %></h7>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                            <div class="card-body">
+
+                                                <table class="tableContent">
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_tax %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="font-light"><%= pageData.taxNumber %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% if (pageData.registrationNumber || pageData.taxNumber) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_registrationNumber %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="font-light"><% if (pageData.registrationNumber) { %><%= pageData.registrationNumber %><% } else { %><%= pageData.taxNumber %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    <% if (pageData.legalRepresentative) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_legalRepre %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.legalRepresentative) { %> onUpdate <% } %>"><% if (pageData.legalRepresentative) { %><%= pageData.legalRepresentative %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    <% if (pageData.issuedOn) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_issuedOn %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.issuedOn) { %> onUpdate <% } %>"><% if (pageData.issuedOn) { %><%= moment(pageData.issuedOn).format('DD/MM/YYYY') %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    
+                                                    <% if (pageData.registrationDate) { %> 
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_registrationDate %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.registrationDate) { %> onUpdate <% } %>"><% if (pageData.registrationDate) { %><%= moment(pageData.registrationDate).format('DD/MM/YYYY') %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    
+                                                    <!-- <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_registeredCapital %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.registeredCapital) { %> onUpdate <% } %>"><% if (pageData.registeredCapital) { %><%= pageData.registeredCapital %><% } else { %><%= langData.lbl_updating %><% } %> <%= langData.lbl_unitCapital %></h7>
+                                                        </td>
+                                                    </tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_totalInvestedCapital %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.totalInvestedCapital) { %> onUpdate <% } %>"><% if (pageData.totalInvestedCapital) { %><%= pageData.totalInvestedCapital %><% } else { %><%= langData.lbl_updating %><% } %> <%= langData.lbl_unitCapital %></h7>
+                                                        </td>
+                                                    </tr> -->
+                                                    <% if (pageData.issuedPlace) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_issuedPlace %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.issuedPlace) { %> onUpdate <% } %>"><% if (pageData.issuedPlace) { %><%= pageData.issuedPlace %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <% if ((pageData.legalStructureData && pageData.legalStructureData.name) || (pageData.businessTypeData && pageData.businessTypeData.name ) || (pageData.area) || (pageData.trademarks) || (pageData.originalNationalityData && pageData.originalNationalityData.name) || (pageData.speakingLanguages) ||  (pageData.employeeSize) ) { %>
+                                    <div class="card">
+                                        <div class="card-header" id="headingThree">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link customCard collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                                                    aria-controls="collapseThree">
+                                                    <img src="public/assets/globe.svg" width="27px" />
+                                                    <h7 class="font-regular">&nbsp;<%= langData.lbl_businessIntro %></h7>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <table class="tableContent">
+                                                    <% if (pageData.legalStructureData && pageData.legalStructureData.name) { %> 
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_legalStructure %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.legalStructureData) { %> onUpdate <% } %>"><% if (pageData.legalStructureData) { %><%= pageData.legalStructureData.name %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    <!-- <% if (pageData.companyTypeData && pageData.companyTypeData.name) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_typeCompany %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.companyTypeData) { %> onUpdate <% } %>"><% if (pageData.companyTypeData) { %><%= pageData.companyTypeData.name %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %> -->
+                                                    <% if (pageData.businessTypeData && pageData.businessTypeData.name ) { %> 
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_typeBusiness %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.businessTypeData) { %> onUpdate <% } %>"><% if (pageData.businessTypeData) { %><%= pageData.businessTypeData.name %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    <% if (pageData.area) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_area %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.area) { %> onUpdate <% } %>"><% if (pageData.area) { %><%= pageData.area %> (m2)<% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    <% if (pageData.trademarks) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_trademarksBrands %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.trademarks) { %> onUpdate <% } %>"><% if (pageData.trademarks) { %><%= pageData.trademarks %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    <% if (pageData.originalNationalityData && pageData.originalNationalityData.name) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_originalNationality %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.originalNationalityData) { %> onUpdate <% } %>"><% if (pageData.originalNationalityData) { %><%= pageData.originalNationalityData.name %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    <% if (pageData.speakingLanguages) { %> 
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_speakingLanguages %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.speakingLanguages) { %> onUpdate <% } %>"><% if (pageData.speakingLanguages) { %><%= pageData.speakingLanguages %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    <% if (pageData.employeeSize) { %> 
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_employeeSize %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7 class="<% if (!pageData.employeeSize) { %> onUpdate <% } %>"><% if (pageData.employeeSize) { %><%= pageData.employeeSize %><% } else { %><%= langData.lbl_updating %><% } %></h7>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                                    
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% } %>
+
+                                    <!-- <div class="card">
+                                        <div class="card-header" id="heading4">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link customCard collapsed" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                                    <img src="public/assets/profile.svg" width="27px" />
+                                                    <h7 class="font-regular">&nbsp;Contact</h7>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <table class="tableContent">
+                                                        <tr>
+                                                            <td>
+                                                                <h7><%= langData.lbl_fullName %></h7>
+                                                            </td>
+                                                            <td>
+                                                                <h7>Viet Nam</h7>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h7><%= langData.lbl_address %></h7>
+                                                            </td>
+                                                            <td>
+                                                                <h7>Viet Nam</h7>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h7><%= langData.lbl_phoneNumber %></h7>
+                                                            </td>
+                                                            <td>
+                                                                <h7>Viet Nam</h7>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h7><%= langData.lbl_email %></h7>
+                                                            </td>
+                                                            <td>
+                                                                <h7>Viet Nam</h7>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h7><%= langData.lbl_degree %></h7>
+                                                            </td>
+                                                            <td>
+                                                                <h7>Viet Nam</h7>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h7><%= langData.lbl_position %></h7>
+                                                            </td>
+                                                            <td>
+                                                                <h7>Viet Nam</h7>
+                                                            </td>
+                                                        </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div> -->
+<!-- 
+                                    <div class="card">
+                                        <div class="card-header" id="heading5">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link customCard collapsed" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                                    <img src="public/assets/users.svg" width="27px" />
+                                                    <h7 class="font-regular">&nbsp;<%= langData.lbl_shareholder %></h7>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <table class="tableContent">
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_fullName %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>Viet Nam</h7>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_address %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>Viet Nam</h7>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_phoneNumber %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>Viet Nam</h7>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_email %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>Viet Nam</h7>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_shares %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>Viet Nam</h7>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_rate %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>Viet Nam</h7>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="card">
+                                        <div class="card-header" id="heading6">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link customCard collapsed" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                                                    <img src="public/assets/city.svg" width="27px" />
+                                                    <h7 class="font-regular">&nbsp;<%= langData.lbl_facilities %></h7>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <table class="tableContent">
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_typeBusiness %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>Viet Nam</h7>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_area %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>Viet Nam</h7>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_typeOccupation %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>Viet Nam</h7>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_typeLocation %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>Viet Nam</h7>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="card">
+                                        <div class="card-header" id="heading7">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link customCard collapsed" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                                                    <img src="public/assets/cpu.svg" width="27px" />
+                                                    <h7 class="font-regular">&nbsp;<%= langData.lbl_machines %></h7>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <table class="tableContent">
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_machineName %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>Viet Nam</h7>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_quantify %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>Viet Nam</h7>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_manufacturer %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>Viet Nam</h7>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h7><%= langData.lbl_country %></h7>
+                                                        </td>
+                                                        <td>
+                                                            <h7>Viet Nam</h7>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div> -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="connection" class="tab-pane">
+                        <div class="connectContent">
+                            <div class="connectHeader">
+                                <div class="container">
+                                    <h4><%= langData.lbl_linkWithCon %></h4>
+                                    <!-- <h7><%= langData.lbl_connectionDesc %></h7> -->
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="connectBody">
+                                    <div class="connectBodyContent">
+                                        <div class="connectBodyContentItem">
+                                            <div class="connectBodyContentItemIMG">
+                                                <div>&nbsp;</div>
+                                                <img src="public/assets/city.svg" class="blackSVG" />
+                                            </div>
+                                            <div class="connectBodyContentItemContent">
+                                                <a href="<%= genUrl.getProvinceCitylUrl(pageData.provinceData.url) %>">
+                                                    <h6><%= langData.lbl_city %></h6>
+                                                </a>
+                                                <p><% if (pageData.provinceName) { %><%= pageData.provinceName.name %><% } else { %><%= langData.lbl_updating %><% } %></p>
+                                            </div>
+                                            <% if (pageData.industrialParkData.name) { %>
+                                                <div class="barConnect"></div>
+                                            <% } %>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <% if (pageData.industrialParkData.name) { %>
+                                        <div class="connectBodyContentItem">
+                                            <div class="connectBodyContentItemIMG">
+                                                <div>&nbsp;</div>
+                                                <img src="public/assets/target.svg" />
+                                            </div>
+                                            <div class="connectBodyContentItemContent">
+                                                <a href="<%= genUrl.getIndustrialParkUrl(pageData.industrialParkData.url) %>">
+                                                    <h6><%= langData.lbl_industrialPark %></h6>
+                                                </a>
+                                                <p><% if (pageData.industrialParkData) { %><%= pageData.industrialParkData.name %><% } else { %><%= langData.lbl_updating %><% } %></p>
+                                            </div>
+                                            <% if (pageData.associationData.name) { %>
+                                                <div class="barConnect"></div>
+                                            <% } %>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <% } %>
+                                        <% if (pageData.associationData.name) { %>
+                                        <div class="connectBodyContentItem">
+                                            <div class="connectBodyContentItemIMG">
+                                                <div>&nbsp;</div>
+                                                <img src="public/assets/globe.svg" class="blackSVG" />
+                                            </div>
+                                            <div class="connectBodyContentItemContent">
+                                                <a href="<%= genUrl.getAssociationUrl(pageData.associationData.url) %>" >
+                                                    <h6><%= langData.lbl_association %></h6>
+                                                </a>
+                                                <p><% if (pageData.associationData) { %><%= pageData.associationData.name %><% } else { %><%= langData.lbl_updating %><% } %></p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                    <!-- <div class="connectBodyContent">
+                                        <div>
+                                            <h4><%= langData.lbl_subsidiaries %></h4>
+                                            <h7><%= langData.lbl_subsidiariesDesc %></h7>
+                                            
+											<div class="listSub">
+                                                <div class="listSubItem">
+                                                    <p>Department 1</p>
+                                                    <p>096-295-1665</p>
+                                                    <p>165-718-7089</p>
+                                                    <p>yvette_dare@yahoo.com</p>
+                                                    <p>62 Kautzer Rest Apt. 429</p>
+                                                </div>
+                                                <div class="listSubItem">
+                                                    <p>Department 2</p>
+                                                    <p>096-295-1665</p>
+                                                    <p>165-718-7089</p>
+                                                    <p>yvette_dare@yahoo.com</p>
+                                                    <p>62 Kautzer Rest Apt. 429</p>
+                                                </div>
+                                                <div class="listSubItem">
+                                                    <p>Department 3</p>
+                                                    <p>096-295-1665</p>
+                                                    <p>165-718-7089</p>
+                                                    <p>yvette_dare@yahoo.com</p>
+                                                    <p>62 Kautzer Rest Apt. 429</p>
+                                                </div>
+                                                <div class="listSubItem">
+                                                    <p>Department 4</p>
+                                                    <p>096-295-1665</p>
+                                                    <p>165-718-7089</p>
+                                                    <p>yvette_dare@yahoo.com</p>
+                                                    <p>62 Kautzer Rest Apt. 429</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <% if (pageData.customerData.length > 0 || pageData.supplierData.length > 0) { %>
+                        <div class="connectContent">
+                            <div class="connectHeader">
+                                <div class="container">
+                                    <h4 class="fontsize18"><%= langData.lbl_supplierCustomer %></h4>
+                                    <div class="blockSC">
+                                        <div class="presentBlock presentSupplier">&nbsp;</div>
+                                        <h7 class="font-light"><%= langData.lbl_supplier %></h7>
+                                    </div>
+                                    <div class="blockSC">
+                                        <div class="presentBlock presentCustomer imgCustomerConnection">&nbsp;</div>
+                                        <h7 class="font-light"><%= langData.lbl_customer %></h7>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="connectBody bodySC">
+                                <div class="container">
+                                    <div class="blockContentSC">
+                                        <div class="blockContentSCItem">
+                                            <div class="blockContentSCItemContent">
+                                                <% if (pageData.customerData.length > 0) {
+                                                    for (var e in pageData.customerData) { %>
+                                                    <a href="<%= genUrl.getDetailUrl() %>/<%= pageData.customerData[e].url %>">
+                                                        <img class="imgCustomerConnection" src="<%= pageData.customerData[e].logoImageId.url %>" />
+                                                    </a>
+                                                <% } } %>
+                                            </div>
+                                        </div>
+                                        <div class="blockContentSCItem">
+                                            <div class="blockContentSCItemContent">
+                                                <% if (pageData.supplierData.length > 0) {                                    
+                                                    for (var e in pageData.supplierData) { %>
+                                                        <a href="<%= genUrl.getDetailUrl() %>/<%= pageData.supplierData[e].url %>">
+                                                            <img class="imgSupplierConnection" src="<%= pageData.supplierData[e].logoImageId.url %>" />
+                                                        </a>
+                                                    <% } } %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <img class="arrowPrev2" src="../public/assets/arrow.svg" width="20" height="14">
+                                    <img class="arrowNext2" src="../public/assets/arrow.svg" width="20" height="14">
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <% } %>
+
+                        <div class="connectContent">
+                            <div class="connectHeader">
+                                <div class="container">
+                                    <h4><%= langData.lbl_locationMap %></h4>
+                                </div>
+                            </div>
+                            <div class="connectBody">
+                                <div id="mapNearby" style="width: 100%; height: 350px"></div>
+                            </div>
+                            <div class="nearBy">
+                                    <div class="nearByWrapper">
+                                        <div class="searchNearBy">
+                                            <input type="text" name="txtBarNearBy" placeholder="<%= langData.lbl_search_nearby %>" id="inputBarNearBy" />
+                                            <button type="submit" name="btnBarNearBy" class="iconNextInput">
+                                                <img src="public/assets/search.svg" />
+                                            </button>
+                                        </div>
+                                        <div class="searchNearByResult">
+                                            <table>
+                                                <tbody  id="searchNearPlace">
+    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- <div class="nearByLocation">
+                                            <p>Nearby</p>
+                                            <div class="panel-group" id="accordion">
+                                                <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1">Collapsible Group 1
+                                                    <img src="../public/assets/arrow-down.svg" width="24" height="24"></a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse1" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <table>
+                                                            <tr>
+                                                                <td>Ipsum dolor sit amet consect etuer adipiscing</td>
+                                                                <td>15km</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Ipsum dolor sit amet consect etuer adipiscing</td>
+                                                                <td>15km</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Ipsum dolor sit amet consect etuer adipiscing</td>
+                                                                <td>15km</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Ipsum dolor sit amet consect etuer adipiscing</td>
+                                                                <td>15km</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2">Collapsible Group 2
+                                                    <img src="../public/assets/arrow-down.svg" width="24" height="24"></a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse2" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <table>
+                                                            <tr>
+                                                                <td>Ipsum dolor sit amet consect etuer adipiscing</td>
+                                                                <td>15km</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Ipsum dolor sit amet consect etuer adipiscing</td>
+                                                                <td>15km</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Ipsum dolor sit amet consect etuer adipiscing</td>
+                                                                <td>15km</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Ipsum dolor sit amet consect etuer adipiscing</td>
+                                                                <td>15km</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3">Collapsible Group 3
+                                                    <img src="../public/assets/arrow-down.svg" width="24" height="24"></a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse3" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <table>
+                                                            <tr>
+                                                                <td>Ipsum dolor sit amet consect etuer adipiscing</td>
+                                                                <td>15km</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Ipsum dolor sit amet consect etuer adipiscing</td>
+                                                                <td>15km</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Ipsum dolor sit amet consect etuer adipiscing</td>
+                                                                <td>15km</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Ipsum dolor sit amet consect etuer adipiscing</td>
+                                                                <td>15km</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <script src="https://maps.googleapis.com/maps/api/js?mid=1cFDvE7JtCCxjrR7jk9_sqz3tsXU&key=AIzaSyC01xk6g1-fLTBjEZeRouhA9TOLt8kEZeU&libraries=places"></script>
+                                <script>
+                                    $(()=> {
+                                        var markers = [];
+                                        var directionsService = new google.maps.DirectionsService;
+                                        var directionsDisplay = new google.maps.DirectionsRenderer({ polylineOptions:{strokeColor:"red",strokeWeight:3}, suppressMarkers:true });
+                                        var mainMarker;
+
+                                        function initMapNearBy() {
+                                            var lat = parseFloat("<%= pageData.address.latLng.lat %>");
+                                            var lng = parseFloat("<%= pageData.address.latLng.lng %>");
+
+                                            
+                                            var mapNearby = new google.maps.Map(document.getElementById('mapNearby'), {
+                                                zoom: 13,
+                                                center: {lat: lat, lng: lng},
+                                                maxZoom: 14
+                                            });
+                                            directionsDisplay.setMap(mapNearby);
+
+                                            mainMarker = new google.maps.Marker({
+                                                position: new google.maps.LatLng(lat, lng),
+                                                title: "<%= pageData.name %>"
+                                            });
+                                            mainMarker.setMap(mapNearby);
+
+                                            inputSearchNearBy = document.getElementById('inputBarNearBy');
+                                            
+                                            var circle = new google.maps.Circle({radius: 50000, center: mainMarker.position});
+
+                                            var options = {
+                                                componentRestrictions: {country: 'vn'},
+                                                bounds: circle.getBounds()
+                                            };
+
+                                            var autocomplete = new google.maps.places.Autocomplete(inputSearchNearBy, options);
+                                            autocomplete.addListener('place_changed', function() {
+                                                var place = autocomplete.getPlace();
+                                                if (!place.geometry) {
+                                                    window.alert("No details available for input: '" + place.name + "'");
+                                                    return;
+                                                }
+                                                else {
+                                                    DrawDirection(place.geometry.location, function(data) {
+                                                        var marker = new google.maps.Marker({
+                                                            position: new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng()),
+                                                            title: place.name,
+                                                            icon: {
+                                                                url: "public/assets/marker_normal.png",
+                                                                size: new google.maps.Size(32, 50)
+                                                            },
+                                                            map: mapNearby
+                                                        });
+
+                                                        var tr = `<tr>
+                                                            <td> <a class="keyLocation" data="`+ place.geometry.location.lat() + "," + place.geometry.location.lng() + `">` + place.name + `</a></td>
+                                                            <td>` + data + `</td>
+                                                        </tr>`
+                                                        
+                                                        $('#searchNearPlace').append(tr);
+
+                                                        $('#searchNearPlace').ready(function () {
+                                                            $('#searchNearPlace').find(".keyLocation").last().on("click", function () {
+                                                                var that = this;
+                                                                DrawDirection($(this).attr('data'), function(data) {
+                                                                    $(that).next().text(data);
+                                                                });
+                                                            })
+                                                        })
+                                                    });
+                                                }
+                                            });
+                                            
+                                        }
+                                        
+                                        google.maps.event.addDomListener(window, "load", initMapNearBy);
+                                            
+                                        function DrawDirection(destination, callback) {
+                                                
+                                            directionsService.route({
+                                                origin: mainMarker.position,
+                                                destination: destination,
+                                                travelMode: 'DRIVING'
+                                                }, function(response, status) {
+                                                if (status === 'OK') {
+                                                    directionsDisplay.setDirections(response);
+                                                    $('#inputBarNearBy').val(null);
+                                                    callback(response.routes[0].legs[0].distance.text);
+                                                } else {
+                                                    window.alert('Directions request failed due to ' + status);
+                                                }
+                                            });
+                                        }
+
+                                        $('.keyLocation').click(function(){ 
+                                            var that = this;
+                                            DrawDirection($(this).attr('data'), function(data) {
+                                                $(that).next().text(data);
+                                            });
+                                        });
+                                    })
+                                </script>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <% if (pageData.codeTagData.rows && pageData.codeTagData.rows.length > 0) { %> 
+                        <div class="connectContent">
+                            <div class="connectHeader">
+                                <div class="container">
+                                    <h4><%= langData.lbl_tag %></h4>
+                                </div>
+                            </div>
+                            <div class="connectBody">
+                                <div class="container">
+                                    <% if (pageData.codeTagData) {                                                                        
+                                        for (e in pageData.codeTagData.rows) { %>
+                                    <div class="tagCode">
+                                        <a href="<%= genUrl.getMapUrl(pageData.codeTagData.rows[e].name) %>"><%= pageData.codeTagData.rows[e].name %></a>
+                                    </div>
+                                    <% } } %>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <% } %>
+
+                        <% if (pageData.companies && pageData.companies.length > 0) { %>
+                        <div class="connectContent">
+                            <div class="connectHeader">
+                                <div class="container">
+                                    <h4><%= langData.lbl_relatedCompany %></h4>
+                                    <select id="selectZone" name="select-company">
+                                        <option value="sameCategory"><%= langData.lbl_sameCategory %></option>
+                                        <option value="sameProvince"><%= langData.lbl_nearbyLocation %></option>
+                                    </select>
+                                    <h7 class="font-light"><%= langData.lbl_relatedCompanyDes %></h7>
+                                </div>
+                            </div>
+                            <div class="connectBody">
+                                <div class="container" id="sameProvince" style="display: none;">
+                                    <div class="slideOthers">
+                                        <div class="slick-for">
+                                            <% for (let row of pageData.companies) { %>
+                                                <% if (pageData.address.provinceId == row.address.provinceId) continue; %>
+                                            <div class="item21">
+                                                <div class="itemRelatedCompany">
+                                                    <div class="resultItem">
+                                                        <div class="resultItemProvince">
+                                                            <h6><%= row.provinceData.name %></h6>
+                                                        </div>
+                                                        <div class="resultItemAva">
+                                                            <a href="<%= genUrl.getDetailUrl(row.url) %>">
+                                                                <% if (row.logoImageId && row.logoImageId.url) { %>
+                                                                    <img src="<%= row.logoImageId.url %>">
+                                                                <% } else { %>
+                                                                    <img src="<%= genUrl.getComapnyDefaultLogo() %>">
+                                                                <% } %>
+                                                            </a>
+                                                        </div>
+                                                        <div class="resultItemCompanyTitle">
+                                                            <a href="<%= genUrl.getDetailUrl(row.url) %>">
+                                                                <h7><%= row.name %></h7>
+                                                            </a>
+                                                        </div>
+                                                        <div class="resultItemCompanyShortDesc">
+                                                            <table>
+                                                                <tr>                                    
+                                                                    <td>
+                                                                            <p><b><%= langData.lbl_tax %>:</b></p>
+                                                                    </td>
+                                                                    <td>
+                                                                            <p><a href="<%= genUrl.getDetailUrl(row.url) %>" target="_blank"><%= row.taxNumber %></a></p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                            <p><b><%= langData.lbl_category %>:</b></p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <% if (row.categories.length > 0) { %> <%- row.categories.map(e => '<a href="' + genUrl.getMapUrl(e.name) + '">' + e.name + '</a>').join(", ") %> <% } else { %> <a><%= langData.lbl_otherCat %></a> <% } %> 
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                            <p><b><%= langData.lbl_address %>:</b></p>
+                                                                    </td>
+                                                                    <td>
+                                                                            <p><% if (row.address && row.address.raw) { %> <%= row.address.raw %> <% } %></p>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% if (pageData.categoryData.rows.length > 0) { %>
+                                <div class="container" id="sameCategory">
+                                    <div class="slideOthers">
+                                        <div class="slick-for"> 
+                                            <% for (let row of pageData.companies) { %>
+                                                <%  sameCat = false;
+                                                    for (let catId of pageData.categoryData.rows.map(e => e._id.toString())) {
+                                                        sameCat = row.companyCategoryId.map(e => e.toString()).indexOf(catId) >= 0;
+                                                        if (sameCat) break;
+                                                    }
+                                                    if (!sameCat) continue;
+                                                %>
+                                                <div class="item21">
+                                                    <div class="itemRelatedCompany">
+                                                        <div class="resultItem">
+                                                            <div class="resultItemProvince">
+                                                                <h6><%= row.provinceData.name %></h6>
+                                                            </div>
+                                                            <div class="resultItemAva">
+                                                                <a href="<%= genUrl.getDetailUrl(row.url) %>">
+                                                                    <% if (row.logoImageId && row.logoImageId.url) { %>
+                                                                        <img src="<%= row.logoImageId.url %>">
+                                                                    <% } else { %>
+                                                                        <img src="<%= genUrl.getComapnyDefaultLogo() %>">
+                                                                    <% } %>
+                                                                </a>
+                                                            </div>
+                                                            <div class="resultItemCompanyTitle">
+                                                                <a href="<%= genUrl.getDetailUrl(row.url) %>">
+                                                                    <h7><%= row.name %></h7>
+                                                                </a>
+                                                            </div>
+                                                            <div class="resultItemCompanyShortDesc">
+                                                                    <table>
+                                                                        <tr>                                    
+                                                                            <td>
+                                                                                    <p><b><%= langData.lbl_tax %>:</b></p>
+                                                                            </td>
+                                                                            <td>
+                                                                                    <p><a href="<%= genUrl.getDetailUrl(row.taxNumber) %>" target="_blank"><%= row.taxNumber %></a></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                    <p><b><%= langData.lbl_category %>:</b></p>
+                                                                            </td>
+                                                                            <td>
+                                                                                <% if (row.categories.length > 0) { %> <%- row.categories.map(e => '<a href="' + genUrl.getMapUrl() + '?ep_companyCategories=' + e._id + '">' + e.name + '</a>').join(", ") %> <% } else { %> <a><%= langData.lbl_otherCat %></a> <% } %> 
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                    <p><b><%= langData.lbl_address %>:</b></p>
+                                                                            </td>
+                                                                            <td>
+                                                                                    <p><% if (row.address && row.address.raw) { %> <%= row.address.raw %> <% } %></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                            </div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% } %>
+                            </div>
+                            <div class="clearfix"></div>
+                            <script>
+                                $("#selectZone").on("change", function () {
+                                    $("#sameProvince").toggle();
+                                    $("#sameCategory").toggle();
+                                })
+                            </script>
+                        </div>
+                        <% } %>
+
+                    </div>
+                    <% if ((pageData.codeNaicsData.rows && pageData.codeNaicsData.rows.length > 0) || (pageData.codeSicData.rows && pageData.codeSicData.rows.length > 0) || (pageData.codeSicData.rows && pageData.codeSicData.rows.length > 0)) { %>
+                    <div id="features" class="tab-pane">
+                        <div class="container">
+                            <!-- <div class="connectContent featureCategory">
+                                <div class="connectHeader">
+                                    <div class="container">
+                                        <h4><%= langData.lbl_category %></h4>
+                                    </div>
+                                </div>
+                                <div class="connectBody">
+                                    <table class="tableCategory">
+                                        <tr>
+                                            <td>
+                                                <h7><%= langData.lbl_industrial %></h7>
+                                            </td>
+                                            <td>
+                                                <h7><% if (pageData.categoryData) {                                                                        
+                                                    for (var e in pageData.categoryData.rows) { %>
+                                                        <%= pageData.categoryData.rows[e].name %><br>
+                                                    <% } } %></h7>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <% if (pageData.purchasingData && pageData.purchasingData.rows.length > 0 && pageData.saleData && pageData.saleData.rows.length > 0) { %>
+                            <div class="connectContent featureCategory2">
+                                <div class="connectHeader">
+                                    <h4><%= langData.lbl_purchasing %></h4>
+                                    <% if (pageData.purchasingData && pageData.purchasingData.rows.length > 0) { 
+                                            for (var e in pageData.purchasingData.rows) { %>
+                                            <h7><%= pageData.purchasingData.rows[e].type %> - <%= pageData.purchasingData.rows[e].countryId %> - <%= pageData.purchasingData.rows[e].rate %>% - <%= pageData.purchasingData.rows[e].year %></h7>
+                                        <% } 
+                                    } else { %>
+                                            <%= langData.lbl_updating %>
+                                    <% } %>
+                                </div>
+                                <div class="connectHeader">
+                                    <h4><%= langData.lbl_sales %></h4>
+                                    <% if (pageData.saleData && pageData.saleData.rows.length > 0) {     
+                                            for (var e in pageData.saleData.rows) { %>
+                                            <h7><%= pageData.saleData.rows[e].type %> - <%= pageData.saleData.rows[e].countryId %> - <%= pageData.saleData.rows[e].rate %>% - <%= pageData.saleData.rows[e].year %></h7>
+                                        <% } 
+                                    } else { %>
+                                            <%= langData.lbl_updating %>
+                                    <% } %>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <% } %>
+                            <div class="clearfix"></div> -->
+                            <div class="connectContent codeSelection">
+                                <div class="connectHeader">
+                                    <div class="container">
+                                        <h4>NSO/NAICS/SIC/VN Code</h4>
+                                    </div>
+                                </div>
+                                <div class="connectBody">
+                                        <div class="codeSlideNav text-left nav nav-tabs">
+                                            <ul class="list-inline">
+                                            <% if (pageData.codeNaicsData.rows && pageData.codeNaicsData.rows.length > 0) { %>
+                                                <li class="companySlideNavItem active">
+                                                    <a data-toggle="tab" href="#naics">NAICS</a>
+                                                </li>
+                                            <% } %>
+                                            <% if (pageData.codeSicData.rows && pageData.codeSicData.rows.length > 0) { %>
+                                                <li class="companySlideNavItem">
+                                                    <a data-toggle="tab" href="#sic">SIC</a>
+                                                </li>
+                                            <% } %>
+                                            <% if (pageData.codeVnData.rows && pageData.codeVnData.rows.length > 0) { %>
+                                                <li class="companySlideNavItem">
+                                                    <a data-toggle="tab" href="#vncode">VN</a>
+                                                </li>
+                                            <% } %>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-content">
+                                            <div id="naics" class="tab-pane active">
+                                                <div>
+                                                    <% if (pageData.codeNaicsData.rows && pageData.codeNaicsData.rows.length > 0) {
+                                                        for (var e in pageData.codeNaicsData.rows) { 
+                                                            %>
+                                                            <div class="codeSelectItem">
+                                                                <p><%= pageData.codeNaicsData.rows[e].code %></p>
+                                                                <div><%= pageData.codeNaicsData.rows[e].name %></div>
+                                                            </div>
+                                                    <% } } %>
+                                                </div>
+                                            </div>
+
+                                            <div id="sic" class="tab-pane">
+                                                <div>
+                                                    <% if (pageData.codeSicData.rows && pageData.codeSicData.rows.length > 0) {
+                                                        for (var e in pageData.codeSicData.rows) { 
+                                                            %>
+                                                            <div class="codeSelectItem">
+                                                                <p><%= pageData.codeSicData.rows[e].code %></p>
+                                                                <div><%= pageData.codeSicData.rows[e].name %></div>
+                                                            </div>
+                                                    <% } } %>
+                                                </div>
+                                            </div>
+
+                                            <div id="vncode" class="tab-pane">
+                                                <div>
+                                                    <% if (pageData.codeVnData.rows && pageData.codeVnData.rows.length > 0) {
+                                                        for (var e in pageData.codeVnData.rows) { 
+                                                            %>
+                                                            <div class="codeSelectItem">
+                                                                <p><%= pageData.codeVnData.rows[e].code %></p>
+                                                                <div><%= pageData.codeVnData.rows[e].name %></div>
+                                                            </div>
+                                                    <% } } %>
+                                                </div>
+                                            </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <!-- <div class="connectContent featureServices">
+                                <div class="connectHeader">
+                                    <div class="container">
+                                        <h4><%= langData.lbl_service %></h4>
+                                    </div>
+                                </div>
+                                <div class="connectBody">
+                                    <div class="featureServicesItem">
+                                        <img src="public/assets/ic-paint-roller.svg">
+                                        <div class="featureServicesItemContent">
+                                            <h7>Fusce vehicul.</h7>
+                                            <h7>Fusce vehicula dolor arcu, sit amet blandit dolor mollis nec. Donec viverra eleifend
+                                                lacus, vitae ullamcorper.</h7>
+                                        </div>
+                                    </div>
+                                    <div class="featureServicesItem">
+                                        <img src="public/assets/ic-binoculars.svg">
+                                        <div class="featureServicesItemContent">
+                                            <h7>Fusce vehicul.</h7>
+                                            <h7>Fusce vehicula dolor arcu, sit amet blandit dolor mollis nec. Donec viverra eleifend
+                                                lacus, vitae ullamcorper.</h7>
+                                        </div>
+                                    </div>
+                                    <div class="featureServicesItem">
+                                        <img src="public/assets/ic-fountain-pen.svg">
+                                        <div class="featureServicesItemContent">
+                                            <h7>Fusce vehicul.</h7>
+                                            <h7>Fusce vehicula dolor arcu, sit amet blandit dolor mollis nec. Donec viverra eleifend
+                                                lacus, vitae ullamcorper.</h7>
+                                        </div>
+                                    </div>
+                                    <div class="featureServicesItem">
+                                        <img src="public/assets/ic-sofa.svg">
+                                        <div class="featureServicesItemContent">
+                                            <h7>Fusce vehicul.</h7>
+                                            <h7>Fusce vehicula dolor arcu, sit amet blandit dolor mollis nec. Donec viverra eleifend
+                                                lacus, vitae ullamcorper.</h7>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div> -->
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <% } %>
+                    <% if (pageData.certificateData && pageData.certificateData.rows.length > 0) { %>
+                    <div id="certificates" class="tab-pane">
+                        <div class="container">
+                            <div class="connectContent featureCert">
+                                <div class="connectHeader">
+                                    <div class="container">
+                                        <h4><%= langData.lbl_certificate %></h4>
+                                        <!-- <h7>Ma?uris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate. Etiam.</h7> -->
+                                    </div>
+                                </div>
+                                <div class="connectBody">
+                                    <% if (pageData.certificateData && pageData.newsData.rows && pageData.certificateData.rows.length > 0) {
+                                        for (var e in pageData.certificateData.rows) { %>
+                                        <div class="featureCertItem">
+                                            <img src="<%= pageData.certificateData.rows[e].imageCertificate %>">
+                                            <div class="featureCertItemContent">
+                                                <h7><%= pageData.certificateData.rows[e].name %></h7>
+                                                <!-- <p><%= pageData.certificateData.rows[e].name %></p> -->
+                                            </div>
+                                            <div class="featureCertItemYear font-bold"><% if (pageData.certificateData.rows[e].yearBegin) { %><%= pageData.certificateData.rows[e].yearBegin.getFullYear() %> <% } %></div>
+                                        </div>
+                                    <% } 
+                                    } else { %>
+                                        <%= langData.lbl_updating %>
+                                    <% } %>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                    
+                    <div id="product" class="tab-pane">
+                        <div class="connectContent featureProduct">
+                            <div class="connectHeader">
+                                <div class="container">
+                                    <h4><%= langData.lbl_product %></h4>
+                                    <!-- <h7 class="font-light"><%= langData.lbl_productDesc %></h7> -->
+                                </div>
+                            </div>
+                            <div class="connectBody">
+                                <div class="container">
+                                    <% if (pageData.productData && pageData.productData.rows.length > 0) {        
+                                    for (var e in pageData.productData.rows) { %>
+                                    <div class="featureProductItem">
+                                        <a href="#" data-toggle="modal" data-target="#product0<%= e %>">
+                                            <% if (pageData.productData.rows[e].imageIds && pageData.productData.rows[e].imageIds.length > 0) { %>
+                                                <img src="<%= pageData.productData.rows[e].imageIds[0].url %>">
+                                            <% } else { %>
+                                                <img src="public/assets/productDefault.jpg">
+                                            <% } %>
+                                        </a>
+                                        <div class="featureProductItemContent">
+                                            <h7>
+                                                <a href="#" data-toggle="modal" data-target="#product0<%= e %>"><%= pageData.productData.rows[e].name %></a>
+                                            </h7>
+                                            <div class="featureProductItemShortDesc">
+                                                <p><%- pageData.productData.rows[e].desc %></p>
+                                            </div>
+                                            <img src="public/assets/line.svg">
+
+                                            <% if (pageData.productData.rows[e].imageIds.length > 0 &&  pageData.productData.rows[e].desc.length > 50) { %>
+                                                <a href="#" data-toggle="modal" data-target="#product0<%= e %>"><%= langData.btn_more %></a>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                    <% } 
+                                    } else { %>  
+                                        <%= langData.lbl_updating %>
+                                    <% } %>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                    <% if (pageData.jobs && pageData.jobs.rows.length > 0) { %>
+                    <div id="job" class="tab-pane">
+                        <div class="container">
+                            <div id="accordion">
+                                <% for (var e in pageData.jobs.rows) { 
+                                    if (pageData.jobs.rows[e].status == "open") {%>
+                                        <div class="card">
+                                            <div class="card-header" id="heading33">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link customCard collapsed" data-toggle="collapse" data-target="#collapse33" aria-expanded="false"
+                                                        aria-controls="collapse33">
+                                                        <table class="jobHeader">
+                                                            <tr>
+                                                                <td>
+                                                                    <h6 class="jobTitle"><%= pageData.jobs.rows[e].title %></h6>
+                                                                    <p class="jobAdd"><%= pageData.jobs.rows[e].address.raw %></p>
+                                                                    <span class="jobPostDate"><%= moment(pageData.jobs.rows[e].deadline).format('DD/MM/YYYY') %></span>
+                                                                    <p class="jobDes"><%- pageData.jobs.rows[e].subJobDescription %></p>
+                                                                </td>
+                                                                <td>
+                                                                    <p class="jobWorkType"><%= pageData.jobs.rows[e].type %></p>
+                                                                    <p class="jobSalary"><%- pageData.jobs.rows[e].salary %></p>
+                                                                </td>
+                                                                <td>
+                                                                    <i class="fa fa-angle-down"></i>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </button>
+                                                </h5>
+                                            </div>
+                    
+                                            <div id="collapse33" class="collapse" aria-labelledby="heading33" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <div class="jobContent">
+                                                        <h6><%= langData.lbl_description %></h6>
+                                                        <%- pageData.jobs.rows[e].jobDescription %>
+                                                        <h6><%= langData.lbl_responsibilities %></h6>
+                                                        <%- pageData.jobs.rows[e].responsibilities %>
+                                                        <h6><%= langData.lbl_qualification %></h6>
+                                                        <%- pageData.jobs.rows[e].qualification %>
+                                                        <h6><%= langData.lbl_benefit %></h6>
+                                                        <%- pageData.jobs.rows[e].benefit %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <% }
+                                } %>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+
+                    <% if (pageData.newsData && pageData.newsData.rows && pageData.newsData.rows.length > 0) { %>
+                    <div id="news" class="tab-pane">
+                        <div class="connectContent">
+                            <div class="connectHeader">
+                                <div class="container">
+                                    <h4><%= langData.lbl_newsLatest %></h4>
+                                </div>
+                            </div>
+                            <div class="connectBody">
+                                <div class="container">
+                                    <div class="newsPlaceholder">
+                                        <% for (var e in pageData.newsData.rows) { %>
+                                        <div class="newsItem">
+                                            <div class="newsItemHolder">
+                                                <a class="newsItemImage" href="#" data-toggle="modal" data-target="#news<%= e %>">
+                                                    <img src="<%= pageData.newsData.rows[e].imageIds.url %>"/>
+                                                </a>
+                                                <a class="newsItemTitle" href="#" data-toggle="modal" data-target="#news<%= e %>">
+                                                    <h6><%= pageData.newsData.rows[e].title %></h6>
+                                                </a>
+                                                <span><%= moment(pageData.newsData.rows[e].date).format('DD/MM/YYYY') %></span>
+                                            </div>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                    <!-- <div class="newsPaging">
+                                        <div class="pageNav">
+                                                <a href="#">
+                                                    <i class="fa fa-angle-left"></i>
+                                                </a>
+                                                <a href="#" class="number act">1</a>
+                                                <a href="#" class="number">2</a>
+                                                <a href="#" class="number">3</a>
+                                                ...
+                                                <a href="#" class="number">10</a>
+                                                <a href="#">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                            </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <% } %>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+
+
+    <!--each block belong to a product with different id {{rajzeNguyen}} -->
+    <% if (pageData.productData && pageData.productData.rows.length > 0) {
+    for (var e in pageData.productData.rows) { %>
+    <% if ((pageData.productData.rows[e].desc && pageData.productData.rows[e].desc.length > 50) && (pageData.productData.rows[e].imageIds && pageData.productData.rows[e].imageIds.length > 0)) { %> 
+        <div class="productDetailPanel modal fade" id="product0<%= e %>" tabindex="-1" role="dialog" aria-labelledby="failLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="leftGallery">
+                        <div class="topImgGalleryProduct">
+                            <% for (var i in pageData.productData.rows[e].imageIds) { %>
+                            <div class="itemGal01">
+                                <img src="<%= pageData.productData.rows[e].imageIds[i].url %>">
+                            </div>
+                            <% } %>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="botImgGalleryProduct">
+                            <% for (var i in pageData.productData.rows[e].imageIds) { %>                        
+                            <div class="itemGal02">
+                                <div>
+                                    <img src="<%= pageData.productData.rows[e].imageIds[i].url %>">
+                                </div>
+                            </div>
+                            <% } %>   
+                        </div>
+                    </div>
+                    <div class="rightContent">
+                        <button type="button" class="close closeButton" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <p><%= pageData.productData.rows[e].name %></p>
+                        <h4><%= pageData.productData.rows[e].name %></h4>
+                        <div class="productDescription">
+                            <p>
+                                <%- pageData.productData.rows[e].desc %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } } } %>
+
+
+    <!--Modal for province-->
+    <% if (pageData.provinceData) { %>
+    <div class="provinceDetailPanel modal fade" id="provinces" tabindex="-1" role="dialog" aria-labelledby="failLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close closeButton" data-dismiss="modal" aria-label="Close">
+                    <img src="public/assets/x.svg" width="24">
+                </button>
+                <%- pageData.provinceData.housing %>
+            </div>
+        </div>
+    </div>
+    <% } %>
+
+    <!--Modal for Industrial Park-->
+    <% if (pageData.industrialParkData) { %>
+    <div class="provinceDetailPanel modal fade" id="industrialPark" tabindex="-1" role="dialog" aria-labelledby="failLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close closeButton" data-dismiss="modal" aria-label="Close">
+                    <!-- <img src="public/assets/x.svg" width="24"> -->
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4><%= pageData.industrialParkData.name %></h4>
+                <% if (language == "vi") { %> 
+                    <p class="onUpdate text-center colorF90"><%= langData.lbl_notVN %></p>
+                <% } %>
+                <% if (pageData.industrialParkData.owner) { %>                               
+                    <h6><%= langData.lbl_investor %></h6>
+                    <p><%- pageData.industrialParkData.owner %></p>
+                <% } %>
+                
+                <% if (pageData.industrialParkData.address && pageData.industrialParkData.address.raw) { %>               
+                    <h6><%= langData.lbl_address_ip %></h6>
+                    <p><%= pageData.industrialParkData.address.raw %></p>
+                <% } %>
+                
+                <% if (pageData.industrialParkData.chinhSachUuDai) { %>               
+                    <h6><%= langData.lbl_policies %></h6>
+                    <p><%- pageData.industrialParkData.chinhSachUuDai %></p>
+                <% } %>
+                <% if (pageData.industrialParkData.nganhNgheTiepNhan) { %>               
+                    <h6><%= langData.lbl_scope %></h6>
+                    <p><%- pageData.industrialParkData.nganhNgheTiepNhan %></p>
+                <% } %>
+                <% if (pageData.industrialParkData.area) { %>                               
+                    <h6><%= langData.lbl_totalArea %></h6>
+                    <p><%= pageData.industrialParkData.area %> ha</p>
+                <% } %>
+                <% if (pageData.industrialParkData.logoImageId) { %>
+                    <img src="http://ip.nso.com.vn/HinhBDS/Upload/<%= pageData.industrialParkData.logoImageId %>">
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <% } %>
+
+    <!--Modal for Association-->
+    <% if (pageData.associationData) { %>
+    <div class="provinceDetailPanel modal fade" id="association" tabindex="-1" role="dialog" aria-labelledby="failLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close closeButton" data-dismiss="modal" aria-label="Close">
+                    <!-- <img src="public/assets/x.svg" width="24"> -->
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4><%= pageData.associationData.name %></h4>
+                <% if (language == "vi") { %> 
+                    <p class="onUpdate text-center colorF90"><%= langData.lbl_notVN %></p>
+                <% } %>
+                <% if (pageData.associationData.address && pageData.associationData.address.raw) { %>                               
+                    <h6><%= langData.lbl_address_ip %></h6>
+                    <p class="font-light large"><%= pageData.associationData.address.raw %></p>
+                <% } %>
+                
+                <% if (pageData.associationData.phoneNumber && pageData.associationData.phoneNumber.length > 0) { %>                               
+                    <h6><%= langData.lbl_phoneNumber_ip %></h6>
+                    <p class="font-light large color333"><%- pageData.associationData.phoneNumber.map(e => '<a class="color333" href="tel:' + e + '">' + e + '</a>').join(", ") %></p>
+                <% } %>
+                
+                <% if (pageData.associationData.email && pageData.associationData.email.length > 0) { %>                               
+                    <h6><%= langData.lbl_email %></h6>
+                    <p class="font-light large color333"><%- pageData.associationData.email.map(e => '<a class="color333" href="mailto:' + e + '">' + e + '</a>').join(", ") %></p>
+                <% } %>
+                
+                <% if (pageData.associationData.website) { %>                                               
+                    <h6><%= langData.lbl_website %></h6>
+                    <p class="font-light large color333"><a class="color333" href="<%= pageData.associationData.website %>"><%= pageData.associationData.website %></a></p>
+                <% } %>
+                
+                <% if (pageData.associationData.desc) { %>                               
+                    <h6><%= langData.lbl_introduction_ip %></h6>
+                    <p class="font-light large color333"><%- pageData.associationData.desc %></p>
+                <% } %>
+                
+                <% if (pageData.associationData.foundDate) { %>                               
+                    <h6><%= langData.lbl_foundDate_ip %></h6>
+                    <p class="font-light large color333"><%= moment(pageData.associationData.foundDate).format('DD/MM/YYYY') %></p>
+                <% } %>
+                <% if (pageData.associationData && pageData.associationData.logoImageId) { %>
+                    <img src="<%= pageData.associationData.logoImageId.url %>">
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <% } %>
+    
+     <!--Modal for News-->
+     <% if (pageData.newsData && pageData.newsData.rows && pageData.newsData.rows.length > 0) { 
+        for (var e in pageData.newsData.rows) { %>
+            <div class="newsPanel modal fade" id="news<%= e %>" tabindex="-1" role="dialog" aria-labelledby="failLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <button type="button" class="close closeButton" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h6 class="newsPanelTitle"><%= pageData.newsData.rows[e].title %></h4>
+                        <span><i class="fa fa-clock"></i> <%= moment(pageData.newsData.rows[e].date).format('DD/MM/YYYY') %></span>
+                        <div class="newsDivider"></div>
+                        <div class="newsPanelContent">
+                            <%- pageData.newsData.rows[e].content %>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+    <% } } %>
+
+    <!-- Modal download app -->
+    <div class="modal fade" id="messengerApp" tabindex="-1" role="dialog" aria-labelledby="messengerLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="width:400px;">
+            <div class="modal-content">
+                <div class="modal-header" style="border:none;">
+                    <h6 class="modal-title" id="messengerLabel"></h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="public/assets/gp-4.png"/>
+                    <h2 class="color1046f1"><%= langData.lbl_please %></h2>
+                    <p class="color333"><%= langData.lbl_open %></p>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End download app-->
+
+      <!-- Modal download app -->
+      <div class="modal fade" id="appDownload" tabindex="-1" role="dialog" aria-labelledby="appDownloadLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="width:400px;">
+            <div class="modal-content">
+                <div class="modal-header" style="border:none;">
+                    <h6 class="modal-title" id="appDownloadLabel"></h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="public/assets/ios.png"/>
+                    <h2 class="color1046f1"><%= langData.lbl_hello %></h2>
+                    <p class="color333"><%= langData.lbl_scan %></p>
+                    <p class="text-center font-bold color000"><%= langData.lbl_or %></p>
+                    <p class="color333"><%= langData.lbl_clickDownload %></p>
+                    <a class="appLink" href="#"><img src="public/images/app-store.png"></a>
+                    <a class="appLink" href="#"><img src="public/images/google-play.png"></a>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End download app-->
+
+    <%- include("partials/footers/default") %>
+    <script src="public/js/jquery.touchSwipe.min.js"></script>
+</body>
+
+</html>

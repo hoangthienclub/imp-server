@@ -1,0 +1,16 @@
+
+<form action="<%= action %>" method="<%= method %>" class="form form-horizontal">
+  
+<% if (fields.length) { %>
+    <% fields.forEach(function(field){ %>
+    <div class="form-group">
+        <label for="moduleName" class="col-sm-3 control-label"><%= field.name %></label>
+        <div class="col-sm-6">
+            <input type="<%= field.type %>" name="<%= field.name %>" <% if (field.property) { %> <%= field.property %> <% } %> >
+        </div>
+    </div>
+    <% }) %>
+<% } %>
+
+<button type="submit"><%= title %></button> <!--Title for button is same as that of the page-->
+</form>
