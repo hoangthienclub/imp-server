@@ -65,9 +65,10 @@ let popUserContact = async function (db, data) {
             _id: { $in : userIds }
         }).toArray()
         .then(users => {
-            msgs.map(msg => {
-                msg.userId = users.filter(user => user._id = msg.userId)[0];
-                return msg;
+            msgs = msgs.map(msg => {
+                const info = users.filter(user => user._id = msg.userId)[0];
+                info.message = msg.message;
+                return info;
             })
             resolve(msgs);
         })
