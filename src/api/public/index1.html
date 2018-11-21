@@ -51,9 +51,15 @@
             //     msgId: '5bec4cf216d177c373ad95f9',
             //     desc: input,
             // });
-            socket.emit('del-message', {
-                msgId: '5bec4cf216d177c373ad95f9'
+            // socket.emit('del-message', {
+            //     msgId: '5bec4cf216d177c373ad95f9'
+            // });
+            socket.emit('join-conversation', {
+                userId: '5be992f7844f461870f2f4d2'
             });
+
+
+            
         })
     </script>
 </body>

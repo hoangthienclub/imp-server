@@ -1,6 +1,7 @@
 import SocketIO from 'socket.io';
 import * as KEY from './key';
 import Message from './../models/message';
+import Contact from './../models/contact';
 import UserSocket from './../models/userSocket';
 import jwt from 'jsonwebtoken';
 import { create, update, findById } from '../utils/handle';
@@ -83,6 +84,11 @@ function onListenFunctions(io, socket, dbUser) {
 		delMessage(io, socket, dbUser, data);
 	});
 
+	socket.on(KEY.JOIN_CONVERSATION,(data) => {
+		console.log('join conversation message');
+		joinConversation(io, socket, data);
+	});
+
 }
 
 const sendMessage = async (io, socket, dbUser, data) => {
@@ -159,6 +165,36 @@ const socketTyping = async (io, socket, dbUser, data) => {
 	if (userCurrent) {
 		console.log('Send msg: ', userCurrent.socketId)
 		io.to(`${userCurrent.socketId}`).emit(KEY.TYPING, executeResponse({ message : msgPopUser}));
+	}
+}
+
+const joinConversation = async (io, socket, data) => {
+	try {
+		const contactCurrent = await Contact.findOne({
+			$or: [
+				{
+					creatorId: socket.userId,
+					userId: data.userId
+				},
+				{
+					userId: socket.userId,
+					creatorId: data.userId
+				}
+			]
+		});
+		if (contactCurrent) {
+			if (contactCurrent.creatorId.toString() == socket.userId) {
+				contactCurrent.lastActiveCreator = new Date();
+			}
+			else if (contactCurrent.userId.toString() == socket.userId) {
+				contactCurrent.lastActiveUser = new Date();
+			}
+			await contactCurrent.save();
+		}
+	}
+	catch (err) {
+		console.log(err)
+		return error(socket, 'err');
 	}
 }
 

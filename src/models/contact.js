@@ -3,6 +3,8 @@ import mongoose, { Schema } from 'mongoose';
 const contactSchema = new Schema({
     creatorId: { type: Schema.Types.ObjectId },
     userId: { type: Schema.Types.ObjectId },
+    lastActiveCreator: { type: Date, default: Date.now },
+    lastActiveUser: { type: Date, default: Date.now },
     status: {
         type: Number,
         default: 0 //0 request, 1 accept
