@@ -182,10 +182,26 @@ module.exports = {
                 else {
                     message = message[0];
                 }
+                let msgUnread;
+                if (req.user._id.toString() == contact.creatorId.toString()) {
+                    msgUnread = await Message.count({
+                        ...filter,
+                        createdDate: {
+                            $gte: contact.lastActiveCreator
+                        }
+                    })
+                } else if (req.user._id.toString() == contact.userId.toString()) {
+                    msgUnread = await Message.count({
+                        ...filter,
+                        createdDate: {
+                            $gte: contact.lastActiveUser
+                        }
+                    })
+                }
                 let response = {
                     userId: contact.creatorId.toString() == req.user._id.toString()? contact.userId : contact.creatorId,
                     message: {
-                        unread: 0,
+                        unread: msgUnread || 0,
                         lastMessage: message.desc || '',
                         lastMessageTime: message.createdDate
                     }
