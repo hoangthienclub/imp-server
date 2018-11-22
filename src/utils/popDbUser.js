@@ -86,10 +86,32 @@ let popUserConversation = async function (db, data) {
     })
 }
 
+let popUserRequestContact = async function (db, data) {
+    let msgs = JSON.parse(JSON.stringify(data));
+    return new Promise((resolve, reject) => {
+        const userIds = [];
+        data.map(msg => {
+            userIds.push(msg.userId);
+        })
+        db.collection('users').find({
+            _id: { $in : userIds }
+        }).toArray()
+        .then(users => {
+            msgs = msgs.map(msg => {
+                const info = users.filter(user => user._id = msg.userId)[0];
+                info.contactId = msg.contactId;
+                return info;
+            })
+            resolve(msgs);
+        })
+    })
+}
+
 module.exports = {
     popMsgUser,
     popOneMsg,
     popContact,
     popUserContact,
-    popUserConversation
+    popUserConversation,
+    popUserRequestContact
 }

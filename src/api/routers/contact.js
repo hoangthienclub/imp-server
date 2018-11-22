@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { requestContact, acceptContact, rejectContact, deleteContact, blockContact, unBlockContact, getContact, getBlockList } from './../controllers/contact';
+import { requestContact, acceptContact, rejectContact, deleteContact, blockContact, unBlockContact, getContact, getBlockList, getRequestContact } from './../controllers/contact';
 
 export default ({ config, db }) => {
 	let api = Router();
@@ -11,6 +11,7 @@ export default ({ config, db }) => {
 	api.put('/:id/unblock', unBlockContact);
 	api.get('/list', getContact)
 	api.get('/block', getBlockList)
+	api.get('/request', getRequestContact)
     
 	return api;
 }

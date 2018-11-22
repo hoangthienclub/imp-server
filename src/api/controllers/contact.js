@@ -3,7 +3,7 @@ import Contact from './../../models/contact';
 import Message from './../../models/message';
 import { mapMessage } from './../../utils/mapping';
 import { create, find, findById, update, deleteFn } from '../../utils/handle';
-import { popContact, popUserContact } from '../../utils/popDbUser'; 
+import { popContact, popUserContact, popUserRequestContact } from '../../utils/popDbUser'; 
 
 module.exports = {
     requestContact: async (req, res, next) => {
@@ -166,6 +166,29 @@ module.exports = {
                 return userId;
             });
             res.data = await popUserContact(req.dbUser, listUser);
+            next();
+        }
+        catch (err) {
+            console.log(err)
+            next(err);
+        }
+    },
+
+    getRequestContact: async (req, res, next) => {
+        try {
+            const listContact = await Contact.find({
+                userId: req.user._id,
+                status: 0, 
+                block: false
+            });
+            const listUser = listContact.map(contact => {
+                let userId = contact.creatorId.toString() == req.user._id.toString()? contact.userId : contact.creatorId;
+                return {
+                    contactId: contact._id,
+                    userId
+                };
+            });
+            res.data = await popUserRequestContact(req.dbUser, listUser);
             next();
         }
         catch (err) {
