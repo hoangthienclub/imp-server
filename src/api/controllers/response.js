@@ -8,7 +8,7 @@ module.exports = {
     create: async (req, res, next) => {
         try {
             const newResponse = await create(Response, {...req.body, creatorId: req.user._id});
-            res.data = await popContact(req.dbUser, newResponse);
+            res.data = newResponse;
             next();
         }
         catch (err) {
@@ -20,8 +20,19 @@ module.exports = {
     getList: async (req, res, next) => {
         try {
             const listResponse = await find(Response, {creatorId: req.user._id})
-            res.data = await popMsgUser(req.dbUser, listResponse);
-            next();
+            if (listResponse.length == 0) {
+                const result = exampleResponse.map(async item => {
+                    return await create(Response, {desc: item, creatorId: req.user._id});
+                })
+                await Promise.all(result);
+                const listResponseExample = await find(Response, {creatorId: req.user._id})
+                res.data = listResponseExample;
+                next();
+            }
+            else {
+                res.data = listResponse;
+                next();
+            }
         }
         catch (err) {
             console.log(err)
@@ -44,3 +55,16 @@ module.exports = {
         }
     }
 }
+
+const exampleResponse = [
+    `Sorry, I missed your call`,
+    `I'm running late, but I'll be there soon`,
+    `How's it going?`,
+    `What's up?`,
+    `Where are you?`,
+    `Please call me when you get this message`,
+    `When can we meet`,
+    `I'll talk to you soon`,
+    `Where's the meeting`,
+    `What's the number`
+]
