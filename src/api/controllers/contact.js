@@ -161,54 +161,11 @@ module.exports = {
                 status: 1, 
                 block: false
             });
-            const listUser = listContact.map(async contact => {
-                const filter = {
-                    $or: [
-                        {
-                            creatorId: contact.creatorId,
-                            receiverId: contact.userId
-                        },
-                        {
-                            creatorId: contact.userId,
-                            receiverId: contact.creatorId
-                        }
-                    ]
-                }
-                let message = await Message.find(filter).sort({createdDate: -1}).limit(1)
-                if (message.length == 0) {
-                    message = {};
-                }
-                else {
-                    message = message[0];
-                }
-                let msgUnread;
-                if (req.user._id.toString() == contact.creatorId.toString()) {
-                    msgUnread = await Message.count({
-                        ...filter,
-                        createdDate: {
-                            $gte: contact.lastActiveCreator
-                        }
-                    })
-                } else if (req.user._id.toString() == contact.userId.toString()) {
-                    msgUnread = await Message.count({
-                        ...filter,
-                        createdDate: {
-                            $gte: contact.lastActiveUser
-                        }
-                    })
-                }
-                let response = {
-                    userId: contact.creatorId.toString() == req.user._id.toString()? contact.userId : contact.creatorId,
-                    message: {
-                        unread: msgUnread || 0,
-                        lastMessage: message.desc || '',
-                        lastMessageTime: message.createdDate
-                    }
-                };
-                return response;
-            })
-            const result = await Promise.all(listUser);
-            res.data = await popUserContact(req.dbUser, result);
+            const listUser = listContact.map(contact => {
+                let userId = contact.creatorId.toString() == req.user._id.toString()? contact.userId : contact.creatorId;
+                return userId;
+            });
+            res.data = await popUserContact(req.dbUser, listUser);
             next();
         }
         catch (err) {

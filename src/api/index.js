@@ -12,6 +12,7 @@ import company from './routers/company';
 import contact from './routers/contact';
 import response from './routers/response';
 import user from './routers/user';
+import conversation from './routers/conversation';
 import buildResponse from './../lib/buildResponse';
 import { MongoClient} from 'mongodb';
 import mongoose from 'mongoose';
@@ -59,6 +60,7 @@ export default ({ config }) => {
 	api.use('/company', company({ config }));
 	api.use('/contact', contact({ config }));
 	api.use('/response', response({ config }));
+	api.use('/conversation', conversation({ config }));
 	api.use('/user', user({ config }));
 
 	// perhaps expose some API metadata at the root

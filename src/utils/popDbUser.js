@@ -55,6 +55,17 @@ let popContact = async function (db, data) {
 }
 
 let popUserContact = async function (db, data) {
+    return new Promise((resolve, reject) => {
+        db.collection('users').find({
+            _id: { $in : data }
+        }).toArray()
+        .then(users => {
+            resolve(users);
+        })
+    })
+}
+
+let popUserConversation = async function (db, data) {
     let msgs = JSON.parse(JSON.stringify(data));
     return new Promise((resolve, reject) => {
         const userIds = [];
@@ -79,5 +90,6 @@ module.exports = {
     popMsgUser,
     popOneMsg,
     popContact,
-    popUserContact
+    popUserContact,
+    popUserConversation
 }
