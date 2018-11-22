@@ -87,7 +87,7 @@ let popUserConversation = async function (db, data) {
 }
 
 let popUserRequestContact = async function (db, data) {
-    let msgs = JSON.parse(JSON.stringify(data)); 
+    let msgs = JSON.parse(JSON.stringify(data));
     return new Promise((resolve, reject) => {
         const userIds = [];
         data.map(msg => {
