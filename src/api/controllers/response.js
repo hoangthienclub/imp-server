@@ -40,7 +40,7 @@ module.exports = {
         }
     },
 
-    deleteContact: async (req, res, next) => {
+    deleteResponse: async (req, res, next) => {
         try {
             await Response.deleteOne({
                 _id: req.params.id,
@@ -53,7 +53,27 @@ module.exports = {
             console.log(err)
             next(err);
         }
-    }
+    },
+
+    updateResponse: async (req, res, next) => {
+        try {
+            const response = await Response.findOneAndUpdate({
+                _id: req.params.id,
+                creatorId: req.user._id
+            }, {
+                desc: req.body.desc
+            }, {
+                new: true
+            });
+            res.data = response;
+            next();
+        }
+        catch (err) {
+            console.log(err)
+            next(err);
+        }
+    },
+
 }
 
 const exampleResponse = [
