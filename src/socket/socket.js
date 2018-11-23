@@ -92,6 +92,7 @@ function onListenFunctions(io, socket, dbUser) {
 }
 
 const sendMessage = async (io, socket, dbUser, data) => {
+	console.log(`${socket.id} send msg: ${data}`)
 	const msgData = {
 		desc: data.desc,
 		creatorId : socket.userId,
