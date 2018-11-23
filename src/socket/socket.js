@@ -106,6 +106,7 @@ const sendMessage = async (io, socket, dbUser, data) => {
 	const userCurrent = await UserSocket.findOne({userId: data.receiverId});
 	if (userCurrent) {
 		io.to(`${userCurrent.socketId}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : msgPopUser}));
+		io.to(`${socket.id}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : msgPopUser}));
 		await Contact.findOneAndUpdate({
 			creatorId: socket.userId,
 			userId: data.receiverId
