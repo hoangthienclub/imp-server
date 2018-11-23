@@ -29,19 +29,10 @@ const onVerifyingUser = async (io, socket) => {
 		}
 		const userId = user.user._id;
 		socket.userId = userId;
-		const userCurrent = await UserSocket.findOne({userId: userId});
-		if (userCurrent) {
-			await update(UserSocket, {
-				_id: userCurrent._id,
-				socketId: socket.id
-			})
-		}
-		else {
-			await create(UserSocket, {
-				userId: user.user._id,
-				socketId: socket.id
-			})
-		}
+		await create(UserSocket, {
+			userId: user.user._id,
+			socketId: socket.id
+		})
 
 		onConnected(io, socket, dbUser);
 	} 
@@ -60,6 +51,10 @@ function onConnected(io, socket, dbUser) {
 
 function onDisconnect(io, socket) {
     socket.on('disconnect', function () {
+		UserSocket.deleteOne({
+			userId: socket.userId,
+			socketId: socket.id
+		});
   	    console.log(`${socket.id} disconnect`)
     });
 }
