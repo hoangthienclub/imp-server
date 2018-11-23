@@ -38,7 +38,7 @@
         $('#poke').click(function () {
             var input = document.getElementById("input").value;
             socket.emit('send-message', {
-                receiverId: '5be99326844f461870f2f4d3',
+                receiverId: '5bf4dea202b1bd51022c10ff',
                 desc: input,
             });
             $('#content').append(`<p>You chat: ${input}</p>`)
