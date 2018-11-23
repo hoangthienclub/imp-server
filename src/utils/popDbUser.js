@@ -14,7 +14,7 @@ let popMsgUser = async function (db, data) {
                 msg.creatorId = users.filter(user => user._id.toString() == msg.creatorId.toString())[0];
                 msg.receiverId = users.filter(user => user._id.toString() == msg.receiverId.toString())[0];
                 return msg;
-            })
+            }) 
             resolve(msgs);
         })
     })
