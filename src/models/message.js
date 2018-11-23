@@ -31,7 +31,6 @@ const statics = {
 			],
 			createdDate: { $lte: data.time }
 		}
-		console.log(filter)
         return Message.find(filter)
 		.sort({createdDate: -1})
 		// .skip(data.skippingMessages || 0)
