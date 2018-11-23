@@ -15,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script>
-        var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmY0ZGVhMjAyYjFiZDUxMDIyYzEwZmYiLCJ1c2VyIjp7Il9pZCI6IjViZjRkZWEyMDJiMWJkNTEwMjJjMTBmZiIsImZ1bGxuYW1lIjoiRGVtbyAxIiwidXNlcm5hbWUiOiJEZW1vMSIsImctcmVjYXB0Y2hhLXJlc3BvbnNlIjoiIiwiaGFzaCI6IiQyYSQxMCRUZnBBME5BbzUwdUVKYXE5dFY4dnJ1MTU3ZC4uYmc3d1Jud3VlNm9HWDhPUFg2ZkZWUVNFUyIsInBob25lIjoiMDEyMzIxNDIzMzIiLCJjb3VudHJ5Y29kZSI6Iis4NCIsIm1vZHRpbWUiOiIxNTQyOTAzNjE4MzEyIiwiaW50cm9kdWN0aW9uIjoiRGVtbzIyMjIiLCJ5ZWFyb2ZiaXJ0aCI6IjE5OTYiLCJnZW5kZXIiOiIxIiwiZW1haWwiOiJob2FuZ2tpbXR1YW4xOTk2QGdtYWlsLmNvbTIiLCJhZGRyZXNzIjoiUXVhbiAyIiwidGF4bnVtYmVyIjoiMTIzNDU2Iiwic3BlYWtpbmdsYW5ndWFnZXMiOiJFbmdsaXNoIiwic29jaWFsbWVkaWFsaW5rIjoiRGVtbzIiLCJjb21wYW55Ijp7Im5hbWUiOiJDw5RORyBUWSBD4buUIFBI4bqmTiBE4buKQ0ggVuG7pCBWw4AgxJDhuqZVIFTGryBN4buYVCBD4busQSBRVeG7kEMgR0lBIiwiX2lkIjoiNWIwNjRiYTVkYzk3NTMwOWI4ZmFiODI3IiwidXJsIjoiY29uZy10eS1jby1waGFuLWRpY2gtdnUtdmEtZGF1LXR1LW1vdC1jdWEtcXVvYy1naWEifSwiYXZhdGFyIjp7InVybCI6Imh0dHA6Ly9zc28ubnNvLnZuL2ltYWdlcy9hdmF0YXJzLzViZjRkZWEyMDJiMWJkNTEwMjJjMTBmZi5qcGc_ZGF0ZT0xNTQyOTAzNjE4Mjk5IiwiX2lkIjoiNWJmNmQ3NDIwNDBlYWMyY2NjOTMyM2IxIn19LCJpYXQiOjE1NDI5NjUzMTR9.Mo5oBhe9ltS6MyyBXM_2PVL4VDSpQzcK_yEsrA-ItaE';
+        var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmY0ZTU5NDAyYjFiZDUxMDIyYzk3MjEiLCJ1c2VyIjp7Il9pZCI6IjViZjRlNTk0MDJiMWJkNTEwMjJjOTcyMSIsImZ1bGxuYW1lIjoiRGVtbyAyIiwidXNlcm5hbWUiOiJEZW1vMiIsImctcmVjYXB0Y2hhLXJlc3BvbnNlIjoiIiwiaGFzaCI6IiQyYSQxMCRUZnBBME5BbzUwdUVKYXE5dFY4dnJ1MTU3ZC4uYmc3d1Jud3VlNm9HWDhPUFg2ZkZWUVNFUyIsInBob25lIjoiMDEyMzIxNDIzMzIiLCJjb3VudHJ5Y29kZSI6Iis4NCIsIm1vZHRpbWUiOiIxNTQyNzc2MTEyNjQ5IiwiaW50cm9kdWN0aW9uIjoiRGVtbzIyMjIiLCJ5ZWFyb2ZiaXJ0aCI6IjE5OTYiLCJnZW5kZXIiOiIxIiwiZW1haWwiOiJob2FuZ2tpbXR1YW4xOTk2QGdtYWlsLmNvbTIiLCJhZGRyZXNzIjoiUXVhbiAyIiwidGF4bnVtYmVyIjoiMTIzNDU2Iiwic3BlYWtpbmdsYW5ndWFnZXMiOiJFbmdsaXNoIiwic29jaWFsbWVkaWFsaW5rIjoiRGVtbzIiLCJjb21wYW55Ijp7Im5hbWUiOiJDw5RORyBUWSBD4buUIFBI4bqmTiBE4buKQ0ggVuG7pCBWw4AgxJDhuqZVIFTGryBN4buYVCBD4busQSBRVeG7kEMgR0lBIiwiX2lkIjoiNWIwNjRiYTVkYzk3NTMwOWI4ZmFiODI3IiwidXJsIjoiY29uZy10eS1jby1waGFuLWRpY2gtdnUtdmEtZGF1LXR1LW1vdC1jdWEtcXVvYy1naWEifX0sImlhdCI6MTU0Mjk2NDY5NH0.bN_vfoVZ_7WmYHSCfMJUF5MMWHUnSd18dha66q_se14';
         // const socket = io.connect('http://localhost:4040', { query : { 'token' : token } });
         const socket = io.connect('https://nso.gitosolutions.com', { query : { 'token' : token } });
         socket.on('send-message', function (message) {
@@ -38,7 +38,7 @@
         $('#poke').click(function () {
             var input = document.getElementById("input").value;
             socket.emit('send-message', {
-                receiverId: '5bf4e59402b1bd51022c9721',
+                receiverId: '5bf4dea202b1bd51022c10ff',
                 desc: input,
             });
             $('#content').append(`<p>You chat: ${input}</p>`)
