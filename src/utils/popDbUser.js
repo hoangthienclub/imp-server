@@ -11,8 +11,8 @@ let popMsgUser = async function (db, data) {
         }).toArray()
         .then(users => {
             msgs.map(msg => {
-                msg.creatorId = users.filter(user => user._id = msg.creatorId)[0];
-                msg.receiverId = users.filter(user => user._id = msg.receiverId)[0];
+                msg.creatorId = users.filter(user => user._id.toString() == msg.creatorId.toString())[0];
+                msg.receiverId = users.filter(user => user._id.toString() == msg.receiverId.toString())[0];
                 return msg;
             })
             resolve(msgs);

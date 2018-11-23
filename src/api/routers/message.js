@@ -8,10 +8,10 @@ export default ({ config }) => {
 	api.get('/', getMessages);
 	api.get('/files', getFiles);
 	
-	// api.all('*', async (req, res, next) => {
-	// 	const data = await popMsgUser(req.dbUser, res.data)
-	// 	res.data = data;
-	// 	next();
-	// })
+	api.all('*', async (req, res, next) => {
+		const data = await popMsgUser(req.dbUser, res.data)
+		res.data = data;
+		next();
+	})
 	return api;
 }
