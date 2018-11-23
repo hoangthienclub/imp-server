@@ -99,10 +99,20 @@ const sendMessage = async (io, socket, dbUser, data) => {
 	const newMsg = await create(Message, msgData);
 	const msgPopAvt = await popMsg(Message, newMsg);
 	const msgPopUser = await popOneMsg(dbUser, msgPopAvt);
-	const userCurrent = await UserSocket.findOne({userId: data.receiverId});
-	if (userCurrent) {
-		io.to(`${userCurrent.socketId}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : msgPopUser}));
-		io.to(`${socket.id}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : msgPopUser}));
+	const userCurrent = await UserSocket.find({
+		$or : [
+			{
+				userId: data.receiverId
+			},
+			{
+				userId: socket.userId
+			}
+		]
+	})
+	if (userCurrent.length > 0) {
+		userCurrent.map(user => {
+			io.to(`${user.socketId}`).emit(KEY.SEND_MESSAGE, executeResponse({ message : msgPopUser}));
+		})
 		await Contact.findOneAndUpdate({
 			creatorId: socket.userId,
 			userId: data.receiverId

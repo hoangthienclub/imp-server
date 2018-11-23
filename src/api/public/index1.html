@@ -21,7 +21,7 @@
         socket.on('send-message', function (message) {
             console.log(JSON.stringify(message))
             // console.log(`${message.results.creatorId.fullname} send: ${message.results.desc}`);
-            $('#content').append(`<p>Nguoi ta chat: ${message.results.creatorId.fullname} send: ${message.results.desc}</p>`)
+            $('#content').append(`${message.results.creatorId.fullname} send: ${message.results.desc}</p>`)
         })
         socket.on('typing', function(data) {
             console.log(data)
@@ -41,7 +41,7 @@
                 receiverId: '5bf4dea202b1bd51022c10ff',
                 desc: input,
             });
-            $('#content').append(`<p>You chat: ${input}</p>`)
+            // $('#content').append(`<p>You chat: ${input}</p>`)
             // socket.emit('typing', {
             //     receiverId: '5be99326844f461870f2f4d3',
             //     type: 0,
