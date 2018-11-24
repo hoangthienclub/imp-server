@@ -49,13 +49,20 @@ function onConnected(io, socket, dbUser) {
     onDisconnect(io, socket); // On disconnect
 }
 
-function onDisconnect(io, socket) {
-    socket.on('disconnect', function () {
-		UserSocket.deleteOne({
-			userId: socket.userId,
-			socketId: socket.id
-		});
-  	    console.log(`${socket.id} disconnect`)
+const onDisconnect = async (io, socket) => {
+    socket.on('disconnect', async function () {
+		try {
+			console.log('userId:', socket.userId)
+			console.log('socketid:', socket.id)
+			await UserSocket.remove({
+				userId: socket.userId,
+				socketId: socket.id
+			});
+			console.log(`${socket.id} disconnect`)
+		}
+		catch (err) {
+			console.log(err)
+		}
     });
 }
 

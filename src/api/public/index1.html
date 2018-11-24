@@ -17,9 +17,9 @@
     <script>
         // var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmY0ZTU5NDAyYjFiZDUxMDIyYzk3MjEiLCJ1c2VyIjp7Il9pZCI6IjViZjRlNTk0MDJiMWJkNTEwMjJjOTcyMSIsImZ1bGxuYW1lIjoiRGVtbyAyIiwidXNlcm5hbWUiOiJEZW1vMiIsImctcmVjYXB0Y2hhLXJlc3BvbnNlIjoiIiwiaGFzaCI6IiQyYSQxMCRUZnBBME5BbzUwdUVKYXE5dFY4dnJ1MTU3ZC4uYmc3d1Jud3VlNm9HWDhPUFg2ZkZWUVNFUyIsInBob25lIjoiMDEyMzIxNDIzMzIiLCJjb3VudHJ5Y29kZSI6Iis4NCIsIm1vZHRpbWUiOiIxNTQyNzc2MTEyNjQ5IiwiaW50cm9kdWN0aW9uIjoiRGVtbzIyMjIiLCJ5ZWFyb2ZiaXJ0aCI6IjE5OTYiLCJnZW5kZXIiOiIxIiwiZW1haWwiOiJob2FuZ2tpbXR1YW4xOTk2QGdtYWlsLmNvbTIiLCJhZGRyZXNzIjoiUXVhbiAyIiwidGF4bnVtYmVyIjoiMTIzNDU2Iiwic3BlYWtpbmdsYW5ndWFnZXMiOiJFbmdsaXNoIiwic29jaWFsbWVkaWFsaW5rIjoiRGVtbzIiLCJjb21wYW55Ijp7Im5hbWUiOiJDw5RORyBUWSBD4buUIFBI4bqmTiBE4buKQ0ggVuG7pCBWw4AgxJDhuqZVIFTGryBN4buYVCBD4busQSBRVeG7kEMgR0lBIiwiX2lkIjoiNWIwNjRiYTVkYzk3NTMwOWI4ZmFiODI3IiwidXJsIjoiY29uZy10eS1jby1waGFuLWRpY2gtdnUtdmEtZGF1LXR1LW1vdC1jdWEtcXVvYy1naWEifX0sImlhdCI6MTU0Mjk2NDY5NH0.bN_vfoVZ_7WmYHSCfMJUF5MMWHUnSd18dha66q_se14';
         var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1YmY4ZDcxYmJkYTQ0YzUwMTVkODliZGQiLCJ1c2VyIjp7Il9pZCI6IjViZjhkNzFiYmRhNDRjNTAxNWQ4OWJkZCIsImZ1bGxuYW1lIjoiVnUgREluaCBEdXkiLCJ1c2VybmFtZSI6InZ1ZGluaGR1eTMwOSIsImhhc2giOiIkMmEkMTAkUjZvVXNIRUFOVldWalRoVi82WmJadWRqUmVseEE1OVNyalJ6S3lLSUV6aHFxM2R1M3lNNUMiLCJjcmVhdGV0aW1lIjoiMTU0MzAzNDY1MTE2NyIsImNvdW50cnljb2RlIjoiKzg0IiwibW9kdGltZSI6IjE1NDMwMzQ3MDcyMTEiLCJwaG9uZSI6IjAxNjM3NDc5NzYwIn0sImlhdCI6MTU0MzAzNzE0N30.e6UM8afl6iH52fEI4ZZJvhyDFrpbMTuqZGih1ubZryk';
-        const socket = io.connect('https://chatnso.gitosolutions.com', { query : { 'token' : token } });
+        // const socket = io.connect('https://chatnso.gitosolutions.com', { query : { 'token' : token } });
         // const socket = io.connect('https://nso.gitosolutions.com', { query : { 'token' : token } });
-        // const socket = io.connect('http://localhost:4040', { query : { 'token' : token } });
+        const socket = io.connect('http://localhost:4040', { query : { 'token' : token } });
         socket.on('send-message', function (message) {
             console.log(JSON.stringify(message))
             // console.log(`${message.results.creatorId.fullname} send: ${message.results.desc}`);
