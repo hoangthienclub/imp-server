@@ -19,7 +19,7 @@ module.exports = {
                     }
                 };
                 return response;
-            })
+            });
             const listUserconver = listUser.filter(user => user._id.toString() != req.user._id);
             res.data = listUserconver;
             next();
