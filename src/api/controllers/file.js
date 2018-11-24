@@ -4,7 +4,7 @@ import fs from 'fs';
 import File from './../../models/file';
 import { mapFile } from './../../utils/mapping';
 
-const pathFile = './src/files/';
+const pathFile = process.env.pathFile;
 var upload = multer({storage : multer.diskStorage(
     {
         destination: function (req, file, callback) {
