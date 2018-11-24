@@ -20,7 +20,8 @@ module.exports = {
                 };
                 return response;
             })
-            res.data = listUser;
+            const listUserconver = listUser.filter(user => user._id.toString() != req.user._id);
+            res.data = listUserconver;
             next();
         }
         catch (err) {
